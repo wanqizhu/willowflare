@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RedditClone</title>
+  <title>WillowFlare</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,6 +11,20 @@
     <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
+    
+    <% if user_signed_in? %>
+        <ul>
+            <li><%= link_to 'Submit Review', new_link_path %></li>
+            <li><%= link_to 'Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        </ul>
+    <% else %>
+        <ul>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
+    <% end %>
+    
 <%= yield %>
 
 </body>
