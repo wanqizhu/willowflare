@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 # for AWS
 gem 'puma'
+gem 'mysql2', '~> 0.3.18'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
