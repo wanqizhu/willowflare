@@ -10,5 +10,14 @@
   <%= @link.url %>
 </p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
+<p>
+  <strong>Content:</strong>
+  <%= @link.content %>
+</p>
+
+<% if @link.user == current_user %>
+	<%= link_to 'Edit', edit_link_path(@link) %> |
+<% end %>
+
+
 <%= link_to 'Back', links_path %>
