@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reviews1</h1>
+<h1>Reviews</h1>
 
 <table>
   <thead>
@@ -25,6 +25,21 @@
           <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
+
+      <div class="btn-group">
+        <!-- <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a> -->
+        <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+          <i class="fa fa-chevron-up"></i>
+          Upvote
+          <%= link.get_upvotes.size %>
+        <% end %>
+        
+        <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+          <i class="fa fa-chevron-down"></i>
+          Downvote
+          <%= link.get_downvotes.size %>
+        <% end %>
+      </div>
     <% end %>
   </tbody>
 </table>
