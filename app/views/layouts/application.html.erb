@@ -11,6 +11,8 @@
     <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
+
+    <%= link_to 'Home', links_path %>
     
     <% if user_signed_in? %>
         <ul>
