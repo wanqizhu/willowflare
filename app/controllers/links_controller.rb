@@ -15,7 +15,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.order(:cached_weighted_average => :desc)
+    @links = Link.order(cached_weighted_score: :desc)
   end
 
   # GET /links/1
@@ -93,6 +93,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :url, :content)
+      params.require(:link).permit(:title, :url, :content, :cached_weighted_score)
     end
 end

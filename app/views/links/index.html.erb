@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @links.order(:cached_weighted_average => :desc).each do |link| %>
+    <% @links.each do |link| %>
       <tr>
         <td><%= link.title %></td>
         <td><%= link.url %></td>
