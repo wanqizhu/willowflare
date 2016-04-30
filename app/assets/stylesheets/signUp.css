@@ -1,0 +1,49 @@
+html,body {
+    /*-webkit-animation: colorCycle 10s infinite;
+    animation: colorCycle 10s infinite;*/
+    background-color: crimson;
+}
+
+.new_user {
+    display: block;
+    text-align: right;
+    position: absolute;
+    right: 35%;
+}
+
+.field input {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    color: #546E7A;
+    text-align: left;
+    padding: 3px 7px;
+    font-size: 30px;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    line-height: 30px;
+}
+
+.field input:focus{
+   outline: none;
+}
+
+.field label {
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    background-color: lightslategray;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    line-height: 30px;
+    padding: 3px 10px;
+    font-size: 30px;
+    font-weight: 200;
+    height: 60px;
+}
+
+.checkbox label {
+    background: none;
+    border: none;
+    font-size: 1em;
+}
