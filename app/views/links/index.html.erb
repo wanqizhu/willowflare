@@ -24,22 +24,24 @@
           <td><%= link_to 'Edit', edit_link_path(link) %></td>
           <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
-      </tr>
+      
 
-      <div class="btn-group">
-        <!-- <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a> -->
-        <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-          <i class="fa fa-chevron-up"></i>
-          Upvote
-          <%= link.get_upvotes.size %>
-        <% end %>
-        
-        <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-          <i class="fa fa-chevron-down"></i>
-          Downvote
-          <%= link.get_downvotes.size %>
-        <% end %>
-      </div>
+        <td><div class="btn-group">
+          <!-- <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a> -->
+          <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+            <i class="fa fa-chevron-up"></i>
+            Upvote
+            <%= link.get_upvotes.size %>
+          <% end %>
+          
+          <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+            <i class="fa fa-chevron-down"></i>
+            Downvote
+            <%= link.get_downvotes.size %>
+          <% end %>
+        </div></td>
+
+      </tr>
     <% end %>
   </tbody>
 </table>
