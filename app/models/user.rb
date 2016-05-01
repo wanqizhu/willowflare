@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :links
+
+  before_create :init_money
+
+  def init_money
+  	self.money = 10
+  end
+
 end
