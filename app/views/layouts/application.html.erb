@@ -12,7 +12,7 @@
         <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
 
-    <%= link_to 'Home', root_path %>
+    <%= link_to 'Home', root_path, class: "homeButton" %>
     
     <% if user_signed_in? %>
         <ul>
