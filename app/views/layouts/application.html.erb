@@ -15,13 +15,13 @@
     <%= link_to 'Home', root_path, class: "homeButton" %>
     
     <% if user_signed_in? %>
-        <ul>
+        <ul class="navbar">
             <li><%= link_to 'Submit Review', new_link_path %></li>
             <li><%= link_to 'Account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
         </ul>
     <% else %>
-        <ul>
+        <ul class="navbar">
             <li><%= link_to 'Sign up', new_user_registration_path %></li>
             <li><%= link_to 'Sign in', new_user_session_path %></li>
         </ul>

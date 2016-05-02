@@ -1,0 +1,21 @@
+ul, li {
+    display: inline-block;
+}
+
+.homeButton {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: inline;
+}
+
+.navbar {
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+    top: 0;
+}
+
+.navbar a:link {
+    text-decoration: none;
+}

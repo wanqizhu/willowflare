@@ -5,10 +5,7 @@ html,body {
 }
 
 .new_user {
-    display: block;
-    text-align: right;
-    position: absolute;
-    right: 35%;
+    text-align: center;
 }
 
 .field input {
@@ -32,14 +29,13 @@ html,body {
     margin: 0;
     border: none;
     box-sizing: border-box;
-    background-color: lightslategray;
+    background-color: #A39BA8;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     line-height: 30px;
     padding: 3px 10px;
     font-size: 30px;
     font-weight: 200;
-    height: 60px;
 }
 
 .checkbox label {

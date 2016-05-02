@@ -1,35 +1,35 @@
 <p id="notice"><%= notice %></p>
+<div class="showPostGroup">
+    <p>
+      <strong>Title:</strong>
+      <%= @link.title %>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
+    <p>
+      <strong>Url:</strong>
+      <%= @link.url %>
+    </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
+    <p>
+      <strong>Content:</strong>
+      <%= @link.content %>
+    </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @link.content %>
-</p>
+    <small class="author">Submitted <%= time_ago_in_words(@link.created_at) %> by <%= @link.user.username %></small>
 
-<small class="author">Submitted <%= time_ago_in_words(@link.created_at) %> by <%= @link.user.username %></small>
-
-<div class="btn-group">
-  <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
-    <i class="fa fa-chevron-up"></i>
-    Upvote
-    <%= @link.get_upvotes.size %>
-  <% end %>
-  <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
-    <i class="fa fa-chevron-down"></i>
-    Downvote
-    <%= @link.get_downvotes.size %>
-  <% end %>
+    <div class="btn-group">
+      <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+        <i class="fa fa-chevron-up"></i>
+        Upvote
+        <%= @link.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+        <i class="fa fa-chevron-down"></i>
+        Downvote
+        <%= @link.get_downvotes.size %>
+      <% end %>
+    </div>
 </div>
-
 <% if @link.user == current_user %>
 	<%= link_to 'Edit', edit_link_path(@link) %> |
 <% end %>
