@@ -1,7 +1,7 @@
 html,body {
-    /*-webkit-animation: colorCycle 10s infinite;
-    animation: colorCycle 10s infinite;*/
-    background-color: crimson;
+    -webkit-animation: colorCycle 10s infinite;
+    animation: colorCycle 10s infinite;
+    /*background-color: crimson;*/
 }
 
 .new_user {

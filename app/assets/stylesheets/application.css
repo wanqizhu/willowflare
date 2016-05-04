@@ -25,8 +25,8 @@
 body, html {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     margin: 0; padding: 0;
-    background-color: #B8C5D6;
-    color: #272D2D;
+    background-image: url(background.jpg);
+ 	background-size: cover;
 }
 
 h1 {
