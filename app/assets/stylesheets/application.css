@@ -21,12 +21,14 @@
 @import url(links.scss);
 @import url(navbar.css);
 @import url(comments.css);
+@import url(landingPage.css);
 
 body, html {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     margin: 0; padding: 0;
-    background-image: url(background.jpg);
- 	background-size: cover;
+    /*background-image: url(background.jpg);
+ 	background-size: cover;*/
+    background-color: #fed136;
 }
 
 h1 {

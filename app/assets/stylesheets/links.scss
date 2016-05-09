@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 a, a:link, a:hover, a:active, a:visited {
-    color: #4B3F72;
+    color: #EDF5FC;
 }
 
 a:hover, ul, li {
@@ -15,8 +15,11 @@ thead {
 }
 
 table {
-    width: 90vw;
+    width: 95vw;
     margin: 0 auto;
+    background-color: white;
+    border-radius: 7px;
+    box-sizing: padding-box;
 }
 
 tr {
@@ -26,6 +29,8 @@ tr {
     border-radius: 7px;
     margin-bottom: 10px;
     padding: 5px;
+    width: 97%;
+    margin: 10px auto;
 }
 
 .linkElement {

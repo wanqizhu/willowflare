@@ -2,20 +2,44 @@ ul, li {
     display: inline-block;
 }
 
+.navbarGroup {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    display: block;
+}
+
 .homeButton {
     position: absolute;
     top: 5px;
     left: 5px;
     display: inline;
+    font-size: 1.3em;
 }
 
 .navbar {
     position: absolute;
-    display: inline-block;
-    right: 5px;
+    display: inline;
     top: 0;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-variant: small-caps;
+    font-weight: 400;
+    font-size: 1.3em;
 }
 
 .navbar a:link {
     text-decoration: none;
+    font-size: 1.3em;
+}
+
+.navbar a:hover {
+    background: none;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar p {
+    display: inline-block;
 }

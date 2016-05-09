@@ -7,8 +7,8 @@
 }
 
 .comments_title {
-    text-align: right;
-    display: inline-block;
+    text-align: center;
+    color: #EDF5FC;
 }
 
 .comments_wrapper {
