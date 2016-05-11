@@ -7,25 +7,54 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-    <% end %>
-    <div class="navbarGroup">
-        <%= link_to 'Home', root_path, class: "homeButton" %>
-        <% if user_signed_in? %>
-            <ul class="navbar">
-                <li><%= link_to 'submit review', new_link_path %></li>
-                <li><%= link_to 'account', edit_user_registration_path %></li>
-                <li><%= link_to 'sign out', destroy_user_session_path, :method => :delete %></li>
-            </ul>
-        <% else %>
-            <ul class="navbar signedOut">
-                <p>Already a member? Sign in!</p>
-                <li><%= link_to 'Sign in', new_user_session_path %></li>
-            </ul>
+
+    
+    
+            
+    <% if user_signed_in? -%>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div id="logo" class="navbar-brand"><%= link_to "WillowFlare", root_path %></div>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul id="topNavRight" class="nav navbar-nav navbar-right">
+                        <li><%= link_to 'Submit review', new_link_path %></li>
+                        <li><%= link_to 'Account', edit_user_registration_path %></li>
+                        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+    <% else -%>
+        <div class="container">
+            <p>Already a member?</p><li><%= link_to 'Sign in!', new_user_session_path %></li>
+            <li><%= link_to 'Sign up!', new_user_registration_path %></li>
+        </div>
+    <% end -%>
+
+    
+       
+
+    <div id="main_content" class="container">
+        <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
         <% end %>
+
+        <div id="content" class="center-block">
+            <%= yield %>
+        </div>
+
     </div>
-<%= yield %>
 
 </body>
 </html>

@@ -2,29 +2,20 @@ ul, li {
     display: inline-block;
 }
 
-.navbarGroup {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    display: block;
-}
 
-.homeButton {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    display: inline;
-    font-size: 1.3em;
-}
 
-.navbar {
-    position: absolute;
+.navbar{
     display: inline;
-    top: 0;
+    margin-left: -30px; /* hide the wierd white bar */
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-variant: small-caps;
     font-weight: 400;
     font-size: 1.3em;
+}
+
+
+.navbar .container {
+    width: 100%;
 }
 
 .navbar a:link {
@@ -36,10 +27,27 @@ ul, li {
     background: none;
 }
 
-.navbar {
-    width: 100%;
-}
 
 .navbar p {
     display: inline-block;
+}
+
+
+
+.navbar-header {
+    padding-left: 30px;
+}
+
+
+.navbar-brand a {
+    color: #fed136;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
+#topNavRight {
+    padding-left: 30px;
+}
+
+#topNavRight > li > a {
+    color: #30D1E4;
 }
