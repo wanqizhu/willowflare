@@ -14,5 +14,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :money
     devise_parameter_sanitizer.for(:account_update) << :username
     devise_parameter_sanitizer.for(:account_update) << :money
+    devise_parameter_sanitizer.for(:account_update) << :gender
+    devise_parameter_sanitizer.for(:account_update) << :age
+    devise_parameter_sanitizer.for(:account_update) << :device
+    devise_parameter_sanitizer.for(:account_update) << :OS
+    devise_parameter_sanitizer.for(:account_update) << :time_spent
+    devise_parameter_sanitizer.for(:account_update) << :spending
+    devise_parameter_sanitizer.for(:account_update) << :motivation
+    devise_parameter_sanitizer.for(:account_update) << :game_genre
+    devise_parameter_sanitizer.for(:account_update) << :nation
+    devise_parameter_sanitizer.for(:account_update) << :info
   end
 end

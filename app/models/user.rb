@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   before_create :init_money
 
   def init_money
-  	self.money = 10
+  	self.money = 50
   end
 
 end

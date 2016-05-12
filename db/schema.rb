@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502201555) do
+ActiveRecord::Schema.define(version: 20160511235548) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "link_id"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20160502201555) do
     t.string   "type"
     t.integer  "money"
     t.string   "username"
+    t.string   "gender"
+    t.integer  "age"
+    t.string   "device"
+    t.string   "OS"
+    t.integer  "time_spent"
+    t.integer  "spending"
+    t.integer  "motivation"
+    t.integer  "game_genre"
+    t.string   "nation"
+    t.text     "info"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
