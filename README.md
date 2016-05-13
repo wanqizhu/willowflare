@@ -1,5 +1,14 @@
 Deployed to AWS: http://willowflare-dev.us-west-2.elasticbeanstalk.com/
 
+~
+
+
+Accessing the app in aws:
+
+eb ssh
+sudo su
+cd /var/app/current
+
 
 ~
 
