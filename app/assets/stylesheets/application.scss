@@ -2,13 +2,13 @@
 @import "bootstrap";
 @import "font-awesome";
 
-@import url(signUp.css);
-@import url(animations.css);
-@import url(links.scss);
-@import url(navbar.css);
-@import url(comments.css);
-@import url(landingPage.css);
-@import url(editUser.css);
+@import "signUp.css";
+@import "animations.css";
+@import "links.scss";
+@import "navbar.css";
+@import "comments.css";
+@import "landingPage.css";
+@import "editUser.css";
 
 body, html {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
