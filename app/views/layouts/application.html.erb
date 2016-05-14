@@ -5,6 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -36,9 +40,10 @@
         </nav>
 
     <% else -%>
-        <div class="container">
-            <p>Already a member?</p><li><%= link_to 'Sign in!', new_user_session_path %></li>
-            <li><%= link_to 'Sign up!', new_user_registration_path %></li>
+       
+        <div class="container" id="topBanner">
+            <p>Already a member?<span><%= link_to 'Sign in', new_user_session_path %></span>
+            <span><%= link_to 'Sign up', new_user_registration_path %></span></p>
         </div>
     <% end -%>
 

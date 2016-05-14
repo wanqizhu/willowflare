@@ -42,6 +42,9 @@ ul, li {
 #logo a {
     color: #fed136;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    font-size: 2em;
+    line-height: 20px;
+    font-variant: normal;
 }
 
 #topNavRight {
@@ -50,4 +53,21 @@ ul, li {
 
 #topNavRight > li > a {
     color: #30D1E4;
+}
+
+
+
+/* top banner on landing page, when user not signed in */
+#topBanner {
+    text-align: right;
+    padding-top: 7px;
+    padding-right: 30px;
+
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+#topBanner span {
+    margin: 0px 10px;
 }
