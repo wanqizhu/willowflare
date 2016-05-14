@@ -14,7 +14,12 @@ class User < ActiveRecord::Base
     else
       self.money = 0
     end
-  	self.auth_level = 0
+
+    if Rails.application.config.admins.include?(self.email)
+      self.auth_level = 99
+    else
+      self.auth_level = 0
+    end
   end
 
 end

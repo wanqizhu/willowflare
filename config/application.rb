@@ -25,7 +25,9 @@ module RedditClone
 
 
     # email lists
-    config.mailchimp_signup = File.readlines('../mailchimp_email.txt').each {|l| l.chomp!}
+    Dir.chdir(File.dirname(__FILE__))
+    config.mailchimp_signup = File.readlines('mailchimp_email.txt').each {|l| l.chomp!}
+    config.admins = File.readlines('admin_email.txt').each {|l| l.chomp!}
 
   end
 end
