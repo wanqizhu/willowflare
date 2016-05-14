@@ -4,12 +4,21 @@ html,body {
     /*background-color: crimson;*/
 }
 
-.new_user {
+#new_user {
     text-align: center;
+    margin-top: 25px;
 }
 
-.field {
+.deviseOtherOptions {
+    margin-top: 30px;
+}
+
+form .field {
     margin: 6px;
+}
+
+form .actions {
+    padding-top: 10px;
 }
 
 .field input {
@@ -53,4 +62,8 @@ html,body {
     background: none;
     border: none;
     font-size: 1em;
+}
+
+input#user_remember_me {
+    margin-top: 10px;
 }

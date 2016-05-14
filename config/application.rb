@@ -22,5 +22,10 @@ module RedditClone
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    # email lists
+    config.mailchimp_signup = File.readlines('../mailchimp_email.txt').each {|l| l.chomp!}
+
   end
 end

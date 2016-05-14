@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
   before_create :init_user
 
   def init_user
-  	self.money = 50
+    if Rails.application.config.mailchimp_signup.include?(self.email)
+      self.money = 50
+    else
+      self.money = 0
+    end
   	self.auth_level = 0
   end
 
