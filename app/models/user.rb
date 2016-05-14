@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
 
   has_many :links
 
-  before_create :init_money
+  before_create :init_user
 
-  def init_money
+  def init_user
   	self.money = 50
+  	self.auth_level = 0
   end
 
 end

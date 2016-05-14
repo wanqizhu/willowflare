@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160511235548) do
 
   create_table "links", force: :cascade do |t|
     t.string   "title"
+    t.string   "url"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.text     "content"
@@ -61,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160511235548) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+    t.integer  "auth_level"
     t.integer  "money"
     t.string   "username"
     t.string   "gender"

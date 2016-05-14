@@ -1,13 +1,19 @@
 <div class="container" id="coins">
-  <h1>You have <span style="color: #fed136"><%= resource.money %></span> WillowPoints!</h1>
+  <h1><%= resource.username %>, you have <span style="color: #fed136"><%= resource.money %></span> WillowPoints!</h1>
 
+  <p>If you've recently completed a survey, please allow up to 24 hours for your points to update.</p>
+  
   <p>Ready to redeem? We are working to get our store ready <br /> If you already have at least 450 points, <a href="mailto:info@willowflare.com">email us here.</a></p>
 
-  <!--<button class="popupButton" targetID='editUser'>Edit account</button>
+
+<% if false %>
+  <button class="popupButton" targetID='editUser'>Edit account</button>
 
   <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert alert-info") %>
-  <% end %> -->
+  <% end %>
+<% end %>
+
 </div>
 
 

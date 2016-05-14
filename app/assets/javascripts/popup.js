@@ -1,6 +1,10 @@
 // for popups and show/hide parts
 
 $(document).ready(function(){
+
+    // $(".clickable-row").click(function() {
+    //     window.document.location = $(this).data("href");
+    // });
   
     $(".popupButton").on('click',function(e){
         e.preventDefault();

@@ -10,7 +10,20 @@ ul, li {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-variant: small-caps;
     font-weight: 400;
-    font-size: 1.3em;
+    font-size: 1em;
+
+    background-color: transparent;
+    border-color: transparent;
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        font-size: 1.3em;
+    }
+}
+
+.navbar-collapse {
+    border-color: transparent;
 }
 
 

@@ -17,6 +17,7 @@ thead {
 table {
     width: 95vw;
     margin: 0 auto;
+    margin-top: 47px;
     background-color: white;
     border-radius: 7px;
     box-sizing: padding-box;
@@ -27,12 +28,26 @@ tr {
     min-height: 60px;
     background-color: #EDF5FC;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin: 10px auto;
+    margin-bottom: 17px;
     padding: 5px;
     width: 97%;
-    margin: 10px auto;
 }
 
 .linkElement {
     display: block;
+    font-family: 'Verdana';
+    margin-bottom: 9px;
+}
+
+.linkTitle {
+    color: #30D1E4;
+    font-size: 2.3em;
+}
+
+.linkContent {
+    color: black;
+    font-size: 1.2em;
+    text-align: left;
+    text-indent: 3em;
 }

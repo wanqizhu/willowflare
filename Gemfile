@@ -36,6 +36,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Added by wzich on 20150125 at 18:04:45 for user management
 gem 'devise', '~> 3.4.1'
 
+
+# for dumping existing db into seed
+gem 'seed_dump'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
