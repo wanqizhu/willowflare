@@ -19,10 +19,6 @@ class User < ActiveRecord::Base
       self.money += 35
     end
 
-    if Rails.application.config.survey001.include?(self.email)
-      self.money += 35
-    end
-
     if Rails.application.config.survey001_winners.include?(self.email)
       self.money += 100
     end
