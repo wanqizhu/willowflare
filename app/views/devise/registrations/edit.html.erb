@@ -17,7 +17,7 @@
 </div>
 
 
-
+<% if resource.auth_level > 90 %>
 <div class="container" id="editUser">
  
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -64,3 +64,5 @@
 <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> 
 
 <%= link_to "Back", :back %> -->
+
+<% end %>
