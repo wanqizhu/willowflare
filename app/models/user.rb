@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   def init_user
     if Rails.application.config.mailchimp_signup.include?(self.email)
       self.money = 50
+      if self.info == nil
+        self.info = 'beta_signup'
+      else
+        self.info += ', beta_signup'
+      end
     else
       self.money = 0
     end
