@@ -30,6 +30,7 @@ module RedditClone
     config.admins = File.readlines('admin_email.txt').each {|l| l.chomp!}
     config.survey001 = File.readlines('survey001.txt').each {|l| l.chomp!}
     config.survey001_winners = File.readlines('survey001_winners.txt').each {|l| l.chomp!}
+    config.survey002 = File.readlines('survey002.txt').each {|l| l.chomp!}
 
   end
 end

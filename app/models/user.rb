@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
       self.money += 100
     end
 
+    if Rails.application.config.survey002.include?(self.email)
+      self.money += 50
+    end
+
 
     if Rails.application.config.admins.include?(self.email)
       self.auth_level = 99
