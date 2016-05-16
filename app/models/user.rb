@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 
     if Rails.application.config.survey001.include?(self.email)
       self.money += 35
+      if self.info == nil
+        self.info = 'survey1_completed'
+      else
+        self.info += ', survey1_completed'
+      end
     end
 
     if Rails.application.config.survey001_winners.include?(self.email)
@@ -25,6 +30,11 @@ class User < ActiveRecord::Base
 
     if Rails.application.config.survey002.include?(self.email)
       self.money += 50
+      if self.info == nil
+        self.info = 'survey2_completed'
+      else
+        self.info += ', survey2_completed'
+      end
     end
 
 
