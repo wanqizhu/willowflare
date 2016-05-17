@@ -1,0 +1,86 @@
+ul, li {
+    display: inline-block;
+}
+
+
+
+.navbar{
+    display: inline;
+    margin-left: -30px; /* hide the wierd white bar */
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-variant: small-caps;
+    font-weight: 400;
+    font-size: 1em;
+
+    background-color: transparent;
+    border-color: transparent;
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        font-size: 1.3em;
+    }
+}
+
+.navbar-collapse {
+    border-color: transparent;
+}
+
+
+.navbar .container {
+    width: 100%;
+}
+
+.navbar a:link {
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+.navbar a:hover {
+    background: none;
+}
+
+
+.navbar p {
+    display: inline-block;
+}
+
+
+
+.navbar-header {
+    padding-left: 30px;
+}
+
+
+#logo a {
+    color: #fed136;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    font-size: 2em;
+    line-height: 20px;
+    font-variant: normal;
+}
+
+#topNavRight {
+    padding-left: 30px;
+}
+
+#topNavRight > li > a {
+    color: #30D1E4;
+}
+
+
+
+/* top banner on landing page, when user not signed in */
+#topBanner {
+    text-align: right;
+    padding-top: 7px;
+    padding-right: 30px;
+
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+#topBanner span {
+    margin: 0px 10px;
+}
