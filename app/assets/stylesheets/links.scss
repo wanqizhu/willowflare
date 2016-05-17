@@ -1,0 +1,53 @@
+// Place all the styles related to the Links controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a, a:link, a:hover, a:active, a:visited {
+    color: #777;
+}
+
+a:hover, ul, li {
+    background-color: none;
+}
+
+thead {
+    display: none;
+}
+
+table {
+    width: 95vw;
+    margin: 0 auto;
+    margin-top: 47px;
+    background-color: white;
+    border-radius: 7px;
+    box-sizing: padding-box;
+}
+
+tr {
+    display: block;
+    min-height: 60px;
+    background-color: #EDF5FC;
+    border-radius: 7px;
+    margin: 10px auto;
+    margin-bottom: 17px;
+    padding: 5px;
+    width: 97%;
+}
+
+.linkElement {
+    display: block;
+    font-family: 'Verdana';
+    margin-bottom: 9px;
+}
+
+.linkTitle {
+    color: #30D1E4;
+    font-size: 2.3em;
+}
+
+.linkContent {
+    color: black;
+    font-size: 1.2em;
+    text-align: left;
+    text-indent: 3em;
+}
