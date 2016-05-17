@@ -1,10 +1,11 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
-  # user must be logged in to edit
-  before_action :authenticate_user!, except: [:index, :show]
-  # only the author can edit his links
-  before_action :authorized_user, only: [:edit, :update, :destroy]
+  # # user must be logged in to edit
+  # before_action :authenticate_user!, except: [:index, :show]
+  # # only the author can edit his links
+  # before_action :authorized_user, only: [:edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def authorized_user
     # verify that current user is the author of the link
