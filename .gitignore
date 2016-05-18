@@ -22,3 +22,6 @@
 !.elasticbeanstalk/*.global.yml
 
 db/schema.rb
+
+
+config/local_env.yml

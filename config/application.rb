@@ -32,6 +32,17 @@ module RedditClone
     config.survey001 = File.readlines('survey001.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey001_winners = File.readlines('survey001_winners.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey002 = File.readlines('survey002.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
+    
+
     Dir.chdir(Rails.root)
+
+
+    # read in env files for mailer
+    config.before_configuration do
+        env_file = File.join(Rails.root, 'config', 'local_env.yml')
+        YAML.load(File.open(env_file)).each do |key, value|
+            ENV[key.to_s] = value
+        end if File.exists?(env_file)
+    end
   end
 end
