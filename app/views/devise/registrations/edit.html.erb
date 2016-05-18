@@ -34,23 +34,23 @@
     </div>
 
     <div class="field">
-      <%= f.input :age, collection: ["< 18", "18-24", "25-45", "> 45"] %>
+      <%= f.input :age, collection: User::AGE_.map{|s| [s.humanize, s]} %>
     </div>
 
     <div class="field">
-      <%= f.input :gender, as: :radio_buttons, collection: ["Male", "Female"] %>
+      <%= f.input :gender, as: :radio_buttons, collection: User::GENDER_.map{|s| [s.humanize, s]} %>
     </div>
 
     <div class="field">
-      <%= f.input :device, collection: ["Smartphone only", "Tablet only", "Smatphone and tablet"] %>
+      <%= f.input :device, collection: User::DEVICE_.map{|s| [s.humanize, s]} %>
     </div>
 
     <div class="field">
-      <%= f.input :time_spent, label: "Weekly time spent on mobile games", collection: ["< 1h", "1-5h", "> 5h"] %>
+      <%= f.input :time_spent, label: "Weekly time spent on mobile games", collection: User::TIME_SPENT_.map{|s| [s.humanize, s]} %>
     </div>
 
     <div class="field">
-      <%= f.input :spending, label: "Monthly money spent", collection: ["0", "$1-10", "> $10"] %>
+      <%= f.input :spending, label: "Monthly money spent", collection: User::SPENDING_.map{|s| [s.humanize, s]} %>
     </div>
 
     <div class="field">
@@ -58,11 +58,11 @@
     </div>
 
     <div class="field">
-      <%= f.input :nation, collection: User::NATION_.map{ |s| [s.humanize, s]} %> <!-- To humanize the underscores into spaces -->
+      <%= f.input :nation, collection: User::NATION_.map{ |s| [s.humanize, s]} %> 
     </div>
 
     <div class="field">
-      <%= f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.humanize, s]} %> <!-- To humanize the underscores into spaces -->
+      <%= f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.humanize, s]} %> 
     </div>
 
 
