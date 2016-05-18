@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '>= 2.0.0'
+ruby '2.0.0'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'\
