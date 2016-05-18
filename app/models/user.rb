@@ -8,17 +8,35 @@ class User < ActiveRecord::Base
 
   attr_accessor :current_password
 
-  MOTIVATION_ = %w[pass_time_while_waiting relax  take_a_break  challenge_myself interested_in_the_story_or_art  cheap_or_free_game]
+  AGE_ = %w[<_18    18-24   25-45   >_45]
+  enum age: AGE_
+
+  GENDER_ = %w[Male   Female]
+  enum gender: GENDER_
+
+  DEVICE_ = %w[Smartphone_only   Tablet_only   Smatphone_and_tablet]
+  enum device: DEVICE_
+
+
+  TIME_SPENT_ = %w[<_1h   1-5h  >_5h]
+  enum time_spent: TIME_SPENT_
+
+  SPENDING_ = %w[0  $1-10   >_$10]
+  enum spending: SPENDING_
+
+
+  MOTIVATION_ = %w[pass_time_while_waiting  relax  take_a_break  challenge_myself interested_in_the_story_or_art  cheap_or_free_game]
   enum motivation: MOTIVATION_
   
 
   GAME_GENRE_ = %w[Action  Strategy  Simulation  RPG+Puzzle  Sports  Arcade]
   enum game_genre: GAME_GENRE_
 
+
   NATION_ = %w[USA  UK  Rest of Europe  Latin_America Asia]
   enum nation: NATION_
 
-  
+
 
 
 

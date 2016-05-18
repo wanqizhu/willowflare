@@ -1,12 +1,15 @@
 class ChangeUserAttributesFromStringToInt < ActiveRecord::Migration
-  def change
-  	remove_column :users, :nation, :string
-  	remove_column :users, :device, :string
-    remove_column :users, :OS, :string
-    remove_column :users, :gender, :string
-  	add_column :users, :nation, :integer
-  	add_column :users, :device, :integer
-    add_column :users, :OS, :integer
-    add_column :users, :gender, :integer
+  def self.up
+  	change_column :users, :nation, :integer
+  	change_column :users, :device, :integer
+    change_column :users, :OS, :integer
+    change_column :users, :gender, :integer
+  end
+
+  def self.down
+  	change_column :users, :nation, :string
+  	change_column :users, :device, :string
+    change_column :users, :OS, :string
+    change_column :users, :gender, :string
   end
 end
