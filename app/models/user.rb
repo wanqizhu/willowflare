@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
   before_create :init_user
 
   def init_user
+
+    self.email = self.email.downcase
+
+
     if Rails.application.config.mailchimp_signup.include?(self.email)
       self.money = 50
       if self.info == nil
@@ -69,7 +73,7 @@ class User < ActiveRecord::Base
     end
 
     if Rails.application.config.survey002.include?(self.email)
-      self.money += 50
+      self.money += 60
       if self.info == nil
         self.info = 'survey2_completed'
       else
