@@ -1,6 +1,5 @@
 // for popups and show/hide parts
-
-$(document).ready(function(){
+var ready = function(){
 
     // $(".clickable-row").click(function() {
     //     window.document.location = $(this).data("href");
@@ -8,16 +7,19 @@ $(document).ready(function(){
   
     $(".popupButton").on('click',function(e){
         e.preventDefault();
-        var id = $(this).attr('targetID');
+        var id = "#" + $(this).attr('targetID');
         
 
-        var elem = document.getElementById(id)
-        if (elem.style.display == 'none') {
-        	elem.style.display = 'flex';
+        if ($(id).css('display') == 'none') {
+            $(id).show('slow');
         } else {
-        	elem.style.display = 'none';
+            $(id).hide('slow');
         }
         
 
     });
-});
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready); // for turbo-links, which doesnt' re-load teh page
+                                    // this way, popupButton will work properly after account update

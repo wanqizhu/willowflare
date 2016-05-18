@@ -6,6 +6,23 @@ class User < ActiveRecord::Base
 
   has_many :links
 
+  attr_accessor :current_password
+
+  MOTIVATION_ = %w[pass_time_while_waiting relax  take_a_break  challenge_myself interested_in_the_story_or_art  cheap_or_free_game]
+  enum motivation: MOTIVATION_
+  
+
+  GAME_GENRE_ = %w[Action  Strategy  Simulation  RPG+Puzzle  Sports  Arcade]
+  enum game_genre: GAME_GENRE_
+
+  NATION_ = %w[USA  UK  Rest of Europe  Latin_America Asia]
+  enum nation: NATION_
+
+  
+
+
+
+
   before_create :init_user
 
   def init_user
