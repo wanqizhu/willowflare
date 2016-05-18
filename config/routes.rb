@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
 
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'} # allow changes without password
 
   resources :links do
     member do

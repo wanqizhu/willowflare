@@ -1,6 +1,18 @@
-div#editUser {
+#editUser {
 	display: none;
+	margin-top: 40px;
+	margin-bottom: 15px;
 }
+
+#editUser i {
+	font-size: 1.1em;
+	/* space to seperate password fields */
+	padding-top: 15px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.field_with_errors { display: inline; }
 
 #popupButton {
 	align: center;
@@ -9,4 +21,15 @@ div#editUser {
 #coins p {
 	margin: 30px;
 	font-size: 1.7em;
+}
+
+.alert-error {
+	width: 50%;
+	margin: 10px auto;
+}
+
+@media (max-width: 768px) {
+	.alert-error {
+		width: 100%;
+	}
 }

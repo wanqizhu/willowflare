@@ -45,7 +45,7 @@ form .actions {
    outline: none;
 }
 
-.field label {
+.field > label{
     margin: 0;
     border: none;
     box-sizing: border-box;
@@ -56,6 +56,11 @@ form .actions {
     padding: 3px 10px;
     font-size: 30px;
     font-weight: 200;
+}
+
+.radio {
+    display: inline;
+    margin: 0px 10px;
 }
 
 .checkbox label {
