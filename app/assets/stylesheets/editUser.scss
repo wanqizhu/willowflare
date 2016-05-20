@@ -6,6 +6,7 @@
 
 #editUser i {
 	font-size: 1.1em;
+	color: #30D1E4;
 	/* space to seperate password fields */
 	padding-top: 15px;
 	padding-bottom: 10px;
@@ -19,9 +20,67 @@ label.optional {
 }
 
 
+.field {
+	label {
+		-webkit-box-sizing: border-box;
+     	-moz-box-sizing: border-box;
+        box-sizing: border-box;
+	    width: 40%;
+	    text-align: right;
+	}
+
+	label + input {
+	    width: 30%;
+	    margin: 0 10% 0 4%;
+	}
+}
+
+
+.field > div {
+	label {
+	    width: 40%;
+	    text-align: right;
+	}
+
+	label + select {
+	    width: 20%;
+	    margin: 0 20% 0 4%;
+	}
+
+	label + input {
+	    width: 30%;
+	    margin: 0 10% 0 4%;
+	    line-height: 15px;
+	}
+
+	.radio {
+		display: inline-block;
+	}
+
+	label + .radio{
+		width: 8%;
+	    margin: 0 2% 0 2%;
+	}
+
+	label + .radio + .radio {
+		width: 28%;
+	    margin: 0 2% 0 2%;
+	}
+}
+
+
+select { /* drop down list display */
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+    color: #546E7A;
+    font-size: 14px;
+}
+
+
+
 #popupButton {
 	align: center;
 }
+
 
 #coins p {
 	margin: 30px;
