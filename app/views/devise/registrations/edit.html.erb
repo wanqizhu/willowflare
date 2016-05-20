@@ -30,7 +30,7 @@
     </div>
 
 
-    <i><% if resource.info.include? "profile" %>
+    <i><% if resource.info != nil and resource.info.include? "profile" %>
       <span style="color: #fed136">Thanks for filling out your profile! Please keep it up to date if any information changes.</span>
     <% else %>
       Fill out your profile to earn <span style="color: #fed136">15</span> points!
