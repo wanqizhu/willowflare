@@ -70,7 +70,7 @@
     </div>
 
     <div class="field">
-      <%= f.input :nation, collection: User::NATION_.map{ |s| [s.humanize, s]} %> 
+      <%= f.input :nation, label: "Country", collection: User::NATION_.map{ |s| [s.humanize, s]} %> 
     </div>
 
     <div class="field">
