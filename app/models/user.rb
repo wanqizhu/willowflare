@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   enum game_genre: GAME_GENRE_
 
 
-  NATION_ = %w[USA  UK  Rest of Europe  Latin_America Asia]
+  NATION_ = %w[USA  UK  Rest_of_Europe  Latin_America Asia]
   enum nation: NATION_
 
 

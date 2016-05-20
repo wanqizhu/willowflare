@@ -29,7 +29,12 @@
       <%= f.text_field :username, autofocus: true %>
     </div>
 
-    <i>Fill out your profile to earn <span style="color: #fed136">15</span> points!</i>
+
+    <i><% if resource.info.include? "profile" %>
+      <span style="color: #fed136">Thanks for filling out your profile! Please keep it up to date if any information changes.</span>
+    <% else %>
+      Fill out your profile to earn <span style="color: #fed136">15</span> points!
+    <% end %></i>
 
 
     <div class="field">
@@ -57,7 +62,11 @@
     </div>
 
     <div class="field">
-      <%= f.input :motivation, collection: User::MOTIVATION_.map{ |s| [s.humanize, s]} %> <!-- To humanize the underscores into spaces -->
+      <%= f.input :motivation, label: "Primary playing motivation", collection: User::MOTIVATION_.map{ |s| [s.humanize, s]} %> <!-- To humanize the underscores into spaces -->
+    </div>
+
+    <div class="field">
+      <%= f.input :paying_incentive, label: "Primary paying incentive", collection: User::PAYING_INCENTIVE_.map{ |s| [s.humanize, s]} %> 
     </div>
 
     <div class="field">

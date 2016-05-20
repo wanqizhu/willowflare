@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :time_spent
     devise_parameter_sanitizer.for(:account_update) << :spending
     devise_parameter_sanitizer.for(:account_update) << :motivation
+    devise_parameter_sanitizer.for(:account_update) << :paying_incentive
     devise_parameter_sanitizer.for(:account_update) << :game_genre
     devise_parameter_sanitizer.for(:account_update) << :nation
     devise_parameter_sanitizer.for(:account_update) << :info
