@@ -6,20 +6,14 @@
   <p>Ready to redeem? We are working to get our store ready <br /> If you already have at least 450 points, <a href="mailto:info@willowflare.com">email us here.</a></p>
 
 
-<% if resource.auth_level > 90 %>
+
   <button class="popupButton btn btn-primary btn-lg" targetID='editUser'>Edit account</button>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-info") %>
-  <% end %>
-
   <%= devise_error_messages! %>
-<% end %>
 
 </div>
 
 
-<% if resource.auth_level > 90 %>
 <div class="container" id="editUser">
 
 
@@ -33,6 +27,9 @@
       <%= f.text_field :username, autofocus: true %>
     </div>
 
+    <i>Fill out your profile to earn <span style="color: #fed136">15</span> points!</i>
+
+
     <div class="field">
       <%= f.input :age, collection: User::AGE_.map{|s| [s.humanize, s]} %>
     </div>
@@ -43,6 +40,10 @@
 
     <div class="field">
       <%= f.input :device, collection: User::DEVICE_.map{|s| [s.humanize, s]} %>
+    </div>
+
+     <div class="field">
+      <%= f.input :OS, label: "Primary OS", collection: User::OS_.map{|s| [s.humanize, s]} %>
     </div>
 
     <div class="field">
@@ -63,6 +64,14 @@
 
     <div class="field">
       <%= f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.humanize, s]} %> 
+    </div>
+
+    <div class="field">
+      <%= f.input :num_games, label: "# games currently in your device" %>
+    </div>
+
+    <div class="field">
+      <%= f.input :fav_game, label: "Favorite Game" %>
     </div>
 
 
@@ -101,4 +110,3 @@
 </div>
 
 
-<% end %>

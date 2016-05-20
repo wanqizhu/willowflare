@@ -27,5 +27,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :game_genre
     devise_parameter_sanitizer.for(:account_update) << :nation
     devise_parameter_sanitizer.for(:account_update) << :info
+    devise_parameter_sanitizer.for(:account_update) << :num_games
+    devise_parameter_sanitizer.for(:account_update) << :fav_game
   end
 end

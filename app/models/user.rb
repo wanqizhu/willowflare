@@ -14,8 +14,11 @@ class User < ActiveRecord::Base
   GENDER_ = %w[Male   Female]
   enum gender: GENDER_
 
-  DEVICE_ = %w[Smartphone_only   Tablet_only   Smatphone_and_tablet]
+  DEVICE_ = %w[Smartphone_only   Tablet_only   Smartphone_and_tablet]
   enum device: DEVICE_
+
+  OS_ = %w[iPhone   Android    iPad   Other]
+  enum OS: OS_
 
 
   TIME_SPENT_ = %w[<_1h   1-5h  >_5h]
@@ -27,16 +30,18 @@ class User < ActiveRecord::Base
 
   MOTIVATION_ = %w[pass_time_while_waiting  relax  take_a_break  challenge_myself interested_in_the_story_or_art  cheap_or_free_game]
   enum motivation: MOTIVATION_
+
+
+  PAYING_INCENTIVE_ = %w[New_levels/content   Speed_up_progress   VIP_Access    Increase_competitiveness    Aesthetics/better_experience]
+  enum paying_incentive: PAYING_INCENTIVE_
   
 
-  GAME_GENRE_ = %w[Action  Strategy  Simulation  RPG+Puzzle  Sports  Arcade]
+  GAME_GENRE_ = %w[Action  Strategy  Simulation  RPG    Puzzle  Sports  Arcade]
   enum game_genre: GAME_GENRE_
 
 
   NATION_ = %w[USA  UK  Rest of Europe  Latin_America Asia]
   enum nation: NATION_
-
-
 
 
 
