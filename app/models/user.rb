@@ -53,16 +53,16 @@ class User < ActiveRecord::Base
     self.email = self.email.downcase
 
 
-    if Rails.application.config.mailchimp_signup.include?(self.email)
+    #if Rails.application.config.mailchimp_signup.include?(self.email)
       self.money = 50
       if self.info == nil
         self.info = 'beta_signup'
       else
         self.info += ', beta_signup'
       end
-    else
-      self.money = 0
-    end
+    # else
+    #   self.money = 0
+    # end
 
     if Rails.application.config.survey001.include?(self.email)
       self.money += 35
