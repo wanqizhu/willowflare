@@ -1,0 +1,14 @@
+<% if current_user.auth_level >= 90 %>
+
+<h1>Editing Surveydatum</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @surveydatum %> |
+<%= link_to 'Back', surveydata_path %>
+
+
+<% else %>
+<h1>Not authorized</h1>
+
+<% end %>
