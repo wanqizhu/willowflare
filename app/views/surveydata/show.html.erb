@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @surveydatum.email %>
+</p>
+
+<p>
+  <strong>Surveyresponse:</strong>
+  <%= @surveydatum.surveyresponse %>
+</p>
+
+<%= link_to 'Edit', edit_surveydatum_path(@surveydatum) %> |
+<%= link_to 'Back', surveydata_path %>
