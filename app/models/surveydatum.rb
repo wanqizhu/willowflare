@@ -4,7 +4,7 @@ class Surveydatum < ActiveRecord::Base
 
 
 	def log_survey
-		if self.reward == nil
+		if self.reward == nil or self.reward < 0
 			self.reward = 0
 		end
 
@@ -12,16 +12,26 @@ class Surveydatum < ActiveRecord::Base
 			return
 		end
 
+		# This is pretty insecure lOL
 
+		if self.surveyresponse == nil or self.surveyresponse.length < 11 or self.surveyresponse[0, 10] != "SECR3T_KEY"
+			return
+		end
+
+
+		survey_num = self.surveyresponse[10]
 
 		u = User.where(email: self.email)[0]
 
-		if u != nil
+		# Check the user hasn't already completed the survey
+		if u != nil and (u.info == nil or !u.info.include?('survey'+survey_num))
 			if u.info == nil
-				u.info = 'surveydata_recorded, reward: ' + self.reward.to_s + ', at ' + Time.new.inspect
+				u.info = 'surveydata_recorded_reward: ' + self.reward.to_s + '_at ' + Time.new.inspect + ', survey' + survey_num + '_completed'
 			else
-				u.info += ', surveydata_recorded, reward: ' + self.reward.to_s + ', at ' + Time.new.inspect
+				u.info += ', surveydata_recorded_reward: ' + self.reward.to_s + '_at ' + Time.new.inspect + ', survey' + survey_num + '_completed'
+
 			end
+
 			u.money += self.reward
 			u.save
 
