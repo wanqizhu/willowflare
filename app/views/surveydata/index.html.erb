@@ -1,6 +1,4 @@
-<% if current_user.auth_level >= 90 %>
-
-<p id="notice"><%= notice %></p>
+<% if current_user and current_user.auth_level >= 90 %>
 
 <h1>Listing Surveydata</h1>
 
