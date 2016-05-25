@@ -7,16 +7,29 @@
   
   <p>Ready to redeem? We are working to get our store ready <br /> If you already have at least 450 points, <a href="mailto:info@willowflare.com">email us here.</a></p>
 
+  <%= devise_error_messages! %>
+
+  
+
+
+
+<% if resource.info == nil or !(resource.info.include? "profile_completed") %>
+</div>
+
+<div class="container" id="editUser" style="display: block">
+
+
+
+<% else %>
 
 
   <button class="popupButton btn btn-primary btn-lg" targetID='editUser'>Edit account</button>
-
-  <%= devise_error_messages! %>
-
 </div>
 
+<div class="container" id="editUser" style="display: none">
+<% end %>
 
-<div class="container" id="editUser">
+
 
 
       
@@ -66,15 +79,15 @@
     </div>
 
     <div class="field">
-      <%= f.input :paying_incentive, label: "Primary paying incentive", collection: User::PAYING_INCENTIVE_.map{ |s| [s.humanize, s]} %> 
+      <%= f.input :paying_incentive, label: "Primary paying incentive", collection: User::PAYING_INCENTIVE_.map{ |s| [s.tr('_', ' '), s]} %> 
     </div>
 
     <div class="field">
-      <%= f.input :nation, label: "Country", collection: User::NATION_.map{ |s| [s.humanize, s]} %> 
+      <%= f.input :nation, label: "Country", collection: User::NATION_.map{ |s| [s.tr('_', ' '), s]} %> 
     </div>
 
     <div class="field">
-      <%= f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.humanize, s]} %> 
+      <%= f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.tr('_', ' '), s]} %> 
     </div>
 
     <div class="field">
