@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'mailchimp-api', require: 'mailchimp'
 
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.1.0'
 

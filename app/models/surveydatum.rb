@@ -37,6 +37,12 @@ class Surveydatum < ActiveRecord::Base
 			end
 
 			u.money += self.reward
+			if u.news != nil
+				u.news += ' Thanks for completing survey #' + survey_num + "! You've been rewarded with " + self.reward.to_s + "points.\n"
+			else
+				u.news = ' Thanks for completing survey #' + survey_num + "! You've been rewarded with " + self.reward.to_s + "points.\n"
+			end
+
 			u.save
 
 

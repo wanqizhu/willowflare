@@ -25,6 +25,7 @@ module RedditClone
 
 
 
+
     # email lists
     Dir.chdir(File.dirname(__FILE__))
     config.mailchimp_signup = File.readlines('mailchimp_email.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
@@ -44,5 +45,10 @@ module RedditClone
             ENV[key.to_s] = value
         end if File.exists?(env_file)
     end
+
+
+    # mailchimp subscribe object
+    config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP-API-KEY"])
+
   end
 end

@@ -51,26 +51,21 @@ class User < ActiveRecord::Base
   def init_user
 
     self.email = self.email.downcase
+    self.news = "Thanks for signing up!"
+    self.info = ""
 
 
     #if Rails.application.config.mailchimp_signup.include?(self.email)
       self.money = 50
-      if self.info == nil
-        self.info = 'beta_signup'
-      else
-        self.info += ', beta_signup'
-      end
+      self.info += ', beta_signup'
     # else
     #   self.money = 0
     # end
 
     if Rails.application.config.survey001.include?(self.email)
       self.money += 35
-      if self.info == nil
-        self.info = 'survey1_completed'
-      else
-        self.info += ', survey1_completed'
-      end
+      
+      self.info += ', survey1_completed'
     end
 
     if Rails.application.config.survey001_winners.include?(self.email)
@@ -79,11 +74,9 @@ class User < ActiveRecord::Base
 
     if Rails.application.config.survey002.include?(self.email)
       self.money += 60
-      if self.info == nil
-        self.info = 'survey2_completed'
-      else
-        self.info += ', survey2_completed'
-      end
+
+      self.info += ', survey2_completed'
+      
     end
 
 
@@ -92,6 +85,17 @@ class User < ActiveRecord::Base
     else
       self.auth_level = 0
     end
+
+    # subscribe to mailing list
+    begin
+      # subscribe with double-optin = false, update_existing = true, send_welcome = true
+      # the parameters are
+      # id, email, merge_vars, email_type, double_optin, update_existing, replace_interests, send_welcome
+      Rails.application.config.mailchimp.lists.subscribe(ENV["MAILCHIMP-LIST-ID"], {email: self.email}, nil, 'html', false, true, true, true)
+    rescue
+      self.info += ", CANNOT SUBCRIBE TO MAILCHIMP"
+    end
+
   end
 
 end
