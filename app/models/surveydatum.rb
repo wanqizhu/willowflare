@@ -20,6 +20,10 @@ class Surveydatum < ActiveRecord::Base
 
 
 		survey_num = self.surveyresponse[10]
+		
+		if '0' > survey_num or survey_num > '4'
+			return
+		end
 
 		u = User.where(email: self.email)[0]
 
