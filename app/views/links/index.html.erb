@@ -23,7 +23,7 @@
         <% @links.each do |link| %>
           <tr>
                 <td class="linkElement linkTitle"><a href="<%= link.url %>"><%= link.title %></a></td>
-                <td class="linkElement linkContent"><%= link.content %></td>
+                <td class="linkElement linkContent"><%= simple_format(link.content) %></td>
                 
             <% if current_user.auth_level >= 90 %>
                 <td class="linkElement linkView"><%= link_to 'Comment', link %></td>
