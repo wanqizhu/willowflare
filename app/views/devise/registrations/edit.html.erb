@@ -14,6 +14,9 @@
 
 
 <% if resource.info == nil or !(resource.info.include? "profile_completed") %>
+
+    <i>Fill out your profile to earn <span style="color: #fed136">15</span> points!</i>
+
 </div>
 
 <div class="container" id="editUser" style="display: block">
@@ -22,6 +25,7 @@
 
 <% else %>
 
+<i><span style="color: #fed136">Thanks for filling out your profile! Please keep it up to date if any information changes.</span></i>
 
   <button class="popupButton btn btn-primary btn-lg" targetID='editUser'>Edit account</button>
 </div>
@@ -43,11 +47,6 @@
     </div>
 
 
-    <i><% if resource.info != nil and resource.info.include? "profile" %>
-      <span style="color: #fed136">Thanks for filling out your profile! Please keep it up to date if any information changes.</span>
-    <% else %>
-      Fill out your profile to earn <span style="color: #fed136">15</span> points!
-    <% end %></i>
 
 
     <div class="field">
