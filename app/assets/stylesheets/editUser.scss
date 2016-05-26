@@ -8,7 +8,7 @@ i {
 	color: #30D1E4;
 	/* space to seperate password fields */
 	padding-top: 15px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	display: block;
 }
 
@@ -29,7 +29,7 @@ label.optional {
 	}
 
 	label + input {
-	    width: 30%;
+	    width: 25%;
 	    margin: 0 10% 0 4%;
 	}
 }
@@ -41,15 +41,10 @@ label.optional {
 	    text-align: right;
 	}
 
-	label + select {
+	label + select, label+input {
 	    width: 15%;
 	    margin: 0 20% 0 4%;
-	}
-
-	label + input {
-	    width: 25%;
-	    margin: 0 10% 0 4%;
-	    line-height: 15px;
+	    font-size: 14px;
 	}
 
 	.radio {
@@ -96,13 +91,13 @@ select { /* drop down list display */
 		width: 100%;
 	}
 
-	.field > div {
-		label + select {
-	    	width: 20%;
-	    }
+	.field label + input {
+		width: 30%;
+	}
 
-	    label + input {
-	    	width: 30%;
+	.field > div {
+		label + select, label+input {
+	    	width: 20%;
 	    }
 
 	    label + .radio + .radio {
