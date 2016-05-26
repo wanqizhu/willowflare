@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :surveydata
+
   resources :comments
 
   devise_for :users, controllers: {registrations: 'registrations'} # allow changes without password
