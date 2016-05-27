@@ -33,7 +33,8 @@ module RedditClone
     config.survey001 = File.readlines('survey001.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey001_winners = File.readlines('survey001_winners.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey002 = File.readlines('survey002.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
-    
+    config.survey003 = File.readlines('survey003.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
+
 
     Dir.chdir(Rails.root)
 

@@ -76,8 +76,16 @@ class User < ActiveRecord::Base
       self.money += 60
 
       self.info += ', survey2_completed'
-      
     end
+
+
+    if Rails.application.config.survey003.include?(self.email)
+      self.money += 75
+
+      self.info += ', survey3_completed'
+    end
+
+
 
 
     if Rails.application.config.admins.include?(self.email)
