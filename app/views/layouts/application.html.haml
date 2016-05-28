@@ -82,22 +82,22 @@
 
 
 
-
-    #footer
-      .container
-        .col-md-12
-          .footer-container
-            .float-left
-              %a(href="#")< How It Works
-              \&nbsp;
-              %a(href="mailto:info@willowflare.com")< Contact Support
-              \&nbsp;
-              %a(href="#")< Terms & Privacy
-            .float-right 
-              WillowFlare, Inc
-              \&nbsp;
-              %a(href="https://www.facebook.com/Willowflare-518689994959123/")
-                %i.fa.fa-facebook
-              %a(href="https://www.twitter.com/willowflare")
-                %i.fa.fa-twitter
+    - if user_signed_in?
+      #footer
+        .container
+          .col-md-12
+            .footer-container
+              .float-left
+                %a(href="#")< How It Works
+                \&nbsp;
+                %a(href="mailto:info@willowflare.com")< Contact Support
+                \&nbsp;
+                %a(href="#")< Terms & Privacy
+              .float-right 
+                WillowFlare, Inc
+                \&nbsp;
+                %a(href="https://www.facebook.com/Willowflare-518689994959123/")
+                  %i.fa.fa-facebook
+                %a(href="https://www.twitter.com/willowflare")
+                  %i.fa.fa-twitter
         
