@@ -49,7 +49,7 @@ module RedditClone
 
 
     # mailchimp subscribe object
-    config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP-API-KEY"])
+    config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP_API_KEY"])
 
   end
 end
