@@ -8,5 +8,5 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( editUser.css )
+Rails.application.config.assets.precompile += ['editUser.css', 'landingPage.css']
 # Rails.application.config.assets.precompile += [ 'signUp.css', 'animations.css', 'links.css', 'navbar.css', 'comments.css', 'landingPage.css', 'editUser.css' ]

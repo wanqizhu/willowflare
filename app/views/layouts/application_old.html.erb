@@ -15,6 +15,8 @@
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
   <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Nunito:300,400,700|Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -62,14 +64,14 @@
     
        
 
-    <div id="main_content" class="container">
+    <div id="page">
         <% flash.each do |name, msg| %>
             <% if msg != nil and !msg.empty? %>
                 <%= content_tag(:div, msg, class: "alert alert-info " + name) %>
             <% end %>
         <% end %>
 
-        <div id="content" class="center-block">
+        <div class="container">
             <%= yield %>
         </div>
 

@@ -1,0 +1,118 @@
+= stylesheet_link_tag 'editUser', media: 'all', 'data-turbolinks-track' => true
+
+#coins.col-md-10.col-md-offset-1
+  %h1
+    = resource.username
+    , you have
+    %span(style="color: #fed136")= resource.money
+    WillowPoints!
+  %br
+
+  %h4 If you've recently completed a survey, please allow up to 24 hours for your points to update.
+  %br
+  
+  %h4
+    Ready to redeem? We are working to get our store ready. If you already have at least 450 points,
+
+    %a(href="mailto:info@willowflare.com") email us here.
+
+  %br
+
+  = devise_error_messages!
+
+  .box-ghost
+    .box-icon.small
+      = image_tag("cash.png")
+    
+    - if resource.info == nil or !(resource.info.include? "profile_completed")
+      %h4.bold 
+        Fill out your profile to earn
+        %strong 15
+        points!
+
+
+    - else
+      %h4.bold 
+        %strong Thanks for filling out your profile! Please keep it up to date if any information changes.
+      %br
+      %button.popupButton.btn.btn-primary.btn-lg(targetID='editUser') Edit account
+
+
+
+.container#editUser(style="display: #{(resource.info == nil or !(resource.info.include? "profile_completed")) ? "block" : "none"}")
+
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    
+
+    .field(style="margin-bottom: 10px")
+      = f.label :username
+      = f.text_field :username, autofocus: true
+
+
+    .field
+      = f.input :age, collection: User::AGE_.map{|s| [s.humanize, s]}
+
+    .field
+      = f.input :gender, as: :radio_buttons, collection: User::GENDER_.map{|s| [s.humanize, s]}
+
+    .field
+      = f.input :device, collection: User::DEVICE_.map{|s| [s.humanize, s]}
+
+    .field
+      = f.input :OS, label: "Primary OS", collection: User::OS_.map{|s| [s.humanize, s]}
+
+    .field
+      = f.input :time_spent, label: "Weekly time spent on mobile games", collection: User::TIME_SPENT_.map{|s| [s.humanize, s]}
+
+    .field
+      = f.input :spending, label: "Monthly money spent", collection: User::SPENDING_.map{|s| [s.humanize, s]}
+
+    .field
+      = f.input :motivation, label: "Primary playing motivation", collection: User::MOTIVATION_.map{ |s| [s.humanize, s]}
+      / To humanize the underscores into spaces
+    
+
+    .field
+      = f.input :paying_incentive, label: "Primary paying incentive", collection: User::PAYING_INCENTIVE_.map{ |s| [s.tr('_', ' '), s]}
+
+    .field
+      = f.input :nation, label: "Country", collection: User::NATION_.map{ |s| [s.tr('_', ' '), s]}
+
+    .field
+      = f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.tr('_', ' '), s]}
+
+    .field
+      = f.input :num_games, label: "# games currently in your device"
+
+    .field
+      = f.input :fav_game, label: "Favorite Game"
+
+
+
+
+
+    %i Leave blank if you don't want to change your password
+
+    .field
+      = f.label :new_password
+      = f.password_field :password, autocomplete: "off"
+
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off"
+
+    .field
+      = f.label :current_password
+      = f.password_field :current_password, autocomplete: "off"
+
+
+    .actions
+      = f.submit "Update", class: "btn btn-primary btn-lg"
+  
+/ <h3>Delete Account</h3>
+
+/ <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> 
+
+/ <%= link_to "Back", :back %>
+
+
