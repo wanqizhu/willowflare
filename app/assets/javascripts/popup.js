@@ -18,6 +18,23 @@ var ready = function(){
         
 
     });
+
+
+
+    // highlight button corresponding to current page
+    $("li.btn a").each(function(){              
+        if($(this).attr("href")==location.pathname){ /* check relative href address to see which one is active*/
+            $(this).parent().addClass('selected');
+        }
+        else{
+            $(this).parent().removeClass("selected");
+        }
+    });
+
+    // $('li.btn').click(function(){
+    //     $('li.btn').removeClass('selected');
+    //     $(this).addClass('selected');
+    // })
 }
 
 $(document).ready(ready);

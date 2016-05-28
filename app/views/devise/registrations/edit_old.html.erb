@@ -1,13 +1,14 @@
  <%= stylesheet_link_tag    'editUser', media: 'all', 'data-turbolinks-track' => true %>
 
 <div class="container" id="coins">
-  <h1><%= resource.username %>, you have <span style="color: #fed136"><%= resource.money %></span> WillowPoints!</h1>
+  <div class="col-md-10 col-md-offset-1">
+    <h1><%= resource.username %>, you have <span style="color: #fed136"><%= resource.money %></span> WillowPoints!</h1>
 
-  <p>If you've recently completed a survey, please allow up to 24 hours for your points to update.</p>
-  
-  <p>Ready to redeem? We are working to get our store ready <br /> If you already have at least 450 points, <a href="mailto:info@willowflare.com">email us here.</a></p>
+    <h4>If you've recently completed a survey, please allow up to 24 hours for your points to update.<br /><br />
+    
+    Ready to redeem? We are working to get our store ready. If you already have at least 450 points, <a href="mailto:info@willowflare.com">email us here.</a></h4>
 
-  <%= devise_error_messages! %>
+    <%= devise_error_messages! %>
 
   
 
@@ -16,7 +17,7 @@
 <% if resource.info == nil or !(resource.info.include? "profile_completed") %>
 
     <i>Fill out your profile to earn <span style="color: #fed136">15</span> points!</i>
-
+  </div>
 </div>
 
 <div class="container" id="editUser" style="display: block">
@@ -25,9 +26,10 @@
 
 <% else %>
 
-<i><span style="color: #fed136">Thanks for filling out your profile! Please keep it up to date if any information changes.</span></i>
+    <i><span style="color: #fed136">Thanks for filling out your profile! Please keep it up to date if any information changes.</span></i>
 
-  <button class="popupButton btn btn-primary btn-lg" targetID='editUser'>Edit account</button>
+    <button class="popupButton btn btn-primary btn-lg" targetID='editUser'>Edit account</button>
+  </div>
 </div>
 
 <div class="container" id="editUser" style="display: none">
