@@ -88,11 +88,11 @@
           .col-md-12
             .footer-container
               .float-left
-                %a(href="#")< How It Works
+                %a.popupButton(imageSrc="potion.png" img_height="80%")< How It Works
                 \&nbsp;
                 %a(href="mailto:info@willowflare.com")< Contact Support
                 \&nbsp;
-                %a(href="#")< Terms & Privacy
+                %a.popupButton(imageSrc="TermsofUse.jpg" img_width="600px")< Terms & Privacy
               .float-right 
                 WillowFlare, Inc
                 \&nbsp;
@@ -101,3 +101,7 @@
                 %a(href="https://www.twitter.com/willowflare")
                   %i.fa.fa-twitter
         
+
+    / hidden popup
+    #infographicPopup.flex-container.center
+      %img#infographicImage

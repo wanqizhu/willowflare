@@ -117,3 +117,22 @@ img {display:block; max-width:100%;}
     }
   }
 }
+
+
+
+#infographicPopup{
+    display:none;
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:rgba(0,0,0,.8);
+    overflow-y:scroll;
+    z-index:1000;
+}
+
+#infographicImage{
+    margin: auto;
+    max-width: 80%;
+}
