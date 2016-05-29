@@ -25,3 +25,4 @@ db/schema.rb
 
 
 config/local_env.yml
+config/survey*.txt
