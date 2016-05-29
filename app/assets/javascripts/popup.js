@@ -5,7 +5,9 @@ var ready = function(){
     //     window.document.location = $(this).data("href");
     // });
   
-    $(".popupButton").on('click',function(e){
+
+    // editUser show/hide profile fields
+    $(".showHideButton").on('click',function(e){
         e.preventDefault();
         var id = "#" + $(this).attr('targetID');
         
@@ -21,7 +23,7 @@ var ready = function(){
 
 
 
-    // highlight button corresponding to current page
+    // highlight navbar button corresponding to current page
     $("li.btn a").each(function(){              
         if($(this).attr("href")==location.pathname){ /* check relative href address to see which one is active*/
             $(this).parent().addClass('selected');
@@ -31,10 +33,51 @@ var ready = function(){
         }
     });
 
-    // $('li.btn').click(function(){
-    //     $('li.btn').removeClass('selected');
-    //     $(this).addClass('selected');
-    // })
+
+
+
+
+    // for displaying an image overlay
+    // used for terms-of-service
+
+    $(".popupButton").on('click',function(e){
+        e.preventDefault();
+        $("#infographicImage").attr('src',$(this).attr('imagesrc'));
+        
+        var h = $(this).attr('img_height');
+        var w = $(this).attr('img_width');
+
+        if (typeof h == typeof undefined || h == false ) {
+            h = "100%";
+        }
+
+        // if width is set, use that instead
+        if (typeof w == typeof undefined || w == false ) {
+            w = "auto";
+        } else {
+            h = "auto";
+        }
+
+        $("#infographicImage").attr('height', h);
+        $("#infographicImage").attr('width', w);
+        
+        $("#infographicPopup").css({'display': '-webkit-flex'
+                                   ,'display': 'flex'});
+        $('body').css('overflow', 'hidden');
+    });
+    $('#infographicImage').on('click',function(e){
+        e.stopPropagation();
+    });
+    $("#infographicPopup:not(#infographicImage)").on('click',function(){
+        $('#infographicPopup').hide();
+        $('body').css('overflow', 'scroll');
+        
+        $('html, body').animate({
+            scrollTop: $("#text").offset().top
+        }, 500);
+    });
+
+
 }
 
 $(document).ready(ready);

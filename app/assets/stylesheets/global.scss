@@ -30,6 +30,8 @@ $yellow: #FFCC42;
 .center {
   text-align: center;
   img {margin: 0 auto;}
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .smooth{
@@ -65,4 +67,16 @@ $yellow: #FFCC42;
   background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
   background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
   filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0)"); /* IE9 and down, gets no color-stop at all for proper fallback */
+}
+
+
+.flex-container{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
 }

@@ -23,7 +23,13 @@
       - @links.each do |link|
         .box-wrapper.icon
           .box-icon
-            = image_tag("treasure.png")
+            - if link.img == nil or link.img.empty?
+              - img_name = "treasure.png"
+            - else
+              - img_name = link.img
+
+            = image_tag(img_name)
+            
           .box
             %h2= link_to link.title, link.url
             %p.light= link.updated_at
