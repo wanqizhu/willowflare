@@ -45,10 +45,16 @@ body,html {
 
 #page {
   padding: 100px;
-}
+  @media (max-width: 727px) {
+    padding-right: 30px;
+    padding-left: 30px;
 
-@media (max-width: 727px) {
-  #page{padding-right: 30px;}
+    .box-icon {
+      width: 100px;
+      margin-left: 70px;
+    }
+  }
+
 }
 
 
