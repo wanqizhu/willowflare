@@ -42,8 +42,21 @@ var ready = function(){
 
     $(".popupButton").on('click',function(e){
         e.preventDefault();
-        $("#infographicImage").attr('src',$(this).attr('imagesrc'));
         
+
+        // since js is running client side, we can't pass the source name to rails
+        // so we haev to make a "switch" statement for every popup we want -- ugh
+        var source = $(this).attr('imagesrc')
+
+        if (source == 'TermsofUse.jpg') {
+            $("#infographicImage").attr('src', "<%= asset_path('TermsofUse.jpg') %>");
+        } else if (source == 'potion.png') {
+            $("#infographicImage").attr('src', "<%= asset_path('potion.png') %>");
+        }
+
+        
+
+
         var h = $(this).attr('img_height');
         var w = $(this).attr('img_width');
 
@@ -72,9 +85,9 @@ var ready = function(){
         $('#infographicPopup').hide();
         $('body').css('overflow', 'scroll');
         
-        $('html, body').animate({
-            scrollTop: $("#text").offset().top
-        }, 500);
+        // $('html, body').animate({
+        //     scrollTop: $("#page").offset().top
+        // }, 500);
     });
 
 
