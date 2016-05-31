@@ -7,9 +7,12 @@ class LinksController < ApplicationController
   before_action :authorized_user, only: [:edit, :update, :destroy]
 
   def authorized_user
-    # verify that current user is the author of the link
-    @link = current_user.links.find_by(id: params[:id])
-    redirect_to links_path, notice: "Not authorized to edit this link" if @link.nil?
+    # skip authentication if you are an admin 
+    if current_user.auth_level < 90
+      # verify that current user is the author of the link
+      @link = current_user.links.find_by(id: params[:id])
+      redirect_to links_path, notice: "Not authorized to edit this link" if @link.nil?
+    end
   end
 
   # GET /links

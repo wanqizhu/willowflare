@@ -10,11 +10,13 @@ class RegistrationsController < Devise::RegistrationsController
 	  	t = 1
 	  	# make sure they've filled everything
 	  	params.except(:password, :password_confirmation, :current_password).each do |p|
-	  		#puts p[1]
+	  		puts p
 	  		if p[1].blank?
 	  			t = 0
 	  		end
 	  	end
+
+	  	# for some reason this skips gender if it's unchecked, since it's a radio button (?)
 
 	  	if t == 1
 	  		resource.money += 15
