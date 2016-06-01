@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :auth_level
     devise_parameter_sanitizer.for(:sign_up) << :info
     devise_parameter_sanitizer.for(:sign_up) << :news
+    devise_parameter_sanitizer.for(:sign_up) << :referral
     devise_parameter_sanitizer.for(:account_update) << :username
     devise_parameter_sanitizer.for(:account_update) << :money
     devise_parameter_sanitizer.for(:account_update) << :auth_level

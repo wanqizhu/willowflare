@@ -1,6 +1,26 @@
 # update user w/o password
 class RegistrationsController < Devise::RegistrationsController
 
+
+  # map referral emails to ID
+  # Tried to do some fancy stuff by storing referral as an integer
+  # but it gets messy with various callbacks
+  # storing it as stirng (email) turns out to be easier
+ #  def create
+ #  	super do |resource|
+ #  		if resource.referral != nil
+	# 	    begin
+	# 	    	resource.referral = User.where(email: params[:user][:referral])[0].id # get User ID of the referral
+	# 	    rescue
+	# 	    	resource.referral = -1 # error finding referral
+	# 	    	resource.errors.add(:referral, "email not found. Please check you've entered it correctly or leave it blank")
+	# 	    end
+	# 	    resource.save
+	# 	end
+	# end
+ #  end
+  
+
   protected
 
   def update_resource(resource, params)
@@ -35,5 +55,14 @@ class RegistrationsController < Devise::RegistrationsController
     else
     	super
     end
+  end
+
+
+
+
+  private
+
+  def user_params
+  	params.require(:user).permit(:email, :username, :password, :password_confirmation)
   end
 end

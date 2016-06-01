@@ -44,14 +44,34 @@ class User < ActiveRecord::Base
   enum nation: NATION_
 
 
+  validate :check_referral
 
 
   before_create :init_user
 
+
+
+
+  protected
+
+  def check_referral
+    if self.referral != nil and !self.referral.empty? and !User.exists?(email: self.referral) !User.exists?(username: self.referral) 
+      errors.add(:referral, "email not found. Please check you've entered it correctly or leave it blank")
+      return false
+    end
+  end
+
+
+
+
+
+
+
+
   def init_user
 
     self.email = self.email.downcase
-    self.news = "Thanks for signing up!"
+    self.news = "If you haven't already, please complete your profile by navigating to 'Account' page and earn 15 WillowPoints!"
     self.info = ""
 
 
@@ -88,6 +108,28 @@ class User < ActiveRecord::Base
 
 
 
+    if self.referral != nil and !self.referral.empty?
+      self.money += 30
+
+      referrer = User.where(email: self.referral)[0]
+
+      if referrer != nil
+        referrer.money += 30
+        referrer.news += " You have earned 30 points thanks to your referral to " + self.email
+        referrer.save
+      else
+        referrer = User.where(username: self.referral)[0]
+
+        if referrer != nil
+          referrer.money += 30
+          referrer.news += " You have earned 30 points thanks to your referral to " + self.email
+          referrer.save
+        end
+      end
+      
+    end
+
+
     if Rails.application.config.admins.include?(self.email)
       self.auth_level = 99
     else
@@ -101,9 +143,12 @@ class User < ActiveRecord::Base
       # id, email, merge_vars, email_type, double_optin, update_existing, replace_interests, send_welcome
       Rails.application.config.mailchimp.lists.subscribe(ENV["MAILCHIMP_LIST_ID"], {email: self.email}, nil, 'html', false, true, true, true)
     rescue
-      self.info += ", CANNOT SUBCRIBE TO MAILCHIMP"
+      self.info += ", CANNOT SUBSCRIBE TO MAILCHIMP"
     end
 
   end
+
+
+
 
 end
