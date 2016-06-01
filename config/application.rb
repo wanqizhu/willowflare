@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module RedditClone
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -24,6 +25,7 @@ module RedditClone
     config.active_record.raise_in_transactional_callbacks = true
 
 
+    #config.paths['app/views'] << 'app/views/devise' # keep devise views, even though we customize registration controller
 
 
     # email lists
