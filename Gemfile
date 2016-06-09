@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.8'
+ruby ENV['LOCAL_RUBY_VERSION'] || '2.1.8'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
