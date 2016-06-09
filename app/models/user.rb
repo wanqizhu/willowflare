@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   enum nation: NATION_
 
 
-  validate :check_referral
+  validate :check_referral, :on => :create
 
 
   before_create :init_user
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 
   def check_referral
     if self.referral != nil and !self.referral.empty? and !User.exists?(email: self.referral) and !User.exists?(username: self.referral) 
-      errors.add(:referral, "email not found. Please check you've entered it correctly or leave it blank")
+      errors.add(:referral, "email/username not found. Please check you've entered it correctly or leave it blank")
       return false
     end
   end

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '~> 2.1'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
@@ -14,7 +14,7 @@ gem 'puma'
 gem 'mysql2', '~> 0.3.18'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -62,3 +62,8 @@ group :development, :test do
   gem 'spring'
 end
 
+
+#store
+gem 'spree', '~> 3.0.9'
+#gem 'spree_auth_devise', '~> 3.0.5'
+gem 'spree_gateway', '~> 3.0.0'

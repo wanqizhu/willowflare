@@ -21,6 +21,12 @@ class RegistrationsController < Devise::RegistrationsController
  #  end
   
 
+  # see http://guides.spreecommerce.org/developer/authentication.html
+  def create
+  	session[:spree_user_signup] = true
+	super
+  end
+
   protected
 
   def update_resource(resource, params)
