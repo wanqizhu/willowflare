@@ -19,6 +19,10 @@ class RegistrationsController < Devise::RegistrationsController
 	# 	end
 	# end
  #  end
+
+
+  def store
+  end
   
 
   protected

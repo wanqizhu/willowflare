@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   root to: "links#index"
 
+  devise_scope :user do
+    get '/store' => 'registrations#store'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
