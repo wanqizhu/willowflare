@@ -27,3 +27,6 @@ db/schema.rb
 config/local_env.yml
 
 config/survey*.txt
+
+# ignore pre-compiled assets
+public/assets/*

@@ -14,14 +14,14 @@ class Surveydatum < ActiveRecord::Base
 
 		# This is pretty insecure lOL
 
-		if self.surveyresponse == nil or self.surveyresponse.length < 11 or self.surveyresponse[0, 10] != "SECR3T_KEY"
+		if self.surveyresponse == nil or self.surveyresponse.length < 11 or self.surveyresponse[0, 10] != ENV["SECRET_SURVEY_KEY"]
 			return
 		end
 
 
 		survey_num = self.surveyresponse[10]
 		
-		if '0' > survey_num or survey_num > '4'
+		if '0' > survey_num or survey_num > ENV["MAX_SURVEY_NUM"]
 			return
 		end
 
@@ -31,17 +31,17 @@ class Surveydatum < ActiveRecord::Base
 		if u != nil
 			if (u.info == nil or !u.info.include?('survey'+survey_num))
 				if u.info == nil
-					u.info = 'surveydata_recorded_reward: ' + self.reward.to_s + '_at ' + Time.new.inspect + ', survey' + survey_num + '_completed'
+					u.info = 'surveydata_recorded_Reward_' + self.reward.to_s + '_At_' + Time.new.inspect + '__survey' + survey_num + '_completed'
 				else
-					u.info += ', surveydata_recorded_reward: ' + self.reward.to_s + '_at ' + Time.new.inspect + ', survey' + survey_num + '_completed'
+					u.info += ', surveydata_recorded_Reward_' + self.reward.to_s + '_At_' + Time.new.inspect + '__survey' + survey_num + '_completed'
 
 				end
 
 				u.money += self.reward
 				if u.news != nil
-					u.news += ' Thanks for completing survey #' + survey_num + "! You've been rewarded with " + self.reward.to_s + "points.\n"
+					u.news += ' Thanks for completing survey #' + survey_num + "! You've been rewarded with " + self.reward.to_s + " points.\n"
 				else
-					u.news = ' Thanks for completing survey #' + survey_num + "! You've been rewarded with " + self.reward.to_s + "points.\n"
+					u.news = ' Thanks for completing survey #' + survey_num + "! You've been rewarded with " + self.reward.to_s + " points.\n"
 				end
 
 				u.save
