@@ -45,13 +45,13 @@ var ready = function(){
         
 
         // since js is running client side, we can't pass the source name to rails
-        // so we haev to make a "switch" statement for every popup we want -- ugh
+        // so we have to make a "switch" statement for every popup we want -- ugh
         var source = $(this).attr('imagesrc')
 
         if (source == 'TermsofUse.jpg') {
             $("#infographicImage").attr('src', "<%= asset_path('TermsofUse.jpg') %>");
-        } else if (source == 'potion.png') {
-            $("#infographicImage").attr('src', "<%= asset_path('potion.png') %>");
+        } else if (source == 'placeholder.png') {
+            $("#infographicImage").attr('src', "<%= asset_path('placeholder.png') %>");
         }
 
         
