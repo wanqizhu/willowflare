@@ -94,4 +94,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # mailchimp subscribe object
+  config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP_API_KEY"])
+
 end
