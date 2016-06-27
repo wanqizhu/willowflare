@@ -7,9 +7,40 @@
 	.box {
 		height: 350px;
 		text-align: center;
+
+		/* align the text fields, even if some runs over 1 line */
+		img + h4 {
+			height: 12%;
+			margin-top: 5%;
+		}
+
+		img + h4 + h5 {
+			height: 10%;
+			margin-top: 10%;
+		}
+
 	}
 
 	.box > img {
-		height: 150px;
+		height: 50%;
+	}
+}
+
+
+@media(max-width: 767px) {
+	#store {
+		.box > img {
+			height: 60%;
+			margin-bottom: 3%;
+		}
+
+		.box {
+			padding-top: 3%;
+
+			img + h4, img + h4 + h5{
+				height: 8%;
+				margin-top: 0%;
+			}
+		}
 	}
 }
