@@ -141,7 +141,11 @@ class User < ActiveRecord::Base
       # subscribe with double-optin = false, update_existing = true, send_welcome = true
       # the parameters are
       # id, email, merge_vars, email_type, double_optin, update_existing, replace_interests, send_welcome
-      Rails.application.config.mailchimp.lists.subscribe(ENV["MAILCHIMP_LIST_ID"], {email: self.email}, nil, 'html', false, true, true, true)
+      if ENV['RAILS_ENV'].to_s == 'production'
+        Rails.application.config.mailchimp.lists.subscribe(ENV["MAILCHIMP_LIST_ID"], {email: self.email}, nil, 'html', false, true, true, true)
+      else
+        raise 'dev environment'
+      end
     rescue
       self.info += ", CANNOT SUBSCRIBE TO MAILCHIMP"
     end
