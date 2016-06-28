@@ -13,8 +13,10 @@ class Surveydatum < ActiveRecord::Base
 		end
 
 		# This is pretty insecure lOL
-
-		if self.surveyresponse == nil or self.surveyresponse.length < 11 or self.surveyresponse[0, 10] != ENV["SECRET_SURVEY_KEY"]
+		# prepad the survey # with a secret key
+		# only this type of post-requests will be accepted
+		len = ENV["SECRET_SURVEY_KEY"].length
+		if self.surveyresponse == nil or self.surveyresponse.length <= length or self.surveyresponse[0, length] != ENV["SECRET_SURVEY_KEY"]
 			return
 		end
 

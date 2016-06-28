@@ -97,6 +97,8 @@ Rails.application.configure do
 
 
   # mailchimp subscribe object
-  config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP_API_KEY"])
+
+  config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP_API_KEY"]) || nil
+
 
 end

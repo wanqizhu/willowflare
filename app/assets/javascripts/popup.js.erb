@@ -45,13 +45,13 @@ var ready = function(){
         
 
         // since js is running client side, we can't pass the source name to rails
-        // so we haev to make a "switch" statement for every popup we want -- ugh
+        // so we have to make a "switch" statement for every popup we want -- ugh
         var source = $(this).attr('imagesrc')
 
         if (source == 'TermsofUse.jpg') {
             $("#infographicImage").attr('src', "<%= asset_path('TermsofUse.jpg') %>");
-        } else if (source == 'potion.png') {
-            $("#infographicImage").attr('src', "<%= asset_path('potion.png') %>");
+        } else if (source == 'placeholder.png') {
+            $("#infographicImage").attr('src', "<%= asset_path('placeholder.png') %>");
         }
 
         
@@ -90,6 +90,26 @@ var ready = function(){
         // }, 500);
     });
 
+
+
+
+    $(".redeem").on('click', function(e){
+        e.preventDefault;
+
+        var current_pts = parseInt(document.getElementById("willowpoints").innerHTML)
+        var name = $(this).attr('name').split('_');
+        var cost = parseInt(name[1]);
+
+        if (current_pts < cost) {
+            alert("Not enough Willowpoints. Check the annoucement page to see if there are any new opportunities for you to earn rewards!");
+        } else {
+            if (window.confirm("Are you sure?")) {
+                // execute redeem logic here
+
+                alert("Please pardon our dust as we work to automate this redemption process. For now, you can redeem your rewards by emailing us at info@willowflare.com with your registered email and username.");
+            }
+        }
+    });
 
 }
 

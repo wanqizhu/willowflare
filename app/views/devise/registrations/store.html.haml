@@ -1,0 +1,61 @@
+#store
+  .row
+    .col-md-10.col-md-offset-1
+
+      .left-align
+        %h4.caps.light.bold
+          .ent-bag
+          Store
+        %br
+
+      .box-ghost
+        .box-icon.small
+          =image_tag("shield.png")
+        %h4.bold(style="margin-left:20px")
+          Welcome, traveller. Oh my, you've earned
+          %strong
+            %span#willowpoints=current_user.money
+            Willow Points!
+          Take a look at our wares...
+
+  .row
+    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+      .box-wrapper
+        .box.center
+          =image_tag("rp-gift-card.png")
+          %h4 $10 RP Card
+          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
+          %button.redeem.btn.btn-lg.btn-primary(name="1_500") BUY NOW
+
+    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+      .box-wrapper
+        .box.center
+          =image_tag("google-play-gift-card.jpg")
+          %h4 $10 Google Play Gift Card
+          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
+          %button.redeem.btn.btn-lg.btn-primary(name="2_500") BUY NOW
+
+    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+      .box-wrapper
+        .box.center
+          =image_tag("itunes-gift-card.jpg")
+          %h4 $10 Itunes Gift Card
+          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
+          %button.redeem.btn.btn-lg.btn-primary(name="3_500") BUY NOW
+
+    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+      .box-wrapper
+        .box.center
+          =image_tag("amazon-gift-card.png")
+          %h4 $10 Amazon Gift Card
+          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
+          %button.redeem.btn.btn-lg.btn-primary(name="4_500") BUY NOW
+
+
+    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+      .box-wrapper
+        .box.center
+          =image_tag("placeholder.png")
+          %br
+          %br
+          %h4 More Coming Soon!
