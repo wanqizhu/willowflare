@@ -29,9 +29,9 @@ form .actions {
     padding: 3px 7px;
     font-size: 27px;
     border: none;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    line-height: 27px;
+    border-radius: 10px;
+    font-weight: 200;
+    width: 400px;
 }
 
 @media (max-width: 568px) {
