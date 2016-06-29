@@ -98,16 +98,13 @@
     %i Leave blank if you don't want to change your password
 
     .field
-      = f.label :new_password
-      = f.password_field :password, autocomplete: "off"
+      = f.password_field :password, autocomplete: "off", placeholder: "New Password"
 
     .field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: "off"
+      = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
 
     .field
-      = f.label :current_password
-      = f.password_field :current_password, autocomplete: "off"
+      = f.password_field :current_password, autocomplete: "off", placeholder: "Current Password"
 
 
     .actions
