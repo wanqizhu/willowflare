@@ -12,11 +12,15 @@
         .box-icon.small
           =image_tag("shield.png")
         %h4.bold(style="margin-left:20px")
-          Welcome, traveller. Oh my, you've earned
-          %strong
-            %span#willowpoints=current_user.money
-            Willow Points!
-          Take a look at our wares...
+          Welcome, traveller. 
+          -if user_signed_in?
+            Oh my, you've earned
+            %strong
+              %span#willowpoints=current_user.money
+              Willow Points!
+            Take a look at our wares...
+          -else
+            Sign in to see your points and redeem rewards!
 
   .row
     .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
