@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
 
     #if Rails.application.config.mailchimp_signup.include?(self.email)
       self.money = 50
-      self.info += ', beta_signup'
+      self.info += 'beta_signup'
     # else
     #   self.money = 0
     # end
