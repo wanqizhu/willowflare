@@ -29,13 +29,17 @@ module RedditClone
 
 
     # email lists
+    # read in each file as a list if it exists
+    # these are used to store users who completed the survey w/o an account already
     Dir.chdir(File.dirname(__FILE__))
     config.mailchimp_signup = File.readlines('mailchimp_email.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.admins = File.readlines('admin_email.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey001 = File.readlines('survey001.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey001_winners = File.readlines('survey001_winners.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
     config.survey002 = File.readlines('survey002.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
-    config.survey003 = File.readlines('survey003.txt').each {|l| l.chomp!}.collect {|el| el.downcase }
+    config.survey003 = ((File.readlines('survey003.txt').each {|l| l.chomp!}.collect {|el| el.downcase } if File.exists?('survey003.txt')) || [])
+    config.survey004 = ((File.readlines('survey004.txt').each {|l| l.chomp!}.collect {|el| el.downcase } if File.exists?('survey004.txt')) || [])
+    config.survey005 = ((File.readlines('survey005.txt').each {|l| l.chomp!}.collect {|el| el.downcase } if File.exists?('survey005.txt')) || [])
 
 
     Dir.chdir(Rails.root)
