@@ -78,6 +78,11 @@ ul, li {
             padding: 5px;
             display: inline-block;
         }
+
+        /* vertical align the buttons when on mobile */
+        @media (max-width: 767px){ 
+          display: block;
+        }
     }
 
     .btn {
@@ -95,7 +100,7 @@ ul, li {
         display: block
       }
       text-shadow: 0 1px 0px rgba(255,255,255,0.3);
-      // box-shadow: 0 0 1px black;
+      /* box-shadow: 0 0 1px black; */
       &:hover, &.selected {
         $hovercol: 1 * $yellow + 0.0025 * $orange;
         border-color: $yellow * 0.8;
