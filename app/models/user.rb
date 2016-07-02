@@ -105,24 +105,44 @@ class User < ActiveRecord::Base
       self.info += ', survey3_completed'
     end
 
+    if Rails.application.config.survey004.include?(self.email)
+      self.money += 35
 
+      self.info += ', survey4_completed'
+    end
+
+    if Rails.application.config.survey005.include?(self.email)
+      self.money += 35
+
+      self.info += ', survey5_completed'
+    end
 
 
     if self.referral != nil and !self.referral.empty?
-      self.money += 30
+      
+
 
       referrer = User.where(email: self.referral)[0]
 
       if referrer != nil
+        self.money += 30
+        self.info += ', referred by ' + self.referral
+
         referrer.money += 30
         referrer.news += " You have earned 30 points thanks to your referral to " + self.email
+        referrer.info += ', referred towards ' + self.email
         referrer.save
       else
         referrer = User.where(username: self.referral)[0]
+        
 
         if referrer != nil
+          self.money += 30
+          self.info += ', referred by ' + self.referral
+
           referrer.money += 30
           referrer.news += " You have earned 30 points thanks to your referral to " + self.email
+          referrer.info += ', referred towards ' + self.email
           referrer.save
         end
       end
@@ -136,7 +156,7 @@ class User < ActiveRecord::Base
       self.auth_level = 0
     end
 
-    # subscribe to mailing list
+    # subscribe to mailing list, BUT ONLY IN PRODUCTION
     begin
       # subscribe with double-optin = false, update_existing = true, send_welcome = true
       # the parameters are

@@ -1,6 +1,10 @@
 <% if current_user and current_user.auth_level >= 90 %>
 
+<%= link_to 'New Surveydatum', new_surveydatum_path %>
+<br />
+
 <h1>Listing Surveydata</h1>
+
 
 <table>
   <thead>
@@ -25,9 +29,8 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Surveydatum', new_surveydatum_path %>
+
 
 <% else %>
 <h1>Not authorized</h1>

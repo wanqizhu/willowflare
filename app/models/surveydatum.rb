@@ -16,14 +16,14 @@ class Surveydatum < ActiveRecord::Base
 		# prepad the survey # with a secret key
 		# only this type of post-requests will be accepted
 		len = ENV["SECRET_SURVEY_KEY"].length
-		if self.surveyresponse == nil or self.surveyresponse.length <= length or self.surveyresponse[0, length] != ENV["SECRET_SURVEY_KEY"]
+		if self.surveyresponse == nil or self.surveyresponse.length <= len or self.surveyresponse[0, len] != ENV["SECRET_SURVEY_KEY"]
 			return
 		end
 
 
 		survey_num = self.surveyresponse[10]
 		
-		if '0' > survey_num or survey_num > ENV["MAX_SURVEY_NUM"]
+		if 0 > survey_num.to_i or survey_num.to_i > ENV["MAX_SURVEY_NUM"].to_i
 			return
 		end
 
@@ -33,9 +33,9 @@ class Surveydatum < ActiveRecord::Base
 		if u != nil
 			if (u.info == nil or !u.info.include?('survey'+survey_num))
 				if u.info == nil
-					u.info = 'surveydata_recorded_Reward_' + self.reward.to_s + '_At_' + Time.new.inspect + '__survey' + survey_num + '_completed'
+					u.info = 'surveydata_recorded_Reward_' + self.reward.to_s + '_At_' + Time.new.inspect + ', survey' + survey_num + '_completed'
 				else
-					u.info += ', surveydata_recorded_Reward_' + self.reward.to_s + '_At_' + Time.new.inspect + '__survey' + survey_num + '_completed'
+					u.info += ', surveydata_recorded_Reward_' + self.reward.to_s + '_At_' + Time.new.inspect + ', survey' + survey_num + '_completed'
 
 				end
 
@@ -57,7 +57,7 @@ class Surveydatum < ActiveRecord::Base
 				puts self.email + "\n\n"
 				puts self.surveyresponse + "\n\n"
 			end
-		else
+		else # In case the user doesn't exist yet
 			File.open(Rails.root + ('config/survey00' + survey_num + '.txt'), 'a') { |f|
 				f.write(self.email + "\n")
 			}
