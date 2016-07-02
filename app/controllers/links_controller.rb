@@ -54,13 +54,32 @@ class LinksController < ApplicationController
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
-    respond_to do |format|
-      if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @link }
-      else
-        format.html { render :edit }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+    # if content starts with _, then we update the link WITHOUT updating its 'updated_at' attribute
+    if !link_params["content"].blank? and link_params["content"][0] == '_'
+      link_params2 = link_params
+      link_params2["content"] = link_params["content"][1..-1]
+      
+      # this does the same thing as @link.update, except it skips validation, callbacks, and updated_at/updated_on
+      respond_to do |format|
+        if @link.update_columns(link_params2)
+          format.html { redirect_to @link, notice: 'Review was successfully updated w/o changing updated_at time.' }
+          format.json { render :show, status: :ok, location: @link }
+        else
+          format.html { render :edit }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
+      end
+
+    else
+    
+      respond_to do |format|
+        if @link.update(link_params)
+          format.html { redirect_to @link, notice: 'Review was successfully updated.' }
+          format.json { render :show, status: :ok, location: @link }
+        else
+          format.html { render :edit }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
