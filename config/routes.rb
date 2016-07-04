@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/store' => 'registrations#store'
+    post '/store' => 'registrations#store_redeem'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -23,6 +23,43 @@ class RegistrationsController < Devise::RegistrationsController
 
   def store
   end
+
+
+  # There's a problme here: they could edit the html code to customize the 'item' parameter
+  # so then they can redeem at arbituary costs
+
+  # must make the price of items server-side...
+  def store_redeem
+  	puts "redeeeeeem"
+  	begin
+  		current_user.money -= params[:item][2..-1].to_i # get item price
+  		if current_user.money < 0
+  			throw "redemption error, not enough money"
+  		end
+  		current_user.info += ", redeemed " + params[:item] + " at " + Time.new.inspect
+		
+  		MyMailer.store_redeem_email(current_user, params[:item]).deliver_now
+  		
+  		if flash[:notice]
+			flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+		else
+			flash[:notice] = "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+		end
+  		current_user.save
+  	
+  	rescue # in case redemption fails
+  		puts "Store Redemption Error\n\n"
+  		puts params[:item]
+  		puts current_user.money
+  		# error message
+  		if flash[:alert]
+			flash[:alert] += "\nStore redemption error. Please contact player support for assistance."
+		else
+			flash[:alert] = "Store redemption error. Please contact player support for assistance."
+		end
+  	end
+  	redirect_to '/store' # redirect as a get request, handled by store controler/view
+  end
   
 
   protected
