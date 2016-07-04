@@ -1,5 +1,8 @@
-// for popups and show/hide parts
+
 var ready = function(){
+
+
+
 
     // $(".clickable-row").click(function() {
     //     window.document.location = $(this).data("href");
@@ -93,11 +96,13 @@ var ready = function(){
 
 
 
+
+
     $(".redeem").on('click', function(e){
         e.preventDefault;
 
         var current_pts = parseInt(document.getElementById("willowpoints").innerHTML)
-        var name = $(this).attr('name').split('_');
+        var name = $(this).attr('value').split('_');
         var cost = parseInt(name[1]);
 
         if (current_pts < cost) {
@@ -106,9 +111,12 @@ var ready = function(){
             if (window.confirm("Are you sure?")) {
                 // execute redeem logic here
 
-                alert("Please pardon our dust as we work to automate this redemption process. For now, you can redeem your rewards by emailing us at info@willowflare.com with your registered email and username.");
+                //alert("Please pardon our dust as we work to automate this redemption process. For now, you can redeem your rewards by emailing us at info@willowflare.com with your registered email and username.");
+                return true;
             }
         }
+
+        return false;
     });
 
 }
