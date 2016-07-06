@@ -23,41 +23,22 @@
             Sign in to see your points and redeem rewards!
 
   .row
-    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
-      .box-wrapper
-        .box.center
-          =image_tag("rp-gift-card.png")
-          %h4 $10 RP Card
-          %h5.blue(style="margin-bottom:15px;") 450 Willow Points
-          = form_tag '/store', :method => :post do
-            %button.redeem.btn.btn-lg.btn-primary(name="item" value="1_450" type="submit") BUY NOW
+    - for store_item in (0..(Rails.application.config.STORE_ITEM_PRICE.length - 1))
+      .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+        .box-wrapper
+          .box.center
 
-    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
-      .box-wrapper
-        .box.center
-          =image_tag("google-play-gift-card.jpg")
-          %h4 $10 Google Play Gift Card
-          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
-          = form_tag '/store', :method => :post do
-            %button.redeem.btn.btn-lg.btn-primary(name="item" value="2_500") BUY NOW
+            =image_tag(Rails.application.config.STORE_ITEM_NAME[store_item])
 
-    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
-      .box-wrapper
-        .box.center
-          =image_tag("itunes-gift-card.jpg")
-          %h4 $10 Itunes Gift Card
-          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
-          = form_tag '/store', :method => :post do
-            %button.redeem.btn.btn-lg.btn-primary(name="item" value="3_500") BUY NOW
+            %h4=Rails.application.config.STORE_ITEM_DESCRIPTION[store_item]
 
-    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
-      .box-wrapper
-        .box.center
-          =image_tag("amazon-gift-card.png")
-          %h4 $10 Amazon Gift Card
-          %h5.blue(style="margin-bottom:15px;") 500 Willow Points
-          = form_tag '/store', :method => :post do
-            %button.redeem.btn.btn-lg.btn-primary(name="item" value="4_500") BUY NOW
+            %h5.blue(style="margin-bottom:15px;")
+              =Rails.application.config.STORE_ITEM_PRICE[store_item]
+              Willow Points
+
+            -if user_signed_in?
+              = form_tag '/store', :method => :post do
+                %button.redeem.btn.btn-lg.btn-primary(name="item" value=store_item type="submit") BUY NOW
 
 
     .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2

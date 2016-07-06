@@ -1,4 +1,11 @@
-%h1 Test test
+- if Rails.env.development? | Rails.env.test?
+	%h1 Test test
 %p
 	Remaining points:
 	=@user.money
+
+	ID:
+	=@user.id
+
+	INFO:
+	=@user.info

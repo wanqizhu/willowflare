@@ -101,20 +101,23 @@ var ready = function(){
     $(".redeem").on('click', function(e){
         e.preventDefault;
 
-        var current_pts = parseInt(document.getElementById("willowpoints").innerHTML)
-        var name = $(this).attr('value').split('_');
-        var cost = parseInt(name[1]);
+        // var current_pts = parseInt(document.getElementById("willowpoints").innerHTML)
+        // var name = $(this).attr('value').split('_');
+        // var cost = parseInt(name[1]);
 
-        if (current_pts < cost) {
-            alert("Not enough Willowpoints. Check the annoucement page to see if there are any new opportunities for you to earn rewards!");
-        } else {
+        // if (current_pts < cost) {
+        //     alert("Not enough Willowpoints. Check the annoucement page to see if there are any new opportunities for you to earn rewards!");
+        // } else {
             if (window.confirm("Are you sure?")) {
                 // execute redeem logic here
+                // actually, moving all the logic client side to make secure
+
+                // see registrations_controller
 
                 //alert("Please pardon our dust as we work to automate this redemption process. For now, you can redeem your rewards by emailing us at info@willowflare.com with your registered email and username.");
                 return true;
             }
-        }
+        //}
 
         return false;
     });

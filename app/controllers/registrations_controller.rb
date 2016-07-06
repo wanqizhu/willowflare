@@ -32,13 +32,14 @@ class RegistrationsController < Devise::RegistrationsController
   def store_redeem
   	puts "redeeeeeem"
   	begin
-  		current_user.money -= params[:item][2..-1].to_i # get item price
+  		item_num = params[:item].to_i
+  		current_user.money -= Rails.application.config.STORE_ITEM_PRICE[item_num] # get item price
   		if current_user.money < 0
   			throw "redemption error, not enough money"
   		end
-  		current_user.info += ", redeemed " + params[:item] + " at " + Time.new.inspect
+  		current_user.info += ", redeemed " + Rails.application.config.STORE_ITEM_DESCRIPTION[item_num] + " at " + Time.new.inspect
 		
-  		MyMailer.store_redeem_email(current_user, params[:item]).deliver_now
+  		MyMailer.store_redeem_email(current_user, item_num).deliver_now
   		
   		if flash[:notice]
 			flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
@@ -47,15 +48,17 @@ class RegistrationsController < Devise::RegistrationsController
 		end
   		current_user.save
   	
-  	rescue # in case redemption fails
+  	rescue  => e # in case redemption fails
+  		logger.error e.message
+		logger.error e.backtrace.join("\n") 
   		puts "Store Redemption Error\n\n"
-  		puts params[:item]
+  		puts item_num
   		puts current_user.money
   		# error message
   		if flash[:alert]
-			flash[:alert] += "\nStore redemption error. Please contact player support for assistance."
+			flash[:alert] += "\nStore redemption error. Please check you have enough points and contact player support for assistance."
 		else
-			flash[:alert] = "Store redemption error. Please contact player support for assistance."
+			flash[:alert] = "Store redemption error. Please check you have enough points and contact player support for assistance."
 		end
   	end
   	redirect_to '/store' # redirect as a get request, handled by store controler/view

@@ -82,7 +82,7 @@
     #page
       - flash.each do |name, msg|
         - if msg != nil and !msg.empty?
-          .alert.alert-info{:class => "#{name}"}= msg
+          .alert.alert-info{:class => "alert-#{name}"}= msg
       
 
       .container
