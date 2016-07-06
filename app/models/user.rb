@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
 
 
 
+
+
+
+
   protected
 
   def check_referral

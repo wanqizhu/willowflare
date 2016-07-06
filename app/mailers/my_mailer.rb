@@ -8,6 +8,6 @@ class MyMailer < Devise::Mailer
   def store_redeem_email(user, item)
   	@user = user
   	@item = item
-  	mail(to: "info@willowflare.com", subject: "Store redemption by " + @user.email + " for " + @item)
+  	mail(to: "info@willowflare.com", cc: Rails.application.config.admins, subject: "Store redemption by " + @user.email + " for " + Rails.application.config.STORE_ITEM_DESCRIPTION[@item])
   end 
 end
