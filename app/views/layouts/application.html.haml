@@ -113,3 +113,11 @@
     / hidden popup
     #infographicPopup.flex-container.center
       %img#infographicImage
+      #popupContainer
+        - if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank?
+          #newsContainer
+            .box-wrapper.icon
+              .box-icon
+                = image_tag("treasure.png")
+              .box
+                = ENV["GLOBAL_POPUP_NEWS"].html_safe
