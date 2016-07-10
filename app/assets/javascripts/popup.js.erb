@@ -129,13 +129,17 @@ var ready = function(){
 
 
     // load global news last, only on first page visit
-    var isshow = sessionStorage.getItem('visited');
+    
+    <% if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank? %>
+        var isshow = sessionStorage.getItem('visited');
 
-    if (isshow == null){
-        $("#infographicPopup").css({'display': '-webkit-flex'
-                                       ,'display': 'flex'});
-        $("#infographicImage").css({'margin': '0'});        $('body').css('overflow', 'hidden');
-    }
+        if (isshow == null){
+            $("#infographicPopup").css({'display': '-webkit-flex'
+                                           ,'display': 'flex'});
+            $("#infographicImage").css({'margin': '0'});        $('body').css('overflow', 'hidden');
+        }
+
+    <% end %>
 
 
     $("#infographicPopup:not(#popupContainer)").on('click',function(){
