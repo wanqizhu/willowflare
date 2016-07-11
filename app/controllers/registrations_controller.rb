@@ -37,9 +37,9 @@ class RegistrationsController < Devise::RegistrationsController
   		if current_user.money < 0
   			throw "redemption error, not enough money"
   		end
-  		current_user.info += ", redeemed " + Rails.application.config.STORE_ITEM_DESCRIPTION[item_num] + " at " + Time.new.inspect
+  		current_user.info += ", redeemed " + Rails.application.config.STORE_ITEM_DESCRIPTION[item_num] + " for " + params[:country] + " at " + Time.new.inspect
 		
-  		MyMailer.store_redeem_email(current_user, item_num).deliver_now
+  		MyMailer.store_redeem_email(current_user, item_num, params[:country]).deliver_now
   		
   		if flash[:notice]
 			flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
