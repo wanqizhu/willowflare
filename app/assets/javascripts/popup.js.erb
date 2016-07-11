@@ -104,6 +104,17 @@ var ready = function(){
     $(".redeem").on('click', function(e){
         e.preventDefault;
 
+
+
+        // set the country parameter
+        var country = $("#user_nation").val();
+
+        $(".country").each(function(){
+            $(this).attr('value', country);
+        });
+
+
+
         // var current_pts = parseInt(document.getElementById("willowpoints").innerHTML)
         // var name = $(this).attr('value').split('_');
         // var cost = parseInt(name[1]);
