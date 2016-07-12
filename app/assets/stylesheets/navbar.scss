@@ -138,11 +138,16 @@ ul, li {
     padding-top: 7px;
     padding-right: 30px;
 
+
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 17px;
     letter-spacing: 1px;
 }
 
 #topBanner span {
-    margin: 0px 10px;
+  margin: 0px 10px;
+
+  @media (max-width: 767px) {
+    display: inline-block;
+  }
 }
