@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :surveydata
 
   resources :comments
-
-  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions"}# Use custom controllers
+ 
+  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions"} # Use custom controllers
+  get 'users/:username' => 'users#profile', as: 'user_profile'
 
   resources :links do
     member do
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
     get '/store' => 'registrations#store'
     post '/store' => 'registrations#store_redeem'
   end
+
+  mount Thredded::Engine => '/forum'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

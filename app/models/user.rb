@@ -45,15 +45,23 @@ class User < ActiveRecord::Base
 
 
   validate :check_referral
+  validates_uniqueness_of :username
 
 
   before_create :init_user
 
 
 
+  # display the username in views that use @user.to_s, instead of #<User:0x007f9566ce3dc8>
+  def to_s
+    username
+  end
 
 
-
+  # custom forum moderator permission
+  def thredded_can_moderate_messageboards
+    self.auth_level > 90 ? Thredded::Messageboard.all : Thredded::Messageboard.none
+  end
 
 
   protected
@@ -165,13 +173,15 @@ class User < ActiveRecord::Base
       # subscribe with double-optin = false, update_existing = true, send_welcome = true
       # the parameters are
       # id, email, merge_vars, email_type, double_optin, update_existing, replace_interests, send_welcome
-      if ENV['RAILS_ENV'].to_s == 'production'
+      if Rails.env.production?
         Rails.application.config.mailchimp.lists.subscribe(ENV["MAILCHIMP_LIST_ID"], {email: self.email}, nil, 'html', false, true, true, true)
       else
         raise 'dev environment'
       end
-    rescue
+    rescue => e
       self.info += ", CANNOT SUBSCRIBE TO MAILCHIMP"
+      logger.error e.message
+      logger.error e.backtrace.join("\n") 
     end
 
   end

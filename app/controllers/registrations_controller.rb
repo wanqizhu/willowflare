@@ -50,7 +50,7 @@ class RegistrationsController < Devise::RegistrationsController
   	
   	rescue  => e # in case redemption fails
   		logger.error e.message
-		logger.error e.backtrace.join("\n") 
+		  logger.error e.backtrace.join("\n") 
   		puts "Store Redemption Error\n\n"
   		puts item_num
   		puts current_user.money
