@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     self.auth_level > 90 ? Thredded::Messageboard.all : Thredded::Messageboard.none
   end
 
+  def thredded_admin?
+    return self.auth_level > 90
+  end
+
 
   protected
 
