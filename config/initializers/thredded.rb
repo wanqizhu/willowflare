@@ -37,16 +37,16 @@ Thredded.content_visible_while_pending_moderation = true
 
 # ==> Email Configuration
 # Email "From:" field will use the following
-# Thredded.email_from = 'no-reply@example.com'
+Thredded.email_from = 'info@willowflare.com'
 
 # Incoming email will be directed to this host
-# Thredded.email_incoming_host = 'example.com'
+Thredded.email_incoming_host = 'willowflare.com'
 
 # Emails going out will prefix the "Subject:" with the following string
-# Thredded.email_outgoing_prefix = '[My Forum] '
+Thredded.email_outgoing_prefix = '[WillowFlare Forum] '
 
 # Reply to field for email notifications
-# Thredded.email_reply_to = -> postable { "#{postable.hash_id}@#{Thredded.email_incoming_host}" }
+Thredded.email_reply_to = -> postable { "#{postable.hash_id}@#{Thredded.email_incoming_host}" }
 
 # ==> View Configuration
 # Set the layout for rendering the thredded views.
