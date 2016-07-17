@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
   # after signing in), which is what the :unless prevents
   before_filter :store_current_location, :unless => :devise_controller?
 
+  use Rack::GeoIPCountry, :db => File.expand_path(Rails.root.join("db/GeoIP.dat"))
+  after_filter :redirect_if_china
+
+
+
+  def companies
+    render :layout => false
+  end
 
 
   protected
@@ -56,6 +64,13 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def redirect_if_china
+    puts "geoip", request.headers['X_GEOIP_COUNTRY_CODE'], request.headers['X_GEOIP_COUNTRY_ID']
+
+    if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
+      redirect "/companies"
+    end
+  end
 
 
   # Use this to return to previous page after sign out
