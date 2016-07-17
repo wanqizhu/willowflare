@@ -36,7 +36,6 @@ Thredded.content_visible_while_pending_moderation = true
 # For more information, see app/models/thredded/user_extender.rb.
 
 # ==> Email Configuration
-Thredded::BaseMailer = MyMailer
 # Email "From:" field will use the following
 Thredded.email_from = 'info@willowflare.com'
 
