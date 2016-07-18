@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 module Thredded
-  class BaseMailer < MyMailer
-    super
+  class BaseMailer < ActionMailer::Base
 
     helper ::Thredded::UrlsHelper
 
