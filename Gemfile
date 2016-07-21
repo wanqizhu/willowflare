@@ -6,6 +6,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'mailchimp-api', require: 'mailchimp'
 
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.1.0'
+gem 'social-share-button'
 gem 'haml'
 
 # for redirecitng China traffic
