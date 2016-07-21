@@ -27,6 +27,8 @@
               .field
                 = f.input :nation, label: "Country", collection: User::NATION_.map{ |s| [s.tr('_', ' '), s]}
 
+            /= social_share_button_tag(current_user.username)
+
           -else
             Sign in to see your points and redeem rewards!
 
