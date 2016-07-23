@@ -1,48 +1,218 @@
 %html
-	%head
-		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %head
 
-		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    / prevent announcement popups for companies
 
-		= stylesheet_link_tag 'companies', media: 'all', 'data-turbolinks-track' => true
+    :javascript
+      sessionStorage.setItem('visited', 1);
 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
-		%link{ :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 
-		%link{ :href => 'http://fonts.googleapis.com/css?family=Kaushan+Script', :rel => 'stylesheet', :type => 'text/css'}
-
-		%link{ :href => 'http://fonts.googleapis.com/css?family=Nunito:300,400,700|Droid+Sans:400,700', :rel => 'stylesheet', :type=> 'text/css'}
-
+    = stylesheet_link_tag 'companies', media: 'all', 'data-turbolinks-track' => true
 
 
-	%body
-		#page.container
+    %link{ :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}
 
-			#logo.center= link_to image_tag('logo.png'), root_path
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Kaushan+Script', :rel => 'stylesheet', :type => 'text/css'}
 
-
-			%h1 Companies
-			%p 一站式，个性化的手游出海解决方案 – 在美国的我们比任何人都了解北美手游玩家和市场。 
-
-			%p 不仅仅是本地化，而是深度文化契合。
-
-			%p 靠谱的翻译和美术难找？ 中西方文化差异太大？
-
-			%p 我们的翻译团队由真正的双语玩家组成，他们的任务绝不仅仅是将中文翻译成英文，而是在翻译过程中根据每个游戏特质将几十年积累的西方游戏文化融入到本地化过程中，提供给客户真正的深度优化。我们与北美本地美工和开发团队合作，提供UI，人物，内容，美术和商店描述的全面服务，调出真正符合北美玩家口味的游戏。
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Nunito:300,400,700|Droid+Sans:400,700', :rel => 'stylesheet', :type=> 'text/css'}
 
 
 
-			%p 北美玩家真人众测，倒量预热。
+  %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-header
+          %button{ :type => "button", :class => "navbar-toggle", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          #logo.navbar-brand= link_to image_tag('logo.png'), root_path
 
-			%p 改什么？怎么改？自然量从哪来？
 
-			%p 北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %ul#topNavRight.nav.navbar-nav.navbar-right
+            
+            %li.btn
+              %a(href=new_user_registration_path data-method="delete")
+                %i.fa.fa-paper-plane
+                Sign up
 
 
-			%p 新兴推广渠道，低价高回报。
-			%p 怎样地推？找谁发行？
-
-			%p 一切以数据为准！ 根据数据分析玩家的喜好和市场规律，我们为客户量身打造详细的推广计划并推荐最适合的渠道。 经过多年的实践，我们积累了一个北美发行和推广渠道的“藏宝图”。游戏的前期数据就是藏宝图上的路标，我们会根据游戏特有的性质，和客户并肩战斗去争取最高的ROI。我们的宗旨是做客户在北美的合作伙伴，只有当客户盈利时我们才盈利。
 
 
-			=social_share_button_tag("test")
+    #page
+
+      %h1 Companies
+
+      = carousel_for(['placeholder.png', 'placeholder.png', 'placeholder.png'])
+
+
+      / full size carousel
+      / #carousel-example-generic.carousel.slide(data-ride="carousel")
+      /   %ol.carousel-indicators
+      /     %li.active(data-target="#carousel-example-generic" data-slide-to="0")
+      /     %li(data-target="#carousel-example-generic" data-slide-to="1")
+      /     %li(data-target="#carousel-example-generic" data-slide-to="2")
+      /   .carousel-inner(role="listbox")
+      /     .carousel-item.active
+      /       %img(data-src="..." alt="First slide")
+      /     .carousel-item
+      /       %img(data-src="..." alt="Second slide")
+      /     .carousel-item
+      /       %img(data-src="..." alt="Third slide")
+        
+      /   %a.left.carousel-control(href="#carousel-example-generic" role="button" data-slide="prev")
+      /     %span.icon-prev(aria-hidden="true")
+      /     %span.sr-only
+      /       Previous
+          
+      /   %a.right.carousel-control(href="#carousel-example-generic" role="button" data-slide="next")
+      /     %span.icon-next(aria-hidden="true")
+      /     %span.sr-only
+      /       Next
+
+      
+      .container#main
+        %p 一站式，个性化的手游出海解决方案 – 在美国的我们比任何人都了解北美手游玩家和市场。 
+
+        %p 不仅仅是本地化，而是深度文化契合。
+
+        %p 靠谱的翻译和美术难找？ 中西方文化差异太大？
+
+        %p 我们的翻译团队由真正的双语玩家组成，他们的任务绝不仅仅是将中文翻译成英文，而是在翻译过程中根据每个游戏特质将几十年积累的西方游戏文化融入到本地化过程中，提供给客户真正的深度优化。我们与北美本地美工和开发团队合作，提供UI，人物，内容，美术和商店描述的全面服务，调出真正符合北美玩家口味的游戏。
+
+
+
+        %p 北美玩家真人众测，倒量预热。
+
+        %p 改什么？怎么改？自然量从哪来？
+
+        %p 北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。
+
+
+        %p 新兴推广渠道，低价高回报。
+        %p 怎样地推？找谁发行？
+
+        %p 一切以数据为准！ 根据数据分析玩家的喜好和市场规律，我们为客户量身打造详细的推广计划并推荐最适合的渠道。 经过多年的实践，我们积累了一个北美发行和推广渠道的“藏宝图”。游戏的前期数据就是藏宝图上的路标，我们会根据游戏特有的性质，和客户并肩战斗去争取最高的ROI。我们的宗旨是做客户在北美的合作伙伴，只有当客户盈利时我们才盈利。
+
+
+
+        / START THE FEATURETTES
+        %hr.featurette-divider
+        .row.featurette
+          .col-md-7
+            %h2.featurette-heading
+              First featurette heading.
+              %span.text-muted It'll blow your mind.
+            %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          .col-md-5
+            =image_tag("placeholder.png", class: "featurette-image img-fluid center-block")
+        %hr.featurette-divider
+        .row.featurette
+          .col-md-7.col-md-push-5
+            %h2.featurette-heading
+              Oh yeah, it's that good.
+              %span.text-muted See for yourself.
+            %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          .col-md-5.col-md-pull-7
+            =image_tag("placeholder.png", class: "featurette-image img-fluid center-block")
+        %hr.featurette-divider
+        .row.featurette
+          .col-md-7
+            %h2.featurette-heading
+              And lastly, this one.
+              %span.text-muted Checkmate.
+            %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          .col-md-5
+            =image_tag("placeholder.png", class: "featurette-image img-fluid center-block")
+        %hr.featurette-divider
+
+
+        /END THE FEATURETTES
+
+
+        .row.circles
+          .col-md-4
+            %img.img-circle.center{:alt => "Generic placeholder image", :height => "140", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :width => "140"}
+            %h2 Heading
+            %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+            
+
+          .col-md-4
+            %img.img-circle.center{:alt => "Generic placeholder image", :height => "140", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :width => "140"}
+            %h2 Heading
+            %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+            
+
+          .col-md-4
+            %img.img-circle.center{:alt => "Generic placeholder image", :height => "140", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==", :width => "140"}
+            %h2 Heading
+            %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+            
+
+
+
+        /=social_share_button_tag("test")
+
+
+
+    %section#contact
+      .container
+        .row
+          .col-lg-12.text-center
+            %h2.section-heading Contact Us
+            %h3.section-subheading.text-muted Questions, Comments, Suggestions? Send us a message!
+        .row
+          .col-lg-12
+            %form#contactForm{:name => "sentMessage", :novalidate => ""}
+              .row
+                .col-md-6
+                  .form-group
+                    %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Your Name *", :required => "", :type => "text"}/
+                    %p.help-block.text-danger
+                  .form-group
+                    %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Your Email *", :required => "", :type => "email"}/
+                    %p.help-block.text-danger
+                  .form-group
+                    %input#phone.form-control{:placeholder => "Your Phone", :type => "tel"}/
+                    %p.help-block.text-danger
+                .col-md-6
+                  .form-group
+                    %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Your Message *", :required => ""}
+                    %p.help-block.text-danger
+                .clearfix
+                .col-lg-12.text-center
+                  #success
+                  %button.btn.btn-xl{:type => "submit"} Send Message
+
+
+    / #footer
+    /   .container
+    /     .col-md-12
+    /       .footer-container
+    /         .float-left
+    /           %a.popupButton(imageSrc="TermsofUse.jpg" img_width="600px")< Terms & Privacy
+    /         .float-right 
+    /           WillowFlare, Inc
+    /           \&nbsp;
+    /           %a(href="https://www.facebook.com/Willowflare-518689994959123/")
+    /             %i.fa.fa-facebook
+    /           %a(href="https://www.twitter.com/willowflare")
+    /             %i.fa.fa-twitter
+        
+
+    / hidden popup
+    #infographicPopup.flex-container.center
+      %img#infographicImage
+      #popupContainer
+        - if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank?
+          #newsContainer
+            .box-wrapper.icon
+              .box-icon
+                = image_tag("treasure.png")
+              .box
+                = ENV["GLOBAL_POPUP_NEWS"].html_safe

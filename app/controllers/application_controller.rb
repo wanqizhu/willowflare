@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :store_current_location, :unless => :devise_controller?
 
   use Rack::GeoIPCountry, :db => File.expand_path(Rails.root.join("db/GeoIP.dat"))
-  after_filter :redirect_if_china
+  before_filter :redirect_if_china
 
 
 

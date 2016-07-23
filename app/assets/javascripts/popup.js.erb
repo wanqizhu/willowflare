@@ -80,6 +80,7 @@ var ready = function(){
         $("#infographicPopup").css({'display': '-webkit-flex'
                                    ,'display': 'flex'});
         $('body').css('overflow', 'hidden');
+        $('#popupContainer').hide();
     });
     $('#infographicImage').on('click',function(e){
         e.stopPropagation();
@@ -147,7 +148,8 @@ var ready = function(){
         if (isshow == null && device_width > 767){ // only show on desktop
             $("#infographicPopup").css({'display': '-webkit-flex'
                                            ,'display': 'flex'});
-            $("#infographicImage").css({'margin': '0'});        $('body').css('overflow', 'hidden');
+            $("#infographicImage").css({'margin': '0'});        
+            $('body').css('overflow', 'hidden');
         }
 
     <% end %>
