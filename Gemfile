@@ -11,6 +11,9 @@ gem 'haml'
 
 # for redirecitng China traffic
 gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'
+# for blacklisting
+gem 'rack-attack'
+
 
 # for AWS
 gem 'puma'
