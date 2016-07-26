@@ -25,7 +25,26 @@ class ApplicationController < ActionController::Base
 
   def mail
     logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:message]
-    MyMailer.notification_email(params[:name], params[:email], params[:org], params[:message]).deliver_now
+    begin
+      MyMailer.notification_email(params[:name], params[:email], params[:org], params[:message]).deliver_now
+      if flash[:notice]
+        flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+      else
+        flash[:notice] = "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+      end
+    
+    rescue  => e # in case redemption fails
+      logger.error e.message
+      logger.error e.backtrace.join("\n") 
+      # error message
+      if flash[:alert]
+        flash[:alert] += "\nSending mail failed. Please try again later or email info@willowflare.com"
+      else
+        flash[:alert] = "Sending mail failed. Please try again later or email info@willowflare.com"
+      end
+    end
+
+
     redirect_to :back
   end
 

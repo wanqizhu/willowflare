@@ -1,22 +1,25 @@
 module CarouselHelper
-  def carousel_for(images)
-    Carousel.new(self, images).html
+  def carousel_for(images, options={})
+    Carousel.new(self, images, options).html
   end
 
   class Carousel
-    def initialize(view, images)
+    def initialize(view, images, options)
       @view, @images = view, images
       @uid = SecureRandom.hex(6)
+      options[:id] = uid
+      options[:class] = 'carousel slide'
+      @options = options
     end
 
     def html
       content = safe_join([indicators, slides, controls])
-      content_tag(:div, content, id: uid, class: 'carousel slide')
+      content_tag(:div, content, options)
     end
 
     private
 
-    attr_accessor :view, :images, :uid
+    attr_accessor :view, :images, :uid, :options
     delegate :link_to, :content_tag, :image_tag, :safe_join, to: :view
 
     def indicators

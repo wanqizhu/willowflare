@@ -50,16 +50,16 @@ class RegistrationsController < Devise::RegistrationsController
   	
   	rescue  => e # in case redemption fails
   		logger.error e.message
-		logger.error e.backtrace.join("\n") 
+		  logger.error e.backtrace.join("\n") 
   		puts "Store Redemption Error\n\n"
   		puts item_num
   		puts current_user.money
   		# error message
   		if flash[:alert]
-			flash[:alert] += "\nStore redemption error. Please check you have enough points and contact player support for assistance."
-		else
-			flash[:alert] = "Store redemption error. Please check you have enough points and contact player support for assistance."
-		end
+  			flash[:alert] += "\nStore redemption error. Please check you have enough points and contact player support for assistance."
+  		else
+  			flash[:alert] = "Store redemption error. Please check you have enough points and contact player support for assistance."
+  		end
   	end
   	redirect_to '/store' # redirect as a get request, handled by store controler/view
   end
