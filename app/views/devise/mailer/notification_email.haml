@@ -1,0 +1,13 @@
+- if Rails.env.development? | Rails.env.test?
+	%h1 Test test
+%p
+	New message:
+	%br
+	=@message
+
+
+%h3
+	From:
+	=@name
+	=@email
+	=@org

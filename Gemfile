@@ -12,7 +12,7 @@ gem 'haml'
 # for redirecitng China traffic
 gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'
 # for blacklisting
-gem 'rack-attack'
+gem 'rack-attack', '~> 5.0.0.beta1'
 
 
 # for AWS

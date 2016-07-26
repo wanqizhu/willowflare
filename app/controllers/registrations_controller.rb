@@ -42,10 +42,10 @@ class RegistrationsController < Devise::RegistrationsController
   		MyMailer.store_redeem_email(current_user, item_num, params[:country]).deliver_now
   		
   		if flash[:notice]
-			flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
-		else
-			flash[:notice] = "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
-		end
+  			flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+  		else
+  			flash[:notice] = "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+  		end
   		current_user.save
   	
   	rescue  => e # in case redemption fails
