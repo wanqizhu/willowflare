@@ -8,7 +8,31 @@ html, body {
   overflow-x: hidden;
   
   p {
-  text-align: left;
+    text-align: left;
+    font-size: 15px;
+
+    .lead {
+      font-size: 19px;
+    }
+  }
+
+  h2, h3 {
+    text-align: center;
+  }
+
+
+  .carousel.slide {
+    margin-top: 50px;
+  }
+
+  .carousel-inner {
+    max-height: inherit;
+    width: inherit;
+
+    .item {
+      max-height: inherit;
+      width: inherit;
+    }
   }
 
 
@@ -71,8 +95,13 @@ html, body {
 /* Thin out the marketing headings */
 .featurette-heading {
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.5;
   letter-spacing: -.05rem;
+  font-size: 28px;
+
+  .text-muted {
+    font-size: 22px;
+  }
 }
 
 
