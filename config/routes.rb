@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   get '/companies' => 'application#companies'
+  post '/mail' => 'application#mail'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

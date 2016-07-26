@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # saves username
   # see STRONG validation in Device documentation
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  #before_filter :configure_permitted_parameters, if: :devise_controller?
 
 
   # saves the location before loading each page so we can return to the
@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
 
   def companies
     render :layout => false
+  end
+
+  def mail
+    logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:message]
+    MyMailer.notification_email(params[:name], params[:email], params[:org], params[:message]).deliver_now
+    redirect_to :back
   end
 
 

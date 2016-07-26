@@ -168,21 +168,21 @@
             %h3.section-subheading.text-muted Questions, Comments, Suggestions? Send us a message!
         .row
           .col-lg-12
-            %form#contactForm{:name => "sentMessage", :novalidate => ""}
+            = form_tag "/mail", :id => "contactForm", :name => "sentMessage" do
               .row
                 .col-md-6
                   .form-group
-                    %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Your Name *", :required => "", :type => "text"}/
+                    %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Your Name *", :required => "", :type => "text", :name => "name"}/
                     %p.help-block.text-danger
                   .form-group
-                    %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Your Email *", :required => "", :type => "email"}/
+                    %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Your Email *", :required => "", :type => "email", :name => "email"}/
                     %p.help-block.text-danger
                   .form-group
-                    %input#phone.form-control{:placeholder => "Your Phone", :type => "tel"}/
+                    %input#phone.form-control{:placeholder => "Organization", :type => "text", :name => "org"}/
                     %p.help-block.text-danger
                 .col-md-6
                   .form-group
-                    %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Your Message *", :required => ""}
+                    %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Your Message *", :required => "", :name => "message"}
                     %p.help-block.text-danger
                 .clearfix
                 .col-lg-12.text-center

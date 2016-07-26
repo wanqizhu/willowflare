@@ -2,10 +2,10 @@ class Rack::Attack
 
   # Always allow requests from localhost
   # (blocklist & throttles are skipped)
-  safelist('allow from localhost') do |req|
-    # Requests are allowed if the return value is truthy
-    '127.0.0.1' == req.ip || '::1' == req.ip
-  end
+  # safelist('allow from localhost') do |req|
+  #   # Requests are allowed if the return value is truthy
+  #   '127.0.0.1' == req.ip || '::1' == req.ip
+  # end
 
   blocklist('block bad users') do |req|
     # Requests are blocked if the return value is truthy
@@ -37,6 +37,16 @@ class Rack::Attack
   # Key: "rack::attack:#{Time.now.to_i/:period}:logins/ip:#{req.ip}"
   throttle('logins/ip', :limit => 5, :period => 20.seconds) do |req|
     if req.path == '/users/sign_in' && req.post?
+      req.ip
+    end
+  end
+
+
+
+  # prevent people from spamming accounts
+
+  throttle('sign_up/ip', :limit => 10, :period => 7.days) do |req|
+    if req.path == '/users/sign_up' && req.post?
       req.ip
     end
   end

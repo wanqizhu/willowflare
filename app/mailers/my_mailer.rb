@@ -14,4 +14,17 @@ class MyMailer < Devise::Mailer
 		  mail(to: "info@willowflare.com", cc: Rails.application.config.admins, subject: "Store redemption by " + @user.email + " for " + Rails.application.config.STORE_ITEM_DESCRIPTION[@item] + ", " + country)
   	end
   end 
+
+
+  def notification_email(name, email, org, message)
+    @name = name
+    @message = message
+    @email = email
+    @org = org
+    if Rails.env.development? | Rails.env.test?
+      mail(to: "info@willowflare.com", subject: "[TEST] New email from " + @name + @email + @org)
+    else
+      mail(to: "info@willowflare.com", subject: "New email from " + @name + @email + @org)
+    end
+  end
 end
