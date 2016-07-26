@@ -3,13 +3,40 @@ html, body {
   background-color: white;
 }
 
+.navbar-brand {
+  height: auto;
+}
+
+.navbar-collapse {
+  position: relative;
+
+  /* verticle align */
+  @media (min-width: 768px) {
+    #topNavRight {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
+    }
+  }
+}
+
+
 #page {
   padding-top: 0px;
-  overflow-x: hidden;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
   
   p {
     text-align: left;
     font-size: 15px;
+
+    @media(max-width: 767px) {
+      margin-left: 3%;
+      margin-right: 3%;
+    }
 
     .lead {
       font-size: 19px;
@@ -19,7 +46,6 @@ html, body {
   h2, h3 {
     text-align: center;
   }
-
 
   .carousel.slide {
     margin-top: 50px;
@@ -59,13 +85,20 @@ html, body {
       color: #fed136;
     }
   }
-
 }
 
 #main {
-  margin-top: 40px;
+  padding-top: 20px;
   font-family: "Microsoft Yahei","微软雅黑", STXihei, "华文细黑";
+
+  @media(min-width: 768px) {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
+
+
+
 
 
 .circles {
@@ -79,6 +112,12 @@ html, body {
   }
   h2 {
     font-weight: normal;
+
+    @media(min-width: 768px) {
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
   }
   .col-md-4 p {
     margin-right: .75rem;
@@ -88,8 +127,19 @@ html, body {
 
 
 
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+
+
+
+
+@media(min-width: 768px) {
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+
+  // just to balance out the text; not a good solution to keep it centered
+  .col-md-pull-7 > img {
+    margin-top: 15%;
+  }
 }
 
 /* Thin out the marketing headings */
