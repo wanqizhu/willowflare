@@ -21,6 +21,13 @@ html, body {
   }
 }
 
+#website_url {
+  color: #30D1E4;
+  font-size: 27px;
+  line-height: 2;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
 
 #page {
   padding-top: 0px;
@@ -281,6 +288,7 @@ section#contact .btn-xl {
   border-radius: 3px;
   font-size: 16px;
   padding: 14px 40px;
+  margin-top: 20px;
 }
 
 

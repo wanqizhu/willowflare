@@ -13,7 +13,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery.easing
 //= require turbolinks
 //= require social-share-button
 //= require_tree .
 //= require popup
+//= require scroll
