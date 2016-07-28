@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :store_current_location, :unless => :devise_controller?
 
   use Rack::GeoIPCountry, :db => File.expand_path(Rails.root.join("db/GeoIP.dat"))
-  before_filter :redirect_if_china
+  before_filter :redirect_if_china, :except => [:companies]
 
 
 
@@ -53,7 +53,9 @@ class ApplicationController < ActionController::Base
     puts "geoip", request.headers['X_GEOIP_COUNTRY_CODE'], request.headers['X_GEOIP_COUNTRY_ID']
 
     if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
-      redirect "/companies"
+      redirect_to "/companies"
+    # else
+    #   redirect_to "/store"
     end
   end
 
