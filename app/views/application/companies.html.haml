@@ -56,9 +56,15 @@
           .alert.alert-info{:class => "alert-#{name}"}= msg
 
 
-      = carousel_for(['abstract1.jpg', 'abstract2.jpg', 'abstract3.jpg'], {style: "width: auto; max-height: 500px !important;"})
+      /= carousel_for(['abstract1.jpg', 'abstract2.jpg', 'abstract3.jpg'], {style: "width: auto; max-height: 500px !important;"})
 
       
+      .container-fluid#video
+        .embed-responsive.embed-responsive-16by9
+          %video.embed-responsive-item(controls = "")
+            %source{:src => video_url('chinese_promo_video'), :type => "video/mp4"}
+
+
       .container#main
 
         / START THE FEATURETTES
@@ -71,7 +77,7 @@
               %span.text-muted 靠谱的翻译和美术难找？ 中西方文化差异太大？
             %p.lead 我们的翻译团队由真正的双语玩家组成，他们的任务绝不仅仅是将中文翻译成英文，而是在翻译过程中根据每个游戏特质将几十年积累的西方游戏文化融入到本地化过程中，提供给客户真正的深度优化。我们与北美本地美工和开发团队合作，提供UI，人物，内容，美术和商店描述的全面服务，调出真正符合北美玩家口味的游戏。
           .col-md-5
-            =image_tag("abstract4.jpg", class: "featurette-image img-fluid center-block")
+            =image_tag("games2.jpg", class: "featurette-image img-fluid center-block")
         %hr.featurette-divider
         .row.featurette
           .col-md-7.col-md-push-5
@@ -81,7 +87,7 @@
               %span.text-muted 改什么？怎么改？自然量从哪来？
             %p.lead 北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。
           .col-md-5.col-md-pull-7
-            =image_tag("abstract7.jpg", class: "featurette-image img-fluid center-block")
+            =image_tag("games1.jpg", class: "featurette-image img-fluid center-block")
         %hr.featurette-divider
         .row.featurette
           .col-md-7
@@ -91,7 +97,7 @@
               %span.text-muted 怎样地推？找谁发行？
             %p.lead 一切以数据为准！ 根据数据分析玩家的喜好和市场规律，我们为客户量身打造详细的推广计划并推荐最适合的渠道。 经过多年的实践，我们积累了一个北美发行和推广渠道的“藏宝图”。游戏的前期数据就是藏宝图上的路标，我们会根据游戏特有的性质，和客户并肩战斗去争取最高的ROI。我们的宗旨是做客户在北美的合作伙伴，只有当客户盈利时我们才盈利。
           .col-md-5
-            =image_tag("abstract6.jpg", class: "featurette-image img-fluid center-block")
+            =image_tag("publishing.jpg", class: "featurette-image img-fluid center-block")
         %hr.featurette-divider
 
 
