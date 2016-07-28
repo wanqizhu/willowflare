@@ -61,8 +61,7 @@
       
       .container-fluid#video
         .embed-responsive.embed-responsive-16by9
-          %video.embed-responsive-item(controls = "")
-            %source{:src => video_url('chinese_promo_video'), :type => "video/mp4"}
+          = video_tag('chinese_promo_video.mp4', :class => 'embed-responsive-item', :controls => "", :type => "video/mp4")
 
 
       .container#main

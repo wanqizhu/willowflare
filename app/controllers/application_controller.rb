@@ -49,6 +49,14 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def redirect_if_china
+    puts "geoip", request.headers['X_GEOIP_COUNTRY_CODE'], request.headers['X_GEOIP_COUNTRY_ID']
+
+    if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
+      redirect "/companies"
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -89,13 +97,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def redirect_if_china
-    puts "geoip", request.headers['X_GEOIP_COUNTRY_CODE'], request.headers['X_GEOIP_COUNTRY_ID']
 
-    if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
-      redirect "/companies"
-    end
-  end
 
 
   # Use this to return to previous page after sign out
