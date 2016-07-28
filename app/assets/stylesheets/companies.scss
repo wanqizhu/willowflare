@@ -94,6 +94,17 @@ html, body {
   }
 }
 
+
+#video {
+  margin-top: 90px;
+
+  @media(max-width: 767px) {
+    margin-top: 50px;
+  }
+}
+
+
+
 #main {
   padding-top: 20px;
   font-family: "Microsoft Yahei","微软雅黑", STXihei, "华文细黑";
@@ -145,7 +156,7 @@ html, body {
 
   // just to balance out the text; not a good solution to keep it centered
   .col-md-pull-7 > img {
-    margin-top: 15%;
+    //margin-top: 15%;
   }
 }
 
