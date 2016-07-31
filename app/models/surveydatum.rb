@@ -22,7 +22,7 @@ class Surveydatum < ActiveRecord::Base
 
 
 		survey_num = self.surveyresponse[len]
-		surveyresponse = 'Survey ' + surveyresponse[len..-1]
+		self.surveyresponse = 'Survey ' + self.surveyresponse[len..-1]
 		
 		if 0 > survey_num.to_i or survey_num.to_i > ENV["MAX_SURVEY_NUM"].to_i
 			return

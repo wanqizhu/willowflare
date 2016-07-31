@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
 
     if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
       redirect_to "/companies"
+      return
     # else
     #   redirect_to "/store"
     end
