@@ -106,10 +106,10 @@ var ready = function(){
 
     $("#storeConfirm").on('submit', function(e){
         e.preventDefault;
-        console.log(1);
+        
 
         if(device_width > 767 && sessionStorage.getItem('social_media') == null && sessionStorage.getItem('visited') != 2) {
-            console.log(2);
+            
             // popup prompting social share
             var social_share = "<p>Thanks for redeeming! Share it with your friends and invite them to WillowFlare for bonus points! </p>" + $("#socialShare").html();
 
@@ -134,11 +134,11 @@ var ready = function(){
 
         // delay form submission until user hides the social share news
         if (sessionStorage.getItem('social_media') == null) {
-            console.log(3);
+            
             setTimeout(function(){ $('#storeConfirm').submit(); }, 500);
             return false;
         } else {
-            console.log(4);
+            
             //sessionStorage.setItem('visited', 1);
             return true;
         }
