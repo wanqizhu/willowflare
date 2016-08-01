@@ -49,3 +49,24 @@
 #storeHeading {
 	label {margin-right: 15px;}
 }
+
+
+
+#storeConfirm {
+	.field {
+		.input > label {
+			margin-right: 5%;
+			width: 15%;
+		}
+
+		.input > select {
+			width: 10%;
+			padding: 0% 5%;
+		}
+	}
+
+	.redeem_comments > input {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}

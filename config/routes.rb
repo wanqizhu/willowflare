@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/store' => 'registrations#store'
-    post '/store' => 'registrations#store_redeem'
+    post '/store' => 'registrations#store_confirm'
+    put '/store' => 'registrations#store_redeem'
   end
 
   get '/companies' => 'application#companies'

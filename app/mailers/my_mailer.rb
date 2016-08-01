@@ -5,9 +5,10 @@ class MyMailer < Devise::Mailer
 
   default from: 'info@willowflare.com'
 
-  def store_redeem_email(user, item, country)
+  def store_redeem_email(user, item, country, comments)
   	@user = user
   	@item = item
+    @comments = comments
   	if Rails.env.development? | Rails.env.test?
   		mail(to: "info@willowflare.com", subject: "[TEST] Store redemption by " + @user.email + " for " + Rails.application.config.STORE_ITEM_DESCRIPTION[@item] + ", " + country)
   	else

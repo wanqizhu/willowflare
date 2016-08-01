@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # saves username
   # see STRONG validation in Device documentation
-  #before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
 
   # saves the location before loading each page so we can return to the
@@ -50,7 +50,9 @@ class ApplicationController < ActionController::Base
 
 
   def redirect_if_china
-    puts "geoip", request.headers['X_GEOIP_COUNTRY_CODE'], request.headers['X_GEOIP_COUNTRY_ID']
+    logger.info "geoip"
+    logger.info request.headers['X_GEOIP_COUNTRY_CODE']
+    logger.info request.headers['X_GEOIP_COUNTRY_ID']
 
     if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
       redirect_to "/companies"
