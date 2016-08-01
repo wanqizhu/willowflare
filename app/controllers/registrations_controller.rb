@@ -25,21 +25,49 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 
-  # There's a problme here: they could edit the html code to customize the 'item' parameter
-  # so then they can redeem at arbituary costs
+  def store_confirm
+    begin
+      @item_num = params[:item].to_i
 
-  # must make the price of items server-side...
+      if current_user.money < Rails.application.config.STORE_ITEM_PRICE[@item_num]
+        throw "redemption error, not enough money"
+      end
+
+      session[:social_share_msg] = "I just redeemed a " + Rails.application.config.STORE_ITEM_DESCRIPTION[@item_num] + " just by playing mobile games and giving feedback! Checkout WillowFlare here: www.willowflare.com"
+
+    rescue  => e # in case redemption fails
+      logger.error e.message
+      logger.error e.backtrace.join("\n") 
+      logger.info "Not enough money\n\n"
+      logger.info @item_num
+      logger.info current_user.money
+      # error message
+      if flash[:alert]
+        flash[:alert] += "\nNot enough WillowPoints. Check the annoucement page for the newest updates and ways to earn rewards."
+      else
+        flash[:alert] = "Not enough WillowPoints. Check the annoucement page for the newest updates and ways to earn rewards."
+      end
+
+      redirect_to '/store' # redirect as a get request, handled by store controler/view
+    end
+  end
+
+
+
   def store_redeem
   	puts "redeeeeeem"
   	begin
-  		item_num = params[:item].to_i
-  		current_user.money -= Rails.application.config.STORE_ITEM_PRICE[item_num] # get item price
+  		@item_num = params[:redeem][:item].to_i
+      @country = params[:redeem][:country]
+      @comments = params[:redeem][:comments]
+
+  		current_user.money -= Rails.application.config.STORE_ITEM_PRICE[@item_num] # get item price
   		if current_user.money < 0
   			throw "redemption error, not enough money"
   		end
-  		current_user.info += ", redeemed " + Rails.application.config.STORE_ITEM_DESCRIPTION[item_num] + " for " + params[:country] + " at " + Time.new.inspect
+  		current_user.info += ", redeemed " + Rails.application.config.STORE_ITEM_DESCRIPTION[@item_num] + " for " + @country + " at " + Time.new.inspect
 		
-  		MyMailer.store_redeem_email(current_user, item_num, params[:country]).deliver_now
+  		MyMailer.store_redeem_email(current_user, @item_num, @country, @comments).deliver_now
   		
   		if flash[:notice]
   			flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
@@ -52,7 +80,7 @@ class RegistrationsController < Devise::RegistrationsController
   		logger.error e.message
 		  logger.error e.backtrace.join("\n") 
   		puts "Store Redemption Error\n\n"
-  		puts item_num
+  		puts @item_num
   		puts current_user.money
   		# error message
   		if flash[:alert]

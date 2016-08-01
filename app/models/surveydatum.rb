@@ -50,13 +50,13 @@ class Surveydatum < ActiveRecord::Base
 				u.save
 
 
-				puts u.money
-				puts u.info
-				puts u.id
+				logger.info u.money
+				logger.info u.info
+				logger.info u.id
 			else
-				puts "ALREADY_COMPLETED\n\n"
-				puts self.email + "\n\n"
-				puts self.surveyresponse + "\n\n"
+				logger.info "ALREADY_COMPLETED\n\n"
+				logger.info self.email + "\n\n"
+				logger.info self.surveyresponse + "\n\n"
 			end
 		else # In case the user doesn't exist yet
 			File.open(Rails.root + ('config/survey00' + survey_num + '.txt'), 'a') { |f|

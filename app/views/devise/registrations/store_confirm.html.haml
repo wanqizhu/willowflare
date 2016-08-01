@@ -1,0 +1,49 @@
+
+
+.col-md-10.col-md-offset-1
+  .box-ghost
+    .box-icon.small
+      =image_tag("shield.png")
+    %h2.bold Confirm
+
+    %h3.text-muted
+      You are redeeming for
+      
+      %span(style="color: #30D1E4")= Rails.application.config.STORE_ITEM_DESCRIPTION[@item_num]
+      
+      with
+
+      %span(style="color: #FED139")= Rails.application.config.STORE_ITEM_PRICE[@item_num]
+      
+      WillowPoints
+
+
+    %p
+      You will have
+      = current_user.money - Rails.application.config.STORE_ITEM_PRICE[@item_num]
+      points left.
+
+
+    #socialShare
+      %h3 Share on social media:
+      
+      = social_share_button_tag(session[:social_share_msg], url: "www.willowflare.com")
+
+
+    %br
+    / country to redeem in
+    = simple_form_for(:redeem, html: { id: 'storeConfirm', method: :put }, :defaults => {:required => false}) do |f|
+
+      = f.hidden_field :item, value: @item_num
+
+      .field
+        = f.input :country, collection: User::NATION_.map{ |s| [s.tr('_', ' '), s]}, selected: current_user.nation
+
+      .field
+        = f.input :comments, label: false, placeholder: "Additional Comments"
+
+      .actions
+        = f.submit "Redeem", class: "btn btn-primary btn-lg"
+
+
+    = link_to "Cancel", '/store'
