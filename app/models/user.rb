@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
 
   before_create :init_user
 
-
+  after_update :check_points
 
 
 
@@ -63,11 +63,51 @@ class User < ActiveRecord::Base
       errors.add(:referral, " not found. Please check you've entered it correctly or leave it blank")
       return false
     end
+
+    # make sure username doesn't start with $
+    if self.username[0] == '$'
+      errors.add(:username, "invalid, please try something else.")
+      return false
+    end
   end
 
 
 
+  def check_points
+    begin # just incase errors
+      # give referral awards if they have 100 points
+      if self.referral != nil and self.info.include?('referred by $') and self.money >= 100
+        #puts self.email
+        logger.info "User " + self.email + " has completed their referral requirements to grant reward to " + self.referral
+        
+        self.info = self.info.gsub('referred by $', 'referred by ')
+        #puts self.info
 
+        u = User.where(email: self.referral)[0]
+        if u == nil
+          u = User.where(username: self.referral)[0]
+        end
+
+        if u != nil and u.info.include?('referred towards $' + self.email)
+          #puts u.email
+
+          logger.info "User " + u.email + " has earned their reward for referring " + self.email
+
+          u.info = u.info.gsub('referred towards $' + self.email, 'referred towards ' + self.email)
+          #puts u.info
+
+          u.news += "Thanks for referring " + self.email + "! You have receive 30 points thanks to his/her activities."
+          u.money += 30
+          u.save
+
+        end
+      end
+    rescue => e
+      logger.error e.message
+      logger.error e.backtrace.join("\n") 
+
+    end
+  end
 
 
 
@@ -130,11 +170,11 @@ class User < ActiveRecord::Base
 
       if referrer != nil
         self.money += 30
-        self.info += ', referred by ' + self.referral
+        self.info += ', referred by $' + self.referral
 
-        referrer.money += 30
-        referrer.news += " You have earned 30 points thanks to your referral to " + self.email
-        referrer.info += ', referred towards ' + self.email
+        #referrer.money += 30
+        referrer.news += "Thanks for referring " + self.email + "! You will receive 30 bonus points upon his/her profile completion and filling out at least one survey."
+        referrer.info += ', referred towards $' + self.email
         referrer.save
       else
         referrer = User.where(username: self.referral)[0]
@@ -142,11 +182,11 @@ class User < ActiveRecord::Base
 
         if referrer != nil
           self.money += 30
-          self.info += ', referred by ' + self.referral
+          self.info += ', referred by $' + self.referral
 
-          referrer.money += 30
-          referrer.news += " You have earned 30 points thanks to your referral to " + self.email
-          referrer.info += ', referred towards ' + self.email
+          #referrer.money += 30
+          referrer.news += "Thanks for referring " + self.email + "! You will receive 30 bonus points upon his/her profile completion and filling out at least one survey."
+          referrer.info += ', referred towards $' + self.email
           referrer.save
         end
       end
