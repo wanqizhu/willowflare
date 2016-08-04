@@ -15,7 +15,7 @@
     </li>
 
     <%= render 'thredded/shared/nav/moderation' %>
-    <% if thredded_current_user.auth_level > 90 %>
+    <% if signed_in? && thredded_current_user.auth_level > 90 %>
       <%= render 'thredded/shared/nav/notification_preferences', messageboard: messageboard_or_nil %>
     <% end %>
     <%= render 'thredded/shared/nav/private_topics' %>
