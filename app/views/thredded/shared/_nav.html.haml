@@ -1,0 +1,53 @@
+%nav.thredded--navigation(role="navigation")
+  %ul{:class => 'thredded--user-navigation' + ('thredded--user-navigation-standalone' if Thredded.standalone_layout?)}
+
+    / -if signed_in? && Thredded.standalone_layout?
+    /    %li.thredded--user-navigation--profile thredded--user-navigation--item
+    /      <%= link_to thredded_current_user, user_path(thredded_current_user)
+    /    
+    
+    -if signed_in? && Thredded.standalone_layout?
+      %li.thredded--user-navigation--item#navGreeting
+        Welcome, 
+        = thredded_current_user
+
+
+    %li.thredded--user-navigation--item
+      = link_to "Home", main_app.root_path
+    
+
+    / %li.thredded--user-navigation--item
+    /   = link_to "Forum", messageboards_path
+    
+
+    = render 'thredded/shared/nav/moderation'
+
+    -if signed_in? && thredded_current_user.auth_level > 90
+      = render 'thredded/shared/nav/notification_preferences', messageboard: messageboard_or_nil
+
+
+    = render 'thredded/shared/nav/private_topics'
+
+    -if Thredded.standalone_layout?
+      = render 'thredded/shared/nav/standalone'
+
+
+
+  .box-wrapper.icon#forum_announcement
+    .box-icon.small
+      =image_tag("logo.png")
+    .box
+      %h3.bold
+        Welcome to our forums!
+      %p
+        As you can probably tell, we are still cleaning up some dust as we continue improving your experince. But we are so eagar to give you a place to discuss with your fellow Willows, so enjoy!
+
+
+
+
+  - if content_for? :thredded_main_navigation
+    = yield :thredded_main_navigation
+  -else
+    .thredded--main-navigation
+      = yield :thredded_breadcrumbs
+      = render 'thredded/search/form', messageboard: messageboard_or_nil
