@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WillowFlare | Forums </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <%= stylesheet_link_tag 'thredded' %>
+    <%= csrf_meta_tag %>
+    <%= javascript_include_tag 'thredded' %>
+
+    
+    <%= stylesheet_link_tag    'thredded_custom', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'thredded_custom', 'data-turbolinks-track' => true %>
+
+
+    <%= favicon_link_tag 'favicon.png' %>
+    <%== Gravatar.prefetch_dns %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
