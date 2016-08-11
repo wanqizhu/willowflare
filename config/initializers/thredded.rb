@@ -18,7 +18,8 @@ Thredded.user_path = ->(user) { "/users/#{user.username}" }
 Thredded.current_user_method = :"current_#{Thredded.user_class.name.underscore}"
 
 # User avatar URL. rb-gravatar gem is used by default:
-Thredded.avatar_url = ->(user) { Gravatar.src(user.email, 128, 'mm') }
+# Use admin Gravatar (willowflare icon) for all admins
+Thredded.avatar_url = ->(user) { user.auth_level > 90 ? Gravatar.src("info@willowflare.com", 128, 'mm') : Gravatar.src(user.email, 128, 'mm') }
 
 # ==> Permissions Configuration
 # By default, thredded uses a simple permission model, where all the users can post to all message boards,
