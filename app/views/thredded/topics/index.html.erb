@@ -4,14 +4,17 @@
 
 <%= thredded_page do %>
   <%= content_tag :section, class: 'thredded--main-section thredded--topics', 'data-thredded-topics' => true do %>
+  
+    <%= render @topics %>
+    <hr>
+
     <%= render 'thredded/topics/form',
                messageboard: messageboard,
                topic:        @new_topic,
                css_class:    'thredded--is-compact',
                placeholder:  t('thredded.topics.form.title_placeholder_start') if @new_topic %>
 
-    <hr>
-    <%= render @topics %>
+    
   <% end %>
 
   <footer>

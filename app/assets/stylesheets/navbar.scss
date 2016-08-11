@@ -18,6 +18,7 @@ ul, li {
     border-color: transparent;
 }
 
+
 @media (min-width: 992px) {
     .navbar {
         font-size: 1.3em;
@@ -30,12 +31,16 @@ ul, li {
 
 
 .navbar .container {
-    width: 100%;
+    width: 98%;
 }
 
 .navbar a:link {
     text-decoration: none;
     font-size: 1.3em;
+
+    @media(max-width: 1104px) {
+      font-size: 1.1em;
+    }
 }
 
 .navbar a:hover {
@@ -97,7 +102,8 @@ ul, li {
       }
       @media (max-width: 967px) {
         text-align: center;
-        display: block
+        display: block;
+        margin-left: 10px; //from 15
       }
       text-shadow: 0 1px 0px rgba(255,255,255,0.3);
       /* box-shadow: 0 0 1px black; */
@@ -119,6 +125,10 @@ ul, li {
 
       a {
         padding: 18px 26px;
+
+        @media(max-width: 1080px) {
+          padding: 16px 22px;
+        }
       }
     }
 }
