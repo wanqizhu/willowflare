@@ -1,0 +1,189 @@
+@import "global";
+@import "landingPage";
+$thredded-brand: $orange;
+$thredded-button-background: $darkgreen;
+$thredded-button-hover-background: $lightgreen;
+$thredded-alert-info-color: $darkgreen;
+$thredded-grid-container-max-width: 50rem;
+@import "thredded";
+
+
+hr {
+  margin: 30px 0px;
+  border-width: 1px;
+  color: #eee;
+}
+
+#forum_announcement {
+  left: 0%;
+  width: 100%;
+}
+
+// top left, "Welcome __username__"
+#navGreeting {
+  color: #e43070;
+  font-weight: 500;
+  font-size: 22px;
+  cursor: default;
+}
+
+#forum_announcement {
+  .box-icon {
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+
+  .box {
+    padding-top: 85px;
+
+    @media (max-width: 767px) {
+      padding-top: 55px;
+    }
+  }
+
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+
+.thredded--main-navigation {
+  margin-bottom: 50px;
+
+  ul.thredded--navigation-breadcrumbs {
+    li > a {
+      color: $darkgreen;
+      font-size: 24px;
+    }
+
+    li:last-child > a {
+      color: $lightgreen;
+    }
+  }
+}
+
+
+
+
+
+.thredded--messageboard--title, .thredded--topic-header--started-by > a, .thredded--post--edit {
+  color: $darkgreen;
+
+  &:hover {
+    color: $lightgreen;
+  }
+}
+
+
+.thredded--messageboard--title {
+  font-size: 28px;
+  font-family: Nunito;
+}
+
+.thredded--messageboard--meta, .thredded--messageboard--title {
+  line-height: 36px;
+}
+
+
+
+// list of posts in a sub-forum
+.thredded--topics {
+  //margin-top: 30px;
+}
+
+
+
+
+// each individual topic/post
+.thredded--topic {
+
+  .thredded--topic-header {
+    padding: 20px;
+    margin-left: -20px; // leave space on the left
+    border: 2px dotted $darkgreen;
+    border-bottom: none;
+    padding-bottom: 3rem;
+    margin-bottom: 2px;
+  }
+
+
+  article:first-of-type { 
+
+    header { // hide the header (name, icon, date) for the first post, since it's made by the creator of the thread
+      display: none;
+    }
+
+    div.thredded--post--content {
+      padding: 20px;
+      margin-left: -20px;
+      border: 2px dotted $darkgreen;
+      border-top: none;
+    }
+
+    margin-bottom: 70px;
+  }
+}
+
+.thredded--topic-show #flash {
+  margin-left: -20px; // make flash message line up with the topic
+}
+
+
+
+.thredded--topics--posts-count > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.thredded--topics--follow--info {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+// make the title & "Started at __ by __" in the same line
+.thredded--topic-header--title {
+  display: inline-block;
+  margin-right: 40px;
+  color: $lightblue;
+  font-size: 32px;
+  font-family: Nunito;
+}
+
+
+
+
+
+// posts
+.thredded--post {
+  // smaller avatar
+  .thredded--post--avatar {
+    @media(min-width: 768px) {
+      height: 1.25rem;
+      width: 1.25rem;
+      top: 0;
+      left: -2rem;
+    }
+  }
+
+
+
+  // float right
+  .thredded--post--edit, .thredded--post--delete {
+    float: right;
+    position: relative;
+    bottom: 20px;
+    margin-top: 10px;
+  }
+
+  &:first-of-type .thredded--post--edit {
+    bottom: 50px;
+    right: 20px;
+  }
+
+  .thredded--post--delete {
+    margin-right: 0.4rem;
+    margin-left: 0;
+  }
+}

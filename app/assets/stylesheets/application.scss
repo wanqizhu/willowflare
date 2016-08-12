@@ -12,7 +12,9 @@
 @import "comments";
 
 @import "landingPage";
-@import 'store';
+@import "store";
+
+@import "profile";
 
 @import "social-share-button";
 
@@ -40,17 +42,17 @@ h2 {
 .container {
 	margin: 0;
 	padding: 0;
-    width: 100%;
-    //color: white;
-    text-align: center;
+  width: 100%;
+  //color: white;
+  text-align: center;
 
-    a {
-    color: #30D1E4;
-    }
+  a {
+  color: $iceblue;
+  }
 
-    a:hover {
-        color: #fed136;
-    }
+  a:hover {
+      color: $yellow;
+  }
 }
 
 

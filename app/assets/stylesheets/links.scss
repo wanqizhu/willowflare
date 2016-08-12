@@ -1,6 +1,8 @@
 // Place all the styles related to the Links controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "global";
+
 
 a, a:link, a:hover, a:active, a:visited {
     color: #777;
@@ -41,7 +43,7 @@ tr {
 }
 
 .linkTitle {
-    color: #30D1E4;
+    color: $iceblue;
     font-size: 2.3em;
 }
 
