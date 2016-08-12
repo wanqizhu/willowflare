@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :links
 
@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
   def check_points
     begin # just incase errors
       # give referral awards if they have 100 points
-      if self.referral != nil and self.info.include?('referred by $') and self.money >= 100
+      if self.confirmed? and self.referral != nil and self.info.include?('referred by $') and self.money >= 100
         #puts self.email
         logger.info "User " + self.email + " has completed their referral requirements to grant reward to " + self.referral
         

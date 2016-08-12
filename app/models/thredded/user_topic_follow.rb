@@ -17,7 +17,7 @@ module Thredded
       if reason == :manual
         create_with(reason: reason).find_or_create_by(user_id: user_id, topic_id: topic_id)
       end
-      puts "reason", reason
+      #puts "reason", reason
     end
   end
 end
