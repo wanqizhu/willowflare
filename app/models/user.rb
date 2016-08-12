@@ -45,15 +45,27 @@ class User < ActiveRecord::Base
 
 
   validate :check_referral
+  validates_uniqueness_of :username
 
 
   before_create :init_user
 
   after_update :check_points
 
+  # display the username in views that use @user.to_s, instead of #<User:0x007f9566ce3dc8>
+  def to_s
+    username
+  end
 
 
+  # custom forum moderator permission
+  def thredded_can_moderate_messageboards
+    self.auth_level > 90 ? Thredded::Messageboard.all : Thredded::Messageboard.none
+  end
 
+  def thredded_admin?
+    return self.auth_level > 90
+  end
 
 
   protected
@@ -210,8 +222,10 @@ class User < ActiveRecord::Base
       else
         raise 'dev environment'
       end
-    rescue
+    rescue => e
       self.info += ", CANNOT SUBSCRIBE TO MAILCHIMP"
+      logger.error e.message
+      logger.error e.backtrace.join("\n") 
     end
 
   end

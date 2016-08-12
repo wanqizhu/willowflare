@@ -1,0 +1,24 @@
+%html
+  %head
+    %title WillowFlare | Forums
+    %meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport')
+
+    = csrf_meta_tag
+    = javascript_include_tag 'thredded'
+
+    = stylesheet_link_tag 'thredded_custom', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'thredded_custom', 'data-turbolinks-track' => true
+
+
+    = favicon_link_tag 'favicon.png'
+    
+    %meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+
+
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Nunito:300,400,700|Droid+Sans:400,700', :rel => 'stylesheet', :type=> 'text/css'}
+    %link(rel="dns-prefetch" href="//gravatar.com")
+    /<%== Gravatar.prefetch_dns %>
+
+
+  %body
+    = yield

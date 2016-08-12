@@ -8,11 +8,11 @@ class SessionsController < Devise::SessionsController
 
   # show news message, if present
   def after_login
-    if resource.news != nil
+    if not resource.news.blank?
     	if flash[:notice]
     		flash[:notice] += ' ' + resource.news
     	else
-    		flash[:notice] = ' ' + resource.news
+    		flash[:notice] = resource.news
     	end
     end
 

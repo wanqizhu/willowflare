@@ -1,3 +1,5 @@
+@import "global";
+
 #editUser {
 	margin-top: 40px;
 	margin-bottom: 15px;
@@ -5,7 +7,7 @@
 
 #page i {
 	font-size: 1.1em;
-	color: #30D1E4;
+	color: $iceblue;
 	/* space to seperate password fields */
 	padding-top: 15px;
 	padding-bottom: 20px;

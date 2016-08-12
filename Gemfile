@@ -15,6 +15,10 @@ gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'
 gem 'rack-attack', '~> 5.0.0.beta1'
 
 
+# forums
+gem 'thredded', '~> 0.6.1'
+
+
 # for AWS
 gem 'puma'
 gem 'mysql2', '~> 0.3.18'

@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  thredded:
+    posts:
+      delete: Delete
+    nav:
+      edit_post: Edit
+    topics:
+      edit: Edit Title
