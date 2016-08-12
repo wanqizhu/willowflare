@@ -17,7 +17,7 @@ module Thredded
 
     def new
       @messageboard = Messageboard.new
-      @messageboard_group = MessageboardGroup.all
+      @messageboard_group = MessageboardGroup.order('created_at ASC')
       authorize_creating @messageboard
     end
 
