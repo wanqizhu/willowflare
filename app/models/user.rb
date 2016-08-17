@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  # :lockable, :timeoutable
+  devise :database_authenticatable, :registerable, 
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_many :links
 
@@ -66,6 +67,16 @@ class User < ActiveRecord::Base
   def thredded_admin?
     return self.auth_level > 90
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.username = auth.info.name   # assuming the user model has a name
+      #user.image = auth.info.image # assuming the user model has an image
+    end
+  end
+
 
 
   protected
@@ -225,7 +236,9 @@ class User < ActiveRecord::Base
     rescue => e
       self.info += ", CANNOT SUBSCRIBE TO MAILCHIMP"
       logger.error e.message
-      logger.error e.backtrace.join("\n") 
+      if (e.message != 'dev environment')
+        logger.error e.backtrace.join("\n") 
+      end
     end
 
   end
