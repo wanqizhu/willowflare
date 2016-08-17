@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :comments
  
-  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions"} # Use custom controllers
+  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks"} # Use custom controllers
   get 'users/:username' => 'users#profile', as: 'user_profile'
 
   resources :links do

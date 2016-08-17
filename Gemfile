@@ -19,9 +19,14 @@ gem 'rack-attack', '~> 5.0.0.beta1'
 gem 'thredded', '~> 0.6.1'
 
 
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
+
 # for AWS
 gem 'puma'
 gem 'mysql2', '~> 0.3.18'
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
