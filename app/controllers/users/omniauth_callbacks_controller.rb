@@ -8,6 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"].except("extra")
+      flash[:alert] = "Facebook signup failed. Please make sure the account does not alread exist and the username/email associated with your Facebook account is unique."
       redirect_to new_user_registration_url
     end
   end
@@ -20,6 +21,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
     else
       session["devise.google_data"] = request.env["omniauth.auth"].except("extra")
+      
+      flash[:aletr] = "Google signup failed. Please make sure the account does not alread exist and the username/email associated with your Google account is unique."
       redirect_to new_user_registration_url
     end
   end
