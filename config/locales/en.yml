@@ -28,3 +28,5 @@ en:
       edit_post: Edit
     topics:
       edit: Edit Title
+    messageboard:
+      last_updated_by_html: Last post at %{time_ago} <cite>by %{user}</cite>

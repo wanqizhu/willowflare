@@ -5,8 +5,14 @@
 <%= thredded_page do %>
   <%= content_tag :section, class: 'thredded--main-section thredded--topics', 'data-thredded-topics' => true do %>
   
+    <div class="thredded--topics--table-header">
+      <span class="thredded--topics--header-topics">Topics</span>
+
+      <span class="thredded--topics--header-replies">Replies</span>
+      <span class="thredded--topics--header-last-post">Last Post</span>
+    </div>
+
     <%= render @topics %>
-    <hr>
 
     <%= render 'thredded/topics/form',
                messageboard: messageboard,
