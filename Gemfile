@@ -8,6 +8,8 @@ gem 'mailchimp-api', require: 'mailchimp'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.1.0'
 gem 'social-share-button'
 gem 'haml'
+gem 'wow-rails'
+gem 'bxslider-rails'
 
 # for redirecitng China traffic
 gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'

@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300);
+@import "component.css";
+@import "animate.css";
+@import "simpleMobileMenu.css";
+@import "bxslider.css";
+@import "landingPageStyle.css";
+
+@charset "utf-8";
+
+.rg-ft {height: auto;}

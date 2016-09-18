@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
 
   get '/companies' => 'application#companies'
+  get '/home' => 'application#landing_page'
   post '/mail' => 'application#mail'
 
   mount Thredded::Engine => '/forum'

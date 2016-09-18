@@ -1,9 +1,4 @@
-= stylesheet_link_tag 'landingPage', media: 'all', 'data-turbolinks-track' => true
-
-
-
-- if user_signed_in?
-  
+= stylesheet_link_tag 'links', media: 'all', 'data-turbolinks-track' => true
 
   .col-sm-12.col-md-10.col-md-offset-1
     %h1#tagline Play Games. Give Feedback. Earn Rewards.
@@ -51,8 +46,3 @@
                   Downvote
                   = link.get_downvotes.size
 
-
-
-- else
-
-  %iframe{:src => "http://s3.amazonaws.com/willowflare.com/index.html", :width => "100vw",  :height => "100%" }
