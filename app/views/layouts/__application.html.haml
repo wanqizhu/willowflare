@@ -1,0 +1,288 @@
+%html{"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1", :name => "viewport"}/
+    %title Willow Flare
+    / CSS
+    %link{:href => "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/component.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/animate.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/simpleMobileMenu.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "css/jquery.bxslider.css", :rel => "stylesheet"}/
+    / CSS
+    / JS
+    %script{:src => "js/jquery-1.8.2.min.js", :type => "text/javascript"}
+    %script{:src => "js/simpleMobileMenu.js"}
+    %script{:src => "js/jquery.bxslider.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"}
+    / JS
+  %body
+    .main-section
+      .header-main
+        .container
+          .logo
+            %a{:href => "#"}
+              %img{:src => "images/logo.png"}/
+          .navigation
+            %nav
+              %a.smobitrigger.ion-navicon-round{:href => "javascript:void(0)"}
+                %span Menu
+              %ul.mobimenu
+                / <li><a class="active" href="">ABOUT</a></li>
+                %li
+                  %a{:href => ""} ABOUT
+                %li
+                  %a{:href => ""} FEATURES
+                %li
+                  %a{:href => ""} CONTACT
+                %li
+                  %a.login-btn{:href => ""} Login
+      .video-wrap
+        .mobile-banner
+        %video.slider-video{:autoplay => "", :controls => "", :height => "", :loop => "", :preload => "auto", :width => "100%"}
+          %source{:src => "images/mountains2_converted.webm", :type => "video/webm"}
+            %source{:src => "images/mountains2_converted.mp4", :type => "video/mp4"}
+              %source{:src => "images/mountains2_converted.ogv", :type => "video/ogg"}
+      .banner-info
+        .container
+          .welcome-text
+            %h1.wow.bounceInLeft
+              Welcome to
+              %span WillowFlare
+            %p.wow.lightSpeedIn Ut ipsum enim, consequat sed metus a, consequat sodales nibh. Integer mi lectus, consectetur fermentum aliquam nec, bibendum vel nibh. Donec non erat urna. Fusce dapibus sem non elit pretium eleifend. Donec aliquet nulla id vulputate consequat. Vestibulum ut interdum urna
+          .first-form
+            .navigat-icon.wow.bounceInDown
+            %input{:placeholder => "User name", :type => "text", :value => ""}/
+            %input{:placeholder => "Email", :type => "text", :value => ""}/
+            %input{:placeholder => "Password", :type => "text", :value => ""}/
+            %input{:type => "submit", :value => "Signup"}/
+            %p.form-text
+              By clicking "Sign up for WillowFlare", you agree to our
+              %a{:href => ""} terms of service
+              and
+              = succeed "." do
+                %a{:href => ""} privacy policy
+    / For our animations to look good, the animated elements need to be able to be scrolled to. For this example I've added dummy content to the top
+    .services-section
+      %ul
+        %li.yellow.wow.bounceInLeft
+          .sr-icon
+            %img{:src => "images/find-great-games.png"}/
+          %h2 FIND GREAT GAMES
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam suscipit scelerisque consectetur. Suspendisse
+            nec risus id enim iaculis porta. In hac habitasse
+            platea dictumst.
+        %li.red
+          .sr-icon
+            %img{:src => "images/provide-feedback.png"}/
+          %h2 PROVIDE FEEDBACK
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam suscipit scelerisque consectetur. Suspendisse
+            nec risus id enim iaculis porta. In hac habitasse
+            platea dictumst.
+        %li.blue.wow.bounceInRight
+          .sr-icon
+            %img{:src => "images/rewards.png"}/
+          %h2 EARN REWARDS
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nullam suscipit scelerisque consectetur. Suspendisse
+            nec risus id enim iaculis porta. In hac habitasse
+            platea dictumst.
+    .info-section
+      .container
+        %h2
+          DON'T BE JUST ANOTHER PLAYER.
+          %span OWN YOUR GAME.
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.
+    .about-website
+      .container
+        .about-text
+          .l-sec
+            %p Tired of generic mobile games?
+            %p Care about a game, but are unable to find a channel to make it better?
+            %p Feel like a drop in the ocean when it comes to giving feedback to the company, as if you are not being valued as a gamer?
+          .r-sec
+            %p At Willowflare, we are invested in your mobile gaming experience. Not only are our games high-quality, they are made by people who truly value your feedback and will actively implement your suggestions.
+            %p We want to reward you for the significance of your ideas and believe this is the perfect community for you to have a truly customized gaming experience. Come try us out!
+    .category
+      .container
+        %ul
+          %li.step-one.wow.bounceInUp
+            .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
+              %a.step-icon.hi-icon{:href => "#set-1", :title => "Create a FREE Account"}
+                %img.image-normal{:alt => "Create a FREE Account", :src => "images/unique-games-hover.png", :title => "Create a FREE Account"}/
+                %img.image-hover{:alt => "Create a FREE Account", :src => "images/unique-games.png", :title => "Create a FREE Account"}/
+            / <div class="sr-icon"><img src="images/find-great-games.png"></div>
+            %h2 Unique New Games
+            %p
+              Treat yourself to be among the first to play – and design – the next Angry Birds and Clash of Clans. Discover amazing new games at your fingertips.
+          %li.step-two.wow.bounceInUp
+            .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
+              %a.step-icon.hi-icon{:href => "#set-1", :title => "Start an Online Consult"}
+                %img.image-normal{:alt => "Start an Online Consult", :src => "images/idea-hover.png", :title => "Start an Online Consult"}/
+                %img.image-hover{:alt => "Start an Online Consult", :src => "images/idea.png", :title => "Start an Online Consult"}/
+            %h2 Share Your Ideas
+            %p
+              Share your ideas with a community of passionate mobile gamers and companies that are willing to change. We want to know what a perfect game means to you, so you can enjoy a truly amazing experience. Your feedback matters. Make your voice heard.
+          %li.step-three.wow.bounceInUp
+            .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
+              %a.step-icon.hi-icon{:href => "#set-1", :title => "Get a Diagnosis & Treatment Plan"}
+                %img.image-normal{:alt => "Get a Diagnosis & Treatment Plan", :src => "images/earn-rewards-ic-hover.png", :title => "Get a Diagnosis & Treatment Plan"}/
+                %img.image-hover{:alt => "Get a Diagnosis & Treatment Plan", :src => "images/earn-rewards-ic.png", :title => "Get a Diagnosis & Treatment Plan"}/
+            %h2 Earn Rewards
+            %p
+              Earn exclusive rewards by playing and giving feedback, including in-game features and badges showing off your awesomeness. Sign up today and win a chance to win $100 when we launch!
+        .get-strd
+          %a{:href => ""} Get Started
+    .process-section
+      .container
+        %h2 READY TO STAND OUT?
+        %p Curabitur nec scelerisque nulla, non pharetra sapien. Pellentesque commodo fringilla finibus.
+        .clear
+        .btns
+          %a{:href => ""} Login
+          %a{:href => ""} Sign Up
+    .blog-section
+      .container
+        %ul.bxslider
+          %li
+            .blog-post
+              .blog-img
+              .blog-detail
+                .blog-info-sec
+                  .date
+                    %p.day 08
+                    %p.month-year 11-2014
+                  .bl-detail
+                    %h2 A POST WITH QUOTE
+                    %ul
+                      %li
+                        %span
+                          %img{:src => "images/icon-01.png"}>/
+                            
+                        %span CTHthemes
+                      %li
+                        %span
+                          %img{:src => "images/icon-02.png"}>/
+                            
+                        %span Free
+                      %li
+                        %span
+                          %img{:src => "images/icon-03.png"}>/
+                            
+                        %span 0
+                %p
+                  Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                %a.read-more{:href => ""} Read more...
+              %a.more-btn{:href => ""} More blogs
+          %li
+            .blog-post
+              .blog-img
+              .blog-detail
+                .blog-info-sec
+                  .date
+                    %p.day 08
+                    %p.month-year 11-2014
+                  .bl-detail
+                    %h2 A POST WITH QUOTE
+                    %ul
+                      %li
+                        %span
+                          %img{:src => "images/icon-01.png"}>/
+                            
+                        %span CTHthemes
+                      %li
+                        %span
+                          %img{:src => "images/icon-02.png"}>/
+                            
+                        %span Free
+                      %li
+                        %span
+                          %img{:src => "images/icon-03.png"}>/
+                            
+                        %span 0
+                %p
+                  Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                %a.read-more{:href => ""} Read more...
+              %a.more-btn{:href => ""} More blogs
+    .newsletter
+      .container
+        %p Stay current with us and on industry news.
+        %label
+          %input{:placeholder => "Email address", :type => "text", :value => ""}/
+          %input{:type => "submit", :value => "Send"}/
+    .footer
+      .top-footer
+        .container
+          .lf-ft
+            %img{:src => "images/logo.png"}/
+            .clear
+            %p Squirrel is an independent, Australian Financial Services Licensee that supports everyday Australians manage their own superannuation through amazing technology and education. Take control of your future today.
+            .clear
+            %ul.social
+              %li
+                %a{:href => ""}
+                  %img{:src => "images/twitter.png"}/
+              %li
+                %a{:href => ""}
+                  %img{:src => "images/facebook.png"}/
+              %li
+                %a{:href => ""}
+                  %img{:src => "images/pintresst.png"}/
+              %li
+                %a{:href => ""}
+                  %img{:src => "images/youtube.png"}/
+          .rg-ft
+            .footer-nav
+              %h2 Usefull Links
+              %ul
+                %li
+                  %a{:href => ""} Home
+                %li
+                  %a{:href => ""} About us
+                %li
+                  %a{:href => ""} Services
+                %li
+                  %a{:href => ""} Our Apps
+            .footer-nav
+              %h2 Need Help?
+              %ul
+                %li
+                  %a{:href => ""} Privacy Policy
+                %li
+                  %a{:href => ""} Terms of Use
+                %li
+                  %a{:href => ""} Blog
+            .footer-nav
+              %h2 Popular GAMES Tag
+              .clear
+              .tags
+                %span.active text 1
+                %span text 1
+                %span text 1
+                %span text 1
+                %span text 1
+      .bottom-footer
+        © 2016
+        = succeed "." do
+          %span WillowFlare
+    / JS
+    %script{:src => "js/common.js", :type => "text/javascript"}
+    %script{:src => "js/wow.js"}
+    :javascript
+      wow = new WOW(
+        {
+      	animateClass: 'animated',
+      	offset:       100,
+      	callback:     function(box) {
+      	  console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+      	}
+        }
+      );
+      wow.init();
+    / JS

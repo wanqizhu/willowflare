@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     render :layout => false
   end
 
+  def landing_page
+    render :layout => false
+  end
+
   def mail
     logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:message]
     begin
