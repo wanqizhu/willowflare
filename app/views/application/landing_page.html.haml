@@ -31,35 +31,44 @@
               %ul.mobimenu
                 / <li><a class="active" href="">ABOUT</a></li>
                 %li
-                  %a{:href => ""} ABOUT
+                  = link_to 'ABOUT', '#about'
                 %li
-                  %a{:href => ""} FEATURES
+                  = link_to 'FEATURES', '#features'
                 %li
-                  %a{:href => ""} CONTACT
+                  = link_to 'SIGN UP', new_user_registration_path
                 %li
-                  %a.login-btn{:href => ""} Login
+                  = link_to 'Login', new_user_session_path, {class: 'login-btn'}
       .video-wrap
         .mobile-banner
         = video_tag(["mountains2_converted.webm", "mountains2_converted.mp4", "mountains2_converted.ogv"], :autoplay => "", :height => "", :loop => "", :preload => "auto", :width => "100%", :class => "slider-video")
-      .banner-info
+      .banner-info#about
         .container
           .welcome-text
             %h1.wow.bounceInLeft
               Welcome to
               %span WillowFlare
             %p.wow.lightSpeedIn Ut ipsum enim, consequat sed metus a, consequat sodales nibh. Integer mi lectus, consectetur fermentum aliquam nec, bibendum vel nibh. Donec non erat urna. Fusce dapibus sem non elit pretium eleifend. Donec aliquet nulla id vulputate consequat. Vestibulum ut interdum urna
-          .first-form
+         
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'first-form'}) do |f|
             .navigat-icon.wow.bounceInDown
-            %input{:placeholder => "User name", :type => "text", :value => ""}/
-            %input{:placeholder => "Email", :type => "text", :value => ""}/
-            %input{:placeholder => "Password", :type => "text", :value => ""}/
-            %input{:type => "submit", :value => "Signup"}/
+            
+            = devise_error_messages!
+
+            = f.text_field :username, autofocus: true, placeholder: "Username"
+            = f.email_field :email, autofocus: true, placeholder: "Email"
+            = f.password_field :password, autocomplete: "off", placeholder: "Password"
+            / = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm"
+            = f.text_field :referral, placeholder: "Referral code (optional)"
+            = f.submit "Sign up", class: "btn btn-primary btn-lg"
+
             %p.form-text
               By clicking "Sign up for WillowFlare", you agree to our
               %a{:href => ""} terms of service
               and
               = succeed "." do
                 %a{:href => ""} privacy policy
+
+
     / For our animations to look good, the animated elements need to be able to be scrolled to. For this example I've added dummy content to the top
     .services-section
       %ul
@@ -106,7 +115,7 @@
           .r-sec
             %p At Willowflare, we are invested in your mobile gaming experience. Not only are our games high-quality, they are made by people who truly value your feedback and will actively implement your suggestions.
             %p We want to reward you for the significance of your ideas and believe this is the perfect community for you to have a truly customized gaming experience. Come try us out!
-    .category
+    .category#features
       .container
         %ul
           %li.step-one.wow.bounceInUp
@@ -135,15 +144,16 @@
             %p
               Earn exclusive rewards by playing and giving feedback, including in-game features and badges showing off your awesomeness. Sign up today and win a chance to win $100 when we launch!
         .get-strd
-          %a{:href => ""} Get Started
+          = link_to 'Get Started', new_user_registration_path
     .process-section
       .container
         %h2 READY TO STAND OUT?
         %p Curabitur nec scelerisque nulla, non pharetra sapien. Pellentesque commodo fringilla finibus.
         .clear
         .btns
-          %a{:href => ""} Login
-          %a{:href => ""} Sign Up
+          = link_to 'Login', new_user_session_path
+          = link_to 'Sign Up', new_user_registration_path
+
     .blog-section
       .container
         %ul.bxslider
@@ -219,14 +229,16 @@
           .lf-ft
             = image_tag("logo_new.png")
             .clear
-            %p Squirrel is an independent, Australian Financial Services Licensee that supports everyday Australians manage their own superannuation through amazing technology and education. Take control of your future today.
+            %p Footer text WIP
+            %br
+            %br
             .clear
             %ul.social
               %li
-                %a{:href => ""}
+                %a{:href => "https://www.twitter.com/WillowFlare"}
                   = image_tag("twitter.png")
               %li
-                %a{:href => ""}
+                %a{:href => "https://www.facebook.com/WillowFlare"}
                   = image_tag("facebook.png")
               %li
                 %a{:href => ""}

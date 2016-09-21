@@ -116,6 +116,8 @@ html {
 .welcome-text h1 span{color:#f39b13;font-weight:600;}
 .first-form{float:right;width:35%;position:relative;}
 .first-form input[type="text"]{float:left;width:100%;background:image-url("input-bg.png") repeat;padding:18px 25px;color:#FFF;border-radius:50px;border:1px solid #6c7179;margin-bottom:15px;font-weight:300;font-size:16px;width:100%;box-sizing:padding-box;}
+.first-form input[type="password"]{float:left;width:100%;background:image-url("input-bg.png") repeat;padding:18px 25px;color:#FFF;border-radius:50px;border:1px solid #6c7179;margin-bottom:15px;font-weight:300;font-size:16px;width:100%;box-sizing:padding-box;}
+.first-form input[type="email"]{float:left;width:100%;background:image-url("input-bg.png") repeat;padding:18px 25px;color:#FFF;border-radius:50px;border:1px solid #6c7179;margin-bottom:15px;font-weight:300;font-size:16px;width:100%;box-sizing:padding-box;}
 .first-form input[type="submit"]{float:left;font-weight:300;font-size:16px;width:100%;background:#1bbc9b;padding:18px 0;color:#FFF;border-radius:50px;border:1px solid #1bbc9b;margin-bottom:15px;cursor:pointer;width:100%;transition: 0.5s;-webkit-transition: 0.5s;-moz-transition: 0.5s;-ms-transition: 0.5s;-o-transition: 0.5s}
 .first-form input[type="submit"]:hover{background:#0089d8;border:1px solid #0089d8;}
 
@@ -355,7 +357,7 @@ i.fa {
 /*  */
 
 @media only screen and (max-width: 1280px) {
-  .video-wrap, .main-section{height:600px;}
+  .video-wrap, .main-section{height:700px;}
 }
 @media only screen and (max-width: 1200px) {
   
