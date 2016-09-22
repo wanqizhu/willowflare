@@ -18,10 +18,11 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.order(updated_at: :desc) # use cached_weighted_score for sorting by votes
     unless user_signed_in?
       redirect_to '/home' # go to new landing page if not signed in
     end
+    
+    @links = Link.order(updated_at: :desc) # use cached_weighted_score for sorting by votes
   end
 
   # GET /links/1
