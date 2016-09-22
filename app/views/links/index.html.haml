@@ -1,48 +1,48 @@
 = stylesheet_link_tag 'links', media: 'all', 'data-turbolinks-track' => true
 
-  .col-sm-12.col-md-10.col-md-offset-1
-    %h1#tagline Play Games. Give Feedback. Earn Rewards.
+.col-sm-12.col-md-10.col-md-offset-1
+  %h1#tagline Play Games. Give Feedback. Earn Rewards.
+  %br
+  %br
+  %br
+  %br
+
+  .left-align
+    %h4.caps.light.bold
+      %i.fa.fa-star
+      New Announcements
     %br
-    %br
-    %br
-    %br
-
-    .left-align
-      %h4.caps.light.bold
-        %i.fa.fa-star
-        New Announcements
-      %br
 
 
-    .announcements
-      - @links.each do |link|
-        .box-wrapper.icon
-          .box-icon
-            - if link.img == nil or link.img.empty?
-              - img_name = "treasure.png"
-            - else
-              - img_name = link.img
+  .announcements
+    - @links.each do |link|
+      .box-wrapper.icon
+        .box-icon
+          - if link.img == nil or link.img.empty?
+            - img_name = "treasure.png"
+          - else
+            - img_name = link.img
 
-            = image_tag(img_name)
-            
-          .box
-            %h2= link_to link.title, link.url
-            %p.light= link.updated_at
-            %p= simple_format(link.content)
+          = image_tag(img_name)
+          
+        .box
+          %h2= link_to link.title, link.url
+          %p.light= link.updated_at
+          %p= simple_format(link.content)
 
-          - if current_user.auth_level >= 90
-            = link_to 'Comment', link
-            = link_to 'Edit', edit_link_path(link)
-            = link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }
+        - if current_user.auth_level >= 90
+          = link_to 'Comment', link
+          = link_to 'Edit', edit_link_path(link)
+          = link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }
 
-            .btn-group
-              = link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do
-                %i.fa.fa-chevron-up
-                  Upvote
-                  = link.get_upvotes.size
+          .btn-group
+            = link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+              %i.fa.fa-chevron-up
+                Upvote
+                = link.get_upvotes.size
 
-              = link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do
-                %i.fa.fa-chevron-down
-                  Downvote
-                  = link.get_downvotes.size
+            = link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+              %i.fa.fa-chevron-down
+                Downvote
+                = link.get_downvotes.size
 
