@@ -22,8 +22,7 @@
       .header-main
         .container
           .logo
-            %a{:href => "#"}
-              = image_tag("logo_new.png")
+            = link_to image_tag("logo_new.png"), root_url
           .navigation
             %nav
               %a.smobitrigger.ion-navicon-round{:href => "javascript:void(0)"}
@@ -222,14 +221,14 @@
         %p Stay current with us and on industry news.
         %label
           %input{:placeholder => "Email address", :type => "text", :value => ""}/
-          %input{:type => "submit", :value => "Send"}/
+          %input{:type => "submit", :value => "Send", :onclick => "location.href = '/users/sign_up';"}/
     .footer
       .top-footer
         .container
           .lf-ft
             = image_tag("logo_new.png")
             .clear
-            %p Footer text WIP
+            %p Play games. Give feedback. Earn rewards.
             %br
             %br
             .clear
@@ -240,24 +239,20 @@
               %li
                 %a{:href => "https://www.facebook.com/WillowFlare"}
                   = image_tag("facebook.png")
-              %li
-                %a{:href => ""}
-                  = image_tag("pintresst.png")
-              %li
-                %a{:href => ""}
-                  = image_tag("youtube.png")
+              / %li
+              /   %a{:href => ""}
+              /     = image_tag("pintresst.png")
+              / %li
+              /   %a{:href => ""}
+              /     = image_tag("youtube.png")
           .rg-ft
             .footer-nav
-              %h2 Usefull Links
+              %h2 Useful Links
               %ul
                 %li
-                  %a{:href => ""} Home
+                  %a{:href => "/companies"} 中国游戏公司？
                 %li
-                  %a{:href => ""} About us
-                %li
-                  %a{:href => ""} Services
-                %li
-                  %a{:href => ""} Our Apps
+                  %a{:href => "/games"} Our Games
             .footer-nav
               %h2 Need Help?
               %ul
@@ -265,17 +260,15 @@
                   %a{:href => ""} Privacy Policy
                 %li
                   %a{:href => ""} Terms of Use
-                %li
-                  %a{:href => ""} Blog
-            .footer-nav
-              %h2 Popular GAMES Tag
-              .clear
-              .tags
-                %span.active text 1
-                %span text 1
-                %span text 1
-                %span text 1
-                %span text 1
+            / .footer-nav
+            /   %h2 Popular GAMES Tag
+            /   .clear
+            /   .tags
+            /     %span.active text 1
+            /     %span text 1
+            /     %span text 1
+            /     %span text 1
+            /     %span text 1
       .bottom-footer
         © 2016
         = succeed "." do
