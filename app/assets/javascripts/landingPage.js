@@ -7,3 +7,4 @@
 //= require jquery.bxslider
 //= require common
 //= require wow
+//= require scroll
