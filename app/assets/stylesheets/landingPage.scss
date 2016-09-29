@@ -8,3 +8,18 @@
 @charset "utf-8";
 
 .rg-ft {height: auto;}
+
+.red, .blue, .yellow {
+	}
+
+
+.services-section > ul { // make the three boxes (.red, .yellow, .blue) have the same height
+	display: flex;
+	flex-direction: row;
+}
+
+
+.welcome-text p.lightSpeedIn {
+	margin-top: 20px;
+	font-size: 21px;
+}

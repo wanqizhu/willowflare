@@ -47,7 +47,7 @@
             %li.btn
               %a(class="page-scroll" href="#contact")
                 %i.fa.fa-envelope-o
-                联系我们
+                上传游戏
 
 
 
@@ -140,13 +140,13 @@
       .container
         .row
           .col-lg-12.text-center
-            %h2.section-heading 联系我们
-            %h3.section-subheading.text-muted 有任何问题，建议，合作机会，欢迎您联系我们！
+            %h2.section-heading 上传游戏
+            %h3.section-subheading.text-muted 请上传英文版游戏链接，或给我们留言，期待与您合作!
         .row
           .col-lg-12
             = form_tag "/mail", :id => "contactForm", :name => "sentMessage" do
               .row
-                .col-md-6
+                .col-md-3.col-md-offset-1
                   .form-group
                     %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "姓名*", :required => "", :type => "text", :name => "name"}/
                     %p.help-block.text-danger
@@ -156,7 +156,20 @@
                   .form-group
                     %input#phone.form-control{:placeholder => "公司", :type => "text", :name => "org"}/
                     %p.help-block.text-danger
-                .col-md-6
+
+                  
+                .col-md-3
+                  .form-group
+                    %input#phone.form-control{:placeholder => "游戏名字", :type => "text", :name => "game"}/
+                    %p.help-block.text-danger
+                  .form-group
+                    %input#phone.form-control{:placeholder => "App Store 链接", :type => "text", :name => "app_store_link"}/
+                    %p.help-block.text-danger
+                  .form-group
+                    %input#phone.form-control{:placeholder => "Google Play 链接", :type => "text", :name => "google_play_link"}/
+                    %p.help-block.text-danger
+
+                .col-md-4
                   .form-group
                     %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "诉求*", :required => "", :name => "message"}
                     %p.help-block.text-danger
@@ -173,6 +186,9 @@
             %span.copyright Copyright © WillowFlare 2016
           .col-md-4
             %ul.list-inline.social-buttons
+              %li
+                %a{:href => "mailto:info@willowflare.com"}
+                  %i.fa.fa-email
               %li
                 %a{:href => "https://twitter.com/WillowFlare"}
                   %i.fa.fa-twitter

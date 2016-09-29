@@ -30,13 +30,16 @@
               %ul.mobimenu
                 / <li><a class="active" href="">ABOUT</a></li>
                 %li
-                  = link_to 'ABOUT', '#about'
+                  = link_to '中文', '/companies'
                 %li
-                  = link_to 'FEATURES', '#features'
+                  = link_to 'ABOUT', '#about', {class: 'page-scroll'}
+                %li
+                  = link_to 'FEATURES', '#features', {class: 'page-scroll'}
                 %li
                   = link_to 'SIGN UP', new_user_registration_path
                 %li
                   = link_to 'Login', new_user_session_path, {class: 'login-btn'}
+
       .video-wrap
         .mobile-banner
         = video_tag(["mountains2_converted.webm", "mountains2_converted.mp4", "mountains2_converted.ogv"], :autoplay => "", :height => "", :loop => "", :preload => "auto", :width => "100%", :class => "slider-video")
@@ -46,7 +49,7 @@
             %h1.wow.bounceInLeft
               Welcome to
               %span WillowFlare
-            %p.wow.lightSpeedIn Ut ipsum enim, consequat sed metus a, consequat sodales nibh. Integer mi lectus, consectetur fermentum aliquam nec, bibendum vel nibh. Donec non erat urna. Fusce dapibus sem non elit pretium eleifend. Donec aliquet nulla id vulputate consequat. Vestibulum ut interdum urna
+            %p.wow.lightSpeedIn The one-stop community for all your mobile game cravings. Play games, be a part of the design process, and earn exclusive rewards!
          
           = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'first-form'}) do |f|
             .navigat-icon.wow.bounceInDown
@@ -76,34 +79,25 @@
             = image_tag("find-great-games.png")
           %h2 FIND GREAT GAMES
           %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam suscipit scelerisque consectetur. Suspendisse
-            nec risus id enim iaculis porta. In hac habitasse
-            platea dictumst.
+            Make an account today and brouse a selection of upcoming hot games, brought to you first-hand by WillowFlare from international companies. Master them before your friends even heard of the name!
         %li.red
           .sr-icon
             = image_tag("provide-feedback.png")
-          %h2 PROVIDE FEEDBACK
+          %h2 CUSTOMIZE YOUR EXPERIENCE
           %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam suscipit scelerisque consectetur. Suspendisse
-            nec risus id enim iaculis porta. In hac habitasse
-            platea dictumst.
+            Through our forum and surveys, you can share your ideas with a community of passionate gamers and developers that listen. You can help us help you enrich your mobile experience in ways you can't even imagine. Join our community today!
         %li.blue.wow.bounceInRight
           .sr-icon
             = image_tag("rewards.png")
           %h2 EARN REWARDS
           %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam suscipit scelerisque consectetur. Suspendisse
-            nec risus id enim iaculis porta. In hac habitasse
-            platea dictumst.
+            Not only will your feedback be used to customize your game, you will earn exclusive in-game rewards that show off your awesomeness as well as $10 gift cards. By being the first to play, you will have access to these amazing games in ways your friends can only dream of. Be sure to visit our platform everyday to check for new rewards!
     .info-section
       .container
         %h2
           DON'T BE JUST ANOTHER PLAYER.
           %span OWN YOUR GAME.
-        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.
+        %p Unlock your mobile gaming potential and brilliant ideas today.
     .about-website
       .container
         .about-text
@@ -125,7 +119,7 @@
             / <div class="sr-icon"><img src="find-great-games.png"></div>
             %h2 Unique New Games
             %p
-              Treat yourself to be among the first to play – and design – the next Angry Birds and Clash of Clans. Discover amazing new games at your fingertips.
+              Treat yourself to be among the first to play – and design – the next Pokeman Go and Clash of Clans. Discover amazing new games at your fingertips, and stay up to date with all the current and upcoming mobile game news through our social media & blog!
           %li.step-two.wow.bounceInUp
             .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
               %a.step-icon.hi-icon{:href => "#set-1", :title => "Start an Online Consult"}
@@ -139,89 +133,89 @@
               %a.step-icon.hi-icon{:href => "#set-1", :title => "Get a Diagnosis & Treatment Plan"}
                 = image_tag("earn-rewards-ic-hover.png", class: "image-normal", :alt => "Get a Diagnosis & Treatment Plan", :title => "Get a Diagnosis & Treatment Plan")
                 = image_tag("earn-rewards-ic.png", class: "image-hover", :alt => "Get a Diagnosis & Treatment Plan", :title => "Get a Diagnosis & Treatment Plan")
-            %h2 Earn Rewards
+            %h2 Exclusive Prizes
             %p
-              Earn exclusive rewards by playing and giving feedback, including in-game features and badges showing off your awesomeness. Sign up today and win a chance to win $100 when we launch!
+              Exclusive rewards will be given to the most dedicated players and most detailed feedback, including in-game features and badges showing off your awesomeness. Visit our platform everyday and you might be the next person to win a $10 gift card!
         .get-strd
           = link_to 'Get Started', new_user_registration_path
     .process-section
       .container
         %h2 READY TO STAND OUT?
-        %p Curabitur nec scelerisque nulla, non pharetra sapien. Pellentesque commodo fringilla finibus.
+        %p Join the best mobile game community today.
         .clear
         .btns
           = link_to 'Login', new_user_session_path
           = link_to 'Sign Up', new_user_registration_path
 
-    .blog-section
-      .container
-        %ul.bxslider
-          %li
-            .blog-post
-              .blog-img
-              .blog-detail
-                .blog-info-sec
-                  .date
-                    %p.day 08
-                    %p.month-year 11-2014
-                  .bl-detail
-                    %h2 A POST WITH QUOTE
-                    %ul
-                      %li
-                        %span
-                          = image_tag("icon-01.png")
-                            
-                        %span CTHthemes
-                      %li
-                        %span
-                          = image_tag("icon-02.png")
-                            
-                        %span Free
-                      %li
-                        %span
-                          = image_tag("icon-03.png")
-                            
-                        %span 0
-                %p
-                  Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                %a.read-more{:href => ""} Read more...
-              %a.more-btn{:href => ""} More blogs
-          %li
-            .blog-post
-              .blog-img
-              .blog-detail
-                .blog-info-sec
-                  .date
-                    %p.day 08
-                    %p.month-year 11-2014
-                  .bl-detail
-                    %h2 A POST WITH QUOTE
-                    %ul
-                      %li
-                        %span
-                          = image_tag("icon-01.png")
-                            
-                        %span CTHthemes
-                      %li
-                        %span
-                          = image_tag("icon-02.png")
-                            
-                        %span Free
-                      %li
-                        %span
-                          = image_tag("icon-03.png")
-                            
-                        %span 0
-                %p
-                  Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                %a.read-more{:href => ""} Read more...
-              %a.more-btn{:href => ""} More blogs
-    .newsletter
-      .container
-        %p Stay current with us and on industry news.
-        %label
-          %input{:placeholder => "Email address", :type => "text", :value => ""}/
-          %input{:type => "submit", :value => "Send", :onclick => "location.href = '/users/sign_up';"}/
+    / .blog-section
+    /   .container
+    /     %ul.bxslider
+    /       %li
+    /         .blog-post
+    /           .blog-img
+    /           .blog-detail
+    /             .blog-info-sec
+    /               .date
+    /                 %p.day 08
+    /                 %p.month-year 11-2014
+    /               .bl-detail
+    /                 %h2 A POST WITH QUOTE
+    /                 %ul
+    /                   %li
+    /                     %span
+    /                       = image_tag("icon-01.png")
+    /                         
+    /                     %span CTHthemes
+    /                   %li
+    /                     %span
+    /                       = image_tag("icon-02.png")
+    /                         
+    /                     %span Free
+    /                   %li
+    /                     %span
+    /                       = image_tag("icon-03.png")
+    /                         
+    /                     %span 0
+    /             %p
+    /               Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+    /             %a.read-more{:href => ""} Read more...
+    /           %a.more-btn{:href => ""} More blogs
+    /       %li
+    /         .blog-post
+    /           .blog-img
+    /           .blog-detail
+    /             .blog-info-sec
+    /               .date
+    /                 %p.day 08
+    /                 %p.month-year 11-2014
+    /               .bl-detail
+    /                 %h2 A POST WITH QUOTE
+    /                 %ul
+    /                   %li
+    /                     %span
+    /                       = image_tag("icon-01.png")
+    /                         
+    /                     %span CTHthemes
+    /                   %li
+    /                     %span
+    /                       = image_tag("icon-02.png")
+    /                         
+    /                     %span Free
+    /                   %li
+    /                     %span
+    /                       = image_tag("icon-03.png")
+    /                         
+    /                     %span 0
+    /             %p
+    /               Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+    /             %a.read-more{:href => ""} Read more...
+    /           %a.more-btn{:href => ""} More blogs
+    / .newsletter
+    /   .container
+    /     %p Stay current with us and on industry news.
+    /     %label
+    /       %input{:placeholder => "Email address", :type => "text", :value => ""}/
+    /       %input{:type => "submit", :value => "Send", :onclick => "location.href = '/users/sign_up';"}/
     .footer
       .top-footer
         .container
@@ -229,10 +223,14 @@
             = image_tag("logo_new.png")
             .clear
             %p Play games. Give feedback. Earn rewards.
+            %p Join a community of passionate mobile gamers and developers. At WillowFlare, you can truly customize your gaming experience and be the first to discover the next big games.
             %br
             %br
             .clear
             %ul.social
+              / %li
+              /   %a{:href => "mailto:info@willowflare.com"}
+              /     %i.fa.fa-email
               %li
                 %a{:href => "https://www.twitter.com/WillowFlare"}
                   = image_tag("twitter.png")
@@ -247,12 +245,22 @@
               /     = image_tag("youtube.png")
           .rg-ft
             .footer-nav
+              %ul
+                %li
+                  = link_to 'Sign Up', new_user_registration_path
+                %li
+                  = link_to 'Login', new_user_session_path
+
+              / just to cover space; remove if we are actually using Popular GAMES Tag below
+            .footer-nav
               %h2 Useful Links
               %ul
                 %li
                   %a{:href => "/companies"} 中国游戏公司？
                 %li
-                  %a{:href => "/games"} Our Games
+                  %a{:href => ""} Our Games
+                %li
+                  %a{:href => "mailto:info@willowflare.com"} Email Us
             .footer-nav
               %h2 Need Help?
               %ul
