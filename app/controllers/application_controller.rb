@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :store_current_location, :unless => :devise_controller?
 
   use Rack::GeoIPCountry, :db => File.expand_path(Rails.root.join("db/GeoIP.dat"))
-  before_filter :redirect_if_china, :except => [:companies]
+  before_filter :redirect_if_china, :except => [:companies, :landing_page]
 
 
   # helpers to enable sign-up form on the landing page
@@ -52,13 +52,13 @@ class ApplicationController < ActionController::Base
   end
 
   def mail
-    logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:message]
+    logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:game] + params[:app_store_link] + params[:google_play_link] + params[:message]
     begin
-      MyMailer.notification_email(params[:name], params[:email], params[:org], params[:message]).deliver_now
+      MyMailer.notification_email(params[:name], params[:email], params[:org], params[:game] + params[:app_store_link] + params[:google_play_link] + params[:message]).deliver_now
       if flash[:notice]
-        flash[:notice] += "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+        flash[:notice] += "Thanks for the message! We will contact you shortly.\n"
       else
-        flash[:notice] = "\nThanks for redeeming! We will send out the reward to " + current_user.email + " in the next 48 hours."
+        flash[:notice] = "Thanks for the message! We will contact you shortly.\n"
       end
     
     rescue  => e # in case redemption fails
