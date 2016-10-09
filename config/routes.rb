@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post '/mail' => 'application#mail'
 
   mount Thredded::Engine => '/forum'
+  mount Monologue::Engine => '/blog'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
