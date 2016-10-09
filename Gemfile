@@ -17,6 +17,9 @@ gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'
 gem 'rack-attack', '~> 5.0.0.beta1'
 
 
+gem 'monologue', '>= 0.5.0'
+gem 'responders', '~> 2.1.0'
+
 # forums
 gem 'thredded', '~> 0.6.1'
 
@@ -31,7 +34,7 @@ gem 'mysql2', '~> 0.3.18'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
