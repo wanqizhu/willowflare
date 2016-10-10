@@ -1,10 +1,11 @@
 Monologue.config do |config|
-  config.site_name = "My blog"
-  config.site_subtitle = "my own place online"
-  config.site_url = "http://example.com"
+  config.site_name = "WillowFlare"
+  config.blog_name = "Blog"
+  config.site_subtitle = "Your personal mobile gaming feed"
+  config.site_url = "http://willowflare.com"
 
   config.meta_description = "This is my blog about..."
-  config.meta_keyword = "music, fun"
+  config.meta_keyword = "mobile, game"
 
   config.admin_force_ssl = false
   config.posts_per_page = 10
@@ -27,12 +28,12 @@ Monologue.config do |config|
 
 
   #SOCIAL
-  config.twitter_username = "myhandle"
-  config.facebook_url = "https://www.facebook.com/myhandle"
+  config.twitter_username = "willowflare"
+  config.facebook_url = "https://www.facebook.com/willowflare"
   config.facebook_logo = 'logo.png'
-  config.google_plus_account_url = "https://plus.google.com/u/1/.../posts"
-  config.linkedin_url = "http://www.linkedin.com/in/myhandle"
-  config.github_username = "myhandle"
+  # config.google_plus_account_url = "https://plus.google.com/u/1/.../posts"
+  # config.linkedin_url = "http://www.linkedin.com/in/myhandle"
+  # config.github_username = "myhandle"
   config.show_rss_icon = true
 
 end

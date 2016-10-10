@@ -68,3 +68,6 @@ module RedditClone
    
   end
 end
+
+# override the lib file to add config.blog_name
+require "#{Rails.root}/lib/monologue/configuration.rb"
