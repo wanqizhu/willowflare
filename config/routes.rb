@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   mount Thredded::Engine => '/forum'
   mount Monologue::Engine => '/blog'
 
+  Monologue::Engine.routes.draw do
+    get '/login' => redirect('/blog/monologue/login')
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
