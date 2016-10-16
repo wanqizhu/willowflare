@@ -105,44 +105,46 @@ var ready = function(){
 
 
     $("#storeConfirm").on('submit', function(e){
-        e.preventDefault;
+        if ($('#infographicPopup').length) {
+
+            e.preventDefault;
         
 
-        if(device_width > 767 && sessionStorage.getItem('social_media') == null && sessionStorage.getItem('visited') != 2) {
-            
-            // popup prompting social share
-            var social_share = "<p>Thanks for redeeming! Share it with your friends and invite them to WillowFlare for bonus points! </p>" + $("#socialShare").html();
+            if(device_width > 767 && sessionStorage.getItem('social_media') == null && sessionStorage.getItem('visited') != 2) {
+                
+                // popup prompting social share
+                var social_share = "<p>Thanks for redeeming! Share it with your friends and invite them to WillowFlare for bonus points! </p>" + $("#socialShare").html();
 
-            $("#newsContainer > .box-wrapper > .box").html(social_share);
-            sessionStorage.setItem('visited', 2);
+                $("#newsContainer > .box-wrapper > .box").html(social_share);
+                sessionStorage.setItem('visited', 2);
 
 
-            $("#infographicPopup").css({'display': '-webkit-flex'
-                                           ,'display': 'flex'});
-            $("#infographicImage").css({'margin': '0'});        
-            $('body').css('overflow', 'hidden');
+                $("#infographicPopup").css({'display': '-webkit-flex'
+                                               ,'display': 'flex'});
+                $("#infographicImage").css({'margin': '0'});        
+                $('body').css('overflow', 'hidden');
 
-            display_image = false;
+                display_image = false;
 
-            $("#infographicPopup:not(#infographicPopup > #popupContainer)").on('click',function(){
-                sessionStorage.setItem('social_media', 1);
-                // $('html, body').animate({
-                //     scrollTop: $("#page").offset().top
-                // }, 500);
-            });
+                $("#infographicPopup:not(#infographicPopup > #popupContainer)").on('click',function(){
+                    sessionStorage.setItem('social_media', 1);
+                    // $('html, body').animate({
+                    //     scrollTop: $("#page").offset().top
+                    // }, 500);
+                });
+            }
+
+            // delay form submission until user hides the social share news
+            if (sessionStorage.getItem('social_media') == null) {
+                
+                setTimeout(function(){ $('#storeConfirm').submit(); }, 500);
+                return false;
+            } else {
+                
+                //sessionStorage.setItem('visited', 1);
+                return true;
+            }
         }
-
-        // delay form submission until user hides the social share news
-        if (sessionStorage.getItem('social_media') == null) {
-            
-            setTimeout(function(){ $('#storeConfirm').submit(); }, 500);
-            return false;
-        } else {
-            
-            //sessionStorage.setItem('visited', 1);
-            return true;
-        }
-
      })
 
 
