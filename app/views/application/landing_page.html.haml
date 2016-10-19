@@ -1,296 +1,178 @@
-%html{"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
-  %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1", :name => "viewport"}/
-    %title Willow Flare
-    / CSS
-    %link{:href => "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", :rel => "stylesheet", :type => "text/css"}/
-    
-    = stylesheet_link_tag 'landingPage', media: 'all', 'data-turbolinks-track' => true
 
-
-
-    / CSS
-    / JS
-
-    = javascript_include_tag 'landingPage', 'data-turbolinks-track' => true
-
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"}
-    / JS
-  %body
-    .main-section
-      .header-main
-        .container
-          .logo
-            = link_to image_tag("logo_new.png"), root_url
-          .navigation
-            %nav
-              %a.smobitrigger.ion-navicon-round{:href => "javascript:void(0)"}
-                %span Menu
-              %ul.mobimenu
-                / <li><a class="active" href="">ABOUT</a></li>
-                %li
-                  = link_to '中文', '/companies'
-                %li
-                  = link_to 'ABOUT', '#about', {class: 'page-scroll'}
-                %li
-                  = link_to 'FEATURES', '#features', {class: 'page-scroll'}
-                %li
-                  = link_to 'SIGN UP', new_user_registration_path
-                %li
-                  = link_to 'Login', new_user_session_path, {class: 'login-btn'}
-
-      .video-wrap
-        .mobile-banner
-        = video_tag(["mountains2_converted.webm", "mountains2_converted.mp4", "mountains2_converted.ogv"], :autoplay => "", :height => "", :loop => "", :preload => "auto", :width => "100%", :class => "slider-video")
-      .banner-info#about
-        .container
-          .welcome-text
-            %h1.wow.bounceInLeft
-              Welcome to
-              %span WillowFlare
-            %p.wow.lightSpeedIn The one-stop community for all your mobile game cravings. Play games, be a part of the design process, and earn exclusive rewards!
-         
-          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'first-form'}) do |f|
-            .navigat-icon.wow.bounceInDown
-            
-            = devise_error_messages!
-
-            = f.text_field :username, autofocus: true, placeholder: "Username"
-            = f.email_field :email, autofocus: true, placeholder: "Email"
-            = f.password_field :password, autocomplete: "off", placeholder: "Password"
-            / = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm"
-            = f.text_field :referral, placeholder: "Referral code (optional)"
-            = f.submit "Sign up", class: "btn btn-primary btn-lg"
-
-            %p.form-text
-              By clicking "Sign up for WillowFlare", you agree to our
-              %a{:href => ""} terms of service
-              and
-              = succeed "." do
-                %a{:href => ""} privacy policy
-
-
-    / For our animations to look good, the animated elements need to be able to be scrolled to. For this example I've added dummy content to the top
-    .services-section
-      %ul
-        %li.yellow.wow.bounceInLeft
-          .sr-icon
-            = image_tag("find-great-games.png")
-          %h2 FIND GREAT GAMES
-          %p
-            Make an account today and brouse a selection of upcoming hot games, brought to you first-hand by WillowFlare from international companies. Master them before your friends even heard of the name!
-        %li.red
-          .sr-icon
-            = image_tag("provide-feedback.png")
-          %h2 CUSTOMIZE YOUR EXPERIENCE
-          %p
-            Through our forum and surveys, you can share your ideas with a community of passionate gamers and developers that listen. You can help us help you enrich your mobile experience in ways you can't even imagine. Join our community today!
-        %li.blue.wow.bounceInRight
-          .sr-icon
-            = image_tag("rewards.png")
-          %h2 EARN REWARDS
-          %p
-            Not only will your feedback be used to customize your game, you will earn exclusive in-game rewards that show off your awesomeness as well as $10 gift cards. By being the first to play, you will have access to these amazing games in ways your friends can only dream of. Be sure to visit our platform everyday to check for new rewards!
-    .info-section
-      .container
-        %h2
-          DON'T BE JUST ANOTHER PLAYER.
-          %span OWN YOUR GAME.
-        %p Unlock your mobile gaming potential and brilliant ideas today.
-    .about-website
-      .container
-        .about-text
-          .l-sec
-            %p Tired of generic mobile games?
-            %p Care about a game, but are unable to find a channel to make it better?
-            %p Feel like a drop in the ocean when it comes to giving feedback to the company, as if you are not being valued as a gamer?
-          .r-sec
-            %p At Willowflare, we are invested in your mobile gaming experience. Not only are our games high-quality, they are made by people who truly value your feedback and will actively implement your suggestions.
-            %p We want to reward you for the significance of your ideas and believe this is the perfect community for you to have a truly customized gaming experience. Come try us out!
-    .category#features
-      .container
-        %ul
-          %li.step-one.wow.bounceInUp
-            .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
-              %a.step-icon.hi-icon{:href => "#set-1", :title => "Create a FREE Account"}
-                = image_tag("unique-games-hover.png", :class => 'image-normal', :alt => "Create a FREE Account", :title => "Create a FREE Account")
-                = image_tag("unique-games.png", :class => 'image-hover', :alt => "Create a FREE Account", :title => "Create a FREE Account")
-            / <div class="sr-icon"><img src="find-great-games.png"></div>
-            %h2 Unique New Games
-            %p
-              Treat yourself to be among the first to play – and design – the next Pokeman Go and Clash of Clans. Discover amazing new games at your fingertips, and stay up to date with all the current and upcoming mobile game news through our social media & blog!
-          %li.step-two.wow.bounceInUp
-            .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
-              %a.step-icon.hi-icon{:href => "#set-1", :title => "Start an Online Consult"}
-                = image_tag("idea-hover.png", :class => "image-normal", :alt => "Start an Online Consult", :title => "Start an Online Consult")
-                = image_tag("idea.png", :class => "image-hover", :alt => "Start an Online Consult", :title => "Start an Online Consult")
-            %h2 Share Your Ideas
-            %p
-              Share your ideas with a community of passionate mobile gamers and companies that are willing to change. We want to know what a perfect game means to you, so you can enjoy a truly amazing experience. Your feedback matters. Make your voice heard.
-          %li.step-three.wow.bounceInUp
-            .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
-              %a.step-icon.hi-icon{:href => "#set-1", :title => "Get a Diagnosis & Treatment Plan"}
-                = image_tag("earn-rewards-ic-hover.png", class: "image-normal", :alt => "Get a Diagnosis & Treatment Plan", :title => "Get a Diagnosis & Treatment Plan")
-                = image_tag("earn-rewards-ic.png", class: "image-hover", :alt => "Get a Diagnosis & Treatment Plan", :title => "Get a Diagnosis & Treatment Plan")
-            %h2 Exclusive Prizes
-            %p
-              Exclusive rewards will be given to the most dedicated players and most detailed feedback, including in-game features and badges showing off your awesomeness. Visit our platform everyday and you might be the next person to win a $10 gift card!
-        .get-strd
-          = link_to 'Get Started', new_user_registration_path
-    .process-section
-      .container
-        %h2 READY TO STAND OUT?
-        %p Join the best mobile game community today.
-        .clear
-        .btns
-          = link_to 'Login', new_user_session_path
-          = link_to 'Sign Up', new_user_registration_path
-
-    / .blog-section
-    /   .container
-    /     %ul.bxslider
-    /       %li
-    /         .blog-post
-    /           .blog-img
-    /           .blog-detail
-    /             .blog-info-sec
-    /               .date
-    /                 %p.day 08
-    /                 %p.month-year 11-2014
-    /               .bl-detail
-    /                 %h2 A POST WITH QUOTE
-    /                 %ul
-    /                   %li
-    /                     %span
-    /                       = image_tag("icon-01.png")
-    /                         
-    /                     %span CTHthemes
-    /                   %li
-    /                     %span
-    /                       = image_tag("icon-02.png")
-    /                         
-    /                     %span Free
-    /                   %li
-    /                     %span
-    /                       = image_tag("icon-03.png")
-    /                         
-    /                     %span 0
-    /             %p
-    /               Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-    /             %a.read-more{:href => ""} Read more...
-    /           %a.more-btn{:href => ""} More blogs
-    /       %li
-    /         .blog-post
-    /           .blog-img
-    /           .blog-detail
-    /             .blog-info-sec
-    /               .date
-    /                 %p.day 08
-    /                 %p.month-year 11-2014
-    /               .bl-detail
-    /                 %h2 A POST WITH QUOTE
-    /                 %ul
-    /                   %li
-    /                     %span
-    /                       = image_tag("icon-01.png")
-    /                         
-    /                     %span CTHthemes
-    /                   %li
-    /                     %span
-    /                       = image_tag("icon-02.png")
-    /                         
-    /                     %span Free
-    /                   %li
-    /                     %span
-    /                       = image_tag("icon-03.png")
-    /                         
-    /                     %span 0
-    /             %p
-    /               Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-    /             %a.read-more{:href => ""} Read more...
-    /           %a.more-btn{:href => ""} More blogs
-    / .newsletter
-    /   .container
-    /     %p Stay current with us and on industry news.
-    /     %label
-    /       %input{:placeholder => "Email address", :type => "text", :value => ""}/
-    /       %input{:type => "submit", :value => "Send", :onclick => "location.href = '/users/sign_up';"}/
-    .footer
-      .top-footer
-        .container
-          .lf-ft
-            = image_tag("logo_new.png")
-            .clear
-            %p Play games. Give feedback. Earn rewards.
-            %p Join a community of passionate mobile gamers and developers. At WillowFlare, you can truly customize your gaming experience and be the first to discover the next big games.
-            %br
-            %br
-            .clear
-            %ul.social
-              / %li
-              /   %a{:href => "mailto:info@willowflare.com"}
-              /     %i.fa.fa-email
-              %li
-                %a{:href => "https://www.twitter.com/WillowFlare"}
-                  = image_tag("twitter.png")
-              %li
-                %a{:href => "https://www.facebook.com/WillowFlare"}
-                  = image_tag("facebook.png")
-              / %li
-              /   %a{:href => ""}
-              /     = image_tag("pintresst.png")
-              / %li
-              /   %a{:href => ""}
-              /     = image_tag("youtube.png")
-          .rg-ft
-            .footer-nav
-              %ul
-                %li
-                  = link_to 'Sign Up', new_user_registration_path
-                %li
-                  = link_to 'Login', new_user_session_path
-
-              / just to cover space; remove if we are actually using Popular GAMES Tag below
-            .footer-nav
-              %h2 Useful Links
-              %ul
-                %li
-                  %a{:href => "/companies"} 中国游戏公司？
-                %li
-                  %a{:href => ""} Our Games
-                %li
-                  %a{:href => "mailto:info@willowflare.com"} Email Us
-            .footer-nav
-              %h2 Need Help?
-              %ul
-                %li
-                  %a{:href => ""} Privacy Policy
-                %li
-                  %a{:href => ""} Terms of Use
-            / .footer-nav
-            /   %h2 Popular GAMES Tag
-            /   .clear
-            /   .tags
-            /     %span.active text 1
-            /     %span text 1
-            /     %span text 1
-            /     %span text 1
-            /     %span text 1
-      .bottom-footer
-        © 2016
-        = succeed "." do
+.main-section
+  .video-wrap
+    .mobile-banner
+    = video_tag(["mountains2_converted.webm", "mountains2_converted.mp4", "mountains2_converted.ogv"], :autoplay => "", :height => "", :loop => "", :preload => "auto", :width => "100%", :class => "slider-video")
+  .banner-info
+    .container
+      .welcome-text
+        %h1.wow.bounceInLeft
+          Welcome to
           %span WillowFlare
-    / JS
-    :javascript
-      wow = new WOW(
-        {
-      	animateClass: 'animated',
-      	offset:       100,
-      	callback:     function(box) {
-      	  console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
-      	}
-        }
-      );
-      wow.init();
-    / JS
+        %p.wow.lightSpeedIn The one-stop community for all your mobile game cravings. Play games, be a part of the design process, and earn exclusive rewards!
+     
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'first-form'}) do |f|
+        .navigat-icon.wow.bounceInDown
+        
+        = devise_error_messages!
+
+        = f.text_field :username, autofocus: true, placeholder: "Username"
+        = f.email_field :email, autofocus: true, placeholder: "Email"
+        = f.password_field :password, autocomplete: "off", placeholder: "Password"
+        / = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm"
+        = f.text_field :referral, placeholder: "Referral code (optional)"
+        = f.submit "Sign up", class: "btn btn-primary btn-lg"
+
+        %p.form-text
+          By clicking "Sign up for WillowFlare", you agree to our
+          %a{:href => ""} terms of service
+          and
+          = succeed "." do
+            %a{:href => ""} privacy policy
+
+
+/ For our animations to look good, the animated elements need to be able to be scrolled to. For this example I've added dummy content to the top
+.services-section#about
+  %ul
+    %li.yellow.wow.bounceInLeft
+      .sr-icon
+        = image_tag("find-great-games.png")
+      %h2 FIND GREAT GAMES
+      %p
+        Make an account today and browse a selection of upcoming hot games, brought to you first-hand by WillowFlare from international companies. Master them before your friends even heard of the name!
+    %li.red
+      .sr-icon
+        = image_tag("provide-feedback.png")
+      %h2 CUSTOMIZE YOUR EXPERIENCE
+      %p
+        Through our forum and surveys, you can share your ideas with a community of passionate gamers and developers that listen. You can help us help you enrich your mobile experience in ways you can't even imagine. Join our community today!
+    %li.blue.wow.bounceInRight
+      .sr-icon
+        = image_tag("rewards.png")
+      %h2 EARN REWARDS
+      %p
+        Not only will your feedback be used to customize your game, you will earn exclusive in-game rewards that show off your awesomeness as well as $10 gift cards. By being the first to play, you will have access to these amazing games in ways your friends can only dream of. Be sure to visit our platform everyday to check for new rewards!
+.info-section
+  .container
+    %h2
+      DON'T BE JUST ANOTHER PLAYER.
+      %span OWN YOUR GAME.
+    %p Unlock your mobile gaming potential and brilliant ideas today.
+.about-website
+  .container
+    .about-text
+      .l-sec
+        %p Tired of generic mobile games?
+        %p Care about a game, but are unable to find a channel to make it better?
+        %p Feel like a drop in the ocean when it comes to giving feedback to the company, as if you are not being valued as a gamer?
+      .r-sec
+        %p At Willowflare, we are invested in your mobile gaming experience. Not only are our games high-quality, they are made by people who truly value your feedback and will actively implement your suggestions.
+        %p We want to reward you for the significance of your ideas and believe this is the perfect community for you to have a truly customized gaming experience. Come try us out!
+.category#features
+  .container
+    %ul
+      %li.step-one.wow.bounceInUp
+        .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
+          %a.step-icon.hi-icon{:href => "#set-1", :title => "Create a FREE Account"}
+            = image_tag("unique-games-hover.png", :class => 'image-normal', :alt => "Create a FREE Account", :title => "Create a FREE Account")
+            = image_tag("unique-games.png", :class => 'image-hover', :alt => "Create a FREE Account", :title => "Create a FREE Account")
+        / <div class="sr-icon"><img src="find-great-games.png"></div>
+        %h2 Unique New Games
+        %p
+          Treat yourself to be among the first to play – and design – the next Pokeman Go and Clash of Clans. Discover amazing new games at your fingertips, and stay up to date with all the current and upcoming mobile game news through our social media & blog!
+      %li.step-two.wow.bounceInUp
+        .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
+          %a.step-icon.hi-icon{:href => "#set-1", :title => "Start an Online Consult"}
+            = image_tag("idea-hover.png", :class => "image-normal", :alt => "Start an Online Consult", :title => "Start an Online Consult")
+            = image_tag("idea.png", :class => "image-hover", :alt => "Start an Online Consult", :title => "Start an Online Consult")
+        %h2 Share Your Ideas
+        %p
+          Share your ideas with a community of passionate mobile gamers and companies that are willing to change. We want to know what a perfect game means to you, so you can enjoy a truly amazing experience. Your feedback matters. Make your voice heard.
+      %li.step-three.wow.bounceInUp
+        .hi-icon-wrap.hi-icon-effect-1.hi-icon-effect-1a
+          %a.step-icon.hi-icon{:href => "#set-1", :title => "Get a Diagnosis & Treatment Plan"}
+            = image_tag("earn-rewards-ic-hover.png", class: "image-normal", :alt => "Get a Diagnosis & Treatment Plan", :title => "Get a Diagnosis & Treatment Plan")
+            = image_tag("earn-rewards-ic.png", class: "image-hover", :alt => "Get a Diagnosis & Treatment Plan", :title => "Get a Diagnosis & Treatment Plan")
+        %h2 Exclusive Prizes
+        %p
+          Exclusive rewards will be given to the most dedicated players and most detailed feedback, including in-game features and badges showing off your awesomeness. Visit our platform everyday and you might be the next person to win a $10 gift card!
+    .get-strd
+      = link_to 'Get Started', new_user_registration_path
+.process-section
+  .container
+    %h2 READY TO STAND OUT?
+    %p Join the best mobile game community today.
+    .clear
+    .btns
+      = link_to 'Login', new_user_session_path
+      = link_to 'Sign Up', new_user_registration_path
+
+/ .blog-section
+/   .container
+/     %ul.bxslider
+/       %li
+/         .blog-post
+/           .blog-img
+/           .blog-detail
+/             .blog-info-sec
+/               .date
+/                 %p.day 08
+/                 %p.month-year 11-2014
+/               .bl-detail
+/                 %h2 A POST WITH QUOTE
+/                 %ul
+/                   %li
+/                     %span
+/                       = image_tag("icon-01.png")
+/                         
+/                     %span CTHthemes
+/                   %li
+/                     %span
+/                       = image_tag("icon-02.png")
+/                         
+/                     %span Free
+/                   %li
+/                     %span
+/                       = image_tag("icon-03.png")
+/                         
+/                     %span 0
+/             %p
+/               Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+/             %a.read-more{:href => ""} Read more...
+/           %a.more-btn{:href => ""} More blogs
+/       %li
+/         .blog-post
+/           .blog-img
+/           .blog-detail
+/             .blog-info-sec
+/               .date
+/                 %p.day 08
+/                 %p.month-year 11-2014
+/               .bl-detail
+/                 %h2 A POST WITH QUOTE
+/                 %ul
+/                   %li
+/                     %span
+/                       = image_tag("icon-01.png")
+/                         
+/                     %span CTHthemes
+/                   %li
+/                     %span
+/                       = image_tag("icon-02.png")
+/                         
+/                     %span Free
+/                   %li
+/                     %span
+/                       = image_tag("icon-03.png")
+/                         
+/                     %span 0
+/             %p
+/               Harum accusata at pro, mea ne enim probo mediocrem. Vel ei voluptua ponderum phaedrum, pro atqui intellegam id. Clita perpetua pri et, in vis suas invenire definitionem. Someone famous inJohn DOE. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+/             %a.read-more{:href => ""} Read more...
+/           %a.more-btn{:href => ""} More blogs
+/ .newsletter
+/   .container
+/     %p Stay current with us and on industry news.
+/     %label
+/       %input{:placeholder => "Email address", :type => "text", :value => ""}/
+/       %input{:type => "submit", :value => "Send", :onclick => "location.href = '/users/sign_up';"}/

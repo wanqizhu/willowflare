@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   resources :surveydata
-
   resources :comments
- 
-  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks"} # Use custom controllers
-  get 'users/:username' => 'users#profile', as: 'user_profile'
 
   resources :links do
     member do
@@ -16,17 +12,27 @@ Rails.application.routes.draw do
 
   root to: "links#index"
 
+
+
+  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks"} # Use custom controllers
+  get 'users/:username' => 'users#profile', as: 'user_profile'
+
   devise_scope :user do
     get '/store' => 'registrations#store'
     post '/store' => 'registrations#store_confirm'
     put '/store' => 'registrations#store_redeem'
+
+    get '/login' => 'users#login_page', as: 'custom_login'
+    # post '/login' => 'users#login'
   end
+ 
 
 
   get '/companies' => 'application#companies'
   get '/home' => 'application#landing_page'
   get '/games' => 'application#games'
   post '/mail' => 'application#mail'
+
 
   mount Thredded::Engine => '/forum'
   mount Monologue::Engine => '/blog'

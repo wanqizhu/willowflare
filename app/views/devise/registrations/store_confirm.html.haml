@@ -32,7 +32,7 @@
 
     %br
     / country to redeem in
-    = simple_form_for(:redeem, html: { id: 'storeConfirm', method: :put }, :defaults => {:required => false}) do |f|
+    = simple_form_for(:redeem, html: { id: 'storeConfirm'}, :method => :put, :defaults => {:required => false}) do |f|
 
       = f.hidden_field :item, value: @item_num
 
