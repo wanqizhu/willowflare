@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       redirect_to root_path
     else
-      render :layout => false
+      render :layout => "__application"
     end
   end
 

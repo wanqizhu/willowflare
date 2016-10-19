@@ -1,17 +1,37 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300);
 @import "component";
 @import "animate";
+@import "account";
 @import "simpleMobileMenu";
 @import "bxslider";
 @import "landingPageStyle";
+
+
+@import "font-awesome";
+
 
 @charset "utf-8";
 
 .rg-ft {height: auto;}
 
-.red, .blue, .yellow {
-	}
+.user_login input[type="checkbox"] {
+	width: auto; // make "Remember Me" line-up with the checkbox
+}
 
+
+
+@media only screen and (max-width: 1280px) and (min-width: 800px) {
+	.video-wrap, .main-section {
+	    height: 700px;
+	}
+}
+
+// make login fields consistent
+input:not([type="text"]) {
+	@extend input[type="text"];
+}
+
+/* .dashboardBody */ .header-main{background:#031018 none repeat scroll 0 0;}
 
 .services-section > ul { // make the three boxes (.red, .yellow, .blue) have the same height
 	display: flex;

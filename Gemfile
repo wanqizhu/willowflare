@@ -1,15 +1,35 @@
 source 'https://rubygems.org'
 ruby ENV['LIVE_RUBY_VERSION'] || ENV['LOCAL_RUBY_VERSION'] || '2.0.0'
 
-gem 'acts_as_votable', '~> 0.10.0'
-gem 'simple_form', '~> 3.2', '>= 3.2.1'
-gem 'mailchimp-api', require: 'mailchimp'
 
+
+## frontend design gems
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.1.0'
 gem 'social-share-button'
 gem 'haml'
 gem 'wow-rails'
 gem 'bxslider-rails'
+
+# Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '~> 5.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.1.0'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+gem 'jquery-easing-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+
+
+
+## functionality gems
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'mailchimp-api', require: 'mailchimp'
 
 # for redirecitng China traffic
 gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'
@@ -17,13 +37,19 @@ gem 'rack-geoipcountry', '~> 1.0', '>= 1.0.2'
 gem 'rack-attack', '~> 5.0.0.beta1'
 
 
+# blog
 gem 'monologue', '>= 0.5.0'
 gem 'responders', '~> 2.1.0'
 
 # forums
 gem 'thredded', '~> 0.6.1'
 
+# nice console printing
+# USAGE: ap User.last
+gem "awesome_print", require:"ap"
 
+
+# omniauth logins
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 
@@ -32,26 +58,17 @@ gem 'puma'
 gem 'mysql2', '~> 0.3.18'
 
 
+## development gems
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'jquery-easing-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -77,6 +94,15 @@ gem 'web-console', '~> 2.0', group: :development
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Call 'binding.pry' anywhere in a Controller to call up a shell to debug
+  # alternate to byebug (see pry-byebug when there's time)
+  gem "pry-rails"
+
+  # support for Chrome extension RailsPanel
+  gem 'meta_request'
+
+  gem "better_errors" # better errors
 
   # Access an IRB console on exception pages or by using <%= console %> in views
 
