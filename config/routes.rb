@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks"} # Use custom controllers
+  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks"}#, :path => '', :path_names => { :sign_in => "login", :sign_up => "sign_up"}
   get 'users/:username' => 'users#profile', as: 'user_profile'
 
   devise_scope :user do
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     put '/store' => 'registrations#store_redeem'
 
     get '/login' => 'users#login_page', as: 'custom_login'
+    get '/sign_up' => redirect('/login#sign_up')
     # post '/login' => 'users#login'
   end
  

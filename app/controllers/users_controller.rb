@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     if user_signed_in?
       redirect_to :root, alert: "Already signed in"
     end
-  	render layout: "__application"
   end
 
 

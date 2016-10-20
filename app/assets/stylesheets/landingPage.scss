@@ -27,7 +27,7 @@
 }
 
 // make login fields consistent
-input:not([type="text"]) {
+input:not([type="text"]):not([type="submit"]) {
 	@extend input[type="text"];
 }
 

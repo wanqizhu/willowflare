@@ -1,120 +1,100 @@
-= stylesheet_link_tag 'editUser', media: 'all', 'data-turbolinks-track' => true
+.innerPageBanner
+  .container
+    %h1
+      John Marks, you have
+      %span(style="color: #fed136")= resource.money
+      WillowPoints!
+    %p If you've recently completed a survey, please allow up to 24 hours for your points to update.
+    %p
+.account-form
+  .container
+    %h2 REDEEM
+    %p
+      Ready to redeem? If you already have at least 450 points, check out our
+      %a(href=store_path) store
 
-#coins.col-md-10.col-md-offset-1
-  %h1
-    = resource.username
-    , you have
-    %span(style="color: #fed136")= resource.money
-    WillowPoints!
-  %br
-
-  %h4 If you've recently completed a survey, please allow up to 24 hours for your points to update.
-  %br
-  
-  %h4
-    Ready to redeem? If you already have at least 450 points, visit the
-    
-    %a(href=store_path) store
-
-    or
-
-    %a(href="mailto:info@willowflare.com") email us here.
-
-  %br
-
-  = devise_error_messages!
-
-  .box-ghost
-    .box-icon.small
-      = image_tag("cash.png")
-    
-    - if resource.info == nil or !(resource.info.include? "profile_completed")
-      %h4.bold 
-        Fill out your profile to earn
-        %strong 15
-        points!
-
-
-    - else
-      %h4.bold 
-        %strong Thanks for filling out your profile! Please keep it up to date if any information changes.
-      %br
-      %button.showHideButton.btn.btn-primary.btn-lg(targetID='editUser') Edit account
-
-
-    %br
-    %p(style="font-size: 1em")
-      = link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-
-
-
-
-.container#editUser(style="display: #{(resource.info == nil or !(resource.info.include? "profile_completed")) ? "block" : "none"}")
-
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    .alert-info
+      %span.img-sec>
+        = image_tag("ribbon_2__.png")
+      Fill out your profile to earn
+      %span 15 points!
+    .clear
     
 
-    .field(style="margin-bottom: 10px")
-      = f.label :username
-      = f.text_field :username, autofocus: true
-
-
-    .field
-      = f.input :age, collection: User::AGE_.map{|s| [s.humanize, s]}
-
-    .field
-      = f.input :gender, as: :radio_buttons, collection: User::GENDER_.map{|s| [s.humanize, s]}
-
-    .field
-      = f.input :device, collection: User::DEVICE_.map{|s| [s.humanize, s]}
-
-    .field
-      = f.input :OS, label: "Primary OS", collection: User::OS_.map{|s| [s.humanize, s]}
-
-    .field
-      = f.input :time_spent, label: "Weekly time spent on mobile games", collection: User::TIME_SPENT_.map{|s| [s.humanize, s]}
-
-    .field
-      = f.input :spending, label: "Monthly money spent", collection: User::SPENDING_.map{|s| [s.humanize, s]}
-
-    .field
-      = f.input :motivation, label: "Primary playing motivation", collection: User::MOTIVATION_.map{ |s| [s.humanize, s]}
-      / To humanize the underscores into spaces
-    
-
-    .field
-      = f.input :paying_incentive, label: "Primary paying incentive", collection: User::PAYING_INCENTIVE_.map{ |s| [s.tr('_', ' '), s]}
-
-    .field
-      = f.input :nation, label: "Country", collection: User::NATION_.map{ |s| [s.tr('_', ' '), s]}
-
-    .field
-      = f.input :game_genre, collection: User::GAME_GENRE_.map{ |s| [s.tr('_', ' '), s]}
-
-    .field
-      = f.input :num_games, label: "# games currently in your device"
-
-    .field
-      = f.input :fav_game, label: "Favorite Game"
-
-
-
-
-
-    %i Leave blank if you don't want to change your password
-
-    .field
-      = f.password_field :password, autocomplete: "off", placeholder: "New Password"
-
-    .field
-      = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
-
-    .field
-      = f.password_field :current_password, autocomplete: "off", placeholder: "Current Password"
-
-
-    .actions
-      = f.submit "Update", class: "btn btn-primary btn-lg"
   
 
 
+    .clear
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => ".form-fields" }, :defaults => { :wrapper_html => { :class => "select-style" }, label: false}) do |f|
+      
+
+      / .form-block
+      /   = f.label :username
+      /   = f.text_field :username, autofocus: true
+
+
+      .form-block
+        = f.input :age, prompt: "Age", collection: User::AGE_.map{|s| [s.humanize, s]}
+
+      .form-block
+        = f.input :gender, prompt: "Gender", collection: User::GENDER_.map{|s| [s.humanize, s]}
+
+      .form-block
+        = f.input :device, prompt: "Device", collection: User::DEVICE_.map{|s| [s.humanize, s]}
+
+      .form-block
+        = f.input :OS, prompt: "Primary OS", collection: User::OS_.map{|s| [s.humanize, s]}
+
+      .form-block
+        = f.input :time_spent, prompt: "Weekly time spent on mobile games", collection: User::TIME_SPENT_.map{|s| [s.humanize, s]}
+
+      .form-block
+        = f.input :spending, prompt: "Monthly money spent", collection: User::SPENDING_.map{|s| [s.humanize, s]}
+
+      .form-block
+        = f.input :motivation, prompt: "Primary playing motivation", collection: User::MOTIVATION_.map{ |s| [s.humanize, s]}
+        / To humanize the underscores into spaces
+      
+
+      .form-block
+        = f.input :paying_incentive, prompt: "Primary paying incentive", collection: User::PAYING_INCENTIVE_.map{ |s| [s.tr('_', ' '), s]}
+
+      .form-block
+        = f.input :nation, prompt: "Country", collection: User::NATION_.map{ |s| [s.tr('_', ' '), s]}
+
+      .form-block
+        = f.input :game_genre, prompt: "Favorite Genre", collection: User::GAME_GENRE_.map{ |s| [s.tr('_', ' '), s]}
+
+      .form-block
+        = f.input :num_games, placeholder: "# games currently in your device"
+
+      .form-block
+        = f.input :fav_game, placeholder: "Favorite Game"
+
+      
+      .form-block.right.fr
+        = f.submit "Update", class: "update-btn"
+
+
+
+      .alert-info.yellow Leave blank if you don't want to change your password
+
+
+      .form-fields
+       
+
+        .form-block
+          .select-style.lbl
+            = f.password_field :password, autocomplete: "off", placeholder: "New Password"
+
+        .form-block.center
+          .select-style.lbl
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password"
+
+        .form-block.right
+          .select-style.lbl
+            = f.password_field :current_password, autocomplete: "off", placeholder: "Current Password"
+
+
+      .form-block.right.fr
+        = f.submit "Update", class: "update-btn"
