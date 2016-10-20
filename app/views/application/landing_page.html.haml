@@ -11,7 +11,7 @@
           %span WillowFlare
         %p.wow.lightSpeedIn The one-stop community for all your mobile game cravings. Play games, be a part of the design process, and earn exclusive rewards!
      
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'first-form'}) do |f|
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'first-form signup-form'}) do |f|
         .navigat-icon.wow.bounceInDown
         
         = devise_error_messages!

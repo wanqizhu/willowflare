@@ -3,7 +3,7 @@
 .innerPageBanner p{float:left;width:100%;color:#FFF;font-size:18px; font-weight:100;margin-top:10px;}
 .innerPageBanner h1 span{color:#faae4b;font-weight:600;}
 
-.inner-hd{background:#20272f url("../images/header-small.png") no-repeat center;}
+.inner-hd{background:#20272f image-url("header-small.png") no-repeat center;}
 
 
 .account-form{float:left;width:100%;padding:50px 0;}
@@ -29,7 +29,7 @@
     width:94%;
     overflow: hidden;
     background-color: #fff;
-    background: #fff url("../images/drop-arrow.png") no-repeat 98% 50%;
+    background: #fff image-url("drop-arrow.png") no-repeat 98% 50%;
 }
 
 .select-style select {
@@ -157,7 +157,7 @@ label.title {float: left;margin: 10px 15px 0 0;}
 
 .offer-tag{position:absolute;top:15px;left:0;}
 
-.points{width: 120px; height: 50px; text-overflow:ellipsis;white-space:nowrap;padding: 15px 10px; position: relative; background: #f8ae4d; color: #FFF; font-size: 14px; text-align: left;background:url("../images/tag.png") no-repeat center;}
+.points{width: 120px; height: 50px; text-overflow:ellipsis;white-space:nowrap;padding: 15px 10px; position: relative; background: #f8ae4d; color: #FFF; font-size: 14px; text-align: left;background:image-url("tag.png") no-repeat center;}
 
 
 /* products */
