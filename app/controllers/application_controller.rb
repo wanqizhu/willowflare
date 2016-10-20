@@ -82,12 +82,12 @@ class ApplicationController < ActionController::Base
     # logger.info request.headers['X_GEOIP_COUNTRY_CODE']
     # logger.info request.headers['X_GEOIP_COUNTRY_ID']
 
-    if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
-      redirect_to "/companies"
-      return
-    # else
-    #   redirect_to "/store"
-    end
+    # if request.headers['X_GEOIP_COUNTRY_CODE'] == "CN"
+    #   redirect_to "/companies"
+    #   return
+    # # else
+    # #   redirect_to "/store"
+    # end
   end
 
   protected
