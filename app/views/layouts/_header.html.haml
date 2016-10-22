@@ -7,6 +7,15 @@
         %span Menu
 
       %ul.mobimenu
+
+        %li
+          = link_to 'Blog', '/blog'
+
+        %li
+          = link_to 'Forum', '/forum'
+
+
+
         - if user_signed_in?
           %li
             = link_to 'Games', '/games'

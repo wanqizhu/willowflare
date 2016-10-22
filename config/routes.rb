@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root to: "links#index"
+  root to: "application#games"
 
 
 

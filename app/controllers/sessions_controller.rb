@@ -1,5 +1,7 @@
 # update user w/o password
 class SessionsController < Devise::SessionsController
+
+
   before_filter :before_login, :only => :create
   after_filter :after_login, :only => :create
 

@@ -1,13 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300);
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "global";
+@import "links";
+@import "surveydata";
+@import "social-share-button";
+
+
+
 @import "component";
 @import "animate";
 @import "account";
 @import "simpleMobileMenu";
 @import "bxslider";
 @import "landingPageStyle";
-
-
-@import "font-awesome";
 
 
 @charset "utf-8";

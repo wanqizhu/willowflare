@@ -16,5 +16,4 @@
 //= require jquery.easing
 //= require turbolinks
 //= require social-share-button
-//= require popup
 //= require scroll
