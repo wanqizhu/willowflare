@@ -1,6 +1,6 @@
 # update user w/o password
 class RegistrationsController < Devise::RegistrationsController
-
+  layout '__application', except: :edit
 
   # map referral emails to ID
   # Tried to do some fancy stuff by storing referral as an integer
@@ -20,6 +20,9 @@ class RegistrationsController < Devise::RegistrationsController
 	# end
  #  end
 
+  def edit
+    super
+  end
 
   def store
   end

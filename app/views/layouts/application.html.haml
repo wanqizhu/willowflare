@@ -4,12 +4,11 @@
     %meta{:content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1", :name => "viewport"}/
     %title Willow Flare
 
-    / = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    / = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    /= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
     = csrf_meta_tags
 
-    / CSS
     %link{:href => "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", :rel => "stylesheet", :type => "text/css"}/
     
     = stylesheet_link_tag 'landingPage', media: 'all', 'data-turbolinks-track' => true
@@ -24,9 +23,6 @@
     = favicon_link_tag 'favicon.png'
 
 
-
-    / CSS
-    / JS
 
     = javascript_include_tag 'landingPage', 'data-turbolinks-track' => true
 
@@ -59,9 +55,9 @@
             %br
             .clear
             %ul.social
-              / %li
-              /   %a{:href => "mailto:info@willowflare.com"}
-              /     %i.fa.fa-email
+              %li
+                %a{:href => "mailto:info@willowflare.com"}
+                  %i.fa.fa-email
               %li
                 %a{:href => "https://www.twitter.com/WillowFlare"}
                   = image_tag("twitter.png")
