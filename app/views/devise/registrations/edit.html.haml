@@ -1,13 +1,18 @@
 .innerPageBanner
   .container
     %h1
-      John Marks, you have
+      =resource.username
+      , you have
       %span(style="color: #fed136")= resource.money
       WillowPoints!
     %p If you've recently completed a survey, please allow up to 24 hours for your points to update.
     %p
 .account-form
   .container
+
+    = devise_error_messages!
+    %br
+
     %h2 REDEEM
     %p
       Ready to redeem? If you already have at least 450 points, check out our
@@ -19,6 +24,8 @@
       Fill out your profile to earn
       %span 15 points!
     .clear
+
+
     
 
   
