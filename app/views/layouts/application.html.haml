@@ -2,7 +2,7 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1", :name => "viewport"}/
-    %title Willow Flare
+    %title WillowFlare
 
     /= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -37,6 +37,10 @@
       = render 'layouts/header'
 
 
+    - flash.each do |name, msg|
+      - if msg != nil and !msg.empty?
+        .alert.alert-info{:class => "alert-#{name}"}= msg
+      
     = yield
 
 

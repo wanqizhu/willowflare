@@ -1,0 +1,3 @@
+- automate link to app store/google play by detecting mobile devise type
+- more secure way to integrate surveys
+- more readable/analytical way to store survey results
