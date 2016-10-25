@@ -39,7 +39,7 @@
 
     - flash.each do |name, msg|
       - if msg != nil and !msg.empty?
-        .alert.alert-info{:class => "alert-#{name}"}= msg
+        .alert.alert-alert{:class => "alert-#{name}"}= msg
       
     = yield
 
@@ -61,7 +61,7 @@
             %ul.social
               %li
                 %a{:href => "mailto:info@willowflare.com"}
-                  %i.fa.fa-email
+                  %i.fa.fa-envelope
               %li
                 %a{:href => "https://www.twitter.com/WillowFlare"}
                   = image_tag("twitter.png")

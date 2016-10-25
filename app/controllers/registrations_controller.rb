@@ -1,6 +1,6 @@
 # update user w/o password
 class RegistrationsController < Devise::RegistrationsController
-  layout '__application', except: :edit
+  layout '__application', except: [:edit, :store]
 
   # map referral emails to ID
   # Tried to do some fancy stuff by storing referral as an integer
@@ -86,10 +86,10 @@ class RegistrationsController < Devise::RegistrationsController
   		puts @item_num
   		puts current_user.money
   		# error message
-  		if flash[:alert]
-  			flash[:alert] += "\nStore redemption error. Please check you have enough points and contact player support for assistance."
+  		if flash[:error]
+  			flash[:error] += "\nStore redemption error. Please check you have enough points and contact player support for assistance."
   		else
-  			flash[:alert] = "Store redemption error. Please check you have enough points and contact player support for assistance."
+  			flash[:error] = "Store redemption error. Please check you have enough points and contact player support for assistance."
   		end
   	end
   	redirect_to '/store' # redirect as a get request, handled by store controler/view

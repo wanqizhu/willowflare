@@ -1,66 +1,72 @@
-#store
-  .row
-    .col-md-10.col-md-offset-1
+= render 'userProfileBanner'
 
-      .left-align
-        %h4.caps.light.bold
-          .ent-bag
-          Store
-        %br
+.product-list
+  .container
+    %ul
 
-      .box-ghost#storeHeading
-        .box-icon.small
-          =image_tag("shield.png")
+      - for store_item in (0..(Rails.application.config.STORE_ITEM_PRICE.length - 1))
+        %li
+          .info-block
+            .block-img
+              =image_tag(Rails.application.config.STORE_ITEM_NAME[store_item])
+            .price-info
+              %span.price
+                =Rails.application.config.STORE_ITEM_DESCRIPTION[store_item]
 
-        -if session[:social_share_msg] != nil
-          %h3 Thanks for redeeming! Let your friends know by sharing it on social media:
-
-          = social_share_button_tag(session[:social_share_msg], url: "www.willowflare.com")
-          %br
-
-
-        %h4.bold(style="margin-left:20px")
-
-          Welcome, traveller. 
-          -if user_signed_in?
-            Oh my, you've earned
-            %strong
-              %span#willowpoints=current_user.money
-              Willow Points!
-            Take a look at our wares...
-
-
-
-          -else
-            Sign in to see your points and redeem rewards!
-
-  .row
-    - for store_item in (0..(Rails.application.config.STORE_ITEM_PRICE.length - 1))
-      .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
-        .box-wrapper
-          .box.center
-
-            =image_tag(Rails.application.config.STORE_ITEM_NAME[store_item])
-
-            %h4=Rails.application.config.STORE_ITEM_DESCRIPTION[store_item]
-
-            %h5.blue(style="margin-bottom:15px;")
-              =Rails.application.config.STORE_ITEM_PRICE[store_item]
-              Willow Points
-
-            -if user_signed_in?
               = form_tag '/store', :method => :post do
+                %button.buy-btn(name="item" value=store_item type="submit")
+                  %a BUY NOW
+                  / use the a-tag just to keep the styles consistent with the designer's layout. See .buy-btn a
+            %span.offer-tag
+              %p.points
+                =Rails.application.config.STORE_ITEM_PRICE[store_item]
+                Points
+        
+
+            / -if user_signed_in?
+            /   = form_tag '/store', :method => :post do
                 
-                %button.redeem.btn.btn-lg.btn-primary(name="item" value=store_item type="submit") BUY NOW
-                
-                /=hidden_field_tag("country", "", {:class => "country"})
+            /     %button.redeem.btn.btn-lg.btn-primary(name="item" value=store_item type="submit") BUY NOW
 
-
-    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
-      .box-wrapper
-        .box.center
-          =image_tag("placeholder.png")
-          %br
-          %br
-          %h4 More Coming Soon!
-
+     
+      %li
+        .info-block
+          .block-img
+            =image_tag "game-02.png"
+          .price-info
+            %span.price
+              %strong $10
+              RP Card
+            %span.buy-btn
+              %a{:href => ""} BUY NOW
+          %span.offer-tag
+            %p.points 450 Points
+      %li
+        .info-block
+          .block-img
+            =image_tag "game-03.png"
+          .price-info
+            %span.price
+              %strong $10
+              RP Card
+            %span.buy-btn
+              %a{:href => ""} BUY NOW
+          %span.offer-tag
+            %p.points 450 Points
+      %li
+        .info-block
+          .block-img
+            =image_tag "game-01.png"
+          .price-info
+            %span.price
+              %strong $10
+              RP Card
+            %span.buy-btn
+              %a{:href => ""} BUY NOW
+          %span.offer-tag
+            %p.points 450 Points
+     
+      %li
+        .info-block.coming-soon
+          .block-img
+            =image_tag "cmg.png"
