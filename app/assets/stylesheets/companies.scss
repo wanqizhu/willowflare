@@ -7,6 +7,12 @@ html, body {
   height: auto;
 }
 
+#website_url, #eng_logo {
+  margin-left: -15px;
+}
+
+#eng_logo {margin-top: 15px; width: 250px;}
+
 .navbar-collapse {
   position: relative;
 
@@ -14,7 +20,7 @@ html, body {
   @media (min-width: 768px) {
     #topNavRight {
       position: absolute;
-      top: 50%;
+      top: 30%;
       transform: translateY(-50%);
       right: 15px;
     }

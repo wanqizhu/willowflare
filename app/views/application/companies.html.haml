@@ -3,11 +3,11 @@
 
     %meta{ :name => "description", :content => "WillowFlare: Mobile Gaming, Reimagined."}
     %meta{ :name => "author", :content => "Wanqi Zhu"}
-    %meta{ :name => "keywords", :content => "willow, flare, willowflare, mobile game, mobile gaming, feedback, reward, 柳火"}
+    %meta{ :name => "keywords", :content => "willow, flare, willowflare, mobile game, mobile gaming, feedback, reward, 昱炎"}
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
     %meta{ :charset => "UTF-8"}
 
-    %title 柳火
+    %title 昱炎 - WillowFlare
 
     / prevent announcement popups for companies
 
@@ -38,8 +38,9 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          #logo.navbar-brand= link_to image_tag('ChineseLogo.png'), root_path
+          #logo.navbar-brand= link_to image_tag('ChineseLogo.png'), '/companies'
           #website_url www.willowflare.com
+          #eng_logo= image_tag('logo_dark.png')
 
 
         .collapse.navbar-collapse.navbar-ex1-collapse
@@ -188,7 +189,7 @@
             %ul.list-inline.social-buttons
               %li
                 %a{:href => "mailto:info@willowflare.com"}
-                  %i.fa.fa-email
+                  %i.fa.fa-envelope
               %li
                 %a{:href => "https://twitter.com/WillowFlare"}
                   %i.fa.fa-twitter
