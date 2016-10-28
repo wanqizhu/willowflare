@@ -1,3 +1,15 @@
 - automate link to app store/google play by detecting mobile devise type
 - more secure way to integrate surveys
 - more readable/analytical way to store survey results
+
+
+
+- automated testing for:
+	- scrolling (check animations/javascript show up)
+	- check links on navbar/footer
+	- sign in
+		- incorrect fields
+	- sign up
+		- incorrect fields
+		- confirmation/welcome email
+	- 

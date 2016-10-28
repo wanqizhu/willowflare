@@ -44,8 +44,10 @@
 
 .info-block .block-img { min-height: 155px;}
 .info-block:not(.coming-soon) img {
-	max-height: 155px;
+	height: 200px;
 }
+
+.product-list ul li {width: 33%;} // make 3 per row instead of 4
 
 
 @media only screen and (max-width: 1280px) and (min-width: 800px) {

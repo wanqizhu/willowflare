@@ -41,7 +41,10 @@ class ApplicationController < ActionController::Base
       redirect_to '/home'
     else
       # temporary redirection
-      flash[:notice] = "Games page is currently under construction. Check our blog and forums for the latest updates!"
+      unless flash[:notice]
+        flash[:notice] = ''
+      end
+      flash[:notice] += "\nGames page is currently under construction. Check our blog and forums for the latest updates!"
       redirect_to edit_user_registration_url
     end
   end
