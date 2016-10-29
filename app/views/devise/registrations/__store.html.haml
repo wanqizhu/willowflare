@@ -1,0 +1,66 @@
+#store
+  .row
+    .col-md-10.col-md-offset-1
+
+      .left-align
+        %h4.caps.light.bold
+          .ent-bag
+          Store
+        %br
+
+      .box-ghost#storeHeading
+        .box-icon.small
+          =image_tag("shield.png")
+
+        -if session[:social_share_msg] != nil
+          %h3 Thanks for redeeming! Let your friends know by sharing it on social media:
+
+          = social_share_button_tag(session[:social_share_msg], url: "www.willowflare.com")
+          %br
+
+
+        %h4.bold(style="margin-left:20px")
+
+          Welcome, traveller. 
+          -if user_signed_in?
+            Oh my, you've earned
+            %strong
+              %span#willowpoints=current_user.money
+              Willow Points!
+            Take a look at our wares...
+
+
+
+          -else
+            Sign in to see your points and redeem rewards!
+
+  .row
+    - for store_item in (0..(Rails.application.config.STORE_ITEM_PRICE.length - 1))
+      .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+        .box-wrapper
+          .box.center
+
+            =image_tag(Rails.application.config.STORE_ITEM_NAME[store_item])
+
+            %h4=Rails.application.config.STORE_ITEM_DESCRIPTION[store_item]
+
+            %h5.blue(style="margin-bottom:15px;")
+              =Rails.application.config.STORE_ITEM_PRICE[store_item]
+              Willow Points
+
+            -if user_signed_in?
+              = form_tag '/store', :method => :post do
+                
+                %button.redeem.btn.btn-lg.btn-primary(name="item" value=store_item type="submit") BUY NOW
+                
+                /=hidden_field_tag("country", "", {:class => "country"})
+
+
+    .col-md-4.col-md-offset-0.col-sm-8.col-sm-offset-2
+      .box-wrapper
+        .box.center
+          =image_tag("placeholder.png")
+          %br
+          %br
+          %h4 More Coming Soon!
+

@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  layout '__application'
+  
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   # user must be logged in to edit

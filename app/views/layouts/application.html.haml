@@ -1,19 +1,19 @@
-%html
+%html{"xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-
-    %meta{ :name => "description", :content => "WillowFlare: Mobile Gaming, Reimagined."}
-    %meta{ :name => "author", :content => "Wanqi Zhu"}
-    %meta{ :name => "keywords", :content => "willow, flare, willowflare, mobile game, mobile gaming, feedback, reward"}
-    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
-    %meta{ :charset => "UTF-8"}
-
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1", :name => "viewport"}/
     %title WillowFlare
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+
+    /= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
     = csrf_meta_tags
 
-  
+    %link{:href => "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css", :rel => "stylesheet", :type => "text/css"}/
+    
+    = stylesheet_link_tag 'landingPage', media: 'all', 'data-turbolinks-track' => true
+
+
     %link{ :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}
 
     %link{ :href => 'http://fonts.googleapis.com/css?family=Kaushan+Script', :rel => 'stylesheet', :type => 'text/css'}
@@ -24,101 +24,109 @@
 
 
 
+    = javascript_include_tag 'landingPage', 'data-turbolinks-track' => true
 
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"}
+
+
+
+    / JS
   %body
-    - if user_signed_in?
-      %nav.navbar.navbar-default
-        .container
-          .navbar-header
-            %button{ :type => "button", :class => "navbar-toggle", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
-              %span.sr-only Toggle navigation
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            #logo.navbar-brand= link_to image_tag('logo.png'), root_path
+
+    .header-main
+      = render 'layouts/header'
 
 
-          .collapse.navbar-collapse.navbar-ex1-collapse
-            %ul#topNavRight.nav.navbar-nav.navbar-right
-
-              - if current_user.auth_level >= 90 
-
-                %li= link_to 'Submit review', new_link_path
-                %li= link_to 'Survey Data', surveydata_path
-
-              %li.btn
-                %a(href=root_path)
-                  %i.fa.fa-star
-                  Annoucements
-                
-
-              %li.btn
-                %a(href=edit_user_registration_path)
-                  %i.fa.fa-user
-                  Account
-
-
-              %li.btn
-                %a(href=store_path)
-                  %i.fa.fa-trophy
-                  Store
-              
-              %li.btn
-                %a(href=destroy_user_session_path data-method="delete")
-                  %i.fa.fa-paper-plane
-                  Sign out
-                  
-
-    / - else
-       
-    /   .container#topBanner
-    /     %p
-    /       Already a member?
-    /       %span= link_to 'Sign in', new_user_session_path
-    /       %span= link_to 'Sign up', new_user_registration_path
-
-
-
-    
-    #page
-      - flash.each do |name, msg|
-        - if msg != nil and !msg.empty?
-          .alert.alert-info{:class => "alert-#{name}"}= msg
+    - flash.each do |name, msg|
+      - if msg != nil and !msg.empty?
+        .alert.alert-alert{:class => "alert-#{name}"}= msg
       
-
-      .container
-        = yield
+    = yield
 
 
 
-    - if user_signed_in?
-      #footer
+
+
+    .footer
+      .top-footer
         .container
-          .col-md-12
-            .footer-container
-              .float-left
-                %a.popupButton(imageSrc="placeholder.png" img_height="80%")< How It Works
-                \&nbsp;
-                %a(href="mailto:info@willowflare.com")< Contact Support
-                \&nbsp;
-                %a.popupButton(imageSrc="TermsofUse.jpg" img_width="600px")< Terms & Privacy
-              .float-right 
-                WillowFlare, Inc
-                \&nbsp;
-                %a(href="https://www.facebook.com/Willowflare-518689994959123/")
-                  %i.fa.fa-facebook
-                %a(href="https://www.twitter.com/willowflare")
-                  %i.fa.fa-twitter
-        
+          .lf-ft
+            = image_tag("logo.png")
+            .clear
+            %p Play games. Give feedback. Earn rewards.
+            %p Join a community of passionate mobile gamers and developers. At WillowFlare, you can truly customize your gaming experience and be the first to discover the next big games.
+            %br
+            %br
+            .clear
+            %ul.social
+              %li
+                %a{:href => "mailto:info@willowflare.com"}
+                  %i.fa.fa-envelope
+              %li
+                %a{:href => "https://www.twitter.com/WillowFlare"}
+                  = image_tag("twitter.png")
+              %li
+                %a{:href => "https://www.facebook.com/WillowFlare"}
+                  = image_tag("facebook.png")
+              / %li
+              /   %a{:href => ""}
+              /     = image_tag("pintresst.png")
+              / %li
+              /   %a{:href => ""}
+              /     = image_tag("youtube.png")
+          .rg-ft
+            .footer-nav
+              / (style: "visibility: hidden;")
+              %h2 Join us Today
+              %ul
+                %li
+                  = link_to 'Sign Up', '/login#sign_up'
+                %li
+                  = link_to 'Login', custom_login_path
 
-    / hidden popup
-    / #infographicPopup.flex-container.center
-    /   %img#infographicImage
-    /   #popupContainer
-    /     - if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank?
-    /       #newsContainer
-    /         .box-wrapper.icon
-    /           .box-icon
-    /             = image_tag("treasure.png")
-    /           .box
-    /             = ENV["GLOBAL_POPUP_NEWS"].html_safe
+              / just to cover space; remove if we are actually using Popular GAMES Tag below
+            .footer-nav
+              %h2 Useful Links
+              %ul
+                %li
+                  %a{:href => "/companies"} 中国游戏公司？
+                %li
+                  %a{:href => ""} Our Games
+                %li
+                  %a{:href => "mailto:info@willowflare.com"} Email Us
+            .footer-nav
+              %h2 Need Help?
+              %ul
+                %li
+                  %a{:href => ""} Privacy Policy
+                %li
+                  %a{:href => ""} Terms of Use
+            / .footer-nav
+            /   %h2 Popular GAMES Tag
+            /   .clear
+            /   .tags
+            /     %span.active text 1
+            /     %span text 1
+            /     %span text 1
+            /     %span text 1
+            /     %span text 1
+      .bottom-footer
+        © 2016
+        = succeed "." do
+          %span WillowFlare
+    / JS
+    :javascript
+      wow = new WOW(
+        {
+        animateClass: 'animated',
+        offset:       100,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+        }
+      );
+      wow.init();
+    / JS
+
+
+
