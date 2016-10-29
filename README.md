@@ -1,4 +1,10 @@
-Deployed to AWS: http://willowflare-dev.us-west-2.elasticbeanstalk.com/
+Deployed to AWS: http://willowflare-live-ruby-2-1.us-west-2.elasticbeanstalk.com/
+
+~
+
+If there's memory issues during deployment, check the swap file created:
+http://stackoverflow.com/questions/11013755/rails-assets-pipeline-cannot-allocate-memory-nodejs
+
 
 ~
 
