@@ -5,6 +5,7 @@
 //= require turbolinks
 //= require simpleMobileMenu
 //= require jquery.bxslider
+//= require jquery.leanModal.min
 //= require common
 //= require wow
 //= require scroll

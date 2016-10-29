@@ -36,7 +36,18 @@ class ApplicationController < ActionController::Base
 
 
 
-
+  def games
+    if !user_signed_in?
+      redirect_to '/home'
+    else
+      # temporary redirection
+      unless flash[:notice]
+        flash[:notice] = ''
+      end
+      flash[:notice] += "\nGames page is currently under construction. Check our blog and forums for the latest updates!"
+      redirect_to edit_user_registration_url
+    end
+  end
 
 
   def companies
@@ -46,8 +57,6 @@ class ApplicationController < ActionController::Base
   def landing_page
     if user_signed_in?
       redirect_to root_path
-    else
-      render :layout => false
     end
   end
 

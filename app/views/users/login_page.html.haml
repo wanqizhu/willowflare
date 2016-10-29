@@ -1,0 +1,167 @@
+
+.bgColor
+  / Start of Register Page
+  %section.loginPage
+    .container
+      .fullwidth.margin0
+        .loginForm
+          %header.popupHeader
+            %span.header_title Login
+          %section.popupBody
+            / Social Login
+            .social_login
+              %div
+                %a.social_box.fb{:href => "#{omniauth_authorize_path(resource_name, "facebook")}"}
+                  %span.icon
+                    %i.fa.fa-facebook
+                  %span.icon_title Connect with Facebook
+
+                %a.social_box.google{:href => "#{omniauth_authorize_path(resource_name, "google_oauth2")}"}
+                  %span.icon
+                    %i.fa.fa-google-plus
+                  %span.icon_title Connect with Google
+              .centeredText
+                %span Or use your Email address
+              .action_btns
+                .one_half
+                  %a#login_form.btn.log-btn{:href => "#"} Login
+                .one_half.last
+                  %a#register_form.btn.sign-up-btn{:href => "#"} Sign up
+            
+
+
+
+            / Username & Password Login form
+            .user_login{:style => "display:none;"}
+
+              = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+                .field
+                  = f.email_field :email, autofocus: true, placeholder: "Email"
+                .field
+                  = f.password_field :password, autocomplete: "off", placeholder: "Password"
+                - if devise_mapping.rememberable?
+                  .field.checkbox
+                    = f.check_box :remember_me
+                    = f.label :remember_me
+          
+
+                .action_btns
+                  .one_half
+                    %a.btn.back_btn{:href => "#"}
+                      %i.fa.fa-angle-double-left
+                      Back
+                  .one_half.last
+                    .actions
+                      = f.submit "Sign in", class: "btn btn_red btn-primary btn-lg"
+              = link_to "Forgot your password?", new_password_path(resource_name), :class => "forgot_password"
+            
+
+
+
+            / Register Form
+            .user_register
+              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                = devise_error_messages!
+
+                .field
+                  = f.email_field :email, autofocus: true, placeholder: "Email"
+
+                .field
+                  = f.text_field :username, autofocus: true, placeholder: "Username"
+
+                .field
+                  / <% if @validatable %><% end %>
+                  = f.password_field :password, autocomplete: "off", placeholder: "Password"
+
+                .field
+                  = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm"
+
+                .field
+                  = f.text_field :referral, placeholder: "Referral code (optional)"
+
+                /
+                  <div class="checkbox">
+                  <input id="send_updates" type="checkbox" />
+                  <label for="send_updates">Send me occasional email updates</label>
+                  </div>
+                .action_btns
+                  .one_half
+                    %a.btn.back_btn{:href => "#"}
+                      %i.fa.fa-angle-double-left
+                      Back
+                  .one_half.last
+                    .actions
+                      = f.submit "Sign up", class: "btn btn_red btn-primary btn-lg"
+
+  
+              = link_to "Didn't receive confirmation email?", new_confirmation_path(resource_name), :class => "forgot_password"
+      /
+        <div class="fullwidth margin0">
+        <h2>Sign In</h2>
+        <div class="loginForm">
+        <form>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="name" placeholder="E-Mail">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Confirm Password">
+        
+        
+        <input name="submit" type="submit" value="Submit" class="greenBtn">
+        </form>
+        </div>
+        </div>
+
+
+
+:javascript
+  $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+
+
+  var login_func = function(){
+    $(".social_login").hide();
+    $(".user_login").show();
+    return false;
+  };
+
+  var register_func = function(){
+    $(".social_login").hide();
+    $(".user_register").show();
+    $(".header_title").text('Register');
+    return false;
+  };
+
+  var back_func = function(){
+    $(".user_login").hide();
+    $(".user_register").hide();
+    $(".social_login").show();
+    $(".header_title").text('Login');
+    return false;
+  };
+
+  // Calling Login Form
+  $("#login_form").click(login_func);
+
+  // Calling Register Form
+  $("#register_form").click(register_func);
+
+  // Going back to Social Forms
+  $(".back_btn").click(back_func);
+
+
+  var ready = function(){
+
+    if(window.location.href.indexOf("#login") != -1) {
+      login_func();
+    } else if (window.location.href.indexOf("#sign_up") != -1) {
+      register_func();
+    } else {
+      back_func();
+    }
+  };
+
+  $(document).ready(ready);
+
+
+  $(document).on('page:load', ready); // for turbo-links, which doesnt' re-load the page
+

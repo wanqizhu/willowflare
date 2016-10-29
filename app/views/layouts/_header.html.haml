@@ -1,0 +1,45 @@
+.container
+  .logo
+    = link_to image_tag("logo.png"), root_url
+  .navigation
+    %nav
+      %a.smobitrigger.ion-navicon-round{:href => "javascript:void(0)"}
+        %span Menu
+
+      %ul.mobimenu
+
+        %li
+          = link_to 'Blog', '/blog'
+
+        %li
+          = link_to 'Forum', '/forum'
+
+
+
+        - if user_signed_in?
+          %li
+            = link_to 'Games', '/games'
+          %li
+            = link_to 'Account', edit_user_registration_path
+          %li
+            = link_to 'Store', store_path
+          %li
+            %a(class="login-btn" href=destroy_user_session_path data-method="delete") Sign Out
+
+
+
+
+        - else
+      
+        
+          / <li><a class="active" href="">ABOUT</a></li>
+          %li
+            = link_to '中文', '/companies'
+          %li
+            = link_to 'ABOUT', '#about', {class: 'page-scroll'}
+          %li
+            = link_to 'FEATURES', '#features', {class: 'page-scroll'}
+          %li
+            = link_to 'SIGN UP', '/login#sign_up'
+          %li
+            = link_to 'Login', custom_login_path, {class: 'login-btn'}
