@@ -1,0 +1,90 @@
+.game-detail
+  .container
+    .breadcrum
+      %span
+        %a{:href => ""} Ranking &gt;
+      %span LOG: EP-01 The Journey Begins (Android)
+    .listing
+      %ul
+        %li
+          .product-img
+            =image_tag("/assets/files/games/" + @game + "/icon.png")
+          .product-info
+            %h2= render :file => '/public/assets/files/games/' + @game + '/title.txt'
+            %h6= render :file => '/public/assets/files/games/' + @game + '/publisher.txt'
+            %p= render :file => '/public/assets/files/games/' + @game + '/description.txt'
+
+            %a Pre-register
+          
+          .price
+            .rounded-ft 4.2k
+            %p Pre-registrations
+    .detail-block
+      .lf-dt
+        .tabbing
+          .tabs.tabs_style_default{"data-tabs-role" => "tabs"}
+            .tabs__head
+              %button.tabs__tab{"data-tabs-role" => "tab", "data-tabs-target" => "tab1", :type => "button"} Details
+              %button.tabs__tab{"data-tabs-role" => "tab", "data-tabs-target" => "tab2", :type => "button"} Update
+            .tabs__body
+              .tabs__pane{"data-tabs-id" => "tab1"}
+                %p= render :file => '/public/assets/files/games/' + @game + '/details.txt'
+              .tabs__pane{"data-tabs-id" => "tab2"}
+                %p= render :file => '/public/assets/files/games/' + @game + '/update.txt'
+        .crousel
+          %ul.bxslider2
+            - @images.each do |image|
+              / wierd routing with image_tag: don't need to prepend the "public" folder
+              - image.slice! "public"
+              %li
+                =image_tag(image)
+            / %li
+            /   =image_tag("app-01.png")
+            / %li
+            /   =image_tag("app-02.png")
+            / %li
+            /   =image_tag("app-03.png")
+            / %li
+            /   =image_tag("app-01.png")
+            / %li
+            /   =image_tag("app-02.png")
+            / %li
+            /   =image_tag("app-03.png")
+      .rg-dt
+        .add-block
+          .img-bg
+            =image_tag("add-img-01.png")
+          .product-info
+            %h2 Jumping here
+            %h6 super sonic
+            %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
+            %a{:href => ""} Pre-register
+        .add-block
+          .img-bg
+            =image_tag("add-img-02.png")
+          .product-info
+            %h2 Racing beast
+            %h6 super sonic
+            %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
+            %a{:href => ""} Pre-register
+
+/ JS
+/ = javascript_include_tag 'jquery.tabs'
+:javascript
+  $(document).ready(function() {
+    $('[data-tabs-role="tabs"]').tabs();
+
+    $(window).on('change.tabs', function(event) {
+      event.preventDefault();
+      console.log('change');
+    });
+  });
+:javascript
+  $(document).ready(function() {
+    $('.bxslider2').bxSlider({
+      minSlides: 1,
+      maxSlides: 3,
+      slideWidth: 200,
+      slideMargin: 20
+    });
+  });

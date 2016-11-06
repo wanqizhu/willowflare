@@ -58,12 +58,13 @@ module RedditClone
         end
     end
 
+    config.GAMES = ["Clash Royale", "Game 1", "Loong Craft"]
 
 
     # Store stuff -- should go into separate MVC, but for now we'll store it here
     config.STORE_ITEM_NAME = ["rp-gift-card.png", "google-play-gift-card.jpg", "itunes-gift-card.jpg", "amazon-gift-card.png"]
     config.STORE_ITEM_PRICE = [450, 500, 500, 500]
-    config.STORE_ITEM_DESCRIPTION = ["$10 RP Card", "$10 Google Play Gift Card", "$10 Itunes Gift Card", "$10 Amazon Gift Card"]
+    config.STORE_ITEM_DESCRIPTION = ["$10 Riot Points Gift Card", "$10 Google Play Gift Card", "$10 Itunes Gift Card", "$10 Amazon Gift Card"]
     
    
   end

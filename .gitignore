@@ -30,3 +30,4 @@ config/survey*.txt
 
 # ignore pre-compiled assets
 public/assets/*
+!public/assets/files/

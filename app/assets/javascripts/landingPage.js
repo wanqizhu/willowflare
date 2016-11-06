@@ -6,6 +6,7 @@
 //= require simpleMobileMenu
 //= require jquery.bxslider
 //= require jquery.leanModal.min
+//= require jquery.tabs
 //= require common
 //= require wow
 //= require scroll

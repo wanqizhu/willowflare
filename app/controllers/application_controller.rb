@@ -41,12 +41,19 @@ class ApplicationController < ActionController::Base
       redirect_to '/home'
     else
       # temporary redirection
-      unless flash[:notice]
-        flash[:notice] = ''
-      end
-      flash[:notice] += "\nGames page is currently under construction. Check our blog and forums for the latest updates!"
-      redirect_to edit_user_registration_url
+    #   unless flash[:notice]
+    #     flash[:notice] = ''
+    #   end
+    #   flash[:notice] += "\nGames page is currently under construction. Check our blog and forums for the latest updates!"
+    #   redirect_to edit_user_registration_url
     end
+  end
+
+  def game_detail
+    @game = params[:game].to_s
+    # gets all images of the form app-*.png to display on the game_detail page
+    @images = Dir.glob("public/assets/files/games/#{@game}/app-*.png")
+    # puts @images
   end
 
 
