@@ -45,75 +45,9 @@
 
 
 
+    = render 'layouts/footer'
 
 
-    .footer
-      .top-footer
-        .container
-          .lf-ft
-            = image_tag("logo.png")
-            .clear
-            %p Play games. Give feedback. Earn rewards.
-            %p Join a community of passionate mobile gamers and developers. At WillowFlare, you can truly customize your gaming experience and be the first to discover the next big games.
-            %br
-            %br
-            .clear
-            %ul.social
-              %li
-                %a{:href => "mailto:info@willowflare.com"}
-                  %i.fa.fa-envelope
-              %li
-                %a{:href => "https://www.twitter.com/WillowFlare"}
-                  = image_tag("twitter.png")
-              %li
-                %a{:href => "https://www.facebook.com/WillowFlare"}
-                  = image_tag("facebook.png")
-              / %li
-              /   %a{:href => ""}
-              /     = image_tag("pintresst.png")
-              / %li
-              /   %a{:href => ""}
-              /     = image_tag("youtube.png")
-          .rg-ft
-            .footer-nav
-              / (style: "visibility: hidden;")
-              %h2 Join us Today
-              %ul
-                %li
-                  = link_to 'Sign Up', '/login#sign_up'
-                %li
-                  = link_to 'Login', custom_login_path
-
-              / just to cover space; remove if we are actually using Popular GAMES Tag below
-            .footer-nav
-              %h2 Useful Links
-              %ul
-                %li
-                  %a{:href => "/companies"} 中国游戏公司？
-                %li
-                  %a{:href => ""} Our Games
-                %li
-                  %a{:href => "mailto:info@willowflare.com"} Email Us
-            .footer-nav
-              %h2 Need Help?
-              %ul
-                %li
-                  %a{:href => ""} Privacy Policy
-                %li
-                  %a{:href => ""} Terms of Use
-            / .footer-nav
-            /   %h2 Popular GAMES Tag
-            /   .clear
-            /   .tags
-            /     %span.active text 1
-            /     %span text 1
-            /     %span text 1
-            /     %span text 1
-            /     %span text 1
-      .bottom-footer
-        © 2016
-        = succeed "." do
-          %span WillowFlare
     / JS
     :javascript
       wow = new WOW(

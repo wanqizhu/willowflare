@@ -1,0 +1,40 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    = render 'layouts/monologue/application/head'
+  %body
+    .container
+      %header.main-header.sixteen.columns.clearfix
+        
+        %h1.header_title
+          %a#logo{:href => "#{main_app.root_path}"}
+            /= Monologue::Config.site_name
+            =image_tag("logo_dark.png")
+          
+          #blog_name
+            =link_to 'Blog', root_path
+            =link_to 'Home', main_app.root_path
+            /= Monologue::Config.blog_name
+          
+          /%a#admin_login{:href => login_path} Admin Login
+        %h2.subtitle= Monologue::Config.site_subtitle
+        
+        = rss_icon
+        = render partial: "layouts/monologue/application/social_icons"
+
+      .content.twelve.columns
+        - flash.each do |name, msg|
+          .flash-notice
+            = msg
+        = yield
+
+      = render 'layouts/monologue/application/sidebar'
+      
+
+
+    = render 'layouts/footer'
+    / - if content_for?(:footer)
+    /   %footer
+    /     = yield :footer
+    = render 'layouts/monologue/application/disqus'
+    = render 'layouts/monologue/application/gauge_analytics'
