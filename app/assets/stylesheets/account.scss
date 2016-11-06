@@ -162,16 +162,101 @@ label.title {float: left;margin: 10px 15px 0 0;}
 
 /* products */
 
+
+/* Game-listing */
+
+.info-banner{float:left;width:100%;background:#2e3440;background: image-url("small-banner.jpg");min-height:212px;background-size:cover;margin-top:50px;}
+
+.sr-fields{float:left;width:400px;position:relative;margin:0 20px 0 0;}
+.search-sec{background:#e9fbf7;padding:30px 0;float:left;width:100%;}
+
+.sr-fields input[type="text"]{border:1px solid #29d4b1;padding:10px 50px 10px 15px;width:100%;background:#FFF;color:#bdbdbd;font-size:18px;border-radius:5px;float:left;}
+.sr-fields select{border:1px solid #29d4b1;padding:10px 50px 10px 15px;width:100%;background:#FFF;color:#bdbdbd;font-size:18px;border-radius:5px;float:left;    box-shadow: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;text-overflow: ellipsis;white-space: nowrap;}
+.search-sec .select-style{border:none;width:100%;}
+.search-sec .select-style select{border:1px solid #29d4b1;width:100%;padding:9px 15px;border-radius:5px;}
+
+
+.search{position:absolute;right:0;top:5px;background: image-url('search-icon.png');background-position:center;background-repeat:no-repeat;width:50px;height:40px;border:none;cursor:pointer;}
+.small-wid{width:250px;margin:0;}
+
+
+
+.listing{float:left;width:100%;margin-bottom:50px;}
+.listing ul{float:left;width:100%;}
+.listing ul li{padding:30px 0;float:left;width:100%;}
+
+.product-img{float:left;width:17%;margin:0 3% 0 0;border-radius:10px;overflow:hidden;}
+.product-img img{width:100%;float:left;}
+.product-info{float:left;width:60%;}
+.product-info h2{font-size:30px;font-weight:600;color:#333333;}
+.product-info h6{font-size:18px;font-weight:300;color:#333333;}
+.product-info p{font-size:20px;font-weight:300;color:#333333;}
+.product-info a{background:#29d4b1;display:inline-block;margin-top:20px;font-size:20px;text-decoration:none;color:#FFF;padding:10px 25px;border-radius:5px;}
+.product-info a:hover{background:#1cc09e;}
+.listing .price{float:right;width:20%;text-align:center;position:relative;}
+
+.rounded-ft{height:136px;width:136px;display:inline-block;border-radius:50%;border:1px solid #29d4b1;color:#333333;text-align:center;padding-top:22%;font-size:26px;}
+.listing .price p{font-size:20px;font-weight:300;color:#333333;padding:10px 0;}
+
+.sold-out{position:absolute;top:0;margin:0 auto;background: image-url('sold-out.png');background-position:center;background-repeat:no-repeat;width:100%;height:214px;left:0;}
+
+
+.game-detail{float:left;width:100%;margin-top:80px;}
+
+.breadcrum{float:left;width:100%;padding:40px 0;}
+.breadcrum span{font-size:14px;color:#333333;font-weight:100;}
+.breadcrum span a{color:#29d4b1;text-decoration:none;}
+
+.detail-block{float:left;width:100%;}
+.lf-dt{float:left;width:68%;}
+.rg-dt{float:right;width:30%;}
+
+.add-block{float:right;width:96%;border:1px solid #e8e8e8;padding:15px;border-radius:5px;margin-bottom:15px;}
+.img-bg{float:left;width:100%;margin-bottom:15px;border-radius:5px;overflow:hidden;}
+.img-bg img{float:left;width:100%;}
+.add-block .product-info{float:left;width:100%;}
+.add-block h2{font-size:28px;font-weight:600;color:#333333;float:left;width:100%;}
+.add-block h6{font-size:16px;font-weight:300;color:#333333;float:left;width:100%;}
+.add-block p{font-size:15px;font-weight:300;color:#333333;float:left;width:100%;}
+.add-block a{background:#29d4b1;display:inline-block;margin-top:20px;font-size:18px;text-decoration:none;color:#FFF;padding:10px 25px;border-radius:5px;}
+
+.crousel{float:left;width:100%;border:1px solid #e8e8e8;margin:40px 0; padding:40px 0;}
+.crousel .bx-wrapper .bx-prev{left:-50px;}
+.crousel .bx-wrapper .bx-next{right: -50px;}
+.social-t a{padding:0;background:none;margin:0;display:inline-block;position:relative;top:8px;margin:0 5px 0 0}
+.social-t a img{float:left;}
+.game-detail .product-info{}
+.game-detail .social-t{display:inline-block;margin:0 0 0 50px;}
+.social-t a:hover{opacity:0.8;}
+/* Game-listing */
+
+
+
+
+
 /* media */
 
+@media only screen and (max-width:1200px) {
+.sr-fields, .small-wid{width:40%;}
+.search-sec .select-style select{ width: 99%;}  
+}
 @media only screen and (max-width:980px) {
 .form-block{width:50%;float:left !important;min-height: 60px;text-align:left !important;}
 label.title {float: left;margin: 0 20px 0 10px;}
 .product-list ul li{width:33.33%;}
+
+.product-img{width:20%;}
+.product-info{width:40%;}
+.listing .price{width:30%;}
+.lf-dt{float:left;width:60%;}
+.rg-dt{float:right;width:35%;}
+.crousel .bx-wrapper .bx-prev{left:50px;}
+.crousel .bx-wrapper .bx-next{right: 50px;}
+.game-detail .social-t{display:inline-block;margin:10px 0 0 ;}
 }
 
 @media only screen and (max-width:767px) {
-.form-block{width:100%;	}
+.form-block{width:100%; }
 .innerPageBanner h1, .account-form h2{font-size:22px;text-align:center;}
 .innerPageBanner p, .account-form p{font-size:14px;text-align:center;padding:0;border:none;}
 .alert-info{font-size:16px;padding:15px;text-align:center;}
@@ -182,8 +267,37 @@ label.title{width:100%;margin:0}
 .select-style select, .form-block input[type="text"], .form-block label, .update-btn {font-size:14px;}
 .product-list ul li{width:50%;}
 .product-list ul{margin:50px 0;}
+
+/* .product-img{width:20%;}
+.product-info{width:50%;}
+.listing .price{width:30%;} */
+
+.product-img{width:30%;display:inline-block;margin:0 auto;float:none;}
+.product-info{width:100%;}
+.listing .price{width:100%;}
+.listing ul li{border-bottom:1px solid #29d4b1;text-align:Center;padding-bottom:10px;}
+.rounded-ft{padding-top:50px;margin-top:20px;}
+.sold-out{width:100%;}
+.sr-fields, .small-wid{width:40%;}
+.search-sec .select-style select {padding: 13px 15px;}
+.lf-dt{float:left;width:100%;margin-bottom:20px;}
+.rg-dt{float:right;width:100%;}
+.game-detail .social-t{display:block;}
+
 }
 
 @media only screen and (max-width:568px) {
 .product-list ul li{width:100%;}
+.product-info h2{font-size:20px;}
+.product-info h6{font-size:14px;}
+.product-info p, .product-info a, .price p{font-size:14px;}
+.sr-fields{width:99%;margin-bottom:15px;}
+.small-wid{width:100%;}
+#tabs__panel_index-0 > p{font-size:14px;}
+
+
+}
+@media only screen and (max-width:360px) {
+.info-banner{margin:0;}
+  
 }

@@ -1,4 +1,67 @@
-#games(style='min-height: 1000px;')
-	.container
-		=image_tag('placeholder.png', style: 'height: 100%; width: 100%;')
+#games
+  .info-banner(style="margin-top: 0px;")
+  / remove the whitespace on top
+  .search-sec(style="display:none;")
+    .container
+      .sr-fields
+        %input{:placeholder => "Search game here", :type => "text", :value => ""}/
+        %input.search{:type => "submit", :value => ""}/
+      .form-block.small-wid
+        .select-style
+          %select
+            %option Sorted by
+            %option
+  .container
+    .listing
+      %ul
 
+
+        - for game in Rails.application.config.GAMES
+
+          %li.games
+            .product-img
+              =image_tag("/assets/files/games/" + game + "/icon.png")
+            .product-info
+              %h2= render :file => '/public/assets/files/games/' + game + '/title.txt'
+              %h6= render :file => '/public/assets/files/games/' + game + '/publisher.txt'
+              %p= render :file => '/public/assets/files/games/' + game + '/description.txt'
+
+              = form_tag '/games', :method => :post do
+                %button.register(name="game" value=game type="submit")
+                  %a Pre-register
+            .price
+              .rounded-ft 4.2k
+              %p Pre-registrations
+        / %li
+        /   .product-img
+        /     %img{:src => "images/pr-02.png"}/
+        /   .product-info
+        /     %h2 Car Rally
+        /     %h6 super sonic
+        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
+        /     %a{:href => ""} Pre-register
+        /   .price
+        /     .rounded-ft 4.2k
+        /     %p Pre-registrations
+        / %li
+        /   .product-img
+        /     %img{:src => "images/pr-03.png"}/
+        /   .product-info
+        /     %h2 Jumping here
+        /     %h6 super sonic
+        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
+        /   .price
+        /     .rounded-ft 4.2k
+        /     %p Pre-registrations
+        /     .sold-out
+        / %li
+        /   .product-img
+        /     %img{:src => "images/pr-04.png"}/
+        /   .product-info
+        /     %h2 Bio Shock
+        /     %h6 super sonic
+        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
+        /     %a{:href => ""} Pre-register
+        /   .price
+        /     .rounded-ft 4.2k
+        /     %p Pre-registrations

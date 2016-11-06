@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300);
 
+//@import "jquery-ui";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -16,10 +17,19 @@
 @import "account";
 @import "simpleMobileMenu";
 @import "bxslider";
+@import "jquery.tabs";
 @import "landingPageStyle";
 
 
 @charset "utf-8";
+
+
+@media only screen and (max-width: 1280px) and (min-width: 800px) {
+	.video-wrap, .main-section {
+	    height: 700px;
+	}
+}
+
 
 .rg-ft {height: auto;}
 
@@ -42,6 +52,8 @@
 .alert-notice {@extend .alert-info}
 
 
+/* store */
+
 .info-block .block-img { min-height: 155px;}
 .info-block:not(.coming-soon) img {
 	height: 200px;
@@ -49,12 +61,25 @@
 
 .product-list ul li {width: 33%;} // make 3 per row instead of 4
 
-
-@media only screen and (max-width: 1280px) and (min-width: 800px) {
-	.video-wrap, .main-section {
-	    height: 700px;
-	}
+.points {
+	width: 85px;
+	height: 35px;
+	padding: 10px 7px;
+	background-size: contain;
+	font-size: 12px;
+	top: 11px;
 }
+
+.price {
+	white-space: normal;
+}
+
+.buy-btn {
+	border-radius: 5px;
+	border: none;
+}
+
+
 
 // make login fields consistent
 input:not([type="text"]):not([type="submit"]) {
@@ -73,3 +98,14 @@ input:not([type="text"]):not([type="submit"]) {
 	margin-top: 20px;
 	font-size: 21px;
 }
+
+
+
+/* games */
+.register {background-color: inherit; border: none; outline: none;}
+
+.games h6 {margin: 10px 0;}
+
+/* game_detail */
+
+button.tabs__tab {outline: none;}

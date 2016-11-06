@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   root to: "application#games"
+  get '/games' => "application#games"
+  post '/games' => "application#game_detail"
 
 
 

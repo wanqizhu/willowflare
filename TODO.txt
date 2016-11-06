@@ -3,6 +3,12 @@
 - more readable/analytical way to store survey results
 
 
+- Merge landingpage.css/js with the main application css/js
+
+- Clean up MVC framework -- reorganize which pages gets fetched by which controller
+- Make a database for games (?)
+
+
 
 - automated testing for:
 	- scrolling (check animations/javascript show up)
