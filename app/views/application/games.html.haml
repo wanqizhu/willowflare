@@ -16,22 +16,29 @@
       %ul
 
 
-        - for game in Rails.application.config.GAMES
+        - for game in @games
+          - if File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/icon.png")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/title.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/publisher.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/description.txt"))
 
-          %li.games
-            .product-img
-              =image_tag("/assets/files/games/" + game + "/icon.png")
-            .product-info
-              %h2= render :file => '/public/assets/files/games/' + game + '/title.txt'
-              %h6= render :file => '/public/assets/files/games/' + game + '/publisher.txt'
-              %p= render :file => '/public/assets/files/games/' + game + '/description.txt'
+            %li.games
+              .product-img
+                =image_tag("/assets/files/games/" + game + "/icon.png")
+              .product-info
+                %h2= render :file => '/public/assets/files/games/' + game + '/title.txt'
+                %h6= render :file => '/public/assets/files/games/' + game + '/publisher.txt'
+                %p= render :file => '/public/assets/files/games/' + game + '/description.txt'
 
-              = form_tag '/games', :method => :post do
-                %button.register(name="game" value=game type="submit")
-                  %a Pre-register
-            .price
-              .rounded-ft 4.2k
-              %p Pre-registrations
+                = form_tag '/games', :method => :post do
+                  %button.register(name="game" value=game type="submit")
+                    %a Play Now!
+
+              / %button.register(name="game" value=game type="submit")
+              /   %a(href="") Earn Rewards
+
+              .price
+                .rounded-ft= rand(500..1500)
+                %p Pre-registrations
+
+              
         / %li
         /   .product-img
         /     %img{:src => "images/pr-02.png"}/

@@ -85,7 +85,12 @@ header {background: none;}
 .main-header .social {margin-bottom: 10px; width: 30px;}
 
 
-#pagination {display: none;}
+#pagination {
+	border: none;
+	margin-bottom: 45px;
+
+	a {color: #f39b13;}
+}
 
 
 /* orange */
@@ -105,11 +110,16 @@ header {background: none;}
 
 /* sidebar */
 
-.sidebar.four.columns {margin-left:30px;}
+.sidebar.four.columns {margin-left:50px;}
 
 @media(max-width: 1036px) {
 	.sidebar {display: none;}
 }
 
-section.widget {margin-top:12px;}
+section.widget {
+	margin-top:12px;
+
+	ul li {margin: 4px 0;}
+
+}
 

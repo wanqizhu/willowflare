@@ -58,7 +58,7 @@ module RedditClone
         end
     end
 
-    config.GAMES = ["Clash Royale", "Game 1", "Loong Craft"]
+    #config.GAMES = ["Clash Royale", "Game 1", "Loong Craft"]
 
 
     # Store stuff -- should go into separate MVC, but for now we'll store it here

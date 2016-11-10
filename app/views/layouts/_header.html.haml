@@ -20,11 +20,11 @@
           %li
             = link_to 'Games', '/games'
           %li
-            = link_to 'Account', edit_user_registration_path
+            = link_to 'Account', main_app.edit_user_registration_path
           %li
-            = link_to 'Store', store_path
+            = link_to 'Store', main_app.store_path
           %li
-            %a(class="login-btn" href=destroy_user_session_path data-method="delete") Sign Out
+            %a(class="login-btn" href="#{main_app.destroy_user_session_path}" data-method="delete") Sign Out
 
 
 
@@ -42,4 +42,4 @@
           %li
             = link_to 'SIGN UP', '/login#sign_up'
           %li
-            = link_to 'Login', custom_login_path, {class: 'login-btn'}
+            = link_to 'Login', main_app.custom_login_path, {class: 'login-btn'}

@@ -40,11 +40,15 @@ class ApplicationController < ActionController::Base
     if !user_signed_in?
       redirect_to '/home'
     else
+
+      @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights"]
+
+
       # temporary redirection
-    #   unless flash[:notice]
-    #     flash[:notice] = ''
-    #   end
-    #   flash[:notice] += "\nGames page is currently under construction. Check our blog and forums for the latest updates!"
+      unless flash[:notice]
+        flash[:notice] = ''
+      end
+      flash[:notice] += "\nGames page is currently under construction. Please pardon our dust!"
     #   redirect_to edit_user_registration_url
     end
   end

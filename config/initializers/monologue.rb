@@ -1,14 +1,17 @@
 Monologue.config do |config|
+
+  # inherit Rail's named routes like store_path
+
   config.site_name = "WillowFlare"
   config.blog_name = "Blog"
   config.site_subtitle = "Your personal mobile gaming feed"
   config.site_url = "http://willowflare.com"
 
-  config.meta_description = "This is my blog about..."
+  config.meta_description = "WillowFlare: the Best Mobile Games, for you, by you. At this blog, we bring you the latest mobile gaming news."
   config.meta_keyword = "mobile, game"
 
   config.admin_force_ssl = false
-  config.posts_per_page = 10
+  config.posts_per_page = 5
   config.preview_size = 1000
 
   config.disqus_shortname = "my_disqus_shortname"
