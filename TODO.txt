@@ -3,6 +3,9 @@
 - more readable/analytical way to store survey results
 
 
+
+- user-profile redesign with lable + input
+
 - Merge landingpage.css/js with the main application css/js
 
 - Clean up MVC framework -- reorganize which pages gets fetched by which controller
