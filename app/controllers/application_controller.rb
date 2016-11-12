@@ -41,17 +41,24 @@ class ApplicationController < ActionController::Base
       redirect_to '/home'
     else
 
-      @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights"]
+      @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels"]
+      @surveys = ["#",
+        "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
+        "#"]
 
-
+      @links = ["#", "#", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights",
+        "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph"]
       # temporary redirection
-      flash[:notice] = "\nGames page is currently under construction. Please pardon our dust!"
+      flash[:notice] = "Games page is currently under construction. Please pardon our dust!"
     #   redirect_to edit_user_registration_url
     end
   end
 
   def game_detail
     @game = params[:game].to_s
+    @survey = params[:survey].to_s
+    @link = params[:link].to_s
     # gets all images of the form app-*.png to display on the game_detail page
     @images = Dir.glob("public/assets/files/games/#{@game}/app-*.png")
     # puts @images

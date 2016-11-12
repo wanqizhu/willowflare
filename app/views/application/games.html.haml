@@ -16,7 +16,11 @@
       %ul
 
 
-        - for game in @games
+        - for num in (0..(@games.length - 1))
+          - game = @games[num]
+          - survey = @survey[num]
+          - link = @link[num]
+
           - if File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/icon.png")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/title.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/publisher.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/description.txt"))
 
             %li.games
@@ -28,8 +32,15 @@
                 %p= render :file => '/public/assets/files/games/' + game + '/description.txt'
 
                 = form_tag '/games', :method => :post do
+                  %input(type="hidden" name="survey" value=survey)
+                  %input(type="hidden" name="link" value=link)
+
+
                   %button.register(name="game" value=game type="submit")
-                    %a Play Now!
+                    %a More Info
+
+                  %a(href=link) Play Now!
+
 
               / %button.register(name="game" value=game type="submit")
               /   %a(href="") Earn Rewards
