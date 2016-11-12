@@ -18,8 +18,8 @@
 
         - for num in (0..(@games.length - 1))
           - game = @games[num]
-          - survey = @survey[num]
-          - link = @link[num]
+          - survey = @surveys[num]
+          - link = @links[num]
 
           - if File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/icon.png")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/title.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/publisher.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/description.txt"))
 
