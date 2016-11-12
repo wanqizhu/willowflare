@@ -2,8 +2,8 @@
   .container
     .breadcrum
       %span
-        %a{:href => ""} Ranking &gt;
-      %span LOG: EP-01 The Journey Begins (Android)
+        %a{:href => "/games"} Games &gt;
+      %span= @game
     .listing
       %ul
         %li
@@ -14,9 +14,9 @@
             %h6= render :file => '/public/assets/files/games/' + @game + '/publisher.txt'
             %p= render :file => '/public/assets/files/games/' + @game + '/description.txt'
 
-            %a Pre-register
+            %a(href=@link) Pre-register
 
-            %a Earn Rewards
+            %a(href=@survey) Earn Rewards
             // drop-down list of surveys
           
           .price
