@@ -42,12 +42,12 @@ class ApplicationController < ActionController::Base
     else
 
       @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels"]
-      @surveys = ["#",
+      @surveys = ["",
         "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
         "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
-        "#"]
+        ""]
 
-      @links = ["#", "#", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights",
+      @links = ["https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay", "https://play.google.com/store/apps/details?id=com.zhangfan.mrq&hl=en", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights",
         "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph"]
       # temporary redirection
       flash[:notice] = "Games page is currently under construction. Please pardon our dust!"
@@ -56,9 +56,9 @@ class ApplicationController < ActionController::Base
   end
 
   def game_detail
-    @game = params[:game].to_s
-    @survey = params[:survey].to_s
-    @link = params[:link].to_s
+    @game = params[:game]
+    @survey = params[:survey]
+    @link = params[:link]
     # gets all images of the form app-*.png to display on the game_detail page
     @images = Dir.glob("public/assets/files/games/#{@game}/app-*.png")
     # puts @images

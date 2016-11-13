@@ -6,7 +6,7 @@
       %span= @game
     .listing
       %ul
-        %li
+        %li.games
           .product-img
             =image_tag("/assets/files/games/" + @game + "/icon.png")
           .product-info
@@ -14,9 +14,17 @@
             %h6= render :file => '/public/assets/files/games/' + @game + '/publisher.txt'
             %p= render :file => '/public/assets/files/games/' + @game + '/description.txt'
 
-            %a(href=@link) Pre-register
+            %a.play_now(href=@link)
+              - if @link != ""
+                Play Now!
+              - else
+                Pre-register!
 
-            %a(href=@survey) Earn Rewards
+            %a.rewards(href=@survey)
+              - if @survey != ""
+                Earn Rewards!
+              - else
+                Surveys Coming Soon
             // drop-down list of surveys
           
           .price
