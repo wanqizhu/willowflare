@@ -4,21 +4,25 @@
     = render 'layouts/monologue/application/head'
   %body
 
-    //= render 'layouts/header'
+    .header-main
+      = render 'layouts/header'
     .container
       %header.main-header.sixteen.columns.clearfix
         
         %h1.header_title
-          %a#logo{:href => "#{main_app.root_path}"}
-            /= Monologue::Config.site_name
-            =image_tag("logo_dark.png")
+          WillowFlare Blog
+
+
+        /   %a#logo{:href => "#{main_app.root_path}"}
+        /     /= Monologue::Config.site_name
+        /     =image_tag("logo_dark.png")
           
-          #blog_name
-            =link_to 'Blog', root_path
-            =link_to 'Home', main_app.root_path
-            /= Monologue::Config.blog_name
+        /   #blog_name
+        /     =link_to 'Blog', root_path
+        /     =link_to 'Home', main_app.root_path
+        /     /= Monologue::Config.blog_name
           
-          /%a#admin_login{:href => login_path} Admin Login
+        /   /%a#admin_login{:href => login_path} Admin Login
         %h2.subtitle= Monologue::Config.site_subtitle
         
         = rss_icon

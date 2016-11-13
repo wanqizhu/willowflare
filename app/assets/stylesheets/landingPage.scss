@@ -103,10 +103,19 @@ input:not([type="text"]):not([type="submit"]) {
 
 
 /* games */
+a[href=""] {pointer-events: none;}
+
 .register {background-color: inherit; border: none; outline: none;}
+a.play_now {background-color: $iceblue;}
+a.play_now:hover {background-color: $orange;}
+a.play_now[href=""] {background-color: gray !important;} // if the game is unavaliable, then gray it out
 
 .games h6 {margin: 10px 0;}
 
 /* game_detail */
 
 button.tabs__tab {outline: none;}
+
+.game_detail {margin-top: none;}
+
+a.rewards[href=""] {background-color: gray !important;} // if surveys are unavaliable, then gray it out
