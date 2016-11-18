@@ -20,33 +20,67 @@
           - game = @games[num]
           - survey = @surveys[num]
           - link = @links[num]
+          - alt_link = @alt_links[num]
+          - player_num = (@count * @mult[num] + @base[num]).round
+          - is_featured = (@featured[num] == 1)
+          - android = @android[num] == 1
+          - ios = @ios[num] == 1
 
           - if File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/icon.png")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/title.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/publisher.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/description.txt"))
 
             %li.games
               .product-img
-                =image_tag("/assets/files/games/" + game + "/icon.png")
+                - if is_featured
+                  / make the featured banner overlay the game icon
+                  / this is the ugliest string formatting ever lol -- rip Rails image paths
+                  =image_tag("featured_banner.png", :style => "background-image: url('" + image_path("/assets/files/games/"+game+"/icon.png") + "')", :class => "featured")
+                - else
+                  =image_tag("/assets/files/games/#{game}/icon.png")
+
+                - if android && !ios
+                  - link = alt_link
+                  / https://css-tricks.com/snippets/css/corner-ribbon/
+                  .ribbon-wrapper-green
+                    .ribbon-green
+                      Android Only
+
+                - if ios && !android
+                  .ribbon-wrapper-green
+                    .ribbon-green
+                      iOS Only
+
               .product-info
-                %h2= render :file => '/public/assets/files/games/' + game + '/title.txt'
-                %h6= render :file => '/public/assets/files/games/' + game + '/publisher.txt'
-                %p= render :file => '/public/assets/files/games/' + game + '/description.txt'
+                %h2= render :file => "/public/assets/files/games/#{game}/title.txt"
+                /%h6= render :file => "/public/assets/files/games/#{game}/publisher.txt"
+                %p= render :file => "/public/assets/files/games/#{game}/description.txt"
 
                 = form_tag '/games', :method => :post do
-                  %input(type="hidden" name="survey" value=survey)
-                  %input(type="hidden" name="link" value=link)
+                  %input(type="hidden" name="game_num" value=num)
+                  / %input(type="hidden" name="survey" value=survey)
+                  / %input(type="hidden" name="link" value=link)
+                  / %input(type="hidden" name="player_num" value=player_num)
+                  / %input(type="hidden" name="is_featured" value=is_featured)
 
+                  
+                  .links
 
-                  %button.register(name="game" value=game type="submit")
-                    %a More Info
+                    %a.play_now{:href => (@device == "android" && ios && android ? alt_link : link), :target => "_blank"} Play Now!
+                   
+                    - if ios && android
+                      .drop-down
+                        %a(href=link target="_blank") iTunes Store
+                        %a(href=alt_link target="_blank") Android
 
-                  %a.play_now(href=link) Play Now!
+                  %button.register(type="submit")
+                    %a Earn Rewards
 
 
               / %button.register(name="game" value=game type="submit")
               /   %a(href="") Earn Rewards
 
               .price
-                .rounded-ft= rand(500..1500)
+                .rounded-ft= player_num
+                / let's make this scale with number of players
                 %p Pre-registrations
 
               

@@ -8,28 +8,59 @@
       %ul
         %li.games
           .product-img
-            =image_tag("/assets/files/games/" + @game + "/icon.png")
+            - if @is_featured
+              / make the featured banner overlay the game icon
+              
+              =image_tag("featured_banner.png", :style => "background-image: url('" + image_path("/assets/files/games/"+@game+"/icon.png") + "')", :class => "featured")
+
+            - else
+              =image_tag("/assets/files/games/" + @game + "/icon.png")
+
+
+            - if @is_android && !@is_ios
+              - @link = @alt_link
+              / https://css-tricks.com/snippets/css/corner-ribbon/
+              .ribbon-wrapper-green
+                .ribbon-green
+                  Android Only
+
+            - if @is_ios && !@is_android
+              .ribbon-wrapper-green
+                .ribbon-green
+                  iOS Only
+
+            /=image_tag("/assets/files/games/" + @game + "/icon.png")
           .product-info
             %h2= render :file => '/public/assets/files/games/' + @game + '/title.txt'
             %h6= render :file => '/public/assets/files/games/' + @game + '/publisher.txt'
             %p= render :file => '/public/assets/files/games/' + @game + '/description.txt'
 
-            %a.play_now(href=@link)
-              - if @link != ""
-                Play Now!
-              - else
-                Pre-register!
+            .links
+
+              %a.play_now{:href => @device == "android" && @is_ios && @is_android ? @alt_link : @link, :target => "_blank"}
+
+
+                - if @link != ""
+                  Play Now!
+                - else
+                  Pre-register!
+
+              - if @is_ios && @is_android
+                .drop-down
+                  %a(href=@link target="_blank") iTunes Store
+                  %a(href=@alt_link target="_blank") Android
+
 
             %a.rewards(href=@survey)
               - if @survey != ""
-                Earn Rewards!
+                Complete Survey for Rewards!
               - else
                 Surveys Coming Soon
             // drop-down list of surveys
           
           .price
-            /.rounded-ft 4.2k
-            /%p Pre-registrations
+            .rounded-ft= @player_num
+            %p Pre-registrations
     .detail-block
       .lf-dt
         .tabbing
@@ -61,23 +92,35 @@
             /   =image_tag("app-02.png")
             / %li
             /   =image_tag("app-03.png")
+      
+
+      / featured
       .rg-dt
-        .add-block
-          .img-bg
-            =image_tag("add-img-01.png")
-          .product-info
-            %h2 Hot Game #1
-            /%h6 super sonic
-            %p Coming Soon!
-            %a{:href => ""} Pre-register
-        .add-block
-          .img-bg
-            =image_tag("add-img-02.png")
-          .product-info
-            %h2 Trending
-            /%h6 super sonic
-            %p Coming Soon!
-            %a{:href => ""} Pre-register
+
+        - for num in (0..(@games.length - 1))
+          - if @featured[num] == 1
+
+            .add-block
+              .img-bg
+                =image_tag("featured_banner.png", :style => "background-image: url('" + image_path("/assets/files/games/"+@games[num]+"/icon.png") + "')", :class => "featured")
+              .product-info
+                %h2= render :file => '/public/assets/files/games/' + @games[num] + '/title.txt'
+                %h6= render :file => '/public/assets/files/games/' + @games[num] + '/publisher.txt'
+                %p= render :file => '/public/assets/files/games/' + @games[num] + '/description.txt'
+                
+                = form_tag '/games', :method => :post do
+                  %input(type="hidden" name="game_num" value=num)
+                 
+                  %button.register(type="submit")
+                    %a More Info
+        / .add-block
+        /   .img-bg
+        /     =image_tag("add-img-02.png")
+        /   .product-info
+        /     %h2 Trending
+        /     /%h6 super sonic
+        /     %p Coming Soon!
+        /     %a{:href => ""} Pre-register
 
 / JS
 / = javascript_include_tag 'jquery.tabs'
