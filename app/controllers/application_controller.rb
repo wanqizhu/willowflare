@@ -17,9 +17,17 @@ class ApplicationController < ActionController::Base
   use Rack::GeoIPCountry, :db => File.expand_path(Rails.root.join("db/GeoIP.dat"))
   before_filter :redirect_if_china, :except => [:companies, :landing_page]
 
+  before_filter :get_mobile_device_type
+
 
   # helpers to enable sign-up form on the landing page
   helper_method :resource_name, :resource, :devise_mapping
+
+
+  # load up games
+  before_action :load_games, :only => [:games, :game_detail]
+
+
 
   def resource_name
     :user
@@ -40,25 +48,32 @@ class ApplicationController < ActionController::Base
     if !user_signed_in?
       redirect_to '/home'
     else
+      
+      # call load_games
+      
 
-      @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels"]
-      @surveys = ["",
-        "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
-        "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
-        ""]
-
-      @links = ["https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay", "https://play.google.com/store/apps/details?id=com.zhangfan.mrq&hl=en", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights",
-        "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph"]
-      # temporary redirection
       flash[:notice] = "Games page is currently under construction. Please pardon our dust!"
     #   redirect_to edit_user_registration_url
     end
   end
 
+
   def game_detail
-    @game = params[:game]
-    @survey = params[:survey]
-    @link = params[:link]
+    # call load_games
+    @game_num = params[:game_num].to_i
+
+    @game = @games[@game_num]
+    @survey = @surveys[@game_num]
+    @link = @links[@game_num]
+    @alt_link = @alt_links[@game_num]
+
+    @player_num = (@count * @mult[@game_num] + @base[@game_num]).round
+    @is_featured = (@featured[@game_num] == 1)
+
+    @is_android = @android[@game_num] == 1
+    @is_ios = @ios[@game_num] == 1
+
+    #@featured = params[:featured]
     # gets all images of the form app-*.png to display on the game_detail page
     @images = Dir.glob("public/assets/files/games/#{@game}/app-*.png")
     # puts @images
@@ -155,6 +170,42 @@ class ApplicationController < ActionController::Base
 
 
 
+  def load_games
+    # pre-registration numbers: count * mult + base
+    @count = User.count
+    @mult = [1.4, 0.9, 0.4, 0.75, 4.7]
+    @base = [1337, 840, 750, 2000, 531]
+
+    @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels", "Loong Craft"]
+    @featured = [1, 0, 0, 0, 0]
+    @android = [1, 0, 1, 1, 1]
+    @ios = [0, 1, 0, 1, 1]
+
+    @surveys = ["",
+      "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
+      "", ""]
+
+    # default: iOS
+    @links = ["", "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", "",
+      "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
+
+    # default: Android
+    @alt_links = ["https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
+      "", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
+  end
+
+
+  def get_mobile_device_type
+    if request.env['HTTP_USER_AGENT'].downcase.match(/android/)
+      @device = "android"
+    elsif request.env['HTTP_USER_AGENT'].downcase.match(/iphone|ipod/)
+      @device = "ios"
+    else
+      @device = "unknown"
+    end
+    #puts @device 
+  end
 
 
   # Use this to return to previous page after sign out

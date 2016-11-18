@@ -110,7 +110,14 @@ header {background: none;}
 
 /* sidebar */
 
-.sidebar.four.columns {margin-left:50px;}
+@media(min-width: 959px) {
+
+	.sidebar.four.columns {
+		margin-left:50px;
+	    width: auto;
+	    min-width: 220px;
+	}
+}
 
 @media(max-width: 1036px) {
 	.sidebar {display: none;}

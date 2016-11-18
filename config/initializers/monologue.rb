@@ -24,8 +24,8 @@ Monologue.config do |config|
   # config.layout               = "layouts/application"
 
   # ANALYTICS
-  # config.gauge_analytics_site_id = "YOUR COGE FROM GAUG.ES"
-  # config.google_analytics_id = "YOUR GA CODE"
+  #config.gauge_analytics_site_id = "YOUR COGE FROM GAUG.ES"
+  config.google_analytics_id = "UA-77066601-1"
 
   config.sidebar = ["latest_posts", "latest_tweets", "categories", "tag_cloud"]
 
