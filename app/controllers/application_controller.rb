@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
       # call load_games
       
 
-      flash[:notice] = "Games page is currently under construction. Please pardon our dust!"
+      #flash[:notice] = "Games page is currently under construction. Please pardon our dust!"
     #   redirect_to edit_user_registration_url
     end
   end

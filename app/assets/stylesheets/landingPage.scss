@@ -42,12 +42,12 @@
 	position: relative;
 }
 
-.alert-alert {
+.alert {
 	font-size: 19px;
 	padding: 20px 20px 20px 100px;
-    margin: 15px 0 30px 0;
-    float: left;
-    width: 100%;
+  margin: 15px 0 30px 0;
+  float: left;
+  width: 100%;
 }
 
 .alert-notice {@extend .alert-info}
