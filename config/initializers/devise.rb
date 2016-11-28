@@ -260,10 +260,10 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
 
-  # make devise use the old layout, except for edit_user
+  # make devise use the old layout, except for Sessions/Registrations (login, signup, edit user)
   Rails.application.config.to_prepare do
-    Devise::SessionsController.layout "__application"
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "__application"}
+    #Devise::SessionsController.layout "application"
+    #Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "__application"}
     Devise::ConfirmationsController.layout "__application"
     Devise::UnlocksController.layout "__application"
     Devise::PasswordsController.layout "__application"

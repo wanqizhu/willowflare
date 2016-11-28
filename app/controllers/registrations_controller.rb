@@ -1,6 +1,5 @@
-# update user w/o password
 class RegistrationsController < Devise::RegistrationsController
-  layout '__application', except: [:edit, :store]
+  #layout '__application', except: [:edit, :store, :update]
 
   # map referral emails to ID
   # Tried to do some fancy stuff by storing referral as an integer
@@ -23,6 +22,14 @@ class RegistrationsController < Devise::RegistrationsController
   def edit
     super
   end
+
+  # def update
+  #   begin
+  #     super
+  #   rescue
+  #     redirect_to after_update_path_for(resource), :flash => { :alert => "Error!" }
+  #   end
+  # end
 
   def store
   end
@@ -99,7 +106,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-
+    
   	# reward for completing their profile
   	if resource.info == nil or !(resource.info.include? "profile")
 	  	t = 1
@@ -121,15 +128,21 @@ class RegistrationsController < Devise::RegistrationsController
 		        resource.info += ', profile_completed'
 	      	end
 	  	end
-	end
+    end
 
 
-	# allow update w/o changing pw
+    # allow update w/o changing pw
   	if params[:password].blank? && params[:password_confirmation].blank?
     	resource.update_without_password(params)
     else
     	super
     end
+  end
+
+
+  # redirect back to "Accounts" page after update
+  def after_update_path_for(resource)
+    edit_user_registration_path
   end
 
 
