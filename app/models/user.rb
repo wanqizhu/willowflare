@@ -149,40 +149,40 @@ class User < ActiveRecord::Base
     #   self.money = 0
     # end
 
-    if Rails.application.config.survey001.include?(self.email)
-      self.money += 35
+    # if Rails.application.config.survey001.include?(self.email)
+    #   self.money += 35
       
-      self.info += ', survey1_completed'
-    end
+    #   self.info += ', survey1_completed'
+    # end
 
-    if Rails.application.config.survey001_winners.include?(self.email)
-      self.money += 100
-    end
+    # if Rails.application.config.survey001_winners.include?(self.email)
+    #   self.money += 100
+    # end
 
-    if Rails.application.config.survey002.include?(self.email)
-      self.money += 60
+    # if Rails.application.config.survey002.include?(self.email)
+    #   self.money += 60
 
-      self.info += ', survey2_completed'
-    end
+    #   self.info += ', survey2_completed'
+    # end
 
 
-    if Rails.application.config.survey003.include?(self.email)
-      self.money += 75
+    # if Rails.application.config.survey003.include?(self.email)
+    #   self.money += 75
 
-      self.info += ', survey3_completed'
-    end
+    #   self.info += ', survey3_completed'
+    # end
 
-    if Rails.application.config.survey004.include?(self.email)
-      self.money += 35
+    # if Rails.application.config.survey004.include?(self.email)
+    #   self.money += 35
 
-      self.info += ', survey4_completed'
-    end
+    #   self.info += ', survey4_completed'
+    # end
 
-    if Rails.application.config.survey005.include?(self.email)
-      self.money += 35
+    # if Rails.application.config.survey005.include?(self.email)
+    #   self.money += 35
 
-      self.info += ', survey5_completed'
-    end
+    #   self.info += ', survey5_completed'
+    # end
 
 
     if self.referral != nil and !self.referral.empty?

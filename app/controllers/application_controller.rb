@@ -173,7 +173,7 @@ class ApplicationController < ActionController::Base
   def load_games
     # pre-registration numbers: count * mult + base
     @count = User.count
-    @mult = [1.4, 0.9, 0.4, 0.75, 4.7]
+    @mult = [1.9, 0.9, 0.4, 0.75, 4.7]
     @base = [1337, 840, 750, 2000, 531]
 
     @games = ["Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels", "Loong Craft"]

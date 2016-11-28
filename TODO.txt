@@ -1,6 +1,8 @@
 	- Remove @ios / @android; check if it's avaliable just by seeing if @links / @alt_links are empty
 
 
+	- load up Loong Craft
+	- unique color banner (ios-only v. android-only)
 
 
 - more secure way to integrate surveys
