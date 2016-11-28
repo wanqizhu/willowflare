@@ -9,6 +9,7 @@
 - more readable/analytical way to store survey results
 
 
+- integrate the forget_password etc. pages in Devise with new style
 
 - user-profile redesign with lable + input
 
