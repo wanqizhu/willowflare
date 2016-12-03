@@ -22,7 +22,9 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 
 # make sure the swap is present after reboot:
-sudo echo " /swapfile       none    swap    sw      0       0 " >> /etc/fstab
+sudo su
+echo " /swapfile       none    swap    sw      0       0 " >> /etc/fstab
+exit
 
 # Set the swappiness (performance - aware)
 echo 10 | sudo tee /proc/sys/vm/swappiness

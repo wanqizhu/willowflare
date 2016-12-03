@@ -4,6 +4,7 @@
 	- load up Loong Craft
 	- unique color banner (ios-only v. android-only)
 
+- figure out why there are "MISSING favicon.ico" log messages
 
 - more secure way to integrate surveys
 - more readable/analytical way to store survey results
