@@ -184,7 +184,7 @@ class ApplicationController < ActionController::Base
     @surveys = ["",
       "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
       "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
-      "", ""]
+      "https://goo.gl/forms/d5GbPs9jcow7nAN02", ""]
 
     # default: iOS
     @links = ["", "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", "",
