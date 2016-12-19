@@ -1,7 +1,7 @@
 	- Remove @ios / @android; check if it's avaliable just by seeing if @links / @alt_links are empty
 
+	- STORE item alignment issues
 
-	- load up Loong Craft
 	- unique color banner (ios-only v. android-only)
 
 - figure out why there are "MISSING favicon.ico" log messages
