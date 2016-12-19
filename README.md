@@ -14,8 +14,8 @@ http://stackoverflow.com/questions/11013755/rails-assets-pipeline-cannot-allocat
 sudo swapon -s
 
 # Create a swap file
-# 512k --> Swapfile of 512 MB
-sudo dd if=/dev/zero of=/swapfile bs=1024 count=512k
+# 512k --> Swapfile of 1024 MB
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024k
 
 # Use the swap file
 sudo mkswap /swapfile
