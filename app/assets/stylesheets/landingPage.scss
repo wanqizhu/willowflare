@@ -31,6 +31,9 @@
 	}
 }
 
+// remove the blue outline on focused button
+button:focus {outline:0;}
+
 
 .rg-ft {height: auto;}
 
@@ -112,6 +115,7 @@ a.play_now[href=""] {background-color: gray !important;} // if the game is unava
 
 .product-info h6 {margin: 10px 0;}
 
+.product-info h2 {margin: 10px 0;}
 
 img.featured {background-size: cover;}
 
