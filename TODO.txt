@@ -1,10 +1,11 @@
-	- Remove @ios / @android; check if it's avaliable just by seeing if @links / @alt_links are empty
 
 	- STORE item alignment issues
 
-	- unique color banner (ios-only v. android-only)
-
+	
 - figure out why there are "MISSING favicon.ico" log messages
+
+- why is precompiling assets running out of memory (w/o dump file) on aws deploy?
+	- Tried clearing /tmp folder; check if that's the problem
 
 - more secure way to integrate surveys
 - more readable/analytical way to store survey results
