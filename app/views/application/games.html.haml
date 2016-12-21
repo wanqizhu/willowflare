@@ -23,8 +23,8 @@
           - alt_link = @alt_links[num]
           - player_num = (@count * @mult[num] + @base[num]).round
           - is_featured = (@featured[num] == 1)
-          - android = @android[num] == 1
-          - ios = @ios[num] == 1
+          - android = !alt_link.blank?
+          - ios = !link.blank?
 
           - if File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/icon.png")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/title.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/publisher.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/description.txt"))
 
@@ -40,13 +40,13 @@
                 - if android && !ios
                   - link = alt_link
                   / https://css-tricks.com/snippets/css/corner-ribbon/
-                  .ribbon-wrapper-green
+                  .ribbon-wrapper
                     .ribbon-green
                       Android Only
 
                 - if ios && !android
-                  .ribbon-wrapper-green
-                    .ribbon-green
+                  .ribbon-wrapper
+                    .ribbon-orange
                       iOS Only
 
               .product-info

@@ -70,8 +70,8 @@ class ApplicationController < ActionController::Base
     @player_num = (@count * @mult[@game_num] + @base[@game_num]).round
     @is_featured = (@featured[@game_num] == 1)
 
-    @is_android = @android[@game_num] == 1
-    @is_ios = @ios[@game_num] == 1
+    @is_android = !@alt_link.blank?
+    @is_ios = !@link.blank?
 
     #@featured = params[:featured]
     # gets all images of the form app-*.png to display on the game_detail page
@@ -178,8 +178,8 @@ class ApplicationController < ActionController::Base
 
     @games = ["Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels", "Loong Craft"]
     @featured = [1, 1, 0, 0, 0, 0]
-    @android = [1, 1, 0, 1, 1, 1]
-    @ios = [1, 0, 1, 0, 1, 1]
+    # @android = [1, 1, 0, 1, 1, 1]
+    # @ios = [1, 0, 1, 0, 1, 1]
 
     @surveys = ["", "",
       "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
