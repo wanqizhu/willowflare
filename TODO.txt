@@ -1,5 +1,5 @@
 
-	- STORE item alignment issues
+	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
 
 	
 - figure out why there are "MISSING favicon.ico" log messages

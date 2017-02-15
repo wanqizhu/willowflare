@@ -59,9 +59,9 @@ button:focus {outline:0;}
 /* store */
 
 .info-block .block-img { min-height: 155px;}
-.info-block:not(.coming-soon) img {
-	height: 200px;
-}
+// .info-block:not(.coming-soon) img {
+// 	height: 200px;
+// }
 
 .product-list ul li {width: 33%;} // make 3 per row instead of 4
 
@@ -80,6 +80,7 @@ button:focus {outline:0;}
 
 .buy-btn {
 	border-radius: 5px;
+  width: 45%;
 	border: none;
 }
 

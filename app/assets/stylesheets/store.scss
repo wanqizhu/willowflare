@@ -1,74 +1,74 @@
-@import "global";
+// @import "global";
 
-#button {
-	outline: none;
-}
+// #button {
+// 	outline: none;
+// }
 
-#store {
+// #store {
 
-	.box {
-		height: 350px;
-		text-align: center;
+// 	.box {
+// 		height: 350px;
+// 		text-align: center;
 
-		/* align the text fields, even if some runs over 1 line */
-		img + h4 {
-			height: 12%;
-			margin-top: 5%;
-		}
+// 		/* align the text fields, even if some runs over 1 line */
+// 		img + h4 {
+// 			height: 12%;
+// 			margin-top: 5%;
+// 		}
 
-		img + h4 + h5 {
-			height: 10%;
-			margin-top: 10%;
-		}
+// 		img + h4 + h5 {
+// 			height: 10%;
+// 			margin-top: 10%;
+// 		}
 
-	}
+// 	}
 
-	.box > img {
-		height: 50%;
-	}
-}
-
-
-@media(max-width: 767px) {
-	#store {
-		.box > img {
-			height: 60%;
-			margin-bottom: 3%;
-		}
-
-		.box {
-			padding-top: 3%;
-
-			img + h4, img + h4 + h5{
-				height: 8%;
-				margin-top: 0%;
-			}
-		}
-	}
-}
+// 	.box > img {
+// 		height: 50%;
+// 	}
+// }
 
 
-#storeHeading {
-	label {margin-right: 15px;}
-}
+// @media(max-width: 767px) {
+// 	#store {
+// 		.box > img {
+// 			height: 60%;
+// 			margin-bottom: 3%;
+// 		}
+
+// 		.box {
+// 			padding-top: 3%;
+
+// 			img + h4, img + h4 + h5{
+// 				height: 8%;
+// 				margin-top: 0%;
+// 			}
+// 		}
+// 	}
+// }
+
+
+// #storeHeading {
+// 	label {margin-right: 15px;}
+// }
 
 
 
-#storeConfirm {
-	.field {
-		.input > label {
-			margin-right: 5%;
-			width: 15%;
-		}
+// #storeConfirm {
+// 	.field {
+// 		.input > label {
+// 			margin-right: 5%;
+// 			width: 15%;
+// 		}
 
-		.input > select {
-			width: 10%;
-			padding: 0% 5%;
-		}
-	}
+// 		.input > select {
+// 			width: 10%;
+// 			padding: 0% 5%;
+// 		}
+// 	}
 
-	.redeem_comments > input {
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-}
+// 	.redeem_comments > input {
+// 		margin-top: 10px;
+// 		margin-bottom: 10px;
+// 	}
+// }
