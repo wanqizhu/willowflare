@@ -17,3 +17,4 @@
 //= require turbolinks
 //= require social-share-button
 //= require scroll
+//= require store
