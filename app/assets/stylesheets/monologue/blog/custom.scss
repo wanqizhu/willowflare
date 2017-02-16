@@ -31,6 +31,12 @@ header {background: none;}
 	color: black;
 }
 
+@media(max-width: 767px) {
+	.header_title {margin-top: 50px;}
+
+	aside.sidebar.four.columns {margin-bottom: 75px;}
+}
+
 .subtitle {color:black; font-weight:300;}
 
 

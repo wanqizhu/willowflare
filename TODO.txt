@@ -1,6 +1,9 @@
 
 	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
 
+	- Make footer responsive on mobile
+
+	- form submission for bug report?
 	
 - figure out why there are "MISSING favicon.ico" log messages
 

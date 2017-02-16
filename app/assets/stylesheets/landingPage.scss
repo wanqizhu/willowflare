@@ -63,7 +63,15 @@ button:focus {outline:0;}
 // 	height: 200px;
 // }
 
+.info-block.coming-soon {
+  background: white; //#bbeae2; // same color as background of "Coming Soon" image
+}
+
+
 .product-list ul li {width: 33%;} // make 3 per row instead of 4
+@media (max-width: 766px){
+  .product-list ul li {width: 100%;}
+}
 
 .points {
 	width: 85px;
