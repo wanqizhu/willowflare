@@ -4,6 +4,7 @@
 	- Make footer responsive on mobile
 
 	- form submission for bug report?
+		- upload images
 	
 - figure out why there are "MISSING favicon.ico" log messages
 
