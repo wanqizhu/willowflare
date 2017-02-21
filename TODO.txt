@@ -1,5 +1,10 @@
 	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
 	- restrict image size?
+	- editing existing images (checkbox for already uploaded files)
+
+
+	- arrows on game-detail page carousel of images NOT WORKING
+	
 
 	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
 
