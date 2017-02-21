@@ -45,6 +45,10 @@ gem 'responders', '~> 2.1.0'
 # forums
 gem 'thredded', '~> 0.6.1'
 
+# upload files
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
+
 # nice console printing
 # USAGE: ap User.last
 gem "awesome_print", require:"ap"

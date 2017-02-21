@@ -44,6 +44,11 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  # supress logs like "Started GET "/assets/application.js" for 127.0.0.1 at 2015-01-28 13:35:34 +0300
+                     # Served asset /application.js - 304 Not Modified (8ms)"
+  config.assets.quiet = true
+
+
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.

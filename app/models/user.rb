@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
   has_many :links
 
+
+
+
   attr_accessor :current_password
 
   AGE_ = %w[<_18    18-24   25-45   >_45]
