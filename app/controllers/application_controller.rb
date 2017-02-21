@@ -174,24 +174,25 @@ class ApplicationController < ActionController::Base
     # pre-registration numbers: count * mult + base
     @count = User.count
     @mult = [6.5, 0.7, 1.9, 0.9, 0.4, 0.75, 4.7]
-    @base = [1350, 1800, 1337, 840, 750, 2000, 531]
+    @base = [2350, 1100, 1337, 840, 750, 2000, 531]
 
-    @games = ["Legend of Tyroria","Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels", "Loong Craft"]
-    @featured = [1, 0, 0, 0, 0, 0, 0]
+    @games = ["Legend of Tyroria", "Clash of Kings"] #, "Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels", "Loong Craft"]
+    @featured = [1, 0, 0, 0, 0, 0, 0, 0]
     # @android = [1, 1, 0, 1, 1, 1]
     # @ios = [1, 0, 1, 0, 1, 1]
 
-    @surveys = ["", "", "",
+    @surveys = ["https://goo.gl/forms/LByJEqNfoE6UVMpN2", "https://docs.google.com/forms/d/1DCo0-Rj6CW4cpp028s24kCZJUi8BzKvNp2vG6Ok-Zmk", "", "",
       "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
       "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
       "https://goo.gl/forms/d5GbPs9jcow7nAN02", ""]
 
     # default: iOS
-    @links = ["", "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", "", "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", "",
+    @links = ["", "https://itunes.apple.com/us/app/clash-of-kings-cok/id945274928?mt=8", "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", "", "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", "",
       "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
 
     # default: Android
-    @alt_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign","https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
+    @alt_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", "", 
+      "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
       "", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
   end
 
