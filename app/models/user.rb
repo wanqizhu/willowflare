@@ -98,11 +98,11 @@ class User < ActiveRecord::Base
   end
 
 
-  # give referral awards ONLY IF they have 100 points, to prevent spam referrals
+  # give referral awards ONLY IF they have 100 points and have completed a survey, to prevent spam referrals
   def check_points
     begin # just incase errors
       
-      if self.confirmed? and self.referral != nil and self.info.include?('referred by $') and self.money >= 100
+      if self.confirmed? and self.referral != nil and self.info.include?('referred by $') and self.info.include?('survey') and self.money >= 100
         #puts self.email
         logger.info "User " + self.email + " has completed their referral requirements to grant reward to " + self.referral
         
