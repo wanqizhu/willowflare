@@ -1,0 +1,10 @@
+<div class="thredded--post--content">
+  <% cache [post, 'content'], expires_in: 1.week do %>
+    <%= post.filtered_content(self) %>
+  <% end %>
+
+  <% @imgs = post.to_model.images %>
+  <% for num in (0..(@imgs.length - 1)) %>
+  	<%= image_tag @imgs[num].url %>
+  <% end %>
+</div>

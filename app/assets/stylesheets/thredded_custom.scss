@@ -200,6 +200,13 @@ hr {
 
     margin-bottom: 70px;
   }
+
+
+  .thredded--post--content {
+    img {
+      margin: 15px;
+    }
+  }
 }
 
 .thredded--topic-show #flash {
@@ -261,4 +268,11 @@ hr {
     margin-right: 0.4rem;
     margin-left: 0;
   }
+}
+
+
+
+// new_post submission form
+#post_images {
+  margin-top: 18px;
 }

@@ -1,0 +1,7 @@
+<li>
+  <%= form.label :content, content_label %>
+  <%= render 'thredded/posts_common/form/before_content', form: form %>
+  <%= form.text_area :content, { rows: 5, required: true }  %>
+  <%= form.file_field :images, multiple: true, accept: 'image/png,image/gif,image/jpeg, image/jpg' %>
+  <%= render 'thredded/posts_common/form/after_content', form: form %>
+</li>
