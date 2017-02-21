@@ -128,6 +128,18 @@ class User < ActiveRecord::Base
 
         end
       end
+
+
+      # League of Tyroria Promo: 2/21 - 2/28
+      if !self.info.include?('League of Tyroria 30 pts promo')
+        if Time.now.getutc.to_i > 1487695791 and Time.now.getutc.to_i < 1488300651
+          self.money += 30
+          self.info += ", League of Tyroria 30 pts promo, "
+          self.save
+        end
+      end
+
+
     rescue => e
       logger.error e.message
       logger.error e.backtrace.join("\n") 
@@ -151,6 +163,15 @@ class User < ActiveRecord::Base
     # else
     #   self.money = 0
     # end
+
+
+    # League of Tyroria Promo: 2/21 - 2/28
+
+    if Time.now.getutc.to_i > 1487695791 and Time.now.getutc.to_i < 1488300651
+      self.money += 30
+      self.info += ", League of Tyroria 30 pts promo, "
+    end
+
 
     # if Rails.application.config.survey001.include?(self.email)
     #   self.money += 35
