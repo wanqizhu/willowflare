@@ -1,3 +1,5 @@
+	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
+	- restrict image size?
 
 	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
 
