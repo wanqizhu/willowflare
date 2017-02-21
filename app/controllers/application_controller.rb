@@ -191,7 +191,7 @@ class ApplicationController < ActionController::Base
       "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
 
     # default: Android
-    @alt_links = ["https://play.google.com/store/apps/details?id=com.stgl.global","https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
+    @alt_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign","https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
       "", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
   end
 
