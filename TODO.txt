@@ -4,7 +4,8 @@
 
 
 	- arrows on game-detail page carousel of images NOT WORKING
-	
+
+	- sort messageboard groups/messageboards? (i.e. put active games on top?)
 
 	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
 
