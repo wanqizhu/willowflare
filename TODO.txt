@@ -2,6 +2,7 @@
 	- restrict image size?
 	- editing existing images (checkbox for already uploaded files)
 
+	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
 
 	- arrows on game-detail page carousel of images NOT WORKING
 

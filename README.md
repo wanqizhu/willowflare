@@ -10,6 +10,9 @@ http://stackoverflow.com/questions/11013755/rails-assets-pipeline-cannot-allocat
 
 	-- do this:
 
+#install git
+sudo yum install git
+
 # Turn it on
 sudo swapon -s
 
