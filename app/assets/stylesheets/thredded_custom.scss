@@ -18,6 +18,10 @@ hr {
 #forum_announcement {
   left: 0%;
   width: 100%;
+
+  .box-icon:after {
+    display: none;
+  }
 }
 
 // top left, "Welcome __username__"
