@@ -64,12 +64,12 @@
                   
                   .links
 
-                    %a.play_now{:href => (@device == "android" && ios && android ? alt_link : link), :target => "_blank"} Play Now!
+                    %a.play_now{:href => (@device == "android" && ios && android ? alt_link : link), :onclick => "trackOutboundLink('#{@device == 'android' && ios &&  android ? alt_link : link}'); return false;", :target => "_blank"} Play Now!
                    
                     - if ios && android
                       .drop-down
-                        %a(href=link target="_blank") iTunes Store
-                        %a(href=alt_link target="_blank") Android
+                        %a(href=link onclick="trackOutboundLink('#{link}'); return false;" target="_blank") iTunes Store
+                        %a(href=alt_link onclick="trackOutboundLink('#{alt_link}'); return false;" target="_blank") Android
 
                   %button.register(type="submit")
                     %a Earn Rewards

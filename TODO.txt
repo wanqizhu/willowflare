@@ -3,6 +3,9 @@
 	- editing existing images (checkbox for already uploaded files)
 
 	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
+		- mobile styles
+
+	- user onboarding-process: make flashy tutorials/guides to CLEARLY DIRECT USER what to do upon visiting platform? Maintain engagement
 
 	- arrows on game-detail page carousel of images NOT WORKING
 

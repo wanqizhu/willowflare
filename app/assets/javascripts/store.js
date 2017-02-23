@@ -15,7 +15,7 @@ var ready = function(){
 
 
 		$("#store .info-block").css("height", maxHeight);
-		console.log(maxHeight);
+		//console.log(maxHeight);
 	}
 }
 
