@@ -25,6 +25,7 @@ db/schema.rb
 
 
 config/local_env.yml
+config/local_logs.txt
 
 config/survey*.txt
 
