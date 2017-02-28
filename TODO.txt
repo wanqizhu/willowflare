@@ -19,6 +19,7 @@
 
 	- Make footer responsive on mobile
 
+	- make /welcome infographc & its overlaied links scallable (maybe use %'s?)
 
 
 	- Delete unconfirmed accounts after 1 month?
