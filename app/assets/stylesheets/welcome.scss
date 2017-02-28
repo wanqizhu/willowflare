@@ -1,0 +1,111 @@
+@import "global";
+
+.welcome-page {
+	padding-bottom: 50px;
+	text-align: center;
+	background: aliceblue;
+
+
+	#welcome {
+		color: $willow;
+		margin-top: 135px;
+		margin-bottom: 25px;
+	}
+
+	#welcome-subtitle {margin-bottom: 18px;}
+
+	#welcome-text {font-size: 18px; color: $red;}
+
+	.poster {
+		margin-top: 15px;
+	}
+
+	.poster-wrapper {
+		position: relative;
+		display: inline-block;
+
+		a {
+			position: absolute; 
+			height: 100px;
+			width: 80px;
+			z-index: 99;
+			
+			color: rgba(255, 255, 255, 0);
+			//color: red; // when we want to test with text
+			//font-size: 37;
+		}
+
+
+		// fixed positions to overlay with poster image
+		#profile-link {
+			top: 35;
+			left: 384;
+		}
+
+		#games-link {
+			top: 175;
+			left: 418;
+		}
+
+		#games-link-2 {
+			top: 98;
+			left: 475;
+		}
+
+		#survey-link {
+			top: 198;
+			left: 170;
+		}
+
+		#survey-link-2 {
+			top: 235;
+			left: 38;
+		}
+
+		#bug-link {
+			top: 308;
+			left: 315;
+		}
+
+		#bug-link-2 {
+			top: 368;
+			left: 185;
+		}
+
+		#survey23-link {
+			top: 435;
+			left: 438;
+		}
+
+		#survey23-link-2 {
+			top: 524;
+			left: 325;
+		}
+
+		#store-link {
+			top: 578;
+			left: 240;
+		}
+
+		#store-link-2 {
+			top: 648;
+			left: 135;
+		}
+	}
+
+	.buttons a{
+		display:inline-block;
+		margin-top:20px;
+		font-size:20px;
+		text-decoration:none;
+		color:#FFF;
+		padding:10px 25px;
+		border-radius:5px;
+	}
+
+
+	a.play_now {background-color: $iceblue;}
+	a.earn_rewards {background-color: #29d4b1;}
+	a.bug {background-color: $red;}
+	a.bug:hover {background-color: black;}
+}

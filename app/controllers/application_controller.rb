@@ -90,6 +90,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def welcome
+
+  end
+
+
   def mail
     logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:game] + params[:app_store_link] + params[:google_play_link] + params[:message]
     begin

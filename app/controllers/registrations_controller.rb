@@ -146,6 +146,16 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 
+  # redirect to "welcome" page after sign-up; this is for email confirmations
+  def after_inactive_sign_up_path_for(resource)
+    welcome_index_path
+  end
+
+  # non-confirmations (e.g. OAuth)
+  def after_sign_up_path_for(resource)
+    welcome_index_path
+  end
+
 
 
   private
