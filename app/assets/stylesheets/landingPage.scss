@@ -20,6 +20,7 @@
 @import "jquery.tabs";
 @import "landingPageStyle";
 @import "footer"; // taken out of landingPageStyle
+@import "welcome";
 
 
 @charset "utf-8";
@@ -235,3 +236,4 @@ button.tabs__tab {outline: none;}
 
 a.rewards[href=""] {background-color: gray !important;} // if surveys are unavaliable, then gray it out
 a.bug{background-color: $red}
+a.bug:hover {background-color: black;}

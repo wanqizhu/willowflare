@@ -1,5 +1,9 @@
 	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
+		- file url ("uploads/...") have to be prepended with "public/" on production??
+
 	- restrict image size?
+		- files ~4MB seem to break
+
 	- editing existing images (checkbox for already uploaded files)
 
 	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
@@ -15,8 +19,17 @@
 
 	- Make footer responsive on mobile
 
-	- form submission for bug report?
-		- upload images
+
+
+	- Delete unconfirmed accounts after 1 month?
+
+
+# quick things
+
+	- hover-on-report-a-bug buttons on Games page
+
+
+
 	
 - figure out why there are "MISSING favicon.ico" log messages
 

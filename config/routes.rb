@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     # post '/login' => 'users#login'
   end
  
-
+  get '/welcome' => 'application#welcome', as: 'welcome_index'
 
   get '/companies' => 'application#companies'
   get '/home' => 'application#landing_page'
