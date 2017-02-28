@@ -24,6 +24,12 @@
 		position: relative;
 		display: inline-block;
 
+		img.poster {
+			width: 576px;
+			height: 730px;
+		}
+
+
 		a {
 			position: absolute; 
 			height: 100px;
