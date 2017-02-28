@@ -1,6 +1,8 @@
 	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
 		- file url ("uploads/...") have to be prepended with "public/" on production??
 
+	- FIX OAuth signup work
+
 	- restrict image size?
 		- files ~4MB seem to break
 
@@ -28,6 +30,7 @@
 # quick things
 
 	- hover-on-report-a-bug buttons on Games page
+
 
 
 
