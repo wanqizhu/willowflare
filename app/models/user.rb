@@ -165,9 +165,9 @@ class User < ActiveRecord::Base
     # end
 
 
-    # League of Tyroria Promo: 2/21 - 2/28
+    # League of Tyroria Promo: 2/21 - 3/7
 
-    if Time.now.getutc.to_i > 1487695791 and Time.now.getutc.to_i < 1488300651
+    if Time.now.getutc.to_i > 1487695791 and Time.now.getutc.to_i < 1487695791 + 604860 * 2
       self.money += 30
       self.info += ", League of Tyroria 30 pts promo, "
     end
