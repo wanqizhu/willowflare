@@ -70,6 +70,11 @@ gem 'rails', '~> 4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+
+# exception handling
+gem 'exception_notification'
+
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
