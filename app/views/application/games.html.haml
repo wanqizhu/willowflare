@@ -75,9 +75,9 @@
                     %a Earn Rewards
 
 
-                  /- if is_featured
-                  %a.bug(href="blog/bug-bounty")
-                    Report a Bug
+                  - if is_featured
+                    %a.bug(href="blog/bug-bounty")
+                      Report a Bug
 
 
               / %button.register(name="game" value=game type="submit")
@@ -89,36 +89,6 @@
                 %p Pre-registrations
 
               
-        / %li
-        /   .product-img
-        /     %img{:src => "images/pr-02.png"}/
-        /   .product-info
-        /     %h2 Car Rally
-        /     %h6 super sonic
-        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
-        /     %a{:href => ""} Pre-register
-        /   .price
-        /     .rounded-ft 4.2k
-        /     %p Pre-registrations
-        / %li
-        /   .product-img
-        /     %img{:src => "images/pr-03.png"}/
-        /   .product-info
-        /     %h2 Jumping here
-        /     %h6 super sonic
-        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
-        /   .price
-        /     .rounded-ft 4.2k
-        /     %p Pre-registrations
-        /     .sold-out
-        / %li
-        /   .product-img
-        /     %img{:src => "images/pr-04.png"}/
-        /   .product-info
-        /     %h2 Bio Shock
-        /     %h6 super sonic
-        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
-        /     %a{:href => ""} Pre-register
-        /   .price
-        /     .rounded-ft 4.2k
-        /     %p Pre-registrations
+        %li.games
+          .product-info
+            %p Why do we only have one game per device? Because we want you to focus on a few games at a time -- but don't worry, we will release new content every week with new chances to earn rewards, so hang tight!

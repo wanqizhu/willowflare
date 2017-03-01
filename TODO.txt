@@ -27,6 +27,9 @@
 	- Delete unconfirmed accounts after 1 month?
 
 
+	- Look at MixPixel: https://mixpanel.com/report/1179014/setup/
+
+
 # quick things
 
 	- hover-on-report-a-bug buttons on Games page

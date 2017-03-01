@@ -58,8 +58,9 @@
                 Surveys Coming Soon
             // drop-down list of surveys
 
-            %a.bug(href="blog/bug-bounty")
-              Report a Bug
+            - if @is_featured
+              %a.bug(href="blog/bug-bounty")
+                Report a Bug
           
           .price
             .rounded-ft= @player_num
