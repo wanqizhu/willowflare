@@ -1,8 +1,6 @@
 	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
 		- file url ("uploads/...") have to be prepended with "public/" on production??
 
-	- FIX OAuth signup work
-
 	- restrict image size?
 		- files ~4MB seem to break
 
@@ -25,6 +23,9 @@
 
 
 	- Delete unconfirmed accounts after 1 month?
+		- style the "delete your account" option on account page
+
+	- When OAuth email already exists, give unique error message
 
 
 	- Look at MixPixel: https://mixpanel.com/report/1179014/setup/

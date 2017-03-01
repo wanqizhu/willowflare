@@ -100,3 +100,9 @@
 
       .form-block.right.fr
         = f.submit "Update", class: "update-btn"
+
+
+
+    / need to style this before making it visible
+    %p(style="visibility:hidden;")
+      = link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
