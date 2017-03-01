@@ -49,6 +49,18 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+
+  # send email notifications for errors
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    :email_prefix => "[PREFIX] ",
+    :sender_address => %{"notifier" <notifier@example.com>},
+    :exception_recipients => %w{wanqi.zhu@willowflare.com},
+    :normalize_subject => true
+  }
+
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
