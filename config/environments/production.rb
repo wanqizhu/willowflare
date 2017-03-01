@@ -51,11 +51,12 @@ Rails.application.configure do
 
 
   # send email notifications for errors
+  # https://github.com/smartinez87/exception_notification
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-    :email_prefix => "[PREFIX] ",
-    :sender_address => %{"notifier" <notifier@example.com>},
+    :email_prefix => "[WillowFlare Site Exception] ",
+    :sender_address => %{"rails exception_notification" <notifier@example.com>},
     :exception_recipients => %w{wanqi.zhu@willowflare.com},
     :normalize_subject => true
   }
