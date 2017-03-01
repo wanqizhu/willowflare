@@ -54,7 +54,7 @@ button:focus {outline:0;}
   width: 100%;
 }
 
-.alert-notice {@extend .alert-info}
+.alert.alert-notice {@extend .alert-info}
 
 
 /* store */
