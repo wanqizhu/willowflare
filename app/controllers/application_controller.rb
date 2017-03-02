@@ -203,7 +203,9 @@ class ApplicationController < ActionController::Base
 
 
   def get_mobile_device_type
-    if request.env['HTTP_USER_AGENT'].downcase.match(/android/)
+    if request.env['HTTP_USER_AGENT'] == nil
+      @device = "unknown"
+    elsif request.env['HTTP_USER_AGENT'].downcase.match(/android/)
       @device = "android"
     elsif request.env['HTTP_USER_AGENT'].downcase.match(/iphone|ipod/)
       @device = "ios"
