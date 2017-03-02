@@ -67,12 +67,15 @@ gem 'mysql2', '~> 0.3.18'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the local database for Active Record
 gem 'sqlite3'
 
 
 # exception handling
 gem 'exception_notification'
+
+# schedule cron jobs
+gem 'whenever', :require => false
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

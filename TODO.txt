@@ -1,6 +1,8 @@
 	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
 		- file url ("uploads/...") have to be prepended with "public/" on production??
 
+	- List of past games
+
 	- restrict image size?
 		- files ~4MB seem to break
 
@@ -26,6 +28,12 @@
 		- style the "delete your account" option on account page
 
 	- When OAuth email already exists, give unique error message
+
+	- style resend-confirmation-email page
+
+	- terms & services
+
+	- send WARNING email for people who try to send in duplicate survey reports
 
 
 	- Look at MixPixel: https://mixpanel.com/report/1179014/setup/

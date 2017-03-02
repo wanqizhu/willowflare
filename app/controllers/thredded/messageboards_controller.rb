@@ -13,6 +13,8 @@ module Thredded
       @groups = policy_scope(Messageboard.all)
         .preload(:group, last_topic: [:last_user]).group_by(&:group)
         .map { |(group, messageboards)| MessageboardGroupView.new(group, messageboards) }
+        .sort{ |a,b| a.group && b.group ? b.group.created_at <=> a.group.created_at : a.group ? 1 : -1 }
+        # sort descending by created_at, with those w/o message-board groups at the top
     end
 
     def new
