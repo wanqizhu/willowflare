@@ -1,0 +1,78 @@
+	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
+		- file url ("uploads/...") have to be prepended with "public/" on production??
+
+	- List of past games
+
+	- restrict image size?
+		- files ~4MB seem to break
+
+	- editing existing images (checkbox for already uploaded files)
+
+	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
+		- mobile styles
+
+	- user onboarding-process: make flashy tutorials/guides to CLEARLY DIRECT USER what to do upon visiting platform? Maintain engagement
+
+	- arrows on game-detail page carousel of images NOT WORKING
+
+	- sort messageboard groups/messageboards? (i.e. put active games on top?)
+
+	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
+
+	- Make footer responsive on mobile
+
+	- make /welcome infographc & its overlaied links scallable (maybe use %'s?)
+
+
+	- Delete unconfirmed accounts after 1 month?
+		- style the "delete your account" option on account page
+
+	- When OAuth email already exists, give unique error message
+
+	- style resend-confirmation-email page
+
+	- terms & services
+
+	- send WARNING email for people who try to send in duplicate survey reports
+
+
+	- Look at MixPixel: https://mixpanel.com/report/1179014/setup/
+
+
+# quick things
+
+	- hover-on-report-a-bug buttons on Games page
+
+
+
+
+	
+- figure out why there are "MISSING favicon.ico" log messages
+
+- why is precompiling assets running out of memory (w/o dump file) on aws deploy?
+	- Tried clearing /tmp folder; check if that's the problem
+
+- more secure way to integrate surveys
+- more readable/analytical way to store survey results
+
+
+- integrate the forget_password etc. pages in Devise with new style
+
+- user-profile redesign with lable + input
+
+- Merge landingpage.css/js with the main application css/js
+
+- Clean up MVC framework -- reorganize which pages gets fetched by which controller
+- Make a database for games (?)
+
+
+
+- automated testing for:
+	- scrolling (check animations/javascript show up)
+	- check links on navbar/footer
+	- sign in
+		- incorrect fields
+	- sign up
+		- incorrect fields
+		- confirmation/welcome email
+	- 
