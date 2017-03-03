@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   # see STRONG validation in Device documentation
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # send additional data via exception_notifier gem in case of exceptions
+  before_filter :prepare_exception_notifier
+
 
   # saves the location before loading each page so we can return to the
   # right page. If we're on a devise page, we don't want to store that as the
@@ -173,6 +176,13 @@ class ApplicationController < ActionController::Base
     store_location_for(:user, request.url)
   end
 
+
+  # send user data with the exception-notification email
+  def prepare_exception_notifier
+    request.env["exception_notifier.exception_data"] = {
+      :current_user => current_user
+    }
+  end
 
 
   def load_games

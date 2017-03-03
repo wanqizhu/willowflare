@@ -4,7 +4,7 @@ module Thredded
   class Post # reopen
 
   	# # carrier_wave uploader
-  	mount_uploaders :images, ImagesUploader
+  	mount_uploaders :images, BlogImagesUploader
   	serialize :images, Array # make it into an array (equiv. to JSON, but sqlite3 doesn't support JSON types
   	# so we can upload multiple images
 

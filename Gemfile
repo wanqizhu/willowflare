@@ -28,6 +28,13 @@ gem 'turbolinks'
 
 
 
+# upload files
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+
+
+
+
 ## functionality gems
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'mailchimp-api', require: 'mailchimp'
@@ -44,9 +51,6 @@ gem 'responders', '~> 2.1.0'
 
 # forums
 gem 'thredded', '~> 0.6.1'
-
-# upload files
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 
 # nice console printing

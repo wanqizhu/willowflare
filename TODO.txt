@@ -1,5 +1,9 @@
-	- Make sure file uploading doesn't break anything -- maybe add a caption ("Upload images:")?
-		- file url ("uploads/...") have to be prepended with "public/" on production??
+	
+	- file url ("uploads/...") have to be prepended with "public/" on production??
+		- multiple file update/delete IS A PAIN -- look back later in more detail
+		- delete also doesn't work on topic forms
+
+	- Email notification for the players after clicking the play now
 
 	- List of past games
 
@@ -35,6 +39,10 @@
 
 	- send WARNING email for people who try to send in duplicate survey reports
 
+	- image uploading for private messages
+
+	- user_profile page on forum
+
 
 	- Look at MixPixel: https://mixpanel.com/report/1179014/setup/
 
@@ -58,7 +66,6 @@
 
 - integrate the forget_password etc. pages in Devise with new style
 
-- user-profile redesign with lable + input
 
 - Merge landingpage.css/js with the main application css/js
 

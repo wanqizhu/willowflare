@@ -3,5 +3,23 @@
   <%= render 'thredded/posts_common/form/before_content', form: form %>
   <%= form.text_area :content, { rows: 5, required: true }  %>
   <%= form.file_field :images, multiple: true, accept: 'image/png,image/gif,image/jpeg, image/jpg' %>
+
+    <!-- this errors out when fetched by Topic forms, b/c form.object.images only work for Posts and not Topics -->
+    <% begin %>
+      <% if form.object.images? %>
+        <% puts "displaying images on post form...\n\n" %>
+
+        <% form.object.images.each do |img| %>
+          <%= image_tag img.thumb.url %>
+        <% end %>
+        
+        <%= form.label :remove_images %>
+        <%= form.check_box :remove_images %> 
+      <% end %>
+    <% rescue => e %>
+      <% logger.error e.message %>
+      <% logger.error e.backtrace.join("\n") %>
+    <% end %>
+
   <%= render 'thredded/posts_common/form/after_content', form: form %>
 </li>

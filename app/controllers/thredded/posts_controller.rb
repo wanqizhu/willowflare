@@ -45,7 +45,7 @@ module Thredded
 
     def post_params
       p = params.require(:post)
-        .permit(:content, images: [])
+        .permit(:content, {images: []}, :remove_images)
         .merge(user: thredded_current_user, ip: request.remote_ip)
       p = p.merge(messageboard: messageboard) unless for_a_private_topic?
       p
