@@ -4,7 +4,8 @@
   <% end %>
 
   <% @imgs = post.to_model.images %>
-  <% for num in (0..(@imgs.length - 1)) %>
-  	<%= image_tag @imgs[num].url %>
+  <% for i in @imgs %>
+  	<% puts i.url %>
+  	<%= image_tag i.url %>
   <% end %>
 </div>
