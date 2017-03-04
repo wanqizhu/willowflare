@@ -8,18 +8,13 @@
 	- List of past games
 
 	- restrict image size?
-		- files ~4MB seem to break
 
-	- editing existing images (checkbox for already uploaded files)
 
 	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
 		- mobile styles
 
-	- user onboarding-process: make flashy tutorials/guides to CLEARLY DIRECT USER what to do upon visiting platform? Maintain engagement
 
 	- arrows on game-detail page carousel of images NOT WORKING
-
-	- sort messageboard groups/messageboards? (i.e. put active games on top?)
 
 	- CLEAN UP CSS/JS ORGANIZATION; which files link to what; delete old files
 
@@ -28,8 +23,7 @@
 	- make /welcome infographc & its overlaied links scallable (maybe use %'s?)
 
 
-	- Delete unconfirmed accounts after 1 month?
-		- style the "delete your account" option on account page
+	- style the "delete your account" option on account page
 
 	- When OAuth email already exists, give unique error message
 
@@ -52,7 +46,9 @@
 	- hover-on-report-a-bug buttons on Games page
 
 
-
+# extras
+	- https://github.com/mjc/mailcheckjs-rails
+	
 
 	
 - figure out why there are "MISSING favicon.ico" log messages

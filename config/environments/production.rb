@@ -54,6 +54,9 @@ Rails.application.configure do
   # https://github.com/smartinez87/exception_notification
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
+    :ignore_exceptions => ['ActiveRecord::RecordNotUnique'] + ExceptionNotifier.ignored_exceptions,
+    :ignore_crawlers => %w{Googlebot bingbot},
+    
     :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     :email_prefix => "[WillowFlare Site Exception] ",
     :sender_address => %{"rails exception_notification" <notifier@example.com>},
