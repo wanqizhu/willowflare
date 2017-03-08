@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 
   def games
     if !user_signed_in?
-      redirect_to '/home'
+      redirect_to '/home' and return
     else
       
       # call load_games
@@ -83,6 +83,10 @@ class ApplicationController < ActionController::Base
   end
 
 
+
+
+  # static pages
+
   def companies
     render :layout => false
   end
@@ -94,8 +98,12 @@ class ApplicationController < ActionController::Base
   end
 
   def welcome
-
   end
+
+
+  def private_policy
+  end
+
 
 
   def mail
@@ -213,13 +221,22 @@ class ApplicationController < ActionController::Base
 
 
   def get_mobile_device_type
-    if request.env['HTTP_USER_AGENT'].blank? or request.env['HTTP_USER_AGENT'] == nil
-      @device = "unknown"
-    elsif request.env['HTTP_USER_AGENT'].to_s.downcase.match(/android/)
-      @device = "android"
-    elsif request.env['HTTP_USER_AGENT'].to_s.downcase.match(/iphone|ipod/)
-      @device = "ios"
-    else
+    # Not sure why we're still getting NIL errors
+    begin
+      if request.env['HTTP_USER_AGENT'].blank? or request.env['HTTP_USER_AGENT'] == nil
+        @device = "unknown"
+      elsif request.env['HTTP_USER_AGENT'].to_s.downcase.match(/android/)
+        @device = "android"
+      elsif request.env['HTTP_USER_AGENT'].to_s.downcase.match(/iphone|ipod/)
+        @device = "ios"
+      else
+        @device = "unknown"
+      end
+    rescue => e
+      logger.error e.message
+      logger.error e.backtrace.join("\n")
+      logger.info "application#get_mobile_device_type error: "
+      logger.info(request.env)
       @device = "unknown"
     end
     #puts @device 

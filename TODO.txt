@@ -23,11 +23,18 @@
 	- make /welcome infographc & its overlaied links scallable (maybe use %'s?)
 
 
+	- FAQ section, esp. on user issues like invalid token/didn't get confirmation email
+
+	- look into? errors with encoding certain characters -- http://stackoverflow.com/questions/10957238/incorrect-string-value-when-trying-to-insert-utf-8-into-mysql-via-jdbc
+
+
+
 	- style the "delete your account" option on account page
 
 	- When OAuth email already exists, give unique error message
 
 	- style resend-confirmation-email page
+		- style store-confirm page
 
 	- terms & services
 

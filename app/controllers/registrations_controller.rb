@@ -43,7 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
         flash[:alert] = "You're not logged in."
       end
 
-      redirect_to '/store'
+      redirect_to '/store' and return
     end
 
     begin
