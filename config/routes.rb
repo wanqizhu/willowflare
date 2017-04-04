@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
 
   get '/companies' => 'application#companies'
+  get '/ourgames' => 'application#ourgames'
+  get '/welcome' => 'application#welcome'
   get '/home' => 'application#landing_page'
   get '/games' => 'application#games'
   post '/mail' => 'application#mail'
