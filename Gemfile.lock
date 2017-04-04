@@ -386,7 +386,7 @@ DEPENDENCIES
   wow-rails
 
 RUBY VERSION
-   ruby 2.0.0p481
+   ruby 2.1.9p490
 
 BUNDLED WITH
-   1.12.5
+   1.14.5
