@@ -98,7 +98,7 @@ class ApplicationController < ActionController::Base
   end
 
   def welcome
-  end
+  end 
 
 
   def private_policy
