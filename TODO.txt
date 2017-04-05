@@ -1,4 +1,6 @@
 	
+	- only send error emails on LIVE environment -- use an environment variable?
+
 	- file url ("uploads/...") have to be prepended with "public/" on production??
 		- multiple file update/delete IS A PAIN -- look back later in more detail
 		- delete also doesn't work on topic forms
