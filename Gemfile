@@ -28,6 +28,13 @@ gem 'turbolinks'
 
 
 
+# upload files
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+
+
+
+
 ## functionality gems
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'mailchimp-api', require: 'mailchimp'
@@ -44,9 +51,6 @@ gem 'responders', '~> 2.1.0'
 
 # forums
 gem 'thredded', '~> 0.6.1'
-
-# upload files
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 
 # nice console printing
@@ -67,8 +71,16 @@ gem 'mysql2', '~> 0.3.18'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the local database for Active Record
 gem 'sqlite3'
+
+
+# exception handling
+gem 'exception_notification'
+
+# schedule cron jobs
+gem 'whenever', :require => false
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

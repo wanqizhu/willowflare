@@ -30,11 +30,18 @@ Rails.application.routes.draw do
   end
  
 
-
+  # static pages
+  get '/welcome' => 'application#welcome', as: 'welcome_index'
   get '/companies' => 'application#companies'
+
   get '/ourgames' => 'application#ourgames'
   get '/about' => 'application#about'
+
+  get '/private-policy' => 'application#private_policy'
+
   get '/home' => 'application#landing_page'
+
+
   get '/games' => 'application#games'
   post '/mail' => 'application#mail'
 

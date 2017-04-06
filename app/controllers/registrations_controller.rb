@@ -36,6 +36,16 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def store_confirm
+    if !current_user
+      if flash[:alert]
+        flash[:alert] += "\nYou're not logged in."
+      else
+        flash[:alert] = "You're not logged in."
+      end
+
+      redirect_to '/store' and return
+    end
+
     begin
       @item_num = params[:item].to_i
 
@@ -50,7 +60,7 @@ class RegistrationsController < Devise::RegistrationsController
       logger.error e.backtrace.join("\n") 
       logger.info "Not enough money\n\n"
       logger.info @item_num
-      logger.info current_user.money
+      logger.info current_user
       # error message
       if flash[:alert]
         flash[:alert] += "\nNot enough WillowPoints. Check the annoucement page for the newest updates and ways to earn rewards."
@@ -145,6 +155,16 @@ class RegistrationsController < Devise::RegistrationsController
     edit_user_registration_path
   end
 
+
+  # redirect to "welcome" page after sign-up; this is for email confirmations
+  def after_inactive_sign_up_path_for(resource)
+    welcome_index_path
+  end
+
+  # non-confirmations (e.g. OAuth)
+  def after_sign_up_path_for(resource)
+    welcome_index_path
+  end
 
 
 

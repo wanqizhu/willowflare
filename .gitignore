@@ -17,6 +17,7 @@
 /log/*
 !/log/.keep
 /tmp
+.byebug*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
@@ -27,6 +28,7 @@ db/schema.rb
 
 
 config/local_env.yml
+config/local_logs.txt
 
 config/survey*.txt
 

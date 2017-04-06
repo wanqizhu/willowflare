@@ -21,8 +21,8 @@ class Surveydatum < ActiveRecord::Base
 		end
 
 
-		survey_num = self.surveyresponse[len]
-		self.surveyresponse = 'Survey ' + self.surveyresponse[len..-1]
+		survey_num = self.surveyresponse[len..-1].scan(/\d+/)[0]  # extracts the first number (which may contain multiple digits, like 10)
+		self.surveyresponse = 'Survey_' + self.surveyresponse[len..-1]
 		
 		if 0 > survey_num.to_i or survey_num.to_i > ENV["MAX_SURVEY_NUM"].to_i
 			return
