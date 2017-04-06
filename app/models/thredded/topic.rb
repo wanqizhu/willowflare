@@ -5,7 +5,7 @@ module Thredded
 
   	# # carrier_wave uploader
   	# see post.rb Model
-  	mount_uploaders :images, ImagesUploader
+  	mount_uploaders :images, BlogImagesUploader
   	serialize :images, Array
 
   end

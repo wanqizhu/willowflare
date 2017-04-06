@@ -4,6 +4,7 @@
 <%= thredded_page do %>
   <section class="thredded--main-section thredded--messageboards">
     <% @groups.each do |group| %>
+
       <% if group.name.present? %>
         <h3><%= group.name %></h3>
       <% end %>

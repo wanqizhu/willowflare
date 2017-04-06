@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   # see STRONG validation in Device documentation
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # send additional data via exception_notifier gem in case of exceptions
+  before_filter :prepare_exception_notifier
+
 
   # saves the location before loading each page so we can return to the
   # right page. If we're on a devise page, we don't want to store that as the
@@ -49,7 +52,7 @@ class ApplicationController < ActionController::Base
 
   def games
     if !user_signed_in?
-      redirect_to '/home'
+      redirect_to '/home' and return
     else
       
       # call load_games
@@ -86,6 +89,10 @@ class ApplicationController < ActionController::Base
   end
 
 
+
+
+  # static pages
+
   def companies
     render :layout => false
   end
@@ -95,6 +102,15 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def welcome
+  end 
+
+
+  def private_policy
+  end
+
+
 
   def mail
     logger.info "company mail" + params[:name] + params[:email] + params[:org] + params[:game] + params[:app_store_link] + params[:google_play_link] + params[:message]
@@ -175,6 +191,13 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # send user data with the exception-notification email
+  def prepare_exception_notifier
+    request.env["exception_notifier.exception_data"] = {
+      :current_user => current_user
+    }
+  end
+
 
   def load_games
     # pre-registration numbers: count * mult + base
@@ -216,11 +239,22 @@ class ApplicationController < ActionController::Base
 
 
   def get_mobile_device_type
-    if request.env['HTTP_USER_AGENT'].downcase.match(/android/)
-      @device = "android"
-    elsif request.env['HTTP_USER_AGENT'].downcase.match(/iphone|ipod/)
-      @device = "ios"
-    else
+    # Not sure why we're still getting NIL errors
+    begin
+      if request.env['HTTP_USER_AGENT'].blank? or request.env['HTTP_USER_AGENT'] == nil
+        @device = "unknown"
+      elsif request.env['HTTP_USER_AGENT'].to_s.downcase.match(/android/)
+        @device = "android"
+      elsif request.env['HTTP_USER_AGENT'].to_s.downcase.match(/iphone|ipod/)
+        @device = "ios"
+      else
+        @device = "unknown"
+      end
+    rescue => e
+      logger.error e.message
+      logger.error e.backtrace.join("\n")
+      logger.info "application#get_mobile_device_type error: "
+      logger.info(request.env)
       @device = "unknown"
     end
     #puts @device 
