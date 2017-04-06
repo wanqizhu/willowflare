@@ -1,0 +1,117 @@
+
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button{ :type => "button", :class => "navbar-toggle", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      #logo.navbar-brand= link_to image_tag('logo_dark.png'), '/about'
+      #website_url www.willowflare.com
+      #eng_logo= image_tag('logo_dark.png')
+
+
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      %ul#topNavRight.nav.navbar-nav.navbar-right
+        %li.btn
+          %a(class="page-scroll" href="#contact")
+            %i.fa.fa-envelope-o
+            Contact us
+
+
+
+
+#page
+
+  %h2 One-stop shop to player insight and access to the entire China market
+
+  %h3 What are you waiting for? 
+
+
+  /= carousel_for(['abstract1.jpg', 'abstract2.jpg', 'abstract3.jpg'], {style: "width: auto; max-height: 500px !important;"})
+
+  .container#main
+
+    / START THE FEATURETTES
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        %h2.featurette-heading
+          Instant Access to Real Players
+          %br
+          %span.text-muted 
+        %p.lead In addition to asking your family and friends, what if you can access thousands of real players instantly. Players on WillowFlare platform are vocal. They will not hold back constructive feedback to your game and let you know what they really want. Show the best from you and you will get the most from the players.
+      .col-md-5
+        =image_tag("mobile_players.png", class: "featurette-image img-fluid center-block")
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7.col-md-push-5
+        %h2.featurette-heading
+          Quantatitive and Qualitative Data Analysis 
+          %br
+          %span.text-muted 
+        %p.lead When thousands pieces of feedback from real players are available, our experts can help you interpret them and turn the insightful feedback to actionale changes. All of our surveys are designed by market research experts and the data guru will dig deep into the result to improve the metrics you care the most. 
+      .col-md-5.col-md-pull-7
+        =image_tag("data_analytics.jpg", class: "featurette-image img-fluid center-block")
+    %hr.featurette-divider
+    .row.featurette
+      .col-md-7
+        %h2.featurette-heading
+          Welcome to China
+          %br
+          %span.text-muted 
+        %p.lead Which country has the largest population of mobile users? Which country is becoming the largest mobile game market? Your games are being viewed by hundruds of Chinese publishers everyday. We will take care of localization and marketing so that you can focus on building the best games!  
+      .col-md-5
+        =image_tag("chinese_publishers.png", class: "featurette-image img-fluid center-block")
+    %hr.featurette-divider
+
+
+    /END THE FEATURETTES
+
+
+    /=social_share_button_tag("test")
+
+
+
+%section#contact
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading Upload your game
+        %h3.section-subheading.text-muted Please send us your information and look forward to working with you soon!
+    .row
+      .col-lg-12
+        = form_tag "/mail", :id => "contactForm", :name => "sentMessage" do
+          .row
+            .col-md-3.col-md-offset-1
+              .form-group
+                %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Name", :required => "", :type => "text", :name => "name"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Email", :required => "", :type => "email", :name => "email"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#phone.form-control{:placeholder => "Company", :type => "text", :name => "org"}/
+                %p.help-block.text-danger
+
+              
+            .col-md-3
+              .form-group
+                %input#phone.form-control{:placeholder => "Game Name", :type => "text", :name => "game"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#phone.form-control{:placeholder => "App Store Link", :type => "text", :name => "app_store_link"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#phone.form-control{:placeholder => "Google Play Link", :type => "text", :name => "google_play_link"}/
+                %p.help-block.text-danger
+
+            .col-md-4
+              .form-group
+                %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Your Message", :required => "", :name => "message"}
+                %p.help-block.text-danger
+            .clearfix
+            .col-lg-12.text-center
+              #success
+              %button.btn.btn-xl{:type => "submit"} Submit

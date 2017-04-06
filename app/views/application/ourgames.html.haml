@@ -20,8 +20,8 @@
           - game = @ourgames[num]
           - link = @ourgames_appstore_links[num]
           - alt_link = @ourgames_googleplay_links[num]
-          - player_num = (@count * @mult[num] + @base[num]).round
-          - is_featured = (@ourgames_featured[num] == 1)
+          /- player_num = (@count * @mult[num] + @base[num]).round
+          / - is_featured = (@ourgames_featured[num] == 1)
           - android = !alt_link.blank?
           - ios = !link.blank?
 
@@ -29,12 +29,12 @@
 
             %li.games
               .product-img
-                - if is_featured
-                  / make the featured banner overlay the game icon
-                  / this is the ugliest string formatting ever lol -- rip Rails image paths
-                  =image_tag("featured_banner.png", :style => "background-image: url('" + image_path("/assets/files/games/"+game+"/icon.png") + "')", :class => "featured")
-                - else
-                  =image_tag("/assets/files/games/#{game}/icon.png")
+                / - if is_featured
+                /   / make the featured banner overlay the game icon
+                /   / this is the ugliest string formatting ever lol -- rip Rails image paths
+                /   =image_tag("featured_banner.png", :style => "background-image: url('" + image_path("/assets/files/games/"+game+"/icon.png") + "')", :class => "featured")
+                / - else
+                =image_tag("/assets/files/games/#{game}/icon.png")
 
                 - if android && !ios
                   - link = alt_link
@@ -79,42 +79,9 @@
               / %button.register(name="game" value=game type="submit")
               /   %a(href="") Earn Rewards
 
-              .price
-                .rounded-ft= player_num
-                / let's make this scale with number of players
-                %p Pre-registrations
+              / .price
+              /   .rounded-ft= player_num
+              /   / let's make this scale with number of players
+              /   %p Pre-registrations
 
               
-        / %li
-        /   .product-img
-        /     %img{:src => "images/pr-02.png"}/
-        /   .product-info
-        /     %h2 Car Rally
-        /     %h6 super sonic
-        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
-        /     %a{:href => ""} Pre-register
-        /   .price
-        /     .rounded-ft 4.2k
-        /     %p Pre-registrations
-        / %li
-        /   .product-img
-        /     %img{:src => "images/pr-03.png"}/
-        /   .product-info
-        /     %h2 Jumping here
-        /     %h6 super sonic
-        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
-        /   .price
-        /     .rounded-ft 4.2k
-        /     %p Pre-registrations
-        /     .sold-out
-        / %li
-        /   .product-img
-        /     %img{:src => "images/pr-04.png"}/
-        /   .product-info
-        /     %h2 Bio Shock
-        /     %h6 super sonic
-        /     %p Maecenas semper orci mi, vel suscipit eros pulvinar efficitur. Donec sed
-        /     %a{:href => ""} Pre-register
-        /   .price
-        /     .rounded-ft 4.2k
-        /     %p Pre-registrations
