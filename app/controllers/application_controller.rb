@@ -43,6 +43,9 @@ class ApplicationController < ActionController::Base
 
 
 
+  def about
+  end
+
 
   def games
     if !user_signed_in?
@@ -58,7 +61,6 @@ class ApplicationController < ActionController::Base
   end
 
   def ourgames
-
   end
 
 
@@ -199,17 +201,14 @@ class ApplicationController < ActionController::Base
       "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
       "", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
   
-    @ourgames = ["Legend of Tyroria","Venty"]
-    @ourgames_featured = [0, 1, 0, 0, 0, 0, 0, 0]
 
-    @ourgames_appstore_links = ["", "https://itunes.apple.com/us/app/clash-of-kings-cok/id945274928?mt=8", "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", "", "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", "",
-      "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
+
+    @ourgames = ["Legend of Tyroria","Venty"]
+
+    @ourgames_appstore_links = ["", ""]
 
     # default: Android
-    @ourgames_googleplay_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", "", 
-      "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
-      "", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
-  
+    @ourgames_googleplay_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", ""]
 
   end
 
