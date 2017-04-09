@@ -22,6 +22,7 @@
 @import "footer"; // taken out of landingPageStyle
 @import "welcome";
 @import "profile";
+@import "about";
 
 
 @charset "utf-8";
@@ -114,6 +115,7 @@ input:not([type="text"]):not([type="submit"]) {
 	font-size: 21px;
 }
 
+.welcome-text h1 {text-align: left;}
 
 
 /* games */
@@ -126,7 +128,7 @@ a.play_now[href=""] {background-color: gray !important;} // if the game is unava
 
 .product-info h6 {margin: 10px 0;}
 
-.product-info h2 {margin: 10px 0;}
+.product-info h2 {margin: 10px 0; text-align: left;}
 
 img.featured {background-size: cover;}
 
