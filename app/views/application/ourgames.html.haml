@@ -72,8 +72,8 @@
 
 
                   /- if is_featured
-                  %a.bug(href="blog/bug-bounty")
-                    Report a Bug
+                  / %a.bug(href="blog/bug-bounty")
+                  /   Report a Bug
 
 
               / %button.register(name="game" value=game type="submit")
@@ -84,4 +84,14 @@
               /   / let's make this scale with number of players
               /   %p Pre-registrations
 
-              
+
+        %li.games
+          .product-img
+            =image_tag("cmg.png")
+          .product-info
+            %h2 More Games Coming Soon!
+            %p
+              Feel free to explore all past games we've worked with. Want to see the active hot games?
+              %br
+              %a(href="/login#sign_up" style="margin: 0") Register Now
+              and discover your new favorite game!

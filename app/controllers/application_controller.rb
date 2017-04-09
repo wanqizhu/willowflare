@@ -210,29 +210,51 @@ class ApplicationController < ActionController::Base
     # @android = [1, 1, 0, 1, 1, 1]
     # @ios = [1, 0, 1, 0, 1, 1]
 
-    @surveys = ["https://goo.gl/forms/LByJEqNfoE6UVMpN2", "https://docs.google.com/forms/d/1DCo0-Rj6CW4cpp028s24kCZJUi8BzKvNp2vG6Ok-Zmk", "", "",
+    @surveys = ["https://goo.gl/forms/LByJEqNfoE6UVMpN2",
+      "https://docs.google.com/forms/d/1DCo0-Rj6CW4cpp028s24kCZJUi8BzKvNp2vG6Ok-Zmk", 
+      "", 
+      "",
       "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
       "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
-      "https://goo.gl/forms/d5GbPs9jcow7nAN02", ""]
+      "https://goo.gl/forms/d5GbPs9jcow7nAN02", 
+      ""]
 
     # default: iOS
-    @links = ["", "https://itunes.apple.com/us/app/clash-of-kings-cok/id945274928?mt=8", "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", "", "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", "",
-      "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
+    @links = ["", 
+      "https://itunes.apple.com/us/app/clash-of-kings-cok/id945274928?mt=8", 
+      "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", 
+      "", 
+      "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", 
+      "",
+      "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", 
+      "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
 
     # default: Android
-    @alt_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", "", 
-      "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
-      "", "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
+    @alt_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", 
+      "", 
+      "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", 
+      "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
+      "", 
+      "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", 
+      "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", 
+      "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
   
 
 
-    @ourgames = ["Legend of Tyroria","Venty"]
+    @ourgames = ["Legend of Tyroria", "Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Venty"]
 
-    @ourgames_appstore_links = ["", ""]
+    @ourgames_appstore_links = ["", 
+      "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", 
+      "", 
+      "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701",
+      ""]
 
     # default: Android
-    @ourgames_googleplay_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", ""]
-
+    @ourgames_googleplay_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", 
+     "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", 
+      "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
+      "",
+      ""]
   end
 
 
