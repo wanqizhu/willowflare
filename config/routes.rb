@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root to: "application#games"
   get '/games' => "application#games"
   post '/games' => "application#game_detail"
+  get '/games/:game_name' => "application#specific_game"
 
 
 
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
 
   get '/ourgames' => 'application#ourgames'
   get '/about' => 'application#about'
+  get '/about_us' => 'application#about'
 
   get '/private-policy' => 'application#private_policy'
 

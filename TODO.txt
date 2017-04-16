@@ -1,4 +1,7 @@
-	
+	- make all earn_reward buttons link to specific URL
+
+	- merge /companies with '/about'
+
 	- only send error emails on LIVE environment -- use an environment variable?
 
 	- file url ("uploads/...") have to be prepended with "public/" on production??
