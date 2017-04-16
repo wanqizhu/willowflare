@@ -27,6 +27,10 @@ html, body {
   }
 }
 
+
+.navbar-header {position: relative; z-index: 1} // to make the images clickable (and not be overlayed with .navbar-collapse)
+
+
 #website_url {
   color: #30D1E4;
   font-size: 27px;

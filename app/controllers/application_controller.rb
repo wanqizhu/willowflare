@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
 
   # load up games
-  before_action :load_games, :only => [:ourgames, :games, :game_detail]
+  before_action :load_games, :only => [:ourgames, :games, :game_detail, :specific_game]
 
 
 
@@ -47,45 +47,58 @@ class ApplicationController < ActionController::Base
 
 
   def about
+    if user_signed_in?
+      redirect_to root_path and return
+    end
   end
 
 
   def games
     if !user_signed_in?
+      if flash[:notice]
+        flash[:notice] += "Please sign in first!\n"
+      else
+        flash[:notice] = "Please sign in first!\n"
+      end
+
       redirect_to '/home' and return
     else
-      
-      # call load_games
-      
-
-      #flash[:notice] = "Games page is currently under construction. Please pardon our dust!"
-    #   redirect_to edit_user_registration_url
+      active_indices = @active.each_index.select{|i| @active[i] >= 1}  # array of indices, e.g. [0, 2, 6]
+      @games = @all_games.values_at(*active_indices)  # only feed in games that are active; * flattens the array
+      @is_active = true
     end
   end
 
   def ourgames
+    inactive_indices = @active.each_index.select{|i| @active[i] == 0}  # array of indices, e.g. [0, 2, 6]
+    @games = @all_games.values_at(*inactive_indices)  # only feed in games that are active; * flattens the array
+    @is_active = false
+
+    render 'games' 
   end
 
 
   def game_detail
-    # call load_games
     @game_num = params[:game_num].to_i
 
-    @game = @games[@game_num]
-    @survey = @surveys[@game_num]
-    @link = @links[@game_num]
-    @alt_link = @alt_links[@game_num]
+    prep_specific_game
+  end
 
-    @player_num = (@count * @mult[@game_num] + @base[@game_num]).round
-    @is_featured = (@featured[@game_num] == 1)
 
-    @is_android = !@alt_link.blank?
-    @is_ios = !@link.blank?
+  def specific_game
+    # find the corresponding game
+    @game_num = @all_games.index{|i| i.downcase == params[:game_name].gsub('_', ' ').downcase}
 
-    #@featured = params[:featured]
-    # gets all images of the form app-*.png to display on the game_detail page
-    @images = Dir.glob("public/assets/files/games/#{@game}/app-*.{jpg,png}")
-    # puts @images
+    puts @game_num
+
+    if @game_num.nil?
+      redirect_to '/games' and return
+    else
+      prep_specific_game
+
+      render 'game_detail'
+    end
+
   end
 
 
@@ -202,11 +215,15 @@ class ApplicationController < ActionController::Base
   def load_games
     # pre-registration numbers: count * mult + base
     @count = User.count
-    @mult = [6.5, 0.7, 1.9, 0.9, 0.4, 0.75, 4.7]
-    @base = [2350, 1100, 1337, 840, 750, 2000, 531]
+    @mult = [6.5, 0.7, 1.9, 0.9, 0.4, 0.75, 4.7, 2, 3]
+    @base = [2350, 1100, 1337, 840, 750, 2000, 531, 1200, 800]
 
-    @games = ["Legend of Tyroria", "Clash of Kings"] #, "Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", "League of Angels", "Loong Craft"]
-    @featured = [1, 0, 0, 0, 0, 0, 0, 0]
+    @all_games = ["Legend of Tyroria", "Clash of Kings", "Emperor of Chaos", 
+              "Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", 
+              "League of Angels", "Loong Craft", "Venty"]
+    @active = [1, 1, 0, 0, 0, 0, -1, 0, 0]
+
+    @featured = [1, 0, 0, 0, 0, 0, 0, 0, 1]
     # @android = [1, 1, 0, 1, 1, 1]
     # @ios = [1, 0, 1, 0, 1, 1]
 
@@ -217,6 +234,7 @@ class ApplicationController < ActionController::Base
       "https://docs.google.com/forms/d/e/1FAIpQLScjekG2LvvI8bng7HFKiLrgt6WecIXsbMoTjunSqEBgzl0NHg/viewform",
       "https://docs.google.com/forms/d/e/1FAIpQLSdmqT-LGph1lYTUTYNcU8VxyqdbIRh-XFv2OvgSfd2-EGBzIg/viewform",
       "https://goo.gl/forms/d5GbPs9jcow7nAN02", 
+      "",
       ""]
 
     # default: iOS
@@ -227,7 +245,8 @@ class ApplicationController < ActionController::Base
       "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701", 
       "",
       "https://itunes.apple.com/us/app/league-of-angels-fire-raiders/id930452496", 
-      "https://itunes.apple.com/ph/app/loong-craft/id1104555626"]
+      "https://itunes.apple.com/ph/app/loong-craft/id1104555626",
+      ""]
 
     # default: Android
     @alt_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", 
@@ -237,27 +256,47 @@ class ApplicationController < ActionController::Base
       "", 
       "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", 
       "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", 
-      "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en"]
+      "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en",
+      ""]
   
 
 
-    @ourgames = ["Legend of Tyroria", "Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Venty"]
+    # @ourgames = ["Legend of Tyroria", "Emperor of Chaos", "Realm of Doom", "Mr. Q's Magnetic Adventure", "Venty"]
 
-    @ourgames_appstore_links = ["", 
-      "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", 
-      "", 
-      "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701",
-      ""]
+    # @ourgames_appstore_links = ["", 
+    #   "https://itunes.apple.com/gb/app/emperor-of-chaos/id1173389729?mt=8", 
+    #   "", 
+    #   "https://itunes.apple.com/ph/app/mr.-q-magnetic-cube-arcade/id1140688701",
+    #   ""]
 
-    # default: Android
-    @ourgames_googleplay_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", 
-     "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", 
-      "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
-      "",
-      ""]
+    # # default: Android
+    # @ourgames_googleplay_links = ["https://app.appsflyer.com/com.stgl.global?pid=willowflare&c=willowflare_stgl_us_2_other_testcampaign", 
+    #  "https://play.google.com/store/apps/details?id=com.zloong.eu.eoc", 
+    #   "https://play.google.com/store/apps/details?id=com.catmintgame.doomsday.googleplay&referrer=utm_source%3Dwillowflare%26utm_campaign%3Dwillowflarerealm",
+    #   "",
+    #   ""]
   end
 
+  def prep_specific_game
 
+    @game = @all_games[@game_num]
+    @survey = @surveys[@game_num]
+    @link = @links[@game_num]
+    @alt_link = @alt_links[@game_num]
+
+    @player_num = (@count * @mult[@game_num] + @base[@game_num]).round
+    @is_featured = (@featured[@game_num] == 1)
+    @is_active = (@active[@game_num] >= 1)
+
+    @is_android = !@alt_link.blank?
+    @is_ios = !@link.blank?
+
+    #@featured = params[:featured]
+    # gets all images of the form app-*.png to display on the game_detail page
+    @images = Dir.glob("public/assets/files/games/#{@game}/app-*.{jpg,png}")
+    # puts @images
+
+  end
 
 
   def get_mobile_device_type

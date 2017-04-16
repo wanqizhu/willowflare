@@ -40,8 +40,8 @@
             %span.icon-bar
             %span.icon-bar
           #logo.navbar-brand= link_to image_tag('ChineseLogo.png'), '/companies'
-          #website_url www.willowflare.com
-          #eng_logo= image_tag('logo_dark.png')
+          #website_url= link_to "www.willowflare.com", root_path
+          #eng_logo= link_to image_tag('logo_dark.png'), root_path
 
 
         .collapse.navbar-collapse.navbar-ex1-collapse

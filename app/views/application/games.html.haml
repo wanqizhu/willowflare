@@ -1,4 +1,6 @@
-#games
+- is_active = @is_active
+
+#games{:class => (is_active ? "active_games" : "inactive_games")}
   .info-banner(style="margin-top: 0px;")
   / remove the whitespace on top
   .search-sec(style="display:none;")
@@ -18,6 +20,8 @@
 
         - for num in (0..(@games.length - 1))
           - game = @games[num]
+          - num = @all_games.index(game)
+
           - survey = @surveys[num]
           - link = @links[num]
           - alt_link = @alt_links[num]
@@ -56,10 +60,6 @@
 
                 = form_tag '/games', :method => :post do
                   %input(type="hidden" name="game_num" value=num)
-                  / %input(type="hidden" name="survey" value=survey)
-                  / %input(type="hidden" name="link" value=link)
-                  / %input(type="hidden" name="player_num" value=player_num)
-                  / %input(type="hidden" name="is_featured" value=is_featured)
 
                   
                   .links
@@ -75,18 +75,18 @@
                     %a Earn Rewards
 
 
-                  - if is_featured
+                  - if is_active && is_featured
                     %a.bug(href="blog/bug-bounty")
                       Report a Bug
 
 
-              / %button.register(name="game" value=game type="submit")
-              /   %a(href="") Earn Rewards
+              
 
-              .price
-                .rounded-ft= player_num
-                / let's make this scale with number of players
-                %p Pre-registrations
+              - if is_active
+                .price
+                  .rounded-ft= player_num
+                  / let's make this scale with number of players
+                  %p Pre-registrations
 
               
         %li.games
@@ -94,4 +94,14 @@
             =image_tag("cmg.png")
           .product-info
             %h2 More Games Coming Soon!
-            %p Why do we only have one game per device? Because we want you to focus on a few games at a time -- but don't worry, we will release new content every week with new chances to earn rewards, so hang tight & keep checking back!
+
+            %p
+              - if is_active
+                Why do we only have one game per device? Because we want you to focus on a few games at a time -- but don't worry, we will release new content every week with new chances to earn rewards, so hang tight & keep checking back!
+
+              - else
+                Feel free to explore all past games we've worked with. Want to see the active hot games?
+                %br
+                %br
+                %a(href="/login#sign_up" style="margin: 0") Register Now
+              and discover your new favorite game!
