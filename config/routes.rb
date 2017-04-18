@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/games' => "application#games"
   post '/games' => "application#game_detail"
   get '/games/:game_name' => "application#specific_game"
+  get '/ourgames/:game_name' => redirect('/games/%{game_name}')
 
 
 

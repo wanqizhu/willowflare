@@ -72,7 +72,11 @@
                         %a(href=alt_link onclick="trackOutboundLink('#{alt_link}'); return false;" target="_blank") Android
 
                   %button.register(type="submit")
-                    %a Earn Rewards
+                    %a 
+                      - if is_active
+                        Earn Rewards
+                      - else
+                        More info
 
 
                   - if is_active && is_featured
