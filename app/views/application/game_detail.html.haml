@@ -51,20 +51,22 @@
                   %a(href=@alt_link onclick="trackOutboundLink('#{@alt_link}'); return false;" target="_blank") Android
 
 
-            %a.rewards(href=@survey onclick="trackOutboundLink('#{@survey}'); return false;")
-              - if @survey != ""
-                Complete Survey for Rewards!
-              - else
-                Surveys Coming Soon
-            // drop-down list of surveys
+            - if @is_active
+              %a.rewards(href=@survey onclick="trackOutboundLink('#{@survey}'); return false;")
+                - if @survey != ""
+                  Complete Survey for Rewards!
+                - else
+                  Surveys Coming Soon
+              // drop-down list of surveys
 
-            - if @is_featured
+            - if @is_active && @is_featured
               %a.bug(href="blog/bug-bounty")
                 Report a Bug
           
-          .price
-            .rounded-ft= @player_num
-            %p Pre-registrations
+          - if @is_active
+            .price
+              .rounded-ft= @player_num
+              %p Pre-registrations
 
 
     .detail-block

@@ -55,9 +55,7 @@ class ApplicationController < ActionController::Base
 
   def games
     if !user_signed_in?
-      if flash[:notice]
-        flash[:notice] += "Please sign in first!\n"
-      else
+      if !flash[:notice]  # only show if we're not showing other msgs (e.g. sign out goodbye)
         flash[:notice] = "Please sign in first!\n"
       end
 
@@ -220,7 +218,7 @@ class ApplicationController < ActionController::Base
 
     @all_games = ["Legend of Tyroria", "Clash of Kings", "Emperor of Chaos", 
               "Realm of Doom", "Mr. Q's Magnetic Adventure", "Tap Knights", 
-              "League of Angels", "Loong Craft", "Venty"]
+              "League of Angels", "Loong Craft", "Venti"]
     @active = [1, 1, 0, 0, 0, 0, -1, 0, 0]
 
     @featured = [1, 0, 0, 0, 0, 0, 0, 0, 1]
@@ -257,7 +255,7 @@ class ApplicationController < ActionController::Base
       "https://play.google.com/store/apps/details?id=cn.bettergame.tapknights", 
       "https://play.google.com/store/apps/details?id=com.gtarcade.loa.ph", 
       "https://play.google.com/store/apps/details?id=com.ujoy.d6en&hl=en",
-      ""]
+      "https://play.google.com/store/apps/details?id=com.gravitygame.bitwenty&hl=en"]
   
 
 
