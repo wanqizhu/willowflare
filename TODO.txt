@@ -4,19 +4,13 @@
 
 	- only send error emails on LIVE environment -- use an environment variable?
 
-	- file url ("uploads/...") have to be prepended with "public/" on production??
-		- multiple file update/delete IS A PAIN -- look back later in more detail
-		- delete also doesn't work on topic forms
-
+	
 	- Email notification for the players after clicking the play now
-
-	- List of past games
 
 	- restrict image size?
 
 
-	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
-		- mobile styles
+	
 
 
 	- arrows on game-detail page carousel of images NOT WORKING
@@ -27,11 +21,9 @@
 
 	- make /welcome infographc & its overlaied links scallable (maybe use %'s?)
 
-
 	- FAQ section, esp. on user issues like invalid token/didn't get confirmation email
 
 	- look into? errors with encoding certain characters -- http://stackoverflow.com/questions/10957238/incorrect-string-value-when-trying-to-insert-utf-8-into-mysql-via-jdbc
-
 
 
 	- style the "delete your account" option on account page
@@ -40,6 +32,7 @@
 
 	- style resend-confirmation-email page
 		- style store-confirm page
+		- forget_password
 
 	- terms & services
 
@@ -51,6 +44,19 @@
 
 
 	- Look at MixPixel: https://mixpanel.com/report/1179014/setup/
+
+
+# forum
+
+	- file url ("uploads/...") have to be prepended with "public/" on production??
+		- multiple file update/delete IS A PAIN -- look back later in more detail
+		- delete also doesn't work on topic forms
+
+
+# blog
+
+	- blog aesthetics -- the list of tags/categories isn't displaying properly on big screens; landing page looks off
+		- mobile styles
 
 
 # quick things
@@ -65,14 +71,9 @@
 	
 - figure out why there are "MISSING favicon.ico" log messages
 
-- why is precompiling assets running out of memory (w/o dump file) on aws deploy?
-	- Tried clearing /tmp folder; check if that's the problem
-
 - more secure way to integrate surveys
 - more readable/analytical way to store survey results
 
-
-- integrate the forget_password etc. pages in Devise with new style
 
 
 - Merge landingpage.css/js with the main application css/js
