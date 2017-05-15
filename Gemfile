@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-ruby ENV['LIVE_RUBY_VERSION'] || ENV['LOCAL_RUBY_VERSION'] || '2.1.9'
-
+ruby ENV['LIVE_RUBY_VERSION'] || ENV['LOCAL_RUBY_VERSION'] || '2.4.1'
 
 
 ## frontend design gems

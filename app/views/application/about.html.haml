@@ -1,12 +1,19 @@
-.container#about-page
-  
-  .titles
-    %h2 How it Works
-    %h3 An overview for playing and testing games on WillowFlare
+.about_us
+  .container
+    .col-md-12.text-center 
+      %br
+      %h2 One-stop shop to player insight and 
+      %h2 access to the entire China market
+      %h3 What are you waiting for?
+      %a(class="btn btn-grey" href="#contact") Upload Game
 
 
 
+#about-page
 
+  / .titles
+  /   %h2 How it Works
+  /   %h3 An overview for playing and testing games on WillowFlare
   .detail-block
     .tabbing
       .tabs.tabs_style_default{"data-tabs-role" => "tabs"}
@@ -14,6 +21,7 @@
           .tabs__head
             %button.tabs__tab{"data-tabs-role" => "tab", "data-tabs-target" => "devs", :type => "button"} If you're a developer
             %button.tabs__tab{"data-tabs-role" => "tab", "data-tabs-target" => "players", :type => "button"} If you're a player
+  
         .tabs__body
           .tabs__pane{"data-tabs-id" => "devs"}
             = render 'application/developers_about'
