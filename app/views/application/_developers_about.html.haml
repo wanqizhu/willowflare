@@ -1,7 +1,9 @@
 
 .container-fluid#video(style="margin: 35px;")
   .embed-responsive.embed-responsive-16by9
-    = video_tag('WF_english_promo.mov', :class => 'embed-responsive-item', :controls => "", :type => "video/mov")
+    // english promo video
+    %iframe(width="560" height="315" src="https://www.youtube.com/embed/6B0j_LNxWSk?ecver=1" frameborder="0" allowfullscreen)
+    //= video_tag('https://www.youtube.com/embed/6B0j_LNxWSk?ecver=1', :class => 'embed-responsive-item', :controls => "", :type => "video/mp4")
 
 
 / START THE FEATURETTES
