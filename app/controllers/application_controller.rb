@@ -105,7 +105,6 @@ class ApplicationController < ActionController::Base
   # static pages
 
   def companies
-    render :layout => false
   end
 
   def landing_page

@@ -1,3 +1,5 @@
+@import "global";
+
 html, body {
   background: none; /* white background */
   background-color: white;
@@ -106,10 +108,10 @@ html, body {
 
 
 #video {
-  margin-top: 90px;
+  margin-top: 0px;
 
   @media(max-width: 767px) {
-    margin-top: 50px;
+    margin-top: 0px;
   }
 }
 
@@ -117,8 +119,29 @@ html, body {
 
 #main {
   padding-top: 20px;
-  font-family: "Microsoft Yahei","微软雅黑", STXihei, "华文细黑";
+  font-family: "Work Sans", Arial, sans-serif;
+   p {
+    font-family: "Work Sans", Arial, sans-serif;
+    margin-bottom: 1.5em;
+    margin: 0 0 10px;
+    font-size: 17px;
+    color: #777777;
+    font-weight: 400;
+    line-height: 1.8;
+  }
 
+  h2{
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+     font-size: 36px;
+     color: #000;
+  }
+  h3{
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+     font-size: 30px;
+     color: #393e46;
+  }
   @media(min-width: 768px) {
     width: 80%;
     margin: 0 auto;
