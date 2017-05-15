@@ -6,6 +6,7 @@
   margin-right: 0px;
   padding-right: 0px;
   padding-left: 0px;
+  width: 100%;
 
   .detail-block {
     margin-top: 45px;
@@ -192,6 +193,12 @@ section#contact {
 section#contact .section-heading {
   color: white;
 }
+section#contact .section-subheading {
+  color: $willow;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
 section#contact .form-group {
   margin-bottom: 25px;
 }
