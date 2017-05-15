@@ -3,6 +3,11 @@
 
   %h3 What are you waiting for? 
 
+.container-fluid#video(style="margin: 35px;")
+  .embed-responsive.embed-responsive-16by9
+    = video_tag('WF_english_promo.mov', :class => 'embed-responsive-item', :controls => "", :type => "video/mov")
+
+
 / START THE FEATURETTES
 %hr.featurette-divider
 .row.featurette
