@@ -1,36 +1,22 @@
+/%head
 
+/   %meta{ :name => "description", :content => "WillowFlare: Mobile Gaming, Reimagined."}
+/   %meta{ :name => "author", :content => "Wanqi Zhu"}
+/   %meta{ :name => "keywords", :content => "willow, flare, willowflare, mobile game, mobile gaming, feedback, reward, 昱炎"}
+/   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
+/   %meta{ :charset => "UTF-8"}
 
+/   %title 昱炎 - WillowFlare
+/   / prevent announcement popups for companies
 
+/   / :javascript
+/   /   sessionStorage.setItem('visited', 1);
 
-/ %html
-/   %head
+/ = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
-/     %meta{ :name => "description", :content => "WillowFlare: Mobile Gaming, Reimagined."}
-/     %meta{ :name => "author", :content => "Wanqi Zhu"}
-/     %meta{ :name => "keywords", :content => "willow, flare, willowflare, mobile game, mobile gaming, feedback, reward, 昱炎"}
-/     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
-/     %meta{ :charset => "UTF-8"}
+/ = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
+/ = stylesheet_link_tag 'companies', media: 'all', 'data-turbolinks-track' => true
 
-/     %title 昱炎 - WillowFlare
-/     / prevent announcement popups for companies
-
-/     :javascript
-/       sessionStorage.setItem('visited', 1);
-
-/     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-
-/     = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
-
-= stylesheet_link_tag 'companies', media: 'all', 'data-turbolinks-track' => true
-
-
-/     = favicon_link_tag 'favicon.png'
-
-/     %link{ :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}
-
-/     %link{ :href => 'http://fonts.googleapis.com/css?family=Kaushan+Script', :rel => 'stylesheet', :type => 'text/css'}
-
-/     %link{ :href => 'http://fonts.googleapis.com/css?family=Nunito:300,400,700|Droid+Sans:400,700', :rel => 'stylesheet', :type=> 'text/css'}
 
 
 
@@ -46,73 +32,64 @@
     .embed-responsive.embed-responsive-16by9
       = video_tag('chinese_promo_video.mp4', :class => 'embed-responsive-item', :controls => "", :type => "video/mp4")
 
-.detail
-  - flash.each do |name, msg|
-    - if msg != nil and !msg.empty?
-      .alert.alert-info{:class => "alert-#{name}"}= msg
+/ #main
+.container
+  / START THE FEATURETTES
+  %hr.featurette-divider
+  .row.featurette
+    .col-md-7
+      %h2.featurette-heading
+        不仅仅是本地化，而是深度文化契合
+        %br
+        %span.text-muted 靠谱的翻译和美术难找？ 中西方文化差异太大？
+      %p.lead 我们的翻译团队由真正的双语玩家组成，他们的任务绝不仅仅是将中文翻译成英文，而是在翻译过程中根据每个游戏特质将几十年积累的西方游戏文化融入到本地化过程中，提供给客户真正的深度优化。我们与北美本地美工和开发团队合作，提供UI，人物，内容，美术和商店描述的全面服务，调出真正符合北美玩家口味的游戏。
+    .col-md-5
+      =image_tag("games2.jpg", class: "img-feature-1")
+  %hr.featurette-divider
+  .row.featurette
+    .col-md-7.col-md-push-5
+      %h2.featurette-heading
+        北美玩家真人众测，倒量预热。
+        %br
+        %span.text-muted 改什么？怎么改？自然量从哪来？
+      %p.lead 北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。
+    .col-md-5.col-md-pull-7
+      =image_tag("games1.jpg", class: "img-feature-1")
+  %hr.featurette-divider
+  .row.featurette
+    .col-md-7
+      %h2.featurette-heading
+        新兴推广渠道，低价高回报。
+        %br
+        %span.text-muted 怎样地推？找谁发行？
+      %p.lead 一切以数据为准！ 根据数据分析玩家的喜好和市场规律，我们为客户量身打造详细的推广计划并推荐最适合的渠道。 经过多年的实践，我们积累了一个北美发行和推广渠道的“藏宝图”。游戏的前期数据就是藏宝图上的路标，我们会根据游戏特有的性质，和客户并肩战斗去争取最高的ROI。我们的宗旨是做客户在北美的合作伙伴，只有当客户盈利时我们才盈利。
+    .col-md-5
+      =image_tag("publishing.jpg", class: "img-feature-1")
+  %hr.featurette-divider
 
 
-%nav.navbar.navbar-default
-  .container#main
-    / START THE FEATURETTES
-    %hr.featurette-divider
-    .row.featurette
-      .col-md-7
-        %h2.featurette-heading
-          不仅仅是本地化，而是深度文化契合
-          %br
-          %span.text-muted 靠谱的翻译和美术难找？ 中西方文化差异太大？
-        %p.lead 我们的翻译团队由真正的双语玩家组成，他们的任务绝不仅仅是将中文翻译成英文，而是在翻译过程中根据每个游戏特质将几十年积累的西方游戏文化融入到本地化过程中，提供给客户真正的深度优化。我们与北美本地美工和开发团队合作，提供UI，人物，内容，美术和商店描述的全面服务，调出真正符合北美玩家口味的游戏。
-      .col-md-5
-        =image_tag("games2.jpg", class: "img-feature-1")
-    %hr.featurette-divider
-    .row.featurette
-      .col-md-7.col-md-push-5
-        %h2.featurette-heading
-          北美玩家真人众测，倒量预热。
-          %br
-          %span.text-muted 改什么？怎么改？自然量从哪来？
-        %p.lead 北美市场早已进入精品化时代，像COK这样的成功案例告诉我们，了解北美玩家的喜好，根据玩家需求不停地迅速迭代更新才是制胜之道。现在再也不用去新西兰或者加拿大找少量的玩家测试了，我们不仅仅提供前期倒量，更重要的是我们平台的玩家还会提供最细致的反馈和数据，加上本地专家的多年经验，我们提供的修改意见已经经过了市场的考验。北美最好的推广模式莫过于口耳相传，质量提高了，好酒不怕巷子深。
-      .col-md-5.col-md-pull-7
-        =image_tag("games1.jpg", class: "img-feature-1")
-    %hr.featurette-divider
-    .row.featurette
-      .col-md-7
-        %h2.featurette-heading
-          新兴推广渠道，低价高回报。
-          %br
-          %span.text-muted 怎样地推？找谁发行？
-        %p.lead 一切以数据为准！ 根据数据分析玩家的喜好和市场规律，我们为客户量身打造详细的推广计划并推荐最适合的渠道。 经过多年的实践，我们积累了一个北美发行和推广渠道的“藏宝图”。游戏的前期数据就是藏宝图上的路标，我们会根据游戏特有的性质，和客户并肩战斗去争取最高的ROI。我们的宗旨是做客户在北美的合作伙伴，只有当客户盈利时我们才盈利。
-      .col-md-5
-        =image_tag("publishing.jpg", class: "img-feature-1")
-    %hr.featurette-divider
+  /END THE FEATURETTES
 
 
-    /END THE FEATURETTES
+  .row.circles
+    .col-md-4
+      =image_tag("abstract1.jpg", class: "img-circle center", style: "width: 140px; height: 140px;")
+      %h2 北美玩家知识
+      %p 从语言和美术的本地化到测试，买量和地推，海外市场信息繁杂，真伪难辨，我们能让你顺利度过每一个环节。大家都知道北美市场“人傻钱多”，玩家忠诚度高，付费成熟，但对游戏质量的要求也非常高。我们能帮你拿到最重要的那一桶金。
+      
 
+    .col-md-4
+      =image_tag("abstract2.jpg", class: "img-circle center", style: "width: 140px; height: 140px;")
+      %h2 专家团队
+      %p 我们的获奖团队不但是由北美顶级商学院的MBA组成，对北美消费者习惯，手游推广渠道，以及市场宣传有多年的经验和深入的理解。我们的合作方都是有着十多年经验的北美本地开发团队和发行渠道，本着“沟通、合作，双赢”的理念，我们要做您的团队在北美的延伸。您的游在北美取得成功， 我们才成功。
+      
 
-    .row.circles
-      .col-md-4
-        =image_tag("abstract1.jpg", class: "img-circle center", style: "width: 140px; height: 140px;")
-        %h2 北美玩家知识
-        %p 从语言和美术的本地化到测试，买量和地推，海外市场信息繁杂，真伪难辨，我们能让你顺利度过每一个环节。大家都知道北美市场“人傻钱多”，玩家忠诚度高，付费成熟，但对游戏质量的要求也非常高。我们能帮你拿到最重要的那一桶金。
-        
+    .col-md-4
+      =image_tag("abstract3.jpg", class: "img-circle center", style: "width: 140px; height: 140px;")
+      %h2 一站式服务
+      %p 从如何将欧美游戏文化融合到游戏中开始，我们能帮你做到真正的深度本地化，让游戏密切贴合北美玩家的口味。我们会为每一款游戏量身定做一个北美出海攻略， 利用以数据为导向的系统分析发掘最经济实用的发行渠道帮助您规避风险，提高效率，从此以后再也不用隔空猜测怎样改游戏，怎样发游戏。
+    
 
-      .col-md-4
-        =image_tag("abstract2.jpg", class: "img-circle center", style: "width: 140px; height: 140px;")
-        %h2 专家团队
-        %p 我们的获奖团队不但是由北美顶级商学院的MBA组成，对北美消费者习惯，手游推广渠道，以及市场宣传有多年的经验和深入的理解。我们的合作方都是有着十多年经验的北美本地开发团队和发行渠道，本着“沟通、合作，双赢”的理念，我们要做您的团队在北美的延伸。您的游在北美取得成功， 我们才成功。
-        
-
-      .col-md-4
-        =image_tag("abstract3.jpg", class: "img-circle center", style: "width: 140px; height: 140px;")
-        %h2 一站式服务
-        %p 从如何将欧美游戏文化融合到游戏中开始，我们能帮你做到真正的深度本地化，让游戏密切贴合北美玩家的口味。我们会为每一款游戏量身定做一个北美出海攻略， 利用以数据为导向的系统分析发掘最经济实用的发行渠道帮助您规避风险，提高效率，从此以后再也不用隔空猜测怎样改游戏，怎样发游戏。
-        
-
-
-
-    /=social_share_button_tag("test")
 
 
 
@@ -159,36 +136,36 @@
               %button.btn.btn-xl{:type => "submit"} 发送
 
 
-    / %footer
-    /   .container
-    /     .row
-    /       .col-md-4
-    /         %span.copyright Copyright © WillowFlare 2016
-    /       .col-md-4
-    /         %ul.list-inline.social-buttons
-    /           %li
-    /             %a{:href => "mailto:info@willowflare.com"}
-    /               %i.fa.fa-envelope
-    /           %li
-    /             %a{:href => "https://twitter.com/WillowFlare"}
-    /               %i.fa.fa-twitter
-    /           %li
-    /             %a{:href => "https://www.facebook.com/Willowflare-518689994959123/"}
-    /               %i.fa.fa-facebook
-    /       .col-md-4
-    /         %ul.list-inline.quicklinks
-    /           %li
-    /             %a.popupButton(imageSrc="TermsofUse.jpg" img_width="600px")< Terms & Privacy
+  / %footer
+  /   .container
+  /     .row
+  /       .col-md-4
+  /         %span.copyright Copyright © WillowFlare 2016
+  /       .col-md-4
+  /         %ul.list-inline.social-buttons
+  /           %li
+  /             %a{:href => "mailto:info@willowflare.com"}
+  /               %i.fa.fa-envelope
+  /           %li
+  /             %a{:href => "https://twitter.com/WillowFlare"}
+  /               %i.fa.fa-twitter
+  /           %li
+  /             %a{:href => "https://www.facebook.com/Willowflare-518689994959123/"}
+  /               %i.fa.fa-facebook
+  /       .col-md-4
+  /         %ul.list-inline.quicklinks
+  /           %li
+  /             %a.popupButton(imageSrc="TermsofUse.jpg" img_width="600px")< Terms & Privacy
 
 
-    / hidden popup
-    / #infographicPopup.flex-container.center
-    /   %img#infographicImage
-    /   #popupContainer
-    /     - if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank?
-    /       #newsContainer
-    /         .box-wrapper.icon
-    /           .box-icon
-    /             = image_tag("treasure.png")
-    /           .box
-    /             = ENV["GLOBAL_POPUP_NEWS"].html_safe
+  / hidden popup
+  / #infographicPopup.flex-container.center
+  /   %img#infographicImage
+  /   #popupContainer
+  /     - if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank?
+  /       #newsContainer
+  /         .box-wrapper.icon
+  /           .box-icon
+  /             = image_tag("treasure.png")
+  /           .box
+  /             = ENV["GLOBAL_POPUP_NEWS"].html_safe
