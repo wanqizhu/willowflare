@@ -93,7 +93,7 @@ header {background: none;}
 
 #pagination {
 	border: none;
-	margin-bottom: 45px;
+	margin-bottom: 145px;
 
 	a {color: #f39b13;}
 }
@@ -115,6 +115,9 @@ header {background: none;}
 
 
 /* sidebar */
+
+
+.sidebar {display: none !important;} // doesn't render properly; need to look into later
 
 @media(min-width: 959px) {
 

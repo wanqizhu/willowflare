@@ -55,9 +55,9 @@ class ApplicationController < ActionController::Base
 
   def games
     if !user_signed_in?
-      if !flash[:notice]  # only show if we're not showing other msgs (e.g. sign out goodbye)
-        flash[:notice] = "Please sign in first!\n"
-      end
+      # if !flash[:notice]  # only show if we're not showing other msgs (e.g. sign out goodbye)
+      #   flash[:notice] = "Please sign in first!\n"
+      # end
 
       redirect_to '/home' and return
     else

@@ -15,14 +15,6 @@ hr {
   color: #eee;
 }
 
-#forum_announcement {
-  left: 0%;
-  width: 100%;
-
-  .box-icon:after {
-    display: none;
-  }
-}
 
 // top left, "Welcome __username__"
 #navGreeting {
@@ -33,9 +25,20 @@ hr {
 }
 
 #forum_announcement {
+
+  left: 0%;
+  width: 100%;
+
+
+
+  .box-icon:after {
+    display: none;
+  }
+
   .box-icon {
-    margin-top: 20px;
     margin-left: 50px;
+    max-width: 600px;
+    margin-top: 45px;
   }
 
   .box {
