@@ -17,16 +17,35 @@
 / = stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true
 / = stylesheet_link_tag 'companies', media: 'all', 'data-turbolinks-track' => true
 
-
+/ .collapse.navbar-collapse.navbar-ex1-collapse
+/           %ul#topNavRight.nav.navbar-nav.navbar-right
+/             %li.btn
+/               %a(class="page-scroll" href="#contact")
+/                 %i.fa.fa-envelope-o
+/                 上传游戏
 
 
 / %body
+:javascript
+  $(function() {
+      $('a.page-scroll').bind('click', function(event) {
+          var $anchor = $(this);
+          $('html, body').stop().animate({
+              scrollTop: $($anchor.attr('href')).offset().top
+          }, 1500, 'easeInOutExpo');
+          event.preventDefault();
+      });
+  });
 .about_us
   .container
     .col-md-12.text-center 
       %h2 一站式，个性化的手游出海解决方案  
       %h3 在美国的我们比任何人都了解北美手游玩家和市场。 
-      %a(class="btn btn-grey" href="#contact") 上传游戏
+      %a.page-scroll.btn.btn-grey(href="#contact") 上传游戏
+
+
+
+      / %a(class="btn btn-grey" href="#contact") 上传游戏
 #page
   .container-fluid#video
     .embed-responsive.embed-responsive-16by9
@@ -134,7 +153,7 @@
             .col-lg-12.text-center
               #success
               %button.btn.btn-xl{:type => "submit"} 发送
-
+              / %a.page-scroll.btn.btn-grey(href="#top") goback
 
   / %footer
   /   .container

@@ -108,10 +108,10 @@ html, body {
 
 
 #video {
-  margin-top: 0px;
+  margin-top: 40px;
 
   @media(max-width: 767px) {
-    margin-top: 0px;
+    margin-top: 20px;
   }
 }
 
@@ -253,7 +253,7 @@ section h3.section-subheading {
 }
 
 
-section#contact {
+section {
   background-color: #222222;
   background-image: image-url('map-image.png');
   background-position: center;
@@ -271,58 +271,58 @@ section#contact {
   position: static;
 }
 
-section#contact .section-heading {
+section .section-heading {
   color: white;
 }
-section#contact .form-group {
+section .form-group {
   margin-bottom: 25px;
 }
-section#contact .form-group input,
-section#contact .form-group textarea {
+section .form-group input,
+section .form-group textarea {
   padding: 20px;
 }
-section#contact .form-group input.form-control {
+section .form-group input.form-control {
   height: auto;
 }
-section#contact .form-group textarea.form-control {
+section .form-group textarea.form-control {
   height: 236px;
 }
-section#contact .form-control:focus {
+section .form-control:focus {
   border-color: #fed136;
   box-shadow: none;
 }
-section#contact ::-webkit-input-placeholder {
+section ::-webkit-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section#contact :-moz-placeholder {
+section :-moz-placeholder {
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section#contact ::-moz-placeholder {
+section ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section#contact :-ms-input-placeholder {
+section :-ms-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section#contact .text-danger {
+section .text-danger {
   color: #e74c3c;
 }
 
 /* send email button */
-section#contact .btn-xl {
+section .btn-xl {
   color: #ffffff;
   background-color: #fed136;
   border-color: #fed136;

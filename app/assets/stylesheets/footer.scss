@@ -30,3 +30,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262525', end
 .tags > span:hover, .tags > span.active{background:#f39c11;border: 1px solid #f3c156;color:#FFF;}
 
 .blog-post{padding:0 60px;}
+
+
+@media (max-width: 800px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-nav,
+	.top-footer
+	{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+
+
+}
+
+

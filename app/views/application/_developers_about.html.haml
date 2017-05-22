@@ -40,48 +40,46 @@
   %hr.featurette-divider
 
 
+%section#contact
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading Ready to level up your game?
+        %h3.section-subheading.text-muted Start your free trial today!
+    .row
+      .col-lg-12
+        = form_tag "/mail", :id => "contactForm", :name => "sentMessage" do
+          .row
+            .col-md-4.col-md-offset-1
+              .form-group
+                %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Name", :required => "", :type => "text", :name => "name"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Email", :required => "", :type => "email", :name => "email"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#phone.form-control{:placeholder => "Company (optional)", :type => "text", :name => "org"}/
+                %p.help-block.text-danger
 
+              
+            .col-md-3(style="display:none;")
+              .form-group
+                %input#phone.form-control{:placeholder => "Game Name", :type => "text", :name => "game"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#phone.form-control{:placeholder => "App Store Link", :type => "text", :name => "app_store_link"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#phone.form-control{:placeholder => "Google Play Link", :type => "text", :name => "google_play_link"}/
+                %p.help-block.text-danger
 
+            .col-md-6
+              .form-group
+                %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Tell us about your game!", :required => "", :name => "message"}
+                %p.help-block.text-danger
+            .clearfix
+            .col-lg-12.text-center
+              #success
+              %button.btn.btn-xl{:type => "submit"} Submit
 
-  %section#contact
-    .container
-      .row
-        .col-lg-12.text-center
-          %h2.section-heading Ready to level up your game?
-          %h3.section-subheading.text-muted Start your free trial today!
-      .row
-        .col-lg-12
-          = form_tag "/mail", :id => "contactForm", :name => "sentMessage" do
-            .row
-              .col-md-4.col-md-offset-1
-                .form-group
-                  %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Name", :required => "", :type => "text", :name => "name"}/
-                  %p.help-block.text-danger
-                .form-group
-                  %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Email", :required => "", :type => "email", :name => "email"}/
-                  %p.help-block.text-danger
-                .form-group
-                  %input#phone.form-control{:placeholder => "Company (optional)", :type => "text", :name => "org"}/
-                  %p.help-block.text-danger
-
-                
-              .col-md-3(style="display:none;")
-                .form-group
-                  %input#phone.form-control{:placeholder => "Game Name", :type => "text", :name => "game"}/
-                  %p.help-block.text-danger
-                .form-group
-                  %input#phone.form-control{:placeholder => "App Store Link", :type => "text", :name => "app_store_link"}/
-                  %p.help-block.text-danger
-                .form-group
-                  %input#phone.form-control{:placeholder => "Google Play Link", :type => "text", :name => "google_play_link"}/
-                  %p.help-block.text-danger
-
-              .col-md-6
-                .form-group
-                  %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Tell us about your game!", :required => "", :name => "message"}
-                  %p.help-block.text-danger
-              .clearfix
-              .col-lg-12.text-center
-                #success
-                %button.btn.btn-xl{:type => "submit"} Submit
 
