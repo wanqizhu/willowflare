@@ -45,6 +45,8 @@
 
 .about_us {
   padding: 7em 0;
+  padding-top: 13em;
+  height: 550px; /* standardize for Chinese/English */
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -133,4 +135,8 @@
 .btn.btn-grey:hover, .btn.btn-grey:focus, .btn.btn-grey:active {
    box-shadow: none;
   background: #394e40;
+}
+
+#features {
+  margin-bottom: 60px;
 }

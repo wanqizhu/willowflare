@@ -42,13 +42,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262525', end
 	.top-footer
 	{
 		display: block;
-		width: 100%;
-		margin-bottom: 40px;
+		width: 100%;		
 		text-align: center;
 	}
 
-
-
+	.lf-ft {width: 60%;height: 550px;} // if the footer have diff heights then they don't quite align; need javascript/something else to align them automatically
+	.rg-ft {width: 40%;}
 }
 
 

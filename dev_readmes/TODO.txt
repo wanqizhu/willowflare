@@ -1,15 +1,8 @@
-- make the Chinese about site render properly (no nested body/head tags; look up how to link "companies.css" just for that page)
 
-- make the buttons on about_us/chinese_about page scroll smoothly to the forms (they should work as long as they have the class tag 'page-scroll', but for some reason it doesn't always work)
-
-- make footer (and anything else that's out of place) responsive on mobile
-	- look out of spacing & font-size specifically; just make small changes to anything that's out of place
 
 - look into why the site takes so long to load locally
 
 - make jquery-tabs (developer/player switch) work on safari/other browers
-
-- forum image size
 
 
 SLIGHTLY LARGER TWEAKS

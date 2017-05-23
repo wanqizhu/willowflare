@@ -24,6 +24,9 @@
     color: $iceblue;
   }
 
+  .tabs_style_default {
+    margin-bottom: 0;
+  }
   
   p {
     font-size: 18px;
@@ -171,12 +174,14 @@ section h3.section-subheading {
   }
 }
 
+/* contact form */
 
 section#contact {
   background-color: #222222;
   background-image: image-url('map-image.png');
   background-position: center;
   background-repeat: no-repeat;
+  margin: -21px; /* make the black image full-width */
 }
 
 
