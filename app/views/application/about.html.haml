@@ -1,0 +1,51 @@
+.about_us
+  .container
+    .col-md-12.text-center 
+      %br
+      %h2 One-stop shop to player insight and 
+      %h2 access to the entire China market
+      %h3 What are you waiting for?
+      %a.btn.btn-grey.page-scroll(href="#contact") Upload Game
+
+
+
+#about-page
+  .detail-block
+    .tabbing
+      .tabs.tabs_style_default{"data-tabs-role" => "tabs"}
+        .center
+          .tabs__head
+            %button.tabs__tab{"data-tabs-role" => "tab", "data-tabs-target" => "devs", :type => "button"} If you're a developer
+            %button.tabs__tab{"data-tabs-role" => "tab", "data-tabs-target" => "players", :type => "button"} If you're a player
+  
+        .tabs__body
+          .tabs__pane{"data-tabs-id" => "devs"}
+            = render 'application/developers_about'
+
+          .tabs__pane{"data-tabs-id" => "players"}
+            = render 'application/players_about'
+
+/ JS
+/ = javascript_include_tag 'jquery.tabs'
+:javascript
+  $(document).ready(function() {
+    $('[data-tabs-role="tabs"]').tabs();
+
+    $(window).on('change.tabs', function(event) {
+      event.preventDefault();
+      console.log('change');
+    });
+  });
+
+:javascript
+  $(function() {
+      $('a.page-scroll').bind('click', function(event) {
+          var $anchor = $(this);
+          $('html, body').stop().animate({
+              scrollTop: $($anchor.attr('href')).offset().top
+          }, 1500, 'easeInOutExpo');
+          event.preventDefault();
+      });
+  });
+
+

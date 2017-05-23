@@ -1,0 +1,23 @@
+// This is for forum user profiles; i.e. /users/iqiq
+@import "global";
+
+#user_profile {
+	max-width: 750px;
+	margin: 0 auto;
+	padding-top: 130px;
+	padding-bottom: 75px;
+
+	h3 {line-height: 1.8; margin: 25px;}
+
+	h4 {
+		color: $darkgreen;
+		line-height: 1.5;
+		text-decoration: none;
+		font-weight: 300;
+		margin: 25px;
+	}
+
+	.box-icon img {
+		border-radius: 50%;
+	}
+}

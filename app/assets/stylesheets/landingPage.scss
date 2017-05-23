@@ -1,10 +1,247 @@
-iframe {
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    border: none;
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300);
+
+//@import "jquery-ui";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "global";
+@import "links";
+@import "surveydata";
+@import "social-share-button";
+
+
+
+@import "component";
+@import "animate";
+@import "account";
+@import "simpleMobileMenu";
+@import "bxslider";
+@import "jquery.tabs";
+@import "landingPageStyle";
+@import "footer"; // taken out of landingPageStyle
+@import "welcome";
+@import "profile";
+@import "about";
+@import "about_Chinese";
+@import "companies";
+
+
+
+
+
+@charset "utf-8";
+
+
+@media only screen and (max-width: 1280px) and (min-width: 800px) {
+	.video-wrap, .main-section {
+	    height: 700px;
+	}
 }
+
+// remove the blue outline on focused button
+button:focus {outline:0;}
+
+.lf-ft {text-align: left; padding: 60px 40px;}
+.rg-ft {height: auto;}
+
+.user_login input[type="checkbox"] {
+	width: auto; // make "Remember Me" line-up with the checkbox
+}
+
+.header-main {
+	position: relative;
+}
+
+.alert {
+	font-size: 19px;
+	padding: 20px 20px 20px 100px;
+  margin: 15px 0 30px 0;
+  float: left;
+  width: 100%;
+}
+
+.alert.alert-notice {@extend .alert-info}
+
+
+/* store */
+
+.info-block .block-img { min-height: 155px;}
+// .info-block:not(.coming-soon) img {
+// 	height: 200px;
+// }
+
+.info-block.coming-soon {
+  background: white; //#bbeae2; // same color as background of "Coming Soon" image
+}
+
+
+.product-list ul li {width: 33%;} // make 3 per row instead of 4
+@media (max-width: 766px){
+  .product-list ul li {width: 100%;}
+}
+
+.points {
+	width: 85px;
+	height: 35px;
+	padding: 10px 7px;
+	background-size: contain;
+	font-size: 12px;
+	top: 11px;
+}
+
+.price {
+	white-space: normal;
+}
+
+.buy-btn {
+	border-radius: 5px;
+  width: 45%;
+	border: none;
+}
+
+
+
+// make login fields consistent
+input:not([type="text"]):not([type="submit"]) {
+	@extend input[type="text"];
+}
+
+/* .dashboardBody */ .header-main{background:#031018 none repeat scroll 0 0;}
+
+.services-section > ul { // make the three boxes (.red, .yellow, .blue) have the same height
+	display: flex;
+	flex-direction: row;
+}
+
+
+.welcome-text p.lightSpeedIn {
+	margin-top: 20px;
+	font-size: 21px;
+}
+
+.welcome-text h1 {text-align: left;}
+
+
+/* games */
+a[href=""] {pointer-events: none;}
+
+.register {background-color: inherit; border: none; outline: none;}
+a.play_now {background-color: $iceblue;}
+a.play_now:hover {background-color: $orange;}
+a.play_now[href=""] {background-color: gray !important;} // if the game is unavaliable, then gray it out
+
+.product-info h6 {margin: 10px 0;}
+
+.product-info h2 {margin: 10px 0; text-align: left;}
+
+img.featured {background-size: cover;}
+
+
+.links {
+  position: relative;
+  display: inline-block;
+}
+
+.drop-down {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+  a {
+    color: black;
+    background-color: white;
+    padding: 20px 16px;
+    margin: 0;
+    text-decoration: none;
+    display: block;
+  }
+
+  a:hover {background-color: #f1f1f1}
+}
+
+.links:hover .drop-down {display: block;}
+
+
+
+// ribbons
+
+.product-img {position: relative;}
+
+.ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+
+.ribbon-green {
+  font: bold 11px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 6px 0;
+  left: -10px;
+  top: 23px;
+  width: 120px;
+  background-color: #BFDC7A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-green:before {
+  left: 0;
+}
+.ribbon-green:after {
+  right: 0;
+}
+
+.ribbon-orange {
+  @extend .ribbon-green;
+
+  color: black;
+
+  background-color: #FF7F50;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FF7F50), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #FF7F50, #FF4500); 
+  background-image:    -moz-linear-gradient(top, #FF7F50, #FF4500); 
+  background-image:     -ms-linear-gradient(top, #FF7F50, #FF4500); 
+  background-image:      -o-linear-gradient(top, #FF7F50, #FF4500);
+}
+
+
+/* game_detail */
+
+button.tabs__tab {outline: none;}
+
+.game-detail {margin-top: 0px;}
+
+a.rewards[href=""] {background-color: gray !important;} // if surveys are unavaliable, then gray it out
+a.bug{background-color: $red}
+a.bug:hover {background-color: black;}

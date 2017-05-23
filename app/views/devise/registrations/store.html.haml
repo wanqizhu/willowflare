@@ -1,0 +1,72 @@
+= render 'userProfileBanner'
+
+.product-list
+  .container
+    %ul#store
+
+      - for store_item in (0..(Rails.application.config.STORE_ITEM_PRICE.length - 1))
+        %li
+          .info-block
+            .block-img
+              =image_tag(Rails.application.config.STORE_ITEM_NAME[store_item])
+            .price-info
+              %span.price
+                =Rails.application.config.STORE_ITEM_DESCRIPTION[store_item]
+
+              = form_tag '/store', :method => :post do
+                %button.buy-btn(name="item" value=store_item type="submit")
+                  %a BUY NOW
+                  / use the a-tag just to keep the styles consistent with the designer's layout. See .buy-btn a
+            %span.offer-tag
+              %p.points
+                =Rails.application.config.STORE_ITEM_PRICE[store_item]
+                Points
+        
+
+            / -if user_signed_in?
+            /   = form_tag '/store', :method => :post do
+                
+            /     %button.redeem.btn.btn-lg.btn-primary(name="item" value=store_item type="submit") BUY NOW
+
+     
+      / %li
+      /   .info-block
+      /     .block-img
+      /       =image_tag "game-02.png"
+      /     .price-info
+      /       %span.price
+      /         %strong $10
+      /         RP Card
+      /       %span.buy-btn
+      /         %a{:href => ""} BUY NOW
+      /     %span.offer-tag
+      /       %p.points 450 Points
+      / %li
+      /   .info-block
+      /     .block-img
+      /       =image_tag "game-03.png"
+      /     .price-info
+      /       %span.price
+      /         %strong $10
+      /         RP Card
+      /       %span.buy-btn
+      /         %a{:href => ""} BUY NOW
+      /     %span.offer-tag
+      /       %p.points 450 Points
+      / %li
+      /   .info-block
+      /     .block-img
+      /       =image_tag "game-01.png"
+      /     .price-info
+      /       %span.price
+      /         %strong $10
+      /         RP Card
+      /       %span.buy-btn
+      /         %a{:href => ""} BUY NOW
+      /     %span.offer-tag
+      /       %p.points 450 Points
+     
+      %li
+        .info-block.coming-soon
+          .block-img
+            =image_tag "cmg.png", alt: "More Rewards Coming Soon!"

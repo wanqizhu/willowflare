@@ -1,0 +1,12 @@
+<% if current_user and current_user.auth_level >= 90 %>
+
+<h1>New Surveydatum</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', surveydata_path %>
+
+<% else %>
+<h1>Not authorized</h1>
+
+<% end %>

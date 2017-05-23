@@ -1,0 +1,12 @@
+//= require jquery
+//= require jquery_ujs
+//= require bxslider
+//= require jquery.easing
+//= require turbolinks
+//= require simpleMobileMenu
+//= require jquery.bxslider
+//= require jquery.leanModal.min
+//= require jquery.tabs
+//= require common
+//= require wow
+//= require scroll

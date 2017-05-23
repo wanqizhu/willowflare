@@ -1,0 +1,111 @@
+- is_active = @is_active
+
+#games{:class => (is_active ? "active_games" : "inactive_games")}
+  .info-banner(style="margin-top: 0px;")
+  / remove the whitespace on top
+  .search-sec(style="display:none;")
+    .container
+      .sr-fields
+        %input{:placeholder => "Search game here", :type => "text", :value => ""}/
+        %input.search{:type => "submit", :value => ""}/
+      .form-block.small-wid
+        .select-style
+          %select
+            %option Sorted by
+            %option
+  .container
+    .listing
+      %ul
+
+
+        - for num in (0..(@games.length - 1))
+          - game = @games[num]
+          - num = @all_games.index(game)
+
+          - survey = @surveys[num]
+          - link = @links[num]
+          - alt_link = @alt_links[num]
+          - player_num = (@count * @mult[num] + @base[num]).round
+          - is_featured = (@featured[num] == 1)
+          - android = !alt_link.blank?
+          - ios = !link.blank?
+
+          - if File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/icon.png")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/title.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/publisher.txt")) && File.exist?(File.join(Rails.root, "public/assets/files/games/#{game}/description.txt"))
+
+            %li.games
+              .product-img
+                - if is_featured
+                  / make the featured banner overlay the game icon
+                  / this is the ugliest string formatting ever lol -- rip Rails image paths
+                  =image_tag("featured_banner.png", :style => "background-image: url('" + image_path("/assets/files/games/"+game+"/icon.png") + "')", :class => "featured")
+                - else
+                  =image_tag("/assets/files/games/#{game}/icon.png")
+
+                - if android && !ios
+                  - link = alt_link
+                  / https://css-tricks.com/snippets/css/corner-ribbon/
+                  .ribbon-wrapper
+                    .ribbon-green
+                      Android Only
+
+                - if ios && !android
+                  .ribbon-wrapper
+                    .ribbon-orange
+                      iOS Only
+
+              .product-info
+                %h2= render :file => "/public/assets/files/games/#{game}/title.txt"
+                /%h6= render :file => "/public/assets/files/games/#{game}/publisher.txt"
+                %p= render :file => "/public/assets/files/games/#{game}/description.txt"
+
+                = form_tag '/games', :method => :post do
+                  %input(type="hidden" name="game_num" value=num)
+
+                  
+                  .links
+
+                    %a.play_now{:href => (@device == "android" && ios && android ? alt_link : link), :onclick => "trackOutboundLink('#{@device == 'android' && ios &&  android ? alt_link : link}'); return false;", :target => "_blank"} Play Now!
+                   
+                    - if ios && android
+                      .drop-down
+                        %a(href=link onclick="trackOutboundLink('#{link}'); return false;" target="_blank") iTunes Store
+                        %a(href=alt_link onclick="trackOutboundLink('#{alt_link}'); return false;" target="_blank") Android
+
+                  %button.register(type="submit")
+                    %a 
+                      - if is_active
+                        Earn Rewards
+                      - else
+                        More info
+
+
+                  - if is_active && is_featured
+                    %a.bug(href="blog/bug-bounty")
+                      Report a Bug
+
+
+              
+
+              - if is_active
+                .price
+                  .rounded-ft= player_num
+                  / let's make this scale with number of players
+                  %p Pre-registrations
+
+              
+        %li.games
+          .product-img
+            =image_tag("cmg.png")
+          .product-info
+            %h2 More Games Coming Soon!
+
+            %p
+              - if is_active
+                Why do we only have one game per device? Because we want you to focus on a few games at a time -- but don't worry, we will release new content every week with new chances to earn rewards, so hang tight & keep checking back!
+
+              - else
+                Feel free to explore all past games we've worked with. Want to see the active hot games?
+                %br
+                %br
+                %a(href="/login#sign_up" style="margin: 0") Register Now
+              and discover your new favorite game!

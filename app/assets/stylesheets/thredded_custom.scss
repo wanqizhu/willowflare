@@ -1,0 +1,291 @@
+@import "global";
+@import "links";
+$thredded-brand: $orange;
+$thredded-button-background: $darkgreen;
+$thredded-button-hover-background: $lightgreen;
+$thredded-alert-info-color: $darkgreen;
+$thredded-grid-container-max-width: 50rem;
+@import "thredded";
+
+a {color: white;}
+
+hr {
+  margin: 30px 0px;
+  border-width: 1px;
+  color: #eee;
+}
+
+
+// top left, "Welcome __username__"
+#navGreeting {
+  color: #e43070;
+  font-weight: 500;
+  font-size: 22px;
+  cursor: default;
+}
+
+#forum_announcement {
+
+  left: 0%;
+  width: 100%;
+
+
+
+  .box-icon:after {
+    display: none;
+  }
+
+  .box-icon {
+    margin-left: 50px;
+    max-width: 600px;
+    margin-top: 45px;
+  }
+
+  .box {
+    padding-top: 85px;
+
+    @media (max-width: 767px) {
+      padding-top: 55px;
+    }
+  }
+
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+
+.thredded--main-navigation {
+  margin-bottom: 50px;
+
+  ul.thredded--navigation-breadcrumbs {
+    li > a {
+      color: $darkgreen;
+      font-size: 24px;
+    }
+
+    li:last-child > a {
+      color: $lightgreen;
+    }
+  }
+}
+
+
+// make the messageboards more compact
+.thredded--main-section > h3 {
+  margin: 30px 0;
+}
+
+.thredded--messageboard {
+  margin-bottom: 0;
+  padding: 1rem;
+}
+
+.thredded--messageboard--byline {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.thredded--messageboard--title, .thredded--topic-header--started-by > a, .thredded--post--edit {
+  color: $darkgreen;
+
+  &:hover {
+    color: $lightgreen;
+  }
+}
+
+
+.thredded--messageboard--title {
+  font-size: 28px;
+  font-family: Nunito;
+}
+
+.thredded--messageboard--meta, .thredded--messageboard--title {
+  line-height: 36px;
+}
+
+
+
+// each post in a sub-forum (where you see the list of posts, like the frontpage of a subreddit)
+.thredded--topics--topic, .thredded--topics--table-header {
+  margin: 0;
+  padding: 22px;
+  border-bottom: 1px solid $lightblue;
+  overflow: hidden; // so that the div height takes float elements into consideration
+}
+
+
+.thredded--topics--table-header {
+  color: white;
+  background: $darkgreen;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.thredded--topics--topic-info, .thredded--topics--header-topics {
+  width: 65%;
+  margin: 0;
+  display: inline-block;
+  float: left;
+}
+
+.thredded--topics--updated-by, .thredded--topics--header-last-post {
+  width: 15%;
+  margin: 0;
+  margin-left: 2%;
+  display: inline-block;
+}
+
+.thredded--topics--started-by {display: block;}
+
+.thredded--topics--posts-count {
+  border: none;
+  background: none !important;
+  color: black !important;
+  font-weight: normal;
+  position: static
+}
+
+
+.thredded--topics--posts-count > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.thredded--topics--posts-count, .thredded--topics--header-replies {
+  display: inline-block;
+  width: 10%;
+  margin: 0 3%;
+  text-align: center;
+}
+
+.thredded--topics #new_topic {
+  margin-top: 37px;
+}
+
+.user_name, .user_name > a {
+  color: $iceblue;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+// each individual topic/post, once clicked to view
+.thredded--topic {
+
+  .thredded--topic-header {
+    padding: 20px;
+    margin-left: -20px; // leave space on the left
+    border: 2px dotted $darkgreen;
+    border-bottom: none;
+    padding-bottom: 3rem;
+    margin-bottom: 2px;
+  }
+
+
+  article:first-of-type { 
+
+    header { // hide the header (name, icon, date) for the first post, since it's made by the creator of the thread
+      display: none;
+    }
+
+    div.thredded--post--content {
+      padding: 20px;
+      margin-left: -20px;
+      border: 2px dotted $darkgreen;
+      border-top: none;
+    }
+
+    margin-bottom: 70px;
+  }
+
+
+  .thredded--post--content {
+    img {
+      margin: 15px;
+    }
+  }
+}
+
+.thredded--topic-show #flash {
+  margin-left: -20px; // make flash message line up with the topic
+}
+
+
+
+
+
+
+.thredded--topics--follow--info {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+// make the title & "Started at __ by __" in the same line
+.thredded--topic-header--title {
+  display: inline-block;
+  margin-right: 40px;
+  color: $lightblue;
+  font-size: 32px;
+  font-family: Nunito;
+}
+
+
+
+
+
+// posts
+.thredded--post {
+  // smaller avatar
+  .thredded--post--avatar {
+    @media(min-width: 768px) {
+      height: 1.25rem;
+      width: 1.25rem;
+      top: 0;
+      left: -2rem;
+    }
+  }
+
+
+
+  // float right
+  .thredded--post--edit, .thredded--post--delete {
+    float: right;
+    position: relative;
+    bottom: 20px;
+    margin-top: 10px;
+  }
+
+  &:first-of-type .thredded--post--edit {
+    bottom: 50px;
+    right: 20px;
+  }
+
+  .thredded--post--delete {
+    margin-right: 0.4rem;
+    margin-left: 0;
+  }
+}
+
+
+
+// new_post submission form
+#post_images {
+  margin-top: 18px;
+}
+
+
+
+.thredded--post-form label {
+  display: inline;
+}

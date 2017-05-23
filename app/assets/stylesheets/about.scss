@@ -1,0 +1,266 @@
+@import "global";
+
+#about-page {
+  padding-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  width: 100%;
+
+  .detail-block {
+    margin-top: 45px;
+  }
+
+  .tabs__head {
+    display: inline-block;
+  }
+
+  .tabs__tab {
+    font-size: 27px;
+  }
+
+  .tabs__tab_active {
+    color: $iceblue;
+  }
+
+  .tabs_style_default {
+    margin-bottom: 0;
+  }
+  
+  p {
+    font-size: 18px;
+
+    @media(max-width: 767px) {
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+
+    .lead {
+      font-size: 19px;
+    }
+  }
+
+  h2, h3 {
+    text-align: center;
+    margin: 12px;
+  }
+
+  h2 {margin-top: 40px;}
+
+
+  .titles {
+    margin-top: 120px; margin-bottom: 50px;
+
+    h2 {
+      font-size: 45px;
+      margin: 45px 0;
+      color: $willow;
+    }
+  }
+
+  .subtitles h2, h3 {
+    margin: 30px 0;
+    font-family: "Droid Serif";
+  }
+
+
+  .carousel.slide {
+    margin-top: 50px;
+  }
+
+  .carousel-inner {
+    max-height: inherit;
+    width: inherit;
+
+    .item {
+      max-height: inherit;
+      width: inherit;
+    }
+  }
+
+
+  .carousel-indicators > li {
+    margin: 0px 6px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fed136;
+    }
+  }
+
+  .carousel-control > i {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus{
+      color: #fed136;
+    }
+  }
+}
+
+
+.welcome-page {
+  text-align: center;
+}
+
+
+.circles {
+  img {
+    display: inline;
+  }
+
+  .col-md-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  h2 {
+    font-weight: normal;
+
+    @media(min-width: 768px) {
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+  }
+  .col-md-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+.text-muted {
+  color: #777777;
+}
+
+
+section {
+  padding: 80px 0;
+}
+section h2.section-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+section h3.section-subheading {
+  font-size: 16px;
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 75px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  section {
+    padding: 100px 0;
+  }
+}
+
+/* contact form */
+
+section#contact {
+  background-color: #222222;
+  background-image: image-url('map-image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: -21px; /* make the black image full-width */
+}
+
+
+#contactForm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.clearfix {
+  zoom: 0;
+  position: static;
+}
+
+section#contact .section-heading {
+  color: white;
+}
+section#contact .section-subheading {
+  color: $willow;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+section#contact .form-group {
+  margin-bottom: 25px;
+}
+section#contact .form-group input,
+section#contact .form-group textarea {
+  padding: 20px;
+}
+section#contact .form-group input.form-control {
+  height: auto;
+}
+section#contact .form-group textarea.form-control {
+  height: 236px;
+}
+section#contact .form-control:focus {
+  border-color: #fed136;
+  box-shadow: none;
+}
+section#contact ::-webkit-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact :-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact :-ms-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact .text-danger {
+  color: #e74c3c;
+}
+
+/* send email button */
+section#contact .btn-xl {
+  color: #ffffff;
+  background-color: #fed136;
+  border-color: #fed136;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 14px 40px;
+  margin-top: 20px;
+}

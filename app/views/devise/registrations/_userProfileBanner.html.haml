@@ -1,0 +1,9 @@
+-if user_signed_in?
+  .innerPageBanner
+    .container
+      %h1
+        =current_user.username
+        , you have
+        %span(style="color: #fed136")= current_user.money
+        WillowPoints!
+      %p If you've recently completed a survey, please allow up to 24 hours for your points to update.

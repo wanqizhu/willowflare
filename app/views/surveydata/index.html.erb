@@ -1,0 +1,38 @@
+<% if current_user and current_user.auth_level >= 90 %>
+
+<%= link_to 'New Surveydatum', new_surveydatum_path %>
+<br />
+
+<h1>Listing Surveydata</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Surveyresponse</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @surveydata.each do |surveydatum| %>
+      <tr>
+        <td><%= surveydatum.email %></td>
+        <td><%= surveydatum.reward %></td>
+        <td><%= surveydatum.surveyresponse %></td>
+        <td><%= link_to 'Show', surveydatum %></td>
+        <td><%= link_to 'Edit', edit_surveydatum_path(surveydatum) %></td>
+        <td><%= link_to 'Destroy', surveydatum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<% else %>
+<h1>Not authorized</h1>
+
+<% end %>

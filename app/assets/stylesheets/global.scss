@@ -1,0 +1,121 @@
+$darkblue: #536980;
+$lightblue: #98ABB9;
+$orange: #E06B00;
+$yellow: #fed136;
+$iceblue: #30D1E4;
+$darkgreen: #598327;
+$lightgreen: #95B926;
+$willow: #1bbc9b;
+$red: #c40d19;
+
+.thin{font-weight:300;}
+
+.pointer {cursor:pointer;}
+.relative {position:relative;}
+.absolute {position:absolute;}
+.right-align {text-align:right;}
+.left-align {text-align:left;}
+.uppercase, .caps {text-transform: uppercase;}
+
+.clearfix {
+  zoom: 1;
+  position: relative;
+  &:before, &:after { display: table; content: ""; zoom: 1; }
+  &:after { clear: both; }
+}
+
+
+.ib {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  &.middle { vertical-align: middle; }
+}
+
+.center {
+  text-align: center;
+  img {margin: 0 auto;}
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.smooth{
+  transition: all 0.18s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.smooth2{
+  transition :all 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+
+
+
+@mixin grad ($startColor: #555, $endColor: #333) { 
+  background-color: $endColor;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
+  background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+  background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient(top, $startColor, $endColor); // The standard
+  filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0)");
+}
+
+@mixin grad3 ($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+  background-color: $endColor;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+  background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+  background-image: -ms-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+  filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0)"); /* IE9 and down, gets no color-stop at all for proper fallback */
+}
+
+
+.flex-container{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+.alert {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+
+h1, h2 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: 200;
+}
+
+
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 300; color: $darkblue;
+  &.light { color: $lightblue; }
+  &.bold { font-weight: bold; }
+  &:last-child {margin-bottom: 0;}
+  line-height: 1.3;
+}
+h1.big {font-size: 58px; font-family: nunito, montserrat, sans-serif;}
+h1{margin-bottom:20px; font-size: 42px; line-height: 1.2;}
+h2{margin-bottom:10px; font-size: 32px; line-height: 1.2;}
+h3{margin-bottom:10px; font-size: 26px; line-height: 1.2;}
+h4{margin-bottom:10px; font-size: 20px; line-height: 1.2;}
+h5{margin-bottom:10px; font-size: 18px; line-height: 1.3;}
+h6{margin-bottom:10px; font-size: 16px; line-height: 1.4;}
+img {display:block; max-width:100%;}

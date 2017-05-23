@@ -1,0 +1,124 @@
+%html
+  %head
+
+    %meta{ :name => "description", :content => "WillowFlare: Mobile Gaming, Reimagined."}
+    %meta{ :name => "author", :content => "Wanqi Zhu"}
+    %meta{ :name => "keywords", :content => "willow, flare, willowflare, mobile game, mobile gaming, feedback, reward"}
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1"}
+    %meta{ :charset => "UTF-8"}
+
+    %title WillowFlare
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+
+  
+    %link{ :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}
+
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Kaushan+Script', :rel => 'stylesheet', :type => 'text/css'}
+
+    %link{ :href => 'http://fonts.googleapis.com/css?family=Nunito:300,400,700|Droid+Sans:400,700', :rel => 'stylesheet', :type=> 'text/css'}
+    
+    = favicon_link_tag 'favicon.png'
+
+
+
+
+  %body
+    - if user_signed_in?
+      %nav.navbar.navbar-default
+        .container
+          .navbar-header
+            %button{ :type => "button", :class => "navbar-toggle", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            #logo.navbar-brand= link_to image_tag('logo.png'), root_path
+
+
+          .collapse.navbar-collapse.navbar-ex1-collapse
+            %ul#topNavRight.nav.navbar-nav.navbar-right
+
+              - if current_user.auth_level >= 90 
+
+                %li= link_to 'Submit review', new_link_path
+                %li= link_to 'Survey Data', surveydata_path
+
+              %li.btn
+                %a(href=links_path)
+                  %i.fa.fa-star
+                  Annoucements
+                
+
+              %li.btn
+                %a(href=edit_user_registration_path)
+                  %i.fa.fa-user
+                  Account
+
+
+              %li.btn
+                %a(href=store_path)
+                  %i.fa.fa-trophy
+                  Store
+              
+              %li.btn
+                %a(href=destroy_user_session_path data-method="delete")
+                  %i.fa.fa-paper-plane
+                  Sign out
+                  
+
+    / - else
+       
+    /   .container#topBanner
+    /     %p
+    /       Already a member?
+    /       %span= link_to 'Sign in', new_user_session_path
+    /       %span= link_to 'Sign up', new_user_registration_path
+
+
+
+    
+    #page
+      - flash.each do |name, msg|
+        - if msg != nil and !msg.empty?
+          .alert.alert-info{:class => "alert-#{name}"}= msg
+      
+
+      .container
+        = yield
+
+
+
+    - if user_signed_in?
+      #footer
+        .container
+          .col-md-12
+            .footer-container
+              .float-left
+                %a.popupButton(imageSrc="placeholder.png" img_height="80%")< How It Works
+                \&nbsp;
+                %a(href="mailto:info@willowflare.com")< Contact Support
+                \&nbsp;
+                %a.popupButton(imageSrc="TermsofUse.jpg" img_width="600px")< Terms & Privacy
+              .float-right 
+                WillowFlare, Inc
+                \&nbsp;
+                %a(href="https://www.facebook.com/Willowflare-518689994959123/")
+                  %i.fa.fa-facebook
+                %a(href="https://www.twitter.com/willowflare")
+                  %i.fa.fa-twitter
+        
+
+    / hidden popup
+    / #infographicPopup.flex-container.center
+    /   %img#infographicImage
+    /   #popupContainer
+    /     - if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank?
+    /       #newsContainer
+    /         .box-wrapper.icon
+    /           .box-icon
+    /             = image_tag("treasure.png")
+    /           .box
+    /             = ENV["GLOBAL_POPUP_NEWS"].html_safe

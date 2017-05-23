@@ -1,0 +1,141 @@
+@import "../../landingPage";
+
+.container a {
+	color: inherit;
+	transition: color 0.5s ease;
+	transition: background-color 0.5s ease;
+}
+
+.container a:hover {
+	color: $willow;
+}
+
+a.button:hover {color: inherit; background-color:#f39b13; text-decoration: none;}
+
+.content img {
+	max-width: 100% !important;
+}
+
+.content > section {
+	padding: 15px 0px;
+}
+
+
+/* blog post */
+header {background: none;}
+.content header > h1 {margin: 15px 0px;}
+
+.header_title {
+	line-height: 1.4;
+	margin-bottom: 28px;
+	color: black;
+}
+
+@media(max-width: 767px) {
+	.header_title {margin-top: 50px;}
+
+	aside.sidebar.four.columns {margin-bottom: 75px;}
+}
+
+.subtitle {color:black; font-weight:300;}
+
+
+.content[data-monologue="content"] {
+	font-size: 18px;
+	margin-top: 30px;
+
+	p {font-family: Nunito;}
+}
+
+
+
+
+
+
+
+#logo {text-decoration: none;}
+
+#logo > img {
+	width: 300px;
+}
+
+#blog_name {
+	margin-left: 20px;
+	text-decoration: none;
+	position: relative;
+	top: 5px;
+	float: right;
+	font-weight: 300;
+	font-size: 28px;
+
+	a:first-of-type {margin-right: 28px;}
+}
+
+
+#admin_login {
+	font-size: 13px;
+	color: black;
+	float: right;
+	position: relative;
+	top: 20px;
+	right: 20px;
+}
+
+
+/* make RSS icon same style as the other social media icons */
+.main-header .social:first-of-type i {
+	font-size: 30px;
+	float: none;
+}
+
+.main-header .social {margin-bottom: 10px; width: 30px;}
+
+
+#pagination {
+	border: none;
+	margin-bottom: 145px;
+
+	a {color: #f39b13;}
+}
+
+
+/* orange */
+.post-header > h1 > a, h2 {
+	color: #2d3e50;
+}
+
+/* dark-blue */
+.post-header > h1 > a:hover {color: #f39b13;}
+
+/* green */
+.posted, h1 {
+	color: $willow;
+}
+
+
+
+/* sidebar */
+
+
+.sidebar {display: none !important;} // doesn't render properly; need to look into later
+
+@media(min-width: 959px) {
+
+	.sidebar.four.columns {
+		margin-left:50px;
+	    width: auto;
+	    min-width: 220px;
+	}
+}
+
+@media(max-width: 1036px) {
+	.sidebar {display: none;}
+}
+
+section.widget {
+	margin-top:12px;
+
+	ul li {margin: 4px 0;}
+
+}
+

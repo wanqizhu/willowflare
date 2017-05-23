@@ -4,6 +4,8 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+**/.DS_Store
+
 # Ignore bundler config.
 /.bundle
 
@@ -15,6 +17,7 @@
 /log/*
 !/log/.keep
 /tmp
+.byebug*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
@@ -25,3 +28,14 @@ db/schema.rb
 
 
 config/local_env.yml
+config/local_logs.txt
+
+config/survey*.txt
+
+# ignore pre-compiled assets
+public/assets/*
+!public/assets/files/
+
+# ignore uploaded files (from forums, since they're local)
+public/uploads/*
+

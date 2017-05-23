@@ -1,0 +1,21 @@
+#user_profile
+  .box-wrapper.icon
+    .box-icon.small
+      = image_tag Thredded.avatar_url.call(current_user)
+    .box
+      %h3
+        Full user profiles coming soon!
+
+      %h4
+        Look out for badges and exclusive features based on your contribution to our community & games!
+
+      %p
+        Email:
+        =@user.email
+      %p
+        Username:
+        =@user.username
+
+      %br
+      %p.center
+        = link_to "Return to forum", thredded.root_path

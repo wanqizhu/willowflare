@@ -1,0 +1,380 @@
+@import "global";
+
+html, body {
+  background: none; /* white background */
+  background-color: white;
+}
+
+.navbar-brand {
+  height: auto;
+}
+
+#website_url, #eng_logo {
+  margin-left: -15px;
+}
+
+#eng_logo {margin-top: 15px; width: 250px;}
+
+.navbar-collapse {
+  position: relative;
+
+  /* verticle align */
+  @media (min-width: 768px) {
+    #topNavRight {
+      position: absolute;
+      top: 30%;
+      transform: translateY(-50%);
+      right: 15px;
+    }
+  }
+}
+
+
+.navbar-header {position: relative; z-index: 1} // to make the images clickable (and not be overlayed with .navbar-collapse)
+
+
+#website_url {
+  color: #30D1E4;
+  font-size: 27px;
+  line-height: 2;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
+
+#page {
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  
+  p {
+    text-align: left;
+    font-size: 15px;
+
+    @media(max-width: 767px) {
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+
+    .lead {
+      font-size: 19px;
+    }
+  }
+
+  h2, h3 {
+    text-align: center;
+  }
+
+  .carousel.slide {
+    margin-top: 50px;
+  }
+
+  .carousel-inner {
+    max-height: inherit;
+    width: inherit;
+
+    .item {
+      max-height: inherit;
+      width: inherit;
+    }
+  }
+
+
+  .carousel-indicators > li {
+    margin: 0px 6px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fed136;
+    }
+  }
+
+  .carousel-control > i {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus{
+      color: #fed136;
+    }
+  }
+}
+
+
+#video {
+  margin-top: 40px;
+
+  @media(max-width: 767px) {
+    margin-top: 20px;
+  }
+}
+
+
+
+#main {
+  padding-top: 20px;
+  font-family: "Work Sans", Arial, sans-serif;
+   p {
+    font-family: "Work Sans", Arial, sans-serif;
+    margin-bottom: 1.5em;
+    margin: 0 0 10px;
+    font-size: 17px;
+    color: #777777;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+
+  h2{
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+     font-size: 36px;
+     color: #000;
+  }
+  h3{
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+     font-size: 30px;
+     color: #393e46;
+  }
+  @media(min-width: 768px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+.circles {
+  img {
+    display: inline;
+  }
+
+  .col-md-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  h2 {
+    font-weight: normal;
+
+    @media(min-width: 768px) {
+      margin-top: 15px;
+      margin-bottom: 20px;
+    }
+
+  }
+  .col-md-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+}
+
+
+
+
+
+
+
+@media(min-width: 768px) {
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+
+  // just to balance out the text; not a good solution to keep it centered
+  .col-md-pull-7 > img {
+    //margin-top: 15%;
+  }
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -.05rem;
+  font-size: 28px;
+
+  .text-muted {
+    font-size: 22px;
+  }
+}
+
+
+
+
+.navbar-default > .container {
+  padding: 0px 30px;
+}
+
+
+#footer {
+  margin-bottom: 20px;
+
+  .float-left {
+    width: 90%;
+  }
+}
+
+.text-muted {
+  color: #777777;
+}
+
+
+section {
+  padding: 80px 0;
+}
+section h2.section-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+section h3.section-subheading {
+  font-size: 16px;
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 75px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  section {
+    padding: 100px 0;
+  }
+}
+
+
+section #contact {
+  background-color: #222222;
+  background-image: image-url('map-image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+#contactForm {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.clearfix {
+  zoom: 0;
+  position: static;
+}
+
+
+
+section#contact .section-heading {
+  color: white;
+}
+section#contact .form-group {
+  margin-bottom: 25px;
+}
+section#contact .form-group input,
+section#contact .form-group textarea {
+
+  padding: 20px;
+}
+section#contact .form-group input.form-control {
+  height: auto;
+}
+section#contact .form-group textarea.form-control {
+  height: 236px;
+}
+section#contact .form-control:focus {
+  border-color: #fed136;
+  box-shadow: none;
+}
+section#contact ::-webkit-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact :-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact :-ms-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #bbbbbb;
+}
+section#contact .text-danger {
+  color: #e74c3c;
+}
+
+/* send email button */
+section#contact .btn-xl {
+  color: #ffffff;
+  background-color: #fed136;
+  border-color: #fed136;
+  }
+
+
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  ul.quicklinks,  span.copyright{
+  margin-bottom: 0;
+  line-height: 50px;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-transform: none;
+  }
+}
+
+
+ul.social-buttons {
+  margin-bottom: 0;
+
+  li a {
+    display: block;
+    background-color: #222222;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 50px;
+    color: white;
+    outline: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  li a:hover,
+  li a:focus,
+  li a:active {
+    background-color: #fed136;
+  }
+
+  i.fa {
+    line-height: 50px;
+    color: white;
+  }
+
+}

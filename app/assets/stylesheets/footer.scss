@@ -1,0 +1,53 @@
+.footer{float:left;width:100%;background: rgba(38,37,37,1);
+background: -moz-linear-gradient(left, rgba(38,37,37,1) 0%, rgba(38,37,37,1) 39%, rgba(38,37,37,1) 40%, rgba(49,49,49,1) 40%, rgba(49,49,49,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(38,37,37,1)), color-stop(39%, rgba(38,37,37,1)), color-stop(40%, rgba(38,37,37,1)), color-stop(40%, rgba(49,49,49,1)), color-stop(100%, rgba(49,49,49,1)));
+background: -webkit-linear-gradient(left, rgba(38,37,37,1) 0%, rgba(38,37,37,1) 39%, rgba(38,37,37,1) 40%, rgba(49,49,49,1) 40%, rgba(49,49,49,1) 100%);
+background: -o-linear-gradient(left, rgba(38,37,37,1) 0%, rgba(38,37,37,1) 39%, rgba(38,37,37,1) 40%, rgba(49,49,49,1) 40%, rgba(49,49,49,1) 100%);
+background: -ms-linear-gradient(left, rgba(38,37,37,1) 0%, rgba(38,37,37,1) 39%, rgba(38,37,37,1) 40%, rgba(49,49,49,1) 40%, rgba(49,49,49,1) 100%);
+background: linear-gradient(to right, rgba(38,37,37,1) 0%, rgba(38,37,37,1) 39%, rgba(38,37,37,1) 40%, rgba(49,49,49,1) 40%, rgba(49,49,49,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262525', endColorstr='#313131', GradientType=1 );}
+
+.top-footer{float:left;width:100%;}
+.lf-ft{float:left;width:40%;background:#262525;padding:60px 40px 60px 0;box-sizing:padding-box;}
+.lf-ft p{font-size:14px;color:#b0b0b0;margin-top:25px;}
+.rg-ft{float:right;width:60%;background:#313131;padding:70px 0 0;   height: 100%;box-sizing:padding-box;}
+.bottom-footer{float:left;width:100%;background:#313131;border-top:1px solid #474747;padding:20px 0;text-align:center;font-size:13px;color:#FFF;}
+.bottom-footer span{color:#f39c11;}
+
+.social{float:left;width:100%;margin:20px 0 0;}
+.social li{float:left;margin:0 30px 0 0;}
+.social li a{display:block;}
+
+.footer-nav{float:left;width:33.33%;box-sizing:padding-box;padding:0 25px;}
+.footer-nav ul{display:block;}
+.footer-nav h2{float:left;width:100%;color:#1bbc9b;font-size:18px;text-transform:uppercase;margin-bottom:15px;text-align:left;}
+.footer-nav li{float:left;width:100%;text-align:left;line-height:30px;}
+.footer-nav:last-child{padding:0 0 0 25px;}
+.footer-nav li a{float:left;width:100%;text-decoration:none;color:#999999;font-size:14px;transition: 0.5s;-webkit-transition: 0.5s;-moz-transition: 0.5s;-ms-transition: 0.5s;-o-transition: 0.5s;}
+.footer-nav li a:hover{color:#FFF;}
+
+.tags > span {border: 1px solid #999999;cursor:pointer;border-radius: 50px;color: #999999;font-size: 14px;padding: 5px 20px;margin-bottom:10px;transition: 0.5s;-webkit-transition: 0.5s;-moz-transition: 0.5s;-ms-transition: 0.5s;-o-transition: 0.5s;display: inline-block;}
+.tags > span:hover, .tags > span.active{background:#f39c11;border: 1px solid #f3c156;color:#FFF;}
+
+.blog-post{padding:0 60px;}
+
+
+@media (max-width: 800px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-nav,
+	.top-footer
+	{
+		display: block;
+		width: 100%;		
+		text-align: center;
+	}
+
+	.lf-ft {width: 60%;height: 550px;} // if the footer have diff heights then they don't quite align; need javascript/something else to align them automatically
+	.rg-ft {width: 40%;}
+}
+
+

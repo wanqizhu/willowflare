@@ -1,0 +1,45 @@
+==== Introduction ====
+Loong craft is a mmorpg game based on China Three Kingdoms background. you build your city, rise your heroes, train your troops, join the alliance and challenge players around the world. Loong Craft is set on the background of the three kingdoms. In such an era of heroes, you will travel through the real stories of the three kingdoms and start your own legend from a unknown soldier to a famous general.
+
+==== Features ====
+* **State War!Brace yourself for the battles!
+State War is the core system of the game. State War starts at 8:00pm and lasts for 30 mins. 6 states will be divided into 3 groups. In each group, 1 state will be the attacking side while another will be the defending side. 2 states will fight against each other within the allotted time.
+
+* **Challenge Different Dungeons!Expore more new gameplay!
+It has long been known that the dungeon is a great way to get EXP for leveling up and items. However unlike ordinary RPGs, the dungeon in Loong Craft contains various solo and team dungeons. Each one provides a different exciting experience.
+
+* **Guild Function!Interact with other players.
+You can establish your own guild or join a guild already established by others.
+Many systems including guild quests, guild contribution, guild manor await in the Guild interface. You can also raise your CP by completing the guild quests.
+
+***Join your own State!Experience variety of state systems
+There are 6 states in the game. You must choose one among them when you are creating your character and devote yourself to that state in your later journey. Join the state war and complete the corresponding state quests for your state of choice. There are a variety of interesting systems in the State interface. You can even claim a salary daily and get promoted in ranks.
+
+***Voice Chat！Unite your allies together!
+When in State War, how you communicate with your allies plays an important role in the war result. Loong Craft allows you to use voice chat to talk with your friends in the chat box. Tap and hold the voice button to speak and release to send the voice message. 
+
+== Four Classes to Choose!
+Warrior
+Melee physical attack, possesses high DEF. Excels at front line protection.
+Tactician
+Possess mighty AoE skills, good at restraining enemies. Can deal high damage but lacks DEF. A good tactician should know how to shield oneself from attacks and maintain HP.
+Lancer
+Uses melee magical attack, good at assault. Keyword: Flexible. A lancer fights with a spear for effective close combat fighting. Lancer possesses great Crit and can easily pursue and swiftly attack enemies.
+Archer
+Ranged physical attacker, can repeatedly deal damage from afar. If you prefer a class that can launch great ranged attacks, archer will be a nice choice.
+
+====Gamplay====
+Cards
+Collect cards to activate the corresponding combo and stat bonus. Salvage your spare cards to get Card Tokens which can be exchanged for cards of higher qualities. 
+Collect more cards and grow stronger!
+
+Equipment
+An important method to boost CP is to raise equipment CP. Equipment includes helmets, belts, leggings, boots, necklaces and rings. 
+Upgrade or socket gems to raise your equipment CP. Spend silver to upgrade equipment as your character levels up and socket gems when you find the required gems.
+
+Wings
+A pair of wings will not only grant a gorgeous look but great stat bonuses. You can upgrade and morph to raise the wings CP. 
+
+==Official Information==
+"Loong Craft" Fan Page: https://www.facebook.com/ujoylc
+"Loong Craft" Customer Service: support@ujoy.com

@@ -1,0 +1,25 @@
+<%= form_for (post.private_topic_post? ? [topic, post] : [messageboard, topic, post]), as: :post,
+             html: { class: 'thredded--form thredded--post-form', 'data-thredded-post-form' => true, multipart: true } do |form| %>
+
+    <% begin %>
+	  <% if form.object.errors.any? %>
+	    <h2><%= pluralize(form.object.errors.count, "error") %> prohibited this record from being saved</h2>
+	      <ul class="error_list">
+	        <% form.object.errors.full_messages.each do |msg| %>
+	          <li><%= error_edit(msg) %></li>
+	        <% end %>
+	      </ul>
+	  <% end %>
+	<% rescue => e %>
+      <% logger.error e.message %>
+      <% logger.error e.backtrace.join("\n") %>
+    <% end %>
+
+  <ul class="thredded--form-list">
+    <%= render 'thredded/posts_common/form/content_field', form: form, content_label: content_label %>
+
+    <li>
+      <%= form.submit button_text, class: 'thredded--form--submit' %>
+    </li>
+  </ul>
+<% end %>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  resources :surveydata
   resources :comments
-
-  devise_for :users, controllers: {registrations: 'registrations'} # allow changes without password
 
   resources :links do
     member do
@@ -11,7 +10,52 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root to: "links#index"
+  root to: "application#games"
+  get '/games' => "application#games"
+  post '/games' => "application#game_detail"
+  get '/games/:game_name' => "application#specific_game"
+  get '/ourgames/:game_name' => redirect('/games/%{game_name}')
+
+
+
+  devise_for :users, controllers: {registrations: 'registrations', :sessions => "sessions", :omniauth_callbacks => "users/omniauth_callbacks"}#, :path => '', :path_names => { :sign_in => "login", :sign_up => "sign_up"}
+  get 'users/:username' => 'users#profile', as: 'user_profile'
+
+  devise_scope :user do
+    get '/store' => 'registrations#store'
+    post '/store' => 'registrations#store_confirm'
+    put '/store' => 'registrations#store_redeem'
+
+    get '/login' => 'users#login_page', as: 'custom_login'
+    get '/sign_up' => redirect('/login#sign_up')
+    # post '/login' => 'users#login'
+  end
+ 
+
+  # static pages
+  get '/welcome' => 'application#welcome', as: 'welcome_index'
+  get '/companies' => 'application#companies'
+
+  get '/ourgames' => 'application#ourgames'
+  get '/about' => 'application#about'
+  get '/about_us' => 'application#about'
+
+  get '/private-policy' => 'application#private_policy'
+
+  get '/home' => 'application#landing_page'
+
+
+  get '/games' => 'application#games'
+  post '/mail' => 'application#mail'
+
+
+  mount Thredded::Engine => '/forum'
+  mount Monologue::Engine => '/blog'
+
+  Monologue::Engine.routes.draw do
+    get '/login' => redirect('/blog/monologue/login')
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

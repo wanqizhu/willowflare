@@ -49,6 +49,22 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+
+  # send email notifications for errors
+  # https://github.com/smartinez87/exception_notification
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :ignore_exceptions => ['ActiveRecord::RecordNotUnique', 'ActionController::InvalidAuthenticityToken'] + ExceptionNotifier.ignored_exceptions,
+    :ignore_crawlers => %w{Googlebot bingbot},
+
+    :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+    :email_prefix => "[WF Exception] ",
+    :sender_address => %{"rails exception_notification" <notifier@example.com>},
+    :exception_recipients => %w{wanqi.zhu@willowflare.com},
+    :normalize_subject => true
+  }
+
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
@@ -63,7 +79,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false  # true -- in case we exceed daily quota
   config.action_mailer.default_url_options = { :host => 'willowflare.com' }
   Rails.application.routes.default_url_options[:host] = 'willowflare.com'
 
@@ -94,4 +110,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # mailchimp subscribe object
+
+  config.mailchimp = Mailchimp::API.new(ENV["MAILCHIMP_API_KEY"]) || nil
+
+
 end

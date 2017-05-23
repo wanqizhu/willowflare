@@ -1,0 +1,37 @@
+<% content_for :thredded_page_title, messageboard.name %>
+<% content_for :thredded_page_id, 'thredded--topics-index' %>
+<% content_for :thredded_breadcrumbs, render('thredded/shared/breadcrumbs') %>
+
+<%= thredded_page do %>
+  <%= content_tag :section, class: 'thredded--main-section thredded--topics', 'data-thredded-topics' => true do %>
+  
+    <div class="thredded--topics--table-header">
+      <span class="thredded--topics--header-topics">Topics</span>
+
+      <span class="thredded--topics--header-replies">Replies</span>
+      <span class="thredded--topics--header-last-post">Last Post</span>
+    </div>
+
+    <%= render @topics %>
+
+    <%= render 'thredded/topics/form',
+               messageboard: messageboard,
+               topic:        @new_topic,
+               css_class:    'thredded--is-compact',
+               placeholder:  t('thredded.topics.form.title_placeholder_start') if @new_topic %>
+
+    
+  <% end %>
+
+  <footer>
+    <%= paginate @topics %>
+  </footer>
+
+  <div class="thredded--messageboards--actions">
+    <% if policy(messageboard).update? %>
+      <a class="thredded--button" href="<%= edit_messageboard_path(messageboard) %>">
+        <%= t('thredded.nav.edit_messageboard') %>
+      </a>
+    <% end %>
+  </div>
+<% end %>

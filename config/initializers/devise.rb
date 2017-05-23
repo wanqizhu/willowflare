@@ -12,7 +12,7 @@ Devise.setup do |config|
   config.mailer_sender = 'info@willowflare.com'
 
   # Configure the class responsible to send e-mails.
-  #config.mailer = 'Devise::Mailer'
+  config.mailer = 'MyMailer'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -104,7 +104,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 1.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -121,7 +121,7 @@ Devise.setup do |config|
   config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
-  # config.confirmation_keys = [ :email ]
+  config.confirmation_keys = [ :email ]
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
@@ -232,6 +232,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"], info_fields: 'email, name'
+  require 'omniauth-google-oauth2'
+  config.omniauth :google_oauth2, ENV["GOOGLE_APP_ID"], ENV["GOOGLE_APP_SECRET"]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -255,4 +258,14 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+
+  # make devise use the old layout, except for Sessions/Registrations (login, signup, edit user)
+  Rails.application.config.to_prepare do
+    #Devise::SessionsController.layout "application"
+    #Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "__application"}
+    Devise::ConfirmationsController.layout "__application"
+    Devise::UnlocksController.layout "__application"
+    Devise::PasswordsController.layout "__application"
+  end
 end

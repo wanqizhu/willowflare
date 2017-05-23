@@ -1,3 +1,5 @@
+@import "global";
+
 ul, li {
     display: inline-block;
 }
@@ -16,6 +18,7 @@ ul, li {
     border-color: transparent;
 }
 
+
 @media (min-width: 992px) {
     .navbar {
         font-size: 1.3em;
@@ -28,12 +31,16 @@ ul, li {
 
 
 .navbar .container {
-    width: 100%;
+    width: 98%;
 }
 
 .navbar a:link {
     text-decoration: none;
     font-size: 1.3em;
+
+    @media(max-width: 1104px) {
+      font-size: 1.1em;
+    }
 }
 
 .navbar a:hover {
@@ -52,21 +59,86 @@ ul, li {
 }
 
 
+.navbar-brand {
+    max-width: 250px;
+    padding: 0px;
+}
+/* Old willowflare text logo
+
 #logo a {
     color: #fed136;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
     font-size: 2em;
     line-height: 20px;
     font-variant: normal;
-}
+}*/
 
 #topNavRight {
     padding-left: 30px;
+    li {
+
+        margin-left: 15px;
+        a {
+            color: $iceblue;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        /* vertical align the buttons when on mobile */
+        @media (max-width: 767px){ 
+          display: block;
+        }
+    }
+
+    .btn {
+      text-decoration: none; cursor:pointer;
+      @extend .ib; 
+      @extend .caps;
+      color: $darkblue;
+      padding: 0px;
+      @media (min-width: 968px) {
+        border-radius: 5px;
+        border: 2px solid $lightblue;
+      }
+      @media (max-width: 967px) {
+        text-align: center;
+        display: block;
+        margin-left: 10px; //from 15
+      }
+      text-shadow: 0 1px 0px rgba(255,255,255,0.3);
+      /* box-shadow: 0 0 1px black; */
+      &:hover, &.selected {
+        $hovercol: 1 * $yellow + 0.0025 * $orange;
+        border-color: $yellow * 0.8;
+        @include grad($yellow * 1.2, $yellow * 0.95);
+        color: #5e4f60;
+      }
+      &.yellow {
+        @include grad($yellow * 1.2, $yellow * 0.95);
+        border-color: $yellow * 0.8;
+        color: #5e4f60;
+      }
+      &.block {
+        display: block; @extend .center; 
+        font-size: 125%; font-weight: bold;
+      }
+
+      a {
+        padding: 18px 26px;
+
+        @media(max-width: 1080px) {
+          padding: 16px 22px;
+        }
+      }
+    }
 }
 
-#topNavRight > li > a {
-    color: #30D1E4;
-}
+
+
+
+
+
+
 
 
 
@@ -76,11 +148,16 @@ ul, li {
     padding-top: 7px;
     padding-right: 30px;
 
+
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 17px;
     letter-spacing: 1px;
 }
 
 #topBanner span {
-    margin: 0px 10px;
+  margin: 0px 10px;
+
+  @media (max-width: 767px) {
+    display: inline-block;
+  }
 }

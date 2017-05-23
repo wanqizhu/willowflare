@@ -1,0 +1,23 @@
+- if Rails.env.development? | Rails.env.test?
+	%h1 Test test
+%p
+	Remaining points:
+	=@user.money
+
+	ID:
+	=@user.id
+
+
+%h2 Additional Comments
+%p
+	= @comments
+
+
+%br
+%br
+%br
+%br
+%p
+	"======================"
+	INFO:
+	=@user.info

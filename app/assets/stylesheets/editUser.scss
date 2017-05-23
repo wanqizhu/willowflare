@@ -1,15 +1,16 @@
+@import "global";
+
 #editUser {
-	display: none;
 	margin-top: 40px;
 	margin-bottom: 15px;
 }
 
-#editUser i {
+#page i {
 	font-size: 1.1em;
-	color: #30D1E4;
+	color: $iceblue;
 	/* space to seperate password fields */
 	padding-top: 15px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	display: block;
 }
 
@@ -25,12 +26,12 @@ label.optional {
 		-webkit-box-sizing: border-box;
      	-moz-box-sizing: border-box;
         box-sizing: border-box;
-	    width: 40%;
+	    width: 30%;
 	    text-align: right;
 	}
 
 	label + input {
-	    width: 30%;
+	    width: 25%;
 	    margin: 0 10% 0 4%;
 	}
 }
@@ -38,19 +39,14 @@ label.optional {
 
 .field > div {
 	label {
-	    width: 40%;
+	    width: 30%;
 	    text-align: right;
 	}
 
-	label + select {
-	    width: 15%;
-	    margin: 0 20% 0 4%;
-	}
-
-	label + input {
+	label + select, label+input {
 	    width: 25%;
 	    margin: 0 10% 0 4%;
-	    line-height: 15px;
+	    font-size: 14px;
 	}
 
 	.radio {
@@ -77,10 +73,6 @@ select { /* drop down list display */
 
 
 
-#popupButton {
-	align: center;
-}
-
 
 #coins p {
 	margin: 30px;
@@ -97,12 +89,12 @@ select { /* drop down list display */
 		width: 100%;
 	}
 
-	.field > div {
-		label + select {
-	    	width: 20%;
-	    }
+	.field label + input {
+		width: 40%;
+	}
 
-	    label + input {
+	.field > div {
+		label + select, label+input {
 	    	width: 30%;
 	    }
 

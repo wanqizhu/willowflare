@@ -1,0 +1,167 @@
+
+var ready = function(){
+
+    var device_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+    // whether we are displaying #infographicImage or #popupContainer
+    var display_image = false;
+
+    // $(".clickable-row").click(function() {
+    //     window.document.location = $(this).data("href");
+    // });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // for displaying an image overlay
+    // used for terms-of-service
+
+    $(".popupButton").on('click',function(e){
+        e.preventDefault();
+        
+
+        // since js is running client side, we can't pass the source name to rails
+        // so we have to make a "switch" statement for every popup we want -- ugh
+        var source = $(this).attr('imagesrc')
+
+        if (source == 'TermsofUse.jpg') {
+            $("#infographicImage").attr('src', "<%= asset_path('TermsofUse.jpg') %>");
+        } else if (source == 'placeholder.png') {
+            $("#infographicImage").attr('src', "<%= asset_path('placeholder.png') %>");
+        }
+
+        
+
+
+        var h = $(this).attr('img_height');
+        var w = $(this).attr('img_width');
+
+        if (typeof h == typeof undefined || h == false ) {
+            h = "100%";
+        }
+
+        // if width is set, use that instead
+        if (typeof w == typeof undefined || w == false ) {
+            w = "auto";
+        } else {
+            h = "auto";
+        }
+
+        $("#infographicImage").attr('height', h);
+        $("#infographicImage").attr('width', w);
+        
+        $("#infographicPopup").css({'display': '-webkit-flex'
+                                   ,'display': 'flex'});
+        $('body').css('overflow', 'hidden');
+        $('#popupContainer').hide();
+
+        display_image = true;
+    });
+
+    $('#infographicImage').on('click',function(e){
+        e.stopPropagation();
+    });
+    $("#infographicPopup:not(#infographicImage)").on('click',function(){
+        if (display_image == true) {
+            $('#infographicPopup').hide();
+            $('body').css('overflow', 'scroll');
+            
+            // $('html, body').animate({
+            //     scrollTop: $("#page").offset().top
+            // }, 500);
+        };
+    });
+
+
+
+
+
+
+
+
+
+    // $(".redeem").on('click', function(e){
+    //     e.preventDefault;
+
+
+
+    //     // set the country parameter
+    //     var country = $("#user_nation").val();
+
+    //     $(".country").each(function(){
+    //         $(this).attr('value', country);
+    //     });
+
+
+
+    //     // var current_pts = parseInt(document.getElementById("willowpoints").innerHTML)
+    //     // var name = $(this).attr('value').split('_');
+    //     // var cost = parseInt(name[1]);
+
+    //     // if (current_pts < cost) {
+    //     //     alert("Not enough Willowpoints. Check the annoucement page to see if there are any new opportunities for you to earn rewards!");
+    //     // } else {
+    //         if (window.confirm("Are you sure?")) {
+    //             // execute redeem logic here
+    //             // actually, moving all the logic client side to make secure
+
+    //             // see registrations_controller
+
+    //             //alert("Please pardon our dust as we work to automate this redemption process. For now, you can redeem your rewards by emailing us at info@willowflare.com with your registered email and username.");
+    //             return true;
+    //         }
+    //     //}
+
+    //     return false;
+    // });
+
+
+
+
+    // load global news last, only on first page visit
+    
+    <% if ENV["GLOBAL_POPUP_NEWS"] != nil and !ENV["GLOBAL_POPUP_NEWS"].blank? %>
+        var isshow = sessionStorage.getItem('visited');
+
+        if (isshow == null && device_width > 767){ // only show on desktop
+            $("#infographicPopup").css({'display': '-webkit-flex'
+                                           ,'display': 'flex'});
+            $("#infographicImage").css({'margin': '0'});        
+            $('body').css('overflow', 'hidden');
+            display_image = false;
+        }
+
+    <% end %>
+
+    $('#popupContainer').on('click',function(e){
+        e.stopPropagation();
+    });
+    $("#infographicPopup:not(#popupContainer)").on('click',function(){
+        if (display_image == false) {
+            $('#infographicPopup').hide();
+            $('#popupContainer').hide();
+            $('body').css('overflow', 'scroll');
+            $("#infographicImage").css({'margin': 'auto'});
+            sessionStorage.setItem('visited', 1);
+
+            // $('html, body').animate({
+            //     scrollTop: $("#page").offset().top
+            // }, 500);
+        };
+    });
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready); // for turbo-links, which doesnt' re-load the page
+                                    // this way, popupButton will work properly after account update
