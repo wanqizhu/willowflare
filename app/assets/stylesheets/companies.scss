@@ -251,7 +251,7 @@ section h3.section-subheading {
 }
 
 
-section {
+section #contact {
   background-color: #222222;
   background-image: image-url('map-image.png');
   background-position: center;
@@ -269,69 +269,66 @@ section {
   position: static;
 }
 
-section .section-heading {
+
+
+section#contact .section-heading {
   color: white;
 }
-section .form-group {
+section#contact .form-group {
   margin-bottom: 25px;
 }
-section .form-group input,
-section .form-group textarea {
+section#contact .form-group input,
+section#contact .form-group textarea {
+
   padding: 20px;
 }
-section .form-group input.form-control {
+section#contact .form-group input.form-control {
   height: auto;
 }
-section .form-group textarea.form-control {
+section#contact .form-group textarea.form-control {
   height: 236px;
 }
-section .form-control:focus {
+section#contact .form-control:focus {
   border-color: #fed136;
   box-shadow: none;
 }
-section ::-webkit-input-placeholder {
+section#contact ::-webkit-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section :-moz-placeholder {
+section#contact :-moz-placeholder {
   /* Firefox 18- */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section ::-moz-placeholder {
+section#contact ::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section :-ms-input-placeholder {
+section#contact :-ms-input-placeholder {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   color: #bbbbbb;
 }
-section .text-danger {
+section#contact .text-danger {
   color: #e74c3c;
 }
 
 /* send email button */
-section .btn-xl {
+section#contact .btn-xl {
   color: #ffffff;
   background-color: #fed136;
   border-color: #fed136;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 3px;
-  font-size: 16px;
-  padding: 14px 40px;
-  margin-top: 20px;
-}
+  }
+
 
 
 footer {
