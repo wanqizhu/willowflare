@@ -10,3 +10,5 @@ Site running live at [www.willowflare.com](https://www.willowflare.com)
 - `bin/rake db:migrate RAILS_ENV=development`
 - `rails s`
 - Connect on `localhost:3000`
+
+- Set your environment variables in `config/local_env.yml`

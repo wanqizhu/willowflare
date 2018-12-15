@@ -29,7 +29,7 @@ db/schema.rb
 
 config/local_env.yml
 config/local_logs.txt
-config/admin_emails.txt
+config/admin_email.txt
 config/survey*.txt
 
 # ignore pre-compiled assets
